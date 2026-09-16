@@ -1,0 +1,54 @@
+{
+  "name": "convera-strategies",
+  "version": "2.4.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "audit": "node scripts/audit.mjs",
+    "launch:audit": "npm run audit && node scripts/launch-readiness.mjs",
+    "predeploy": "node scripts/predeploy-readiness.mjs",
+    "launch:strict": "npm run launch:audit && node scripts/predeploy-readiness.mjs --strict",
+    "forms:audit": "node scripts/forms-audit.mjs",
+    "content:audit": "node scripts/content-audit.mjs",
+    "launch:final": "npm run audit && npm run forms:audit && npm run content:audit && node scripts/launch-readiness.mjs && node scripts/predeploy-readiness.mjs",
+    "metadata:audit": "node scripts/metadata-audit.mjs",
+    "config:audit": "node scripts/config-audit.mjs",
+    "production:audit": "npm run launch:final && npm run metadata:audit && npm run config:audit",
+    "routes:audit": "node scripts/route-audit.mjs",
+    "a11y:audit": "node scripts/accessibility-audit.mjs",
+    "release:readiness": "node scripts/release-readiness.mjs",
+    "release:audit": "npm run production:audit && npm run routes:audit && npm run a11y:audit && npm run release:readiness",
+    "verify": "npm run release:audit && npm run check && npm run build:verify",
+    "live:audit": "node scripts/live-site-audit.mjs",
+    "release:verify": "npm run release:audit && npm run check && npm run build:verify",
+    "privacy:audit": "node scripts/privacy-audit.mjs",
+    "activation:audit": "node scripts/activation-audit.mjs",
+    "activation:strict": "node scripts/activation-audit.mjs --strict",
+    "ops:audit": "npm run release:audit && npm run privacy:audit && npm run activation:audit",
+    "ops:strict": "npm run release:audit && npm run privacy:audit && npm run activation:strict",
+    "dist:audit": "node scripts/dist-audit.mjs",
+    "build:verify": "npm run build && npm run dist:audit",
+    "activation:report": "node scripts/activation-report.mjs",
+    "doctor": "node scripts/runtime-doctor.mjs",
+    "release:fingerprint": "node scripts/release-fingerprint.mjs",
+    "go-live:status": "node scripts/go-live-gate.mjs",
+    "go-live:gate": "node scripts/go-live-gate.mjs --strict",
+    "deploy:gate": "npm run doctor -- --strict && npm run ops:strict && npm run verify && npm run go-live:gate"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.6.0",
+    "astro": "5.13.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.4",
+    "typescript": "5.9.2"
+  },
+  "engines": {
+    "node": ">=20.0.0 <23"
+  }
+}

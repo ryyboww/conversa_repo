@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../config/site';
+---
+<BaseLayout title="Professional Inquiry Received" description="Your professional inquiry has been sent to Convera Strategies." canonical="/work-with-convera/thank-you/" noindex>
+  <section class="section inquiry-thanks">
+    <div class="container inquiry-thanks__inner">
+      <p class="eyebrow">Inquiry Received</p>
+      <h1>Thank you for starting the conversation.</h1>
+      <p class="lede">Your professional inquiry has been submitted. Convera can review the challenge and determine whether a focused next conversation would be useful.</p>
+      <p class="muted">If you need to add context, write directly to <a href={`mailto:${site.emails.founder}`}>{site.emails.founder}</a>.</p>
+      <div class="inquiry-thanks__actions">
+        <a class="button button--primary" href="/services/">Review Services →</a>
+        <a class="button button--ghost" href="/">Return Home →</a>
+      </div>
+    </div>
+  </section>
+  <style>
+    .inquiry-thanks{min-height:70vh;display:grid;place-items:center;}
+    .inquiry-thanks__inner{max-width:800px;text-align:center;}
+    .inquiry-thanks h1{margin:.65rem auto 1.3rem;max-width:12ch;}
+    .inquiry-thanks .lede{margin-inline:auto;}
+    .inquiry-thanks .muted{margin-top:1.2rem;}
+    .inquiry-thanks .muted a{color:var(--accent);font-weight:700;}
+    .inquiry-thanks__actions{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:2rem;}
+  </style>
+</BaseLayout>

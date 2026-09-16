@@ -1,0 +1,17 @@
+
+> convera-strategies@2.4.0 activation:audit
+> node scripts/activation-audit.mjs
+
+
+Convera Strategies — external activation audit
+
+SETUP  One-time contribution checkout — PUBLIC_SUPPORT_ONE_TIME_URL is not configured
+SETUP  Monthly contribution checkout — PUBLIC_SUPPORT_MONTHLY_URL is not configured
+SETUP  Payment provider label — PUBLIC_SUPPORT_PROVIDER_LABEL is not configured
+PASS  Analytics domain (optional) — PUBLIC_PLAUSIBLE_DOMAIN may remain blank
+PASS  Public mailbox declared: ryan@converastrategies.com — Delivery must still be verified with the mail provider.
+PASS  Public mailbox declared: hello@converastrategies.com — Delivery must still be verified with the mail provider.
+
+Required activation items configured in this environment: 2/5.
+Mailbox entries above confirm site configuration only; actual mail delivery requires an external send/receive test.
+Local .env not found. This is normal for a clean release package; configure values locally or in Netlify.

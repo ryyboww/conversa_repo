@@ -1,0 +1,48 @@
+<button class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false" data-theme-toggle>
+  <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+  <span class="theme-toggle__text">Theme</span>
+</button>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    min-height: 38px;
+    padding: .35rem .55rem;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: .82rem;
+    font-weight: 700;
+  }
+  .theme-toggle__icon { color: var(--accent); font-size: 1.2rem; line-height: 1; }
+  .theme-toggle:hover .theme-toggle__icon { transform: rotate(14deg); }
+  .theme-toggle__icon { transition: transform 160ms ease; }
+  @media (max-width: 760px) { .theme-toggle__text { display: none; } }
+</style>
+
+<script is:inline>
+  (() => {
+    const button = document.querySelector('[data-theme-toggle]');
+    if (!(button instanceof HTMLButtonElement)) return;
+
+    const sync = () => {
+      const dark = document.documentElement.dataset.theme === 'dark';
+      button.setAttribute('aria-pressed', String(dark));
+      button.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      const icon = button.querySelector('.theme-toggle__icon');
+      if (icon) icon.textContent = dark ? '☾' : '☀';
+    };
+
+    sync();
+    button.addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('convera-theme', next);
+      sync();
+    });
+  })();
+</script>

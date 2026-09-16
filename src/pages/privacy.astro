@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+---
+<BaseLayout title="Privacy" description="Privacy information for Convera Strategies." canonical="/privacy/">
+  <header class="page-hero">
+    <div class="container page-hero__inner">
+      <p class="eyebrow">Privacy</p>
+      <h1>Respect for correspondence and personal information.</h1>
+      <p class="lede">Convera collects only the information reasonably needed to respond to inquiries, provide requested services, and operate this website.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container" style="max-width:850px;display:grid;gap:2rem">
+      <div><h2 style="font-size:2rem;margin-bottom:.8rem">Contact information</h2><p class="muted">Information submitted through the contact form may include your name, email address, organization, subject, and message. It is used to review and respond to your correspondence.</p></div>
+      <div><h2 style="font-size:2rem;margin-bottom:.8rem">Forms and service providers</h2><p class="muted">Website forms may be processed through Convera’s hosting provider. Payment links, when activated, are handled by the identified payment provider rather than by collecting card information directly on this site.</p></div>
+      <div><h2 style="font-size:2rem;margin-bottom:.8rem">Questions</h2><p class="muted">Privacy questions may be sent to <a href={`mailto:${site.emails.public}`} style="color:var(--accent);font-weight:700">{site.emails.public}</a>.</p></div>
+    </div>
+  </section>
+</BaseLayout>

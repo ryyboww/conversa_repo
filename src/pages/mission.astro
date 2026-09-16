@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SupportPanel from '../components/shared/SupportPanel.astro';
+import { serviceAreas } from '../config/services';
+---
+<BaseLayout title="Mission" description="The mission of Convera Strategies: stronger institutions, healthier workplaces, and a more resilient future." canonical="/mission/">
+  <header class="mission-hero">
+    <div class="container mission-hero__grid">
+      <div>
+        <p class="eyebrow">Our Mission</p>
+        <h1>Stronger Institutions.<br />A More Hopeful Tomorrow.</h1>
+        <p class="lede">Convera Strategies helps people and organizations navigate complex challenges, strengthen workplace culture, and protect the institutions that make a healthier, more hopeful future possible.</p>
+        <p class="mission-hero__statement">We approach problems differently because securing and protecting our institutions is an investment in our future.</p>
+      </div>
+      <blockquote>
+        “Protecting our institutions is an investment in the future we hope to build.”
+        <cite>Ryan Brown · Founder</cite>
+      </blockquote>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="mission-intro">
+        <p class="eyebrow">Our Mission in Action</p>
+        <h2>Perspective becomes meaningful when it improves what people experience.</h2>
+      </div>
+      <div class="grid-3">
+        {serviceAreas.map((area, index) => (
+          <article class="mission-card card">
+            <span>0{index + 1}</span>
+            <p class="eyebrow">{area.title}</p>
+            <h3>{area.summary}</h3>
+            <p>{area.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section transition-section">
+    <div class="container transition-grid">
+      <div>
+        <p class="eyebrow">A Moment of Transition</p>
+        <h2>The choices we make now help shape what comes next.</h2>
+      </div>
+      <div class="transition-copy">
+        <p>The present is a moment of transition. Technology, work, public life, and institutional expectations are changing at speeds capable of testing familiar ways of thinking and organizing.</p>
+        <p>Convera treats this transition as reason for closer attention rather than resignation. Stronger institutions require people willing to examine what is changing, understand the human consequences, and make deliberate choices about what should endure.</p>
+        <p>Protecting institutions does not mean protecting every existing practice. It means preserving their capacity to serve people, earn trust, adapt responsibly, and remain useful to future generations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section institutional-investment">
+    <div class="container investment-grid">
+      <div>
+        <p class="eyebrow">Institutional Investment</p>
+        <h2>A stronger future depends on institutions worth trusting.</h2>
+        <p class="lede">Institutions shape how people work, cooperate, resolve conflict, distribute responsibility, and imagine what is possible. Strengthening them is long-term social investment.</p>
+      </div>
+      <div class="investment-points">
+        <div><strong>People</strong><span>Institutions become meaningful through the people who experience them.</span></div>
+        <div><strong>Trust</strong><span>Trust is strengthened through conduct, communication, and credible responsibility.</span></div>
+        <div><strong>Future</strong><span>Institutional strength is part of what one generation leaves to the next.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight" style="background:#082b39">
+    <div class="container"><SupportPanel compact dark /></div>
+  </section>
+
+  <style>
+    .mission-hero {
+      padding:clamp(4rem,8vw,7.5rem) 0;
+      color:#fff;
+      background:
+        linear-gradient(90deg,rgba(5,32,44,.96),rgba(8,54,66,.84) 60%,rgba(16,86,95,.72)),
+        radial-gradient(circle at 78% 22%,rgba(114,222,234,.24),transparent 28%);
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .mission-hero .eyebrow{color:#72deea;}
+    .mission-hero__grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.65fr);gap:clamp(2rem,6vw,6rem);align-items:center;}
+    .mission-hero h1{max-width:12ch;}
+    .mission-hero .lede{margin-top:1.5rem;color:rgba(255,255,255,.82);max-width:48rem;}
+    .mission-hero__statement{margin-top:1rem;color:rgba(255,255,255,.9);font-weight:600;max-width:46rem;}
+    .mission-hero blockquote{margin:0;padding:1.6rem 0 1.6rem 1.7rem;border-left:2px solid #72deea;font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.1;}
+    .mission-hero cite{display:block;margin-top:1rem;color:#83e3ed;font-family:Inter,sans-serif;font-size:.68rem;font-style:normal;font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
+    .mission-intro{max-width:800px;margin:0 auto 2.4rem;text-align:center;}
+    .mission-intro h2{margin:.55rem 0 0;}
+    .mission-card{position:relative;padding:2rem;min-height:330px;}
+    .mission-card>span{position:absolute;right:1.4rem;top:1rem;color:color-mix(in srgb,var(--accent) 45%,transparent);font-family:"Cormorant Garamond",Georgia,serif;font-size:2.4rem;}
+    .mission-card h3{margin:.6rem 0 .9rem;font-size:clamp(1.55rem,2.3vw,2rem);}
+    .mission-card p:last-child{color:var(--muted);}
+    .transition-section{background:var(--surface-soft);border-block:1px solid var(--line);}
+    .transition-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,6vw,6rem);align-items:start;}
+    .transition-grid h2{margin:.6rem 0 0;max-width:13ch;}
+    .transition-copy{display:grid;gap:1rem;color:var(--muted);font-size:1.08rem;}
+    .investment-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start;}
+    .institutional-investment h2{margin:.6rem 0 1rem;}
+    .investment-points{display:grid;border-top:1px solid var(--line);}
+    .investment-points>div{display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line);}
+    .investment-points strong{color:var(--accent);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;}
+    .investment-points span{color:var(--muted);}
+    @media(max-width:860px){.mission-hero__grid,.transition-grid,.investment-grid{grid-template-columns:1fr;}.mission-card{min-height:0;}}
+  </style>
+</BaseLayout>

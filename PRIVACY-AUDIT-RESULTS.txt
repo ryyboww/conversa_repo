@@ -1,0 +1,14 @@
+
+> convera-strategies@2.4.0 privacy:audit
+> node scripts/privacy-audit.mjs
+
+
+Convera Strategies — privacy and exposure audit
+
+PASS  Private personal email absent from public source — src/ and public/
+PASS  Common secret patterns absent from public source — src/ and public/
+PASS  .env is ignored by Git — .gitignore
+PASS  .env.operations is ignored by Git — .gitignore
+PASS  Generated activation reports are ignored by Git — .gitignore
+
+5/5 privacy/exposure checks passed.

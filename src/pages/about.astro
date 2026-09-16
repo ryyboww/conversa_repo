@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+---
+<BaseLayout title="About" description="About Convera Strategies and founder Ryan Brown." canonical="/about/">
+  <header class="page-hero">
+    <div class="container page-hero__inner">
+      <p class="eyebrow">About</p>
+      <h1>Founder-led. People-centered. Built for perspective.</h1>
+      <p class="lede">Convera Strategies is a founder-led organization created to connect broader social perspective with practical workplace and organizational challenges.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-photo card">
+        <img src="/images/ryan-brown.jpg" alt="Ryan Brown, founder of Convera Strategies" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'" />
+        <div class="about-photo__fallback"><p class="muted">Add the approved portrait as<br /><strong>public/images/ryan-brown.jpg</strong></p></div>
+      </div>
+      <div>
+        <p class="eyebrow">Ryan Brown · Founder</p>
+        <h2>A different way of approaching familiar problems.</h2>
+        <div class="about-copy">
+          <p>Ryan founded Convera Strategies to create a professional space where careful observation, institutional understanding, workplace experience, public writing, and practical problem-solving can inform one another.</p>
+          <p>His background spans criminal justice, socio-legal scholarship, public institutions, service work, organizational life, and public-facing writing. Convera translates this varied experience into focused engagements for people and organizations seeking clarity, perspective, and practical direction.</p>
+          <p>Convera may draw on published scholarship, public records, organizational materials, data, observation, professional experience, and lived experience depending on the question being examined. The approach follows the problem rather than requiring every question to fit a single professional or academic method.</p>
+        </div>
+        <div class="about-actions"><a class="button button--primary" href="/contact/">Contact Ryan →</a><a class="button button--ghost" href="/mission/">Read the Mission →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section approach-section">
+    <div class="container grid-2">
+      <div>
+        <p class="eyebrow">The Convera Approach</p>
+        <h2>Understand before prescribing.</h2>
+      </div>
+      <div class="approach-copy">
+        <p>Convera begins with context. Problems often look different when viewed across people, language, expectations, history, relationships, and institutional conditions.</p>
+        <p>The objective is not complexity for its own sake. It is to identify what matters, distinguish symptoms from underlying conditions, and determine which practical steps are worth taking.</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .about-grid{display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);gap:clamp(2rem,6vw,6rem);align-items:start;}
+    .about-photo{overflow:hidden;}
+    .about-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;}
+    .about-photo__fallback{display:none;aspect-ratio:4/5;place-items:center;padding:2rem;background:var(--surface-soft);}
+    .about-grid h2{margin:.6rem 0 1.4rem;}
+    .about-copy{display:grid;gap:1rem;color:var(--muted);font-size:1.08rem;}
+    .about-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem;}
+    .approach-section{background:var(--surface-soft);border-block:1px solid var(--line);}
+    .approach-section h2{margin:.5rem 0 1rem;}
+    .approach-copy{display:grid;gap:1rem;color:var(--muted);font-size:1.08rem;}
+    @media(max-width:820px){.about-grid{grid-template-columns:1fr;}.about-photo{max-width:520px;}}
+  </style>
+</BaseLayout>

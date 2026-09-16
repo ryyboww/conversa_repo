@@ -1,0 +1,53 @@
+---
+interface Props {
+  compact?: boolean;
+  dark?: boolean;
+}
+const { compact = false, dark = false } = Astro.props;
+---
+<aside class:list={['support-panel', compact && 'support-panel--compact', dark && 'support-panel--dark']}>
+  <div>
+    <p class="eyebrow">Support the Work</p>
+    <h2>{compact ? 'Your support fuels real change.' : 'Make a Difference'}</h2>
+    <p>
+      Your contribution supports a person and an organization committed to approaching complex questions differently—and to strengthening the institutions on which our future depends.
+    </p>
+  </div>
+  <div class="support-panel__action">
+    <a class:list={['button', dark ? 'button--light' : 'button--primary']} href="/support/">Support the Work →</a>
+    <span>People · Progress · A stronger tomorrow.</span>
+  </div>
+</aside>
+
+<style>
+  .support-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2rem;
+    align-items: center;
+    padding: clamp(1.5rem, 3vw, 2.35rem);
+    background: linear-gradient(135deg, var(--surface-soft), var(--surface));
+    border: 1px solid var(--line);
+  }
+  .support-panel h2 {
+    margin: .45rem 0 .8rem;
+    font-size: clamp(2rem, 3vw, 2.7rem);
+  }
+  .support-panel p { max-width: 48rem; color: var(--muted); }
+  .support-panel__action { display: grid; gap: .7rem; justify-items: stretch; min-width: 200px; }
+  .support-panel__action span { color: var(--muted); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; text-align: center; }
+  .support-panel--dark {
+    color: #fff;
+    background: linear-gradient(120deg, #082c3b 0%, #0a4554 62%, #176978 100%);
+    border-color: rgba(255,255,255,.12);
+  }
+  .support-panel--dark p,
+  .support-panel--dark .support-panel__action span { color: rgba(255,255,255,.8); }
+  .support-panel--dark .eyebrow { color: #72deea; }
+  .support-panel--compact h2 { font-size: clamp(2rem, 3.2vw, 3rem); }
+  @media (max-width: 760px) {
+    .support-panel { grid-template-columns: 1fr; }
+    .support-panel__action { min-width: 0; justify-items: start; }
+    .support-panel__action span { text-align: left; }
+  }
+</style>

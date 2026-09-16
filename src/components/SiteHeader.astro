@@ -1,0 +1,168 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import { navigation } from '../config/navigation';
+import { features } from '../config/features';
+import { site } from '../config/site';
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label={`${site.name} home`}>
+      <span class="brand-logo" aria-hidden="true">
+        <img class="brand-logo__light" src="/brand/convera-logo-light-bg.png" alt="" />
+        <img class="brand-logo__dark" src="/brand/convera-logo-dark-bg.png" alt="" />
+      </span>
+      <span>{site.descriptor}</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {navigation.map((item) => (
+        <a class:list={[isActive(item.href) && 'is-active']} href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="header-tools">
+      {features.support && <a class:list={['support-link', isActive('/support/') && 'is-active']} href="/support/" aria-current={isActive('/support/') ? 'page' : undefined}>Support</a>}
+      <ThemeToggle />
+      <details class="mobile-menu">
+        <summary aria-label="Open navigation">Menu</summary>
+        <nav aria-label="Mobile navigation">
+          {navigation.map((item) => <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}
+          {features.support && <a class="mobile-support" href="/support/">Support the Work</a>}
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--header);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(18px);
+  }
+  .header-inner {
+    min-height: 90px;
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) 1fr auto;
+    gap: clamp(1rem, 2.5vw, 2rem);
+    align-items: center;
+  }
+  .brand {
+    display: grid;
+    gap: .25rem;
+    color: inherit;
+    text-decoration: none;
+  }
+  .brand-logo { display: block; position: relative; width: min(100%, 280px); }
+  .brand-logo img { display: block; width: 100%; }
+  .brand-logo__dark { display: none !important; }
+  :global(:root[data-theme='dark']) .brand-logo__light { display: none !important; }
+  :global(:root[data-theme='dark']) .brand-logo__dark { display: block !important; }
+  .brand > span {
+    color: var(--muted);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: .78rem;
+    letter-spacing: .02em;
+    white-space: nowrap;
+  }
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(.8rem, 1.7vw, 1.45rem);
+  }
+  .desktop-nav a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    font-size: .86rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .desktop-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -.5rem;
+    height: 2px;
+    background: var(--accent);
+    transition: right 150ms ease;
+  }
+  .desktop-nav a:hover::after,
+  .desktop-nav a.is-active::after { right: 0; }
+  .header-tools {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .8rem;
+  }
+  .support-link {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    padding: .5rem .95rem;
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: .8rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  :global(:root[data-theme='dark']) .support-link { color: #06212d; }
+  .support-link:hover { transform: translateY(-1px); filter: brightness(1.04); }
+  .support-link.is-active { box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 26%, transparent); }
+  .mobile-menu { display: none; position: relative; }
+  .mobile-menu summary {
+    cursor: pointer;
+    list-style: none;
+    font-size: .82rem;
+    font-weight: 700;
+    min-height: 44px;
+    padding: .45rem .2rem;
+  }
+  .mobile-menu summary::-webkit-details-marker { display: none; }
+  .mobile-menu nav {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 1rem);
+    width: min(82vw, 300px);
+    padding: 1rem;
+    display: grid;
+    gap: .35rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    border-radius: 4px;
+  }
+  .mobile-menu nav a {
+    padding: .85rem .8rem;
+    min-height: 44px;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-menu nav a:last-child { border-bottom: 0; }
+  .mobile-menu nav a[aria-current='page'] { color: var(--accent); font-weight: 700; }
+  .mobile-support { color: var(--accent); font-weight: 700; }
+
+  @media (max-width: 1060px) {
+    .desktop-nav { display: none; }
+    .mobile-menu { display: block; }
+    .header-inner { grid-template-columns: minmax(200px, 1fr) auto; }
+    .brand > span { white-space: normal; }
+  }
+  @media (max-width: 620px) {
+    .header-inner { min-height: 78px; }
+    .brand-logo { width: min(100%, 210px); }
+    .brand > span { display: none; }
+    .support-link { display: none; }
+  }
+</style>

@@ -1,0 +1,22 @@
+
+> convera-strategies@2.4.0 launch:audit
+> npm run audit && node scripts/launch-readiness.mjs
+
+
+> convera-strategies@2.4.0 audit
+> node scripts/audit.mjs
+
+Convera source audit: 36 source files, 17 pages.
+
+Audit passed: no missing relative imports or required brand assets detected.
+PASS  Founder portrait — public/images/ryan-brown.jpg
+PASS  Light logo — public/brand/convera-logo-light-bg.png
+PASS  Dark logo — public/brand/convera-logo-dark-bg.png
+PASS  Netlify config — netlify.toml
+PASS  Robots file — public/robots.txt
+PASS  Manifest — public/site.webmanifest
+PASS  Support thank-you page — /support/thank-you/
+PASS  Contribution configuration documented — Set live hosted checkout URLs before launch.
+PASS  Analytics remains opt-in — Leave blank to disable.
+
+9/9 readiness checks passed.

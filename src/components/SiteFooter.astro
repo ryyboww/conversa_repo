@@ -1,0 +1,58 @@
+---
+import { footerNavigation } from '../config/navigation';
+import { site } from '../config/site';
+import { features } from '../config/features';
+import NewsletterSignup from './shared/NewsletterSignup.astro';
+---
+<footer class="site-footer">
+  {features.newsletter && <div class="container footer-newsletter"><NewsletterSignup compact /></div>}
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="/brand/convera-logo-dark-bg.png" alt="Convera Strategies" />
+      <p>{site.descriptor}</p>
+    </div>
+    <blockquote>“A more thoughtful way forward.”<cite>Ryan Brown</cite></blockquote>
+    <div>
+      <nav aria-label="Footer navigation">
+        {footerNavigation.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+      <div class="footer-social">
+        <a href={site.social.linkedin} rel="me noopener" target="_blank">LinkedIn</a>
+        <a href={site.social.instagram} rel="me noopener" target="_blank">Instagram</a>
+      </div>
+      <div class="footer-legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/accessibility/">Accessibility</a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© {new Date().getFullYear()} Convera Strategies. All rights reserved.</span>
+    <a href={`mailto:${site.emails.public}`}>{site.emails.public}</a>
+  </div>
+</footer>
+
+<style>
+  .site-footer { padding: 3.4rem 0 1.5rem; background: #061d29; color: #eef7f7; border-top: 1px solid rgba(255,255,255,0.12); }
+  .footer-newsletter { margin-bottom:2.4rem; padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,.12); }
+  .footer-newsletter :global(.newsletter-field input){background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.22)}
+  .footer-newsletter :global(.newsletter-field input::placeholder){color:#9fb4b9}
+  .footer-grid { display: grid; grid-template-columns: 1.1fr 1fr 1.1fr; gap: 3rem; align-items: center; }
+  .footer-brand img { width: min(100%, 300px); }
+  .footer-brand p { margin-top: 0.45rem; color: #afc3c8; font-family: "Cormorant Garamond", Georgia, serif; }
+  blockquote { margin: 0; font-size: 1.8rem; text-align: center; }
+  blockquote cite { display: block; margin-top: 0.8rem; font-family: Inter, sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; font-style: normal; color: #6bd9e5; }
+  nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; justify-content: flex-end; }
+  nav a, .footer-social a, .footer-bottom a { color: inherit; text-decoration: none; }
+  nav a:hover, .footer-social a:hover, .footer-bottom a:hover { color: #6bd9e5; }
+  .footer-social, .footer-legal { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem; color: #afc3c8; }
+  .footer-legal { font-size: .76rem; }
+  .footer-bottom { margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; gap: 1rem; color: #9fb4b9; font-size: 0.78rem; }
+  @media (max-width: 850px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    nav, .footer-social, .footer-legal { justify-content: flex-start; }
+    blockquote { text-align: left; }
+    .footer-bottom { flex-direction: column; }
+  }
+</style>

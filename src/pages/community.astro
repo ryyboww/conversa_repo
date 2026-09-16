@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SupportPanel from '../components/shared/SupportPanel.astro';
+import { communityPathways } from '../config/community';
+---
+<BaseLayout title="Community" description="Join the Convera Strategies community by sharing observations, questions, source recommendations, and ideas." canonical="/community/">
+  <header class="page-hero">
+    <div class="container page-hero__inner">
+      <p class="eyebrow">Community</p>
+      <h1>Ideas deserve conversation.</h1>
+      <p class="lede">Convera is designed to listen as well as publish. Community participation helps surface questions, records, experiences, and perspectives worth closer attention.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container community-grid">
+      {communityPathways.map((pathway, index) => (
+        <article class="community-card card">
+          <span class="community-card__number">0{index + 1}</span>
+          <p class="eyebrow">{pathway.eyebrow}</p>
+          <h3>{pathway.title}</h3>
+          <p>{pathway.description}</p>
+          <a href={pathway.href}>Begin here →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section community-principle">
+    <div class="container grid-2" style="align-items:start">
+      <div>
+        <p class="eyebrow">Why Community Matters</p>
+        <h2 style="margin:.55rem 0 1rem">Different perspectives improve the questions we ask.</h2>
+      </div>
+      <div style="display:grid;gap:1rem;color:var(--muted);font-size:1.08rem">
+        <p>Useful ideas often begin outside formal settings: in workplaces, conversations, public records, personal experience, and observations that seem ordinary until someone decides to examine them more closely.</p>
+        <p>Community participation helps Convera remain attentive to what people are seeing, questioning, and experiencing beyond any single professional or institutional viewpoint.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight" style="background:#082b39">
+    <div class="container"><SupportPanel compact dark /></div>
+  </section>
+
+  <style>
+    .community-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .community-card { position:relative; min-height:300px; padding:2rem; display:flex; flex-direction:column; }
+    .community-card__number { position:absolute; right:1.5rem; top:1.2rem; color:color-mix(in srgb,var(--accent) 50%, transparent); font-family:"Cormorant Garamond",Georgia,serif; font-size:2.5rem; }
+    .community-card h3 { margin:.6rem 0 .8rem; }
+    .community-card p:not(.eyebrow) { color:var(--muted); }
+    .community-card a { margin-top:auto; padding-top:1.5rem; color:var(--accent); text-decoration:none; font-weight:700; }
+    .community-principle { background:var(--surface-soft); border-block:1px solid var(--line); }
+    @media(max-width:760px){ .community-grid{grid-template-columns:1fr;} }
+  </style>
+</BaseLayout>

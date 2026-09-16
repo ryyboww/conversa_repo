@@ -1,0 +1,40 @@
+
+> convera-strategies@2.4.0 go-live:status
+> node scripts/go-live-gate.mjs
+
+
+Convera Strategies — go-live gate
+
+
+[Build]
+BLOCK  Production dist exists — npm run build:verify
+
+[Payments]
+BLOCK  One-time contribution URL configured — PUBLIC_SUPPORT_ONE_TIME_URL missing
+BLOCK  Monthly contribution URL configured — PUBLIC_SUPPORT_MONTHLY_URL missing
+
+[Email]
+BLOCK  Founder mailbox send/receive verified — OPS_RYAN_MAIL_VERIFIED
+BLOCK  Public mailbox send/receive verified — OPS_HELLO_MAIL_VERIFIED
+
+[Deploy]
+BLOCK  Production deployment completed — OPS_PRODUCTION_DEPLOYED
+
+[Domain]
+BLOCK  Canonical domain verified — OPS_CANONICAL_DOMAIN_VERIFIED
+BLOCK  TLS/SSL verified — OPS_SSL_VERIFIED
+
+[Forms]
+BLOCK  Netlify form submissions verified — OPS_NETLIFY_FORMS_VERIFIED
+BLOCK  Form notifications verified — OPS_FORM_NOTIFICATIONS_VERIFIED
+
+[Support]
+BLOCK  Contribution flow verified end to end — OPS_SUPPORT_FLOW_VERIFIED
+
+[QA]
+BLOCK  Desktop browser QA completed — OPS_BROWSER_QA_VERIFIED
+BLOCK  Mobile QA completed — OPS_MOBILE_QA_VERIFIED
+BLOCK  Social sharing preview verified — OPS_SOCIAL_SHARE_VERIFIED
+
+Go-live checks passed: 0/14.
+Launch remains gated until every BLOCK item is verified. Do not mark operational flags true before completing the corresponding real-world test.

@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+import { inquiryById, inquiryOptions } from '../config/inquiries';
+
+const reason = Astro.url.searchParams.get('reason') ?? '';
+const preset = inquiryById[reason];
+---
+<BaseLayout title="Contact" description="Contact Convera Strategies regarding services, publications, community participation, collaboration, contributions, and other professional inquiries." canonical="/contact/">
+  <header class="page-hero">
+    <div class="container page-hero__inner">
+      <p class="eyebrow">Contact</p>
+      <h1>Begin with the question.</h1>
+      <p class="lede">Clients, professionals, organizations, readers, and community members are welcome to reach out with a clear question, observation, invitation, or proposal.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-intro">
+        <p class="eyebrow">Correspondence</p>
+        <h2>A clear purpose creates room for a thoughtful exchange.</h2>
+        <p class="lede">For direct professional correspondence, use <a href={`mailto:${site.emails.founder}`}>{site.emails.founder}</a>. General website inquiries may use <a href={`mailto:${site.emails.public}`}>{site.emails.public}</a>.</p>
+        <div class="contact-notes">
+          <div><strong>Professional work</strong><span>For a prospective paid engagement, use the dedicated <a href="/work-with-convera/">Work With Convera</a> intake so the challenge and desired outcome are clear from the beginning.</span></div>
+          <div><strong>Community</strong><span>Observations, source recommendations, and topic suggestions are welcome even when they are not service inquiries.</span></div>
+          <div><strong>Support</strong><span>Questions about contributions or website support may be directed through the form or to {site.emails.help}.</span></div>
+        </div>
+      </div>
+
+      <form class="card contact-form" name="website-contact" action="/thank-you/" method="POST" accept-charset="UTF-8" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="website-contact" />
+        <p class="contact-honeypot" aria-hidden="true"><label>Leave this field blank <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+        <label>Full name<input required name="name" autocomplete="name" maxlength="100" /></label>
+        <label>Email<input required type="email" name="email" autocomplete="email" maxlength="254" /></label>
+        <label>Organization <span class="muted">(optional)</span><input name="organization" autocomplete="organization" maxlength="160" /></label>
+        <label>Type of inquiry
+          <select name="reason">
+            {inquiryOptions.map((option) => (
+              <option value={option.label} selected={preset?.id === option.id}>{option.label}</option>
+            ))}
+          </select>
+        </label>
+        <label>Subject<input required name="subject" maxlength="160" value={preset?.subject ?? ''} /></label>
+        <label>Message<textarea required name="message" rows="7" maxlength="5000">{preset?.message ?? ''}</textarea></label>
+        <button class="button button--primary" type="submit">Send Message →</button>
+        <p class="contact-form__privacy">Messages submitted here are intended for Convera Strategies professional and community correspondence. Please do not include sensitive personal, medical, financial, or confidential legal information unless specifically requested.</p>
+      </form>
+    </div>
+  </section>
+
+  <style>
+    .contact-grid { display:grid;grid-template-columns:minmax(0,.9fr) minmax(340px,1.1fr);gap:clamp(2rem,6vw,6rem);align-items:start; }
+    .contact-intro h2 { margin:.5rem 0 1rem; }
+    .contact-intro .lede a { color:var(--accent);font-weight:700; }
+    .contact-notes { display:grid;margin-top:2rem;border-top:1px solid var(--line); }
+    .contact-notes>div { display:grid;grid-template-columns:130px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line); }
+    .contact-notes strong { color:var(--accent);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase; }
+    .contact-notes span { color:var(--muted);font-size:.92rem; }
+    .contact-form { position:relative;padding:clamp(1.5rem,3vw,2.3rem);display:grid;gap:1rem; }
+    .contact-honeypot { position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden; }
+    label { display:grid;gap:.4rem;font-weight:700;font-size:.9rem; }
+    input, select, textarea { width:100%;padding:.78rem .85rem;border:1px solid var(--line-strong);background:var(--surface);color:var(--text);border-radius:3px; }
+    textarea { resize:vertical; }
+    .contact-form__privacy { color:var(--muted);font-size:.76rem;line-height:1.55; }
+    @media(max-width:860px){.contact-grid{grid-template-columns:1fr;}.contact-notes>div{grid-template-columns:1fr;gap:.25rem;}}
+  </style>
+</BaseLayout>
