@@ -28,3 +28,5 @@ npm run dev
 Additional source audits are available through `npm run release:audit`, `npm run privacy:audit`, and the version-specific `node scripts/verify-2.41.mjs`.
 
 See `RELEASE-MANIFEST.md`, `BRAND-NOTES.md`, and `IMAGE-CREDITS.md` for current release and brand governance notes.
+
+For Mac and Windows handoffs, follow [docs/CROSS-MACHINE-WORKFLOW.md](docs/CROSS-MACHINE-WORKFLOW.md).
