@@ -1,13 +1,13 @@
 CONVERA STRATEGIES
 CROSS-MACHINE OPERATING GUIDE
-Mac + Windows
+MAC + Windows
 
 Purpose
 =======
-Use GitHub as the shared handoff point between the Mac and Windows machines.
+Use GitHub as the shared handoff point between the MAC and Windows machines.
 Each machine works on its own short-lived branch. The shared branch,
 main_conversa, is kept stable and integration-ready. Device branches use the
-names macbook and window so their ownership is immediately visible.
+names MAC and Windows so their ownership is immediately visible.
 
 Repository
 ==========
@@ -26,7 +26,7 @@ ONE-TIME SETUP ON EACH MACHINE
 2. Install Node.js using the version requested by .nvmrc or .node-version.
 3. Clone the repository into a new folder. Do not clone inside another copy.
 
-Mac Terminal:
+MAC Terminal:
   git clone https://github.com/ryyboww/conversa_repo.git
   cd conversa_repo
 
@@ -56,15 +56,15 @@ Do not pull over uncommitted work.
 
 Create a task branch before editing:
 
-Mac:
-  git switch -c macbook/short-task-name
+MAC:
+  git switch -c MAC/short-task-name
 
 Windows:
-  git switch -c window/short-task-name
+  git switch -c Windows/short-task-name
 
-Use lowercase words separated by hyphens. Examples:
-  macbook/update-contact-page
-  window/fix-mobile-header
+Use lowercase words separated by hyphens for the task name. Examples:
+  MAC/update-contact-page
+  Windows/fix-mobile-header
 
 If the task branch already exists locally, use this instead:
   git switch branch-name
@@ -91,11 +91,11 @@ NORMAL WORK CYCLE
 
 5. Push the task branch:
 
-Mac example:
-  git push -u origin macbook/update-contact-page
+MAC example:
+  git push -u origin MAC/update-contact-page
 
 Windows example:
-  git push -u origin window/fix-mobile-header
+  git push -u origin Windows/fix-mobile-header
 
 6. Open a pull request on GitHub from the task branch into main_conversa.
 7. Wait for checks to pass and merge the pull request.
