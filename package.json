@@ -69,7 +69,7 @@
     "launch:bootstrap": "npm run framework:bootstrap"
   },
   "dependencies": {
-    "@astrojs/sitemap": "3.6.0",
+    "@astrojs/sitemap": "3.7.4",
     "astro": "5.13.5"
   },
   "devDependencies": {
