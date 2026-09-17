@@ -1,15 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site } from '../config/site';
+import PageHero from '../components/PageHero.astro';
 ---
 <BaseLayout title="About" description="About Convera Strategies and founder Ryan Brown." canonical="/about/">
-  <header class="page-hero">
-    <div class="container page-hero__inner">
-      <p class="eyebrow">About</p>
-      <h1>Founder-led. People-centered. Built for perspective.</h1>
-      <p class="lede">Convera Strategies is a founder-led organization created to connect broader social perspective with practical workplace and organizational challenges.</p>
-    </div>
-  </header>
+  <PageHero eyebrow="About" title="Founder-led. People-centered. Built for perspective." lede="Convera Strategies is a founder-led organization created to connect broader social perspective with practical workplace and organizational challenges." />
 
   <section class="section">
     <div class="container about-grid">
@@ -44,10 +38,10 @@ import { site } from '../config/site';
   </section>
 
   <style>
-    .about-grid{display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);gap:clamp(2rem,6vw,6rem);align-items:start;}
+    .about-grid{display:grid;grid-template-columns:minmax(320px,.86fr) minmax(0,1.14fr);gap:clamp(2rem,5vw,5rem);align-items:start;}
     .about-photo{overflow:hidden;}
-    .about-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;}
-    .about-photo__fallback{display:none;aspect-ratio:4/5;place-items:center;padding:2rem;background:var(--surface-soft);}
+    .about-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 42%;}
+    .about-photo__fallback{display:none;aspect-ratio:4/3;place-items:center;padding:2rem;background:var(--surface-soft);}
     .about-grid h2{margin:.6rem 0 1.4rem;}
     .about-copy{display:grid;gap:1rem;color:var(--muted);font-size:1.08rem;}
     .about-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem;}

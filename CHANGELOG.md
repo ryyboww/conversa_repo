@@ -1,4 +1,37 @@
+## 2.35.1 — Typecheck & Consolidation Hotfix
+
+- Fixed malformed multiline inquiry message strings in `src/config/inquiries.ts`.
+- Added explicit `is:inline` handling for structured-data and external public scripts to reduce Astro diagnostics.
+- Removed unused imports introduced by the site-wide consolidation.
+- Removed several unused operational imports reported by `astro check`.
+- Updated release-readiness version assertions to 2.35.1.
+- No visual redesign introduced; 2.35 site-wide consistency remains the visual baseline.
+
 # Changelog
+
+## 2.35.0 — Site-Wide Visual Consistency & Public Page Consolidation
+
+- Added one shared `PageHero.astro` system for public-facing pages.
+- Standardized outer page width, hero scale, typography, section spacing, and responsive behavior across Home, Mission, Services, Publications, Community, About, Contact, Support, Speaking, Press Kit, Follow the Work, and professional inquiry pages.
+- Kept the global header sticky while removing page-specific sticky content and obsolete homepage scroll effects.
+- Replaced the founder portrait with the newly supplied approved portrait and tuned crops separately for Home, About, and Press Kit.
+- Migrated Speaking, Press Kit, and Follow the Work from standalone `public/` HTML into the shared Astro layout so they inherit the same header, footer, theme, spacing, and accessibility behavior.
+- Restored the controlled professional-services pathway: public inquiry → Contact review → separate private Intake invitation.
+- Removed public links to `/intake/`; the Intake route remains noindex and sitemap-excluded.
+- Added shared session attribution and public-journey event scripts through `BaseLayout`.
+- Added referral/source disclosure to Privacy.
+- Updated source, forms, route, privacy, metadata, accessibility, and release-readiness checks for the current architecture.
+
+## 2.34.0 — Homepage Publication Recovery
+
+- Rebuilt the live homepage from the user-supplied production source instead of patching unused duplicate components.
+- Replaced the mismatched homepage markup/CSS pair with one compact, publication-oriented composition based on the approved homepage structure.
+- Removed header scroll-state mutation so the Convera logo remains visible and proportionate throughout scrolling.
+- Simplified the theme control to a moon icon without visible “Theme” text.
+- Reduced hero headline, portrait, quotation, and total hero height to restore proportion and tighter scrolling rhythm.
+- Removed the secondary footer navigation and footer catchphrase; reduced the footer logo and retained only social, legal, descriptor, and copyright information.
+- Added a clean high-resolution header logo crop and retained a dedicated inverse logo for dark surfaces.
+- Removed unused duplicate header/footer component directories that were causing implementation ambiguity.
 
 ## 2.14.0 — High-UI Client Experience Candidate
 

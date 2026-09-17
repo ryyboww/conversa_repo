@@ -1,15 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import { site } from '../config/site';
 ---
 <BaseLayout title="Terms" description="Website terms for Convera Strategies." canonical="/terms/">
-  <header class="page-hero">
-    <div class="container page-hero__inner">
-      <p class="eyebrow">Terms</p>
-      <h1>Clear boundaries for a thoughtful professional platform.</h1>
-      <p class="lede">This website provides information about Convera Strategies, its services, publications, community activity, and mission.</p>
-    </div>
-  </header>
+  <PageHero eyebrow="Terms" title="Clear boundaries for a thoughtful professional platform." lede="This website provides information about Convera Strategies, its services, publications, community activity, and mission." />
 
   <section class="section">
     <div class="container terms-copy">

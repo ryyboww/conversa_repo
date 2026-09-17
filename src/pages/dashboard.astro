@@ -1,23 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import { site } from '../config/site';
 import { clientDashboard } from '../config/dashboard';
 ---
 <BaseLayout title="Client Dashboard" description="Convera Strategies client dashboard access." canonical="/dashboard/" noindex>
-  <header class="page-hero dashboard-hero">
-    <div class="container dashboard-hero__grid">
-      <div class="page-hero__inner">
-        <p class="eyebrow">Client Dashboard</p>
-        <h1>A simple home for active engagements.</h1>
-        <p class="lede">The dashboard foundation is in place for project status, documents, meetings, billing, and client communication. Client-specific access will only be activated after secure authentication is connected.</p>
-      </div>
-      <div class="dashboard-status card">
-        <span>Portal status</span>
-        <strong>Staged for secure activation</strong>
-        <p>{clientDashboard.active ? `${clientDashboard.provider} is configured for secure access.` : 'No confidential client information is stored on this public page.'}</p>
-      </div>
+  <PageHero eyebrow="Client Dashboard" title="A simple home for active engagements." lede="The dashboard foundation is in place for project status, documents, meetings, billing, and client communication. Client-specific access will only be activated after secure authentication is connected.">
+    <div slot="aside" class="dashboard-status card">
+      <span>Portal status</span>
+      <strong>Staged for secure activation</strong>
+      <p>{clientDashboard.active ? `${clientDashboard.provider} is configured for secure access.` : 'No confidential client information is stored on this public page.'}</p>
     </div>
-  </header>
+  </PageHero>
 
   <section class="section">
     <div class="container">
@@ -29,7 +23,7 @@ import { clientDashboard } from '../config/dashboard';
       </div>
       <div class="dashboard-access">
         <div><p class="eyebrow">Need Access?</p><h2>Current clients will receive access directly.</h2><p class="lede">Until authentication is activated, use your existing correspondence with Convera. For access questions, contact <a href={`mailto:${site.emails.help}`}>{site.emails.help}</a>.</p></div>
-        {clientDashboard.active ? <a class="button button--primary" href={clientDashboard.url ?? '/intake/'} rel="noopener">Open Secure Client Portal →</a> : <a class="button button--primary" href="/intake/">Prospective Client Intake →</a>}
+        {clientDashboard.active ? <a class="button button--primary" href={clientDashboard.url ?? '/contact/'} rel="noopener">Open Secure Client Portal →</a> : <a class="button button--primary" href="/contact/?reason=professional">Contact Convera →</a>}
       </div>
     </div>
   </section>

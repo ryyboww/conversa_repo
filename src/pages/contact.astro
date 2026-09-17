@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import { site } from '../config/site';
 import { inquiryById, inquiryOptions } from '../config/inquiries';
 
@@ -7,13 +8,7 @@ const reason = Astro.url.searchParams.get('reason') ?? '';
 const preset = inquiryById[reason];
 ---
 <BaseLayout title="Contact" description="Contact Convera Strategies regarding services, publications, community participation, collaboration, contributions, and other professional inquiries." canonical="/contact/">
-  <header class="page-hero">
-    <div class="container page-hero__inner">
-      <p class="eyebrow">Contact</p>
-      <h1>Begin with the question.</h1>
-      <p class="lede">Clients, professionals, organizations, readers, and community members are welcome to reach out with a clear question, observation, invitation, or proposal.</p>
-    </div>
-  </header>
+  <PageHero eyebrow="Contact" title="Begin with the question." lede="Clients, professionals, organizations, readers, and community members are welcome to reach out with a clear question, observation, invitation, or proposal." />
 
   <section class="section">
     <div class="container contact-grid">
@@ -22,7 +17,7 @@ const preset = inquiryById[reason];
         <h2>A clear purpose creates room for a thoughtful exchange.</h2>
         <p class="lede">For direct professional correspondence, use <a href={`mailto:${site.emails.founder}`}>{site.emails.founder}</a>. General website inquiries may use <a href={`mailto:${site.emails.public}`}>{site.emails.public}</a>.</p>
         <div class="contact-notes">
-          <div><strong>Professional work</strong><span>For a prospective paid engagement, use the dedicated <a href="/intake/">Client Intake</a> page so the challenge and desired outcome are clear from the beginning.</span></div>
+          <div><strong>Professional work</strong><span>For prospective professional work, use this Contact form first. Convera reviews the inquiry and, when appropriate, sends a separate Intake invitation for additional project information.</span></div>
           <div><strong>Community</strong><span>Observations, source recommendations, and topic suggestions are welcome even when they are not service inquiries.</span></div>
           <div><strong>Support</strong><span>Questions about contributions or website support may be directed through the form or to {site.emails.help}.</span></div>
         </div>
@@ -50,7 +45,7 @@ const preset = inquiryById[reason];
   </section>
 
   <style>
-    .contact-grid { display:grid;grid-template-columns:minmax(0,.9fr) minmax(340px,1.1fr);gap:clamp(2rem,6vw,6rem);align-items:start; }
+    .contact-grid { display:grid;grid-template-columns:minmax(0,.9fr) minmax(340px,1.1fr);gap:clamp(2rem,5vw,5rem);align-items:start; }
     .contact-intro h2 { margin:.5rem 0 1rem; }
     .contact-intro .lede a { color:var(--accent);font-weight:700; }
     .contact-notes { display:grid;margin-top:2rem;border-top:1px solid var(--line); }

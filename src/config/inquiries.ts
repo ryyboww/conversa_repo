@@ -7,6 +7,12 @@ export type InquiryOption = {
 
 export const inquiryOptions: InquiryOption[] = [
   {
+    id: 'professional',
+    label: 'Prospective professional engagement',
+    subject: 'Prospective professional engagement',
+    message: 'I would like to discuss the following challenge or project:\n\n'
+  },
+  {
     id: 'organizational-strategy',
     label: 'Organizational strategy',
     subject: 'Organizational strategy inquiry',
@@ -47,6 +53,12 @@ export const inquiryOptions: InquiryOption[] = [
     label: 'Collaboration or partnership',
     subject: 'Collaboration inquiry',
     message: 'I would like to discuss the following collaboration:\n\n'
+  },
+  {
+    id: 'speaking-media',
+    label: 'Speaking or media invitation',
+    subject: 'Speaking or media invitation',
+    message: 'I would like to discuss the following speaking or media opportunity:\n\n'
   },
   {
     id: 'publication-media',

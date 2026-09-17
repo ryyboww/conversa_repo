@@ -1,58 +1,120 @@
 ---
-import { footerNavigation } from '../config/navigation';
 import { site } from '../config/site';
 import { features } from '../config/features';
 import NewsletterSignup from './shared/NewsletterSignup.astro';
+const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
-  {features.newsletter && <div class="container footer-newsletter"><NewsletterSignup compact /></div>}
-  <div class="container footer-grid">
+  {features.newsletter && <div class="footer-newsletter"><NewsletterSignup compact /></div>}
+  <div class="footer-inner">
     <div class="footer-brand">
-      <img src="/brand/convera-logo-dark-bg.png" alt="Convera Strategies" />
+      <a href="/" aria-label="Convera Strategies home">
+        <img src="/brand/convera-logo-inverse.png" alt="Convera Strategies" width="562" height="134" loading="lazy" decoding="async" />
+      </a>
       <p>{site.descriptor}</p>
     </div>
-    <blockquote>“A more thoughtful way forward.”<cite>Ryan Brown</cite></blockquote>
-    <div>
-      <nav aria-label="Footer navigation">
-        {footerNavigation.map((item) => <a href={item.href}>{item.label}</a>)}
-      </nav>
-      <div class="footer-social">
+
+    <div class="footer-meta">
+      <div class="footer-social" aria-label="Social links">
         <a href={site.social.linkedin} rel="me noopener" target="_blank">LinkedIn</a>
         <a href={site.social.instagram} rel="me noopener" target="_blank">Instagram</a>
       </div>
-      <div class="footer-legal">
+      <div class="footer-legal" aria-label="Legal links">
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
         <a href="/accessibility/">Accessibility</a>
       </div>
+      <p class="footer-copyright">© {year} Convera Strategies. All rights reserved.</p>
     </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© {new Date().getFullYear()} Convera Strategies. All rights reserved.</span>
-    <a href={`mailto:${site.emails.public}`}>{site.emails.public}</a>
   </div>
 </footer>
 
 <style>
-  .site-footer { padding: 3.4rem 0 1.5rem; background: #061d29; color: #eef7f7; border-top: 1px solid rgba(255,255,255,0.12); }
-  .footer-newsletter { margin-bottom:2.4rem; padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,.12); }
-  .footer-newsletter :global(.newsletter-field input){background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.22)}
-  .footer-newsletter :global(.newsletter-field input::placeholder){color:#9fb4b9}
-  .footer-grid { display: grid; grid-template-columns: 1.1fr 1fr 1.1fr; gap: 3rem; align-items: center; }
-  .footer-brand img { width: min(100%, 300px); }
-  .footer-brand p { margin-top: 0.45rem; color: #afc3c8; font-family: "Cormorant Garamond", Georgia, serif; }
-  blockquote { margin: 0; font-size: 1.8rem; text-align: center; }
-  blockquote cite { display: block; margin-top: 0.8rem; font-family: Inter, sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; font-style: normal; color: #6bd9e5; }
-  nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; justify-content: flex-end; }
-  nav a, .footer-social a, .footer-bottom a { color: inherit; text-decoration: none; }
-  nav a:hover, .footer-social a:hover, .footer-bottom a:hover { color: #6bd9e5; }
-  .footer-social, .footer-legal { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem; color: #afc3c8; }
-  .footer-legal { font-size: .76rem; }
-  .footer-bottom { margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; gap: 1rem; color: #9fb4b9; font-size: 0.78rem; }
-  @media (max-width: 850px) {
-    .footer-grid { grid-template-columns: 1fr; }
-    nav, .footer-social, .footer-legal { justify-content: flex-start; }
-    blockquote { text-align: left; }
-    .footer-bottom { flex-direction: column; }
+  .site-footer {
+    padding: 22px 0 20px;
+    color: #eef7f8;
+    background: #052a38;
+    border-top: 1px solid rgba(255,255,255,0.11);
+  }
+  .footer-newsletter {
+    width: min(calc(100% - 48px), 1280px);
+    margin: 0 auto 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255,255,255,.11);
+  }
+  .footer-inner {
+    width: min(calc(100% - 48px), 1280px);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 42px;
+  }
+  .footer-brand { min-width: 0; }
+  .footer-brand a {
+    display: inline-flex;
+    align-items: center;
+    width: 168px;
+    max-width: 100%;
+    text-decoration: none;
+  }
+  .footer-brand img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .footer-brand p {
+    margin: 7px 0 0;
+    color: rgba(238,247,248,.78);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(8px, .72vw, 10.5px);
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .footer-meta {
+    display: grid;
+    justify-items: end;
+    gap: 8px;
+    text-align: right;
+  }
+  .footer-social,
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+  }
+  .footer-social a,
+  .footer-legal a {
+    color: rgba(238,247,248,.9);
+    text-decoration: none;
+    font-size: 0.75rem;
+  }
+  .footer-legal a { color: rgba(238,247,248,.64); font-size: .7rem; }
+  .footer-social a:hover,
+  .footer-legal a:hover { color: #76d9e3; }
+  .footer-copyright {
+    margin: 0;
+    color: rgba(238,247,248,.58);
+    font-size: .7rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 760px) {
+    .footer-inner,
+    .footer-newsletter { width: min(calc(100% - 30px), 1280px); }
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .footer-brand a { width: 150px; }
+    .footer-brand p { font-size: clamp(7.2px, 2.05vw, 9.2px); }
+    .footer-meta { justify-items: start; text-align: left; gap: 7px; }
+    .footer-social,
+    .footer-legal { justify-content: flex-start; flex-wrap: wrap; }
+    .footer-copyright { white-space: normal; }
   }
 </style>

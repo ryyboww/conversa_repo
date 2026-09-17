@@ -4,7 +4,7 @@ interface Props {
   source?: string;
 }
 const { title = 'Continue with the work', source = 'publication' } = Astro.props;
-const contactHref = `/contact/?inquiry=professional&source=${encodeURIComponent(source)}`;
+const contactHref = `/contact/?reason=professional&source=${encodeURIComponent(source)}`;
 ---
 <aside class="convera-publication-cta" aria-label="Continue with Convera Strategies">
   <p class="eyebrow">Convera Strategies</p>

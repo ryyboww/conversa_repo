@@ -11,7 +11,7 @@ const issues = [];
 const checks = [];
 const add = (name, ok, detail) => checks.push({ name, ok, detail });
 
-add('Release version is 2.14.0', pkg.version === '2.14.0', pkg.version);
+add('Release version is 2.35.1', pkg.version === '2.35.1', pkg.version);
 add('Node version is pinned for local work', fs.existsSync(path.join(root, '.nvmrc')), '.nvmrc');
 add('Node version is pinned for alternate managers', fs.existsSync(path.join(root, '.node-version')), '.node-version');
 add('Supported Node range is declared', typeof pkg.engines?.node === 'string', pkg.engines?.node ?? 'missing');
@@ -60,7 +60,7 @@ add('Source readiness alias exists', Boolean(pkg.scripts?.['ready:source']), 'np
 add('Strict readiness alias exists', Boolean(pkg.scripts?.['ready:strict']), 'npm run ready:strict');
 add('Direct client intake route exists', fs.existsSync(path.join(root, 'src/pages/intake.astro')), '/intake/');
 add('Client dashboard shell exists', fs.existsSync(path.join(root, 'src/pages/dashboard.astro')), '/dashboard/');
-add('High-UI scroll experience component exists', fs.existsSync(path.join(root, 'src/components/home/ScrollExperience.astro')), 'ScrollExperience.astro');
+add('Homepage uses static editorial composition', !fs.existsSync(path.join(root, 'src/components/home/ScrollExperience.astro')), 'ScrollExperience.astro intentionally absent');
 add('Approved homepage mockup retained as design reference', fs.existsSync(path.join(root, 'design-reference/approved-homepage-high-ui-mockup.png')), 'design-reference');
 
 for (const check of checks) if (!check.ok) issues.push(`${check.name}: ${check.detail}`);

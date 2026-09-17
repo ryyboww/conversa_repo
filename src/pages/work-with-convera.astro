@@ -1,29 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { engagementBoundaries, engagementFit, engagementOptions } from '../config/engagement';
+import PageHero from '../components/PageHero.astro';
+import { engagementBoundaries, engagementFit } from '../config/engagement';
 import { starterEngagements } from '../config/services';
-import { site } from '../config/site';
 ---
 <BaseLayout
   title="Work With Convera"
   description="Begin a focused conversation with Convera Strategies about organizational strategy, workplace culture, communication, or a difficult problem that deserves a clearer view."
   canonical="/work-with-convera/"
 >
-  <header class="page-hero work-hero">
-    <div class="container work-hero__grid">
-      <div class="page-hero__inner">
-        <p class="eyebrow">Work With Convera</p>
-        <h1>Start with the challenge, not a predetermined solution.</h1>
-        <p class="lede">Convera is built for focused engagements. You can begin with a problem, decision, workplace concern, document, or question. The first step is understanding what needs attention and whether Convera is the right fit.</p>
-        <div class="work-hero__actions"><a class="button button--primary" href="/intake/">Open Client Intake →</a><a class="button button--ghost" href="#start">Use Detailed Inquiry Form</a></div>
-      </div>
-      <aside class="work-hero__aside">
-        <span>Founder-led</span>
-        <strong>Direct access to the person doing the work.</strong>
-        <p>No handoff to a junior team. Initial engagements remain intentionally focused and manageable.</p>
-      </aside>
+  <PageHero
+    eyebrow="Work With Convera"
+    title="Start with the challenge, not a predetermined solution."
+    lede="Convera is built for focused engagements. Begin with the problem, decision, workplace concern, document, or question that needs attention."
+  >
+    <div slot="actions">
+      <a class="button button--primary" href="/contact/?reason=professional">Contact Convera →</a>
+      <a class="button button--ghost" href="/services/">Explore Services</a>
     </div>
-  </header>
+    <aside slot="aside" class="work-hero__aside">
+      <span>Founder-led</span>
+      <strong>Direct access to the person doing the work.</strong>
+      <p>No handoff to a junior team. Initial engagements remain intentionally focused and manageable.</p>
+    </aside>
+  </PageHero>
 
   <section class="section work-fit">
     <div class="container work-fit__grid">
@@ -56,42 +56,19 @@ import { site } from '../config/site';
     </div>
   </section>
 
-  <section class="section work-intake" id="start">
-    <div class="container work-intake__grid">
-      <div class="work-intake__copy">
-        <p class="eyebrow">Start a Conversation</p>
-        <h2>Tell me what you are trying to understand.</h2>
-        <p class="lede">This form is for prospective professional engagements. It does not commit either party to a project. It gives Convera enough context to determine a useful next step.</p>
-        <div class="work-contact">
-          <strong>Prefer email?</strong>
-          <a href={`mailto:${site.emails.founder}`}>{site.emails.founder}</a>
-        </div>
+  <section class="section work-process">
+    <div class="container work-process__grid">
+      <div>
+        <p class="eyebrow">How It Begins</p>
+        <h2>One clear public entry point.</h2>
+        <p class="lede">Professional inquiries begin through Contact. Convera reviews the message before asking for more detailed project information.</p>
       </div>
-
-      <form class="card intake-form" name="work-with-convera" action="/work-with-convera/thank-you/" method="POST" accept-charset="UTF-8" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="work-with-convera" />
-        <p class="honeypot" aria-hidden="true"><label>Leave this field blank <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
-        <div class="form-row">
-          <label>Full name<input required name="name" autocomplete="name" maxlength="100" /></label>
-          <label>Email<input required type="email" name="email" autocomplete="email" maxlength="254" /></label>
-        </div>
-        <div class="form-row">
-          <label>Organization <span class="muted">(optional)</span><input name="organization" autocomplete="organization" maxlength="160" /></label>
-          <label>Your role <span class="muted">(optional)</span><input name="role" autocomplete="organization-title" maxlength="120" /></label>
-        </div>
-        <label>What kind of engagement seems closest?
-          <select name="engagement">
-            {engagementOptions.map((option) => <option value={option.value}>{option.label}</option>)}
-          </select>
-        </label>
-        <label>What is happening?<textarea required name="challenge" rows="6" maxlength="6000" placeholder="Describe the challenge, decision, concern, or question in your own words."></textarea></label>
-        <label>What would be useful at the end of the engagement?<textarea required name="desired-outcome" rows="4" maxlength="4000" placeholder="For example: clearer direction, outside assessment, communication review, decision support, or next steps."></textarea></label>
-        <label>Timing <span class="muted">(optional)</span><input name="timing" maxlength="200" placeholder="Any date, deadline, or general timeframe we should know about?" /></label>
-        <label>Anything else? <span class="muted">(optional)</span><textarea name="additional-context" rows="3" maxlength="3000"></textarea></label>
-        <label class="consent"><input required type="checkbox" name="acknowledgement" value="yes" /> <span>I understand this inquiry does not create a professional, legal, employment, or confidential advisory relationship.</span></label>
-        <button class="button button--primary" type="submit">Send Professional Inquiry →</button>
-        <p class="form-note">Please do not submit privileged legal material, protected health information, financial account details, passwords, or other sensitive personal information.</p>
-      </form>
+      <ol class="process-list">
+        <li><strong>01</strong><span><b>Contact</b> Share the challenge or question in your own words.</span></li>
+        <li><strong>02</strong><span><b>Review</b> Convera reviews fit, timing, and what information is actually needed.</span></li>
+        <li><strong>03</strong><span><b>Intake invitation</b> If appropriate, a separate private Intake invitation follows.</span></li>
+        <li><strong>04</strong><span><b>Defined engagement</b> Scope, estimate, and agreement are handled before work begins.</span></li>
+      </ol>
     </div>
   </section>
 
@@ -112,53 +89,36 @@ import { site } from '../config/site';
   <section class="section--tight support-separation">
     <div class="container support-separation__inner">
       <div>
-        <p class="eyebrow">A Separate Path</p>
-        <h2>Want to support the mission rather than hire Convera?</h2>
-        <p>Professional services and voluntary contributions are intentionally separate. Contributors support publications, public-facing work, community engagement, and the broader Convera mission.</p>
+        <p class="eyebrow">Ready to Begin?</p>
+        <h2>Start with a concise message.</h2>
+        <p>Use the public Contact form first. If additional project information is useful, Convera will send the separate Intake invitation directly.</p>
       </div>
-      <a class="button button--ghost" href="/support/">Support the Work →</a>
+      <a class="button button--primary" href="/contact/?reason=professional">Contact Convera →</a>
     </div>
   </section>
 
   <style>
-    .work-hero__grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.55fr);gap:clamp(2rem,6vw,6rem);align-items:end;}
-    .work-hero__actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.4rem}.work-hero__aside{padding:1.5rem;border-left:2px solid var(--accent);background:color-mix(in srgb,var(--surface) 70%,transparent);}
-    .work-hero__aside span{color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
-    .work-hero__aside strong{display:block;margin:.7rem 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:500;line-height:1.08;}
-    .work-hero__aside p{color:var(--muted);}
-    .work-fit__grid,.boundaries__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,6vw,6rem);align-items:start;}
-    .work-fit h2,.boundaries h2{margin:.55rem 0 1rem;}
-    .fit-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
+    .work-hero__aside{padding:1.25rem 0 1.25rem 1.4rem;border-left:2px solid var(--accent);}
+    .work-hero__aside span{color:var(--accent);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
+    .work-hero__aside strong{display:block;margin:.6rem 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.55rem,2.25vw,2.05rem);font-weight:500;line-height:1.08;}
+    .work-hero__aside p{color:var(--muted);font-size:.9rem;}
+    .work-fit__grid,.work-process__grid,.boundaries__grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(2rem,5vw,5rem);align-items:start;}
+    .work-fit h2,.work-process h2,.boundaries h2{margin:.5rem 0 .85rem;}
+    .fit-list,.process-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
     .fit-list li{position:relative;padding:1rem 0 1rem 2rem;border-bottom:1px solid var(--line);color:var(--muted);}
     .fit-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-weight:700;}
     .engagement-preview{background:var(--surface-soft);border-block:1px solid var(--line);}
-    .section-intro{max-width:800px;margin-bottom:2rem;}
-    .section-intro h2{margin:.55rem 0 1rem;}
-    .engagement-card{padding:1.7rem;}
-    .engagement-card p{margin-top:.75rem;}
-    .work-intake__grid{display:grid;grid-template-columns:minmax(0,.72fr) minmax(420px,1.28fr);gap:clamp(2rem,6vw,6rem);align-items:start;}
-    .work-intake__copy{position:sticky;top:130px;}
-    .work-intake__copy h2{margin:.55rem 0 1rem;}
-    .work-contact{display:grid;gap:.2rem;margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--line);}
-    .work-contact a{color:var(--accent);font-weight:700;}
-    .intake-form{position:relative;display:grid;gap:1rem;padding:clamp(1.5rem,3vw,2.4rem);}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-    .intake-form label{display:grid;gap:.4rem;font-size:.9rem;font-weight:700;}
-    .intake-form input,.intake-form select,.intake-form textarea{width:100%;padding:.78rem .85rem;border:1px solid var(--line-strong);border-radius:3px;background:var(--surface);color:var(--text);}
-    .intake-form textarea{resize:vertical;}
-    .honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
-    .consent{grid-template-columns:auto 1fr!important;align-items:start;font-weight:500!important;color:var(--muted);}
-    .consent input{width:auto!important;margin-top:.3rem;}
-    .form-note{color:var(--muted);font-size:.76rem;line-height:1.55;}
-    .boundaries{background:var(--bg);}
-    .boundary-card{padding:1.6rem;border:1px solid var(--line);background:var(--surface);}
-    .boundary-card p{font-weight:700;}
-    .boundary-card ul{margin:1rem 0 0;padding-left:1.2rem;display:grid;gap:.55rem;color:var(--muted);}
+    .engagement-card{padding:1.6rem;}.engagement-card p{margin-top:.7rem;}
+    .process-list li{display:grid;grid-template-columns:42px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line);}
+    .process-list strong{color:var(--accent);font-size:.7rem;letter-spacing:.12em;}
+    .process-list span{color:var(--muted);}.process-list b{display:block;margin-bottom:.18rem;color:var(--text);font-weight:700;}
+    .boundary-card{padding:1.5rem;border:1px solid var(--line);background:var(--surface);}
+    .boundary-card p{font-weight:700;}.boundary-card ul{margin:1rem 0 0;padding-left:1.2rem;display:grid;gap:.55rem;color:var(--muted);}
     .support-separation{border-top:1px solid var(--line);background:var(--surface-soft);}
     .support-separation__inner{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;}
-    .support-separation h2{margin:.45rem 0 .7rem;font-size:clamp(1.8rem,3vw,2.6rem);}
-    .support-separation p:not(.eyebrow){max-width:780px;color:var(--muted);}
-    @media(max-width:900px){.work-hero__grid,.work-fit__grid,.work-intake__grid,.boundaries__grid{grid-template-columns:1fr}.work-intake__copy{position:static}.support-separation__inner{grid-template-columns:1fr;}.support-separation__inner .button{width:fit-content;}}
-    @media(max-width:560px){.form-row{grid-template-columns:1fr}.intake-form{padding:1.2rem}.support-separation__inner .button{width:100%;}}
+    .support-separation h2{margin:.4rem 0 .65rem;font-size:clamp(1.75rem,2.8vw,2.45rem);}
+    .support-separation p:not(.eyebrow){max-width:760px;color:var(--muted);}
+    @media(max-width:900px){.work-fit__grid,.work-process__grid,.boundaries__grid,.support-separation__inner{grid-template-columns:1fr}.support-separation__inner .button{width:fit-content}}
+    @media(max-width:560px){.support-separation__inner .button{width:100%}}
   </style>
 </BaseLayout>

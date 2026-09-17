@@ -1,16 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import SupportPanel from '../components/shared/SupportPanel.astro';
 import { communityPathways } from '../config/community';
 ---
 <BaseLayout title="Community" description="Join the Convera Strategies community by sharing observations, questions, source recommendations, and ideas." canonical="/community/">
-  <header class="page-hero">
-    <div class="container page-hero__inner">
-      <p class="eyebrow">Community</p>
-      <h1>Ideas deserve conversation.</h1>
-      <p class="lede">Convera is designed to listen as well as publish. Community participation helps surface questions, records, experiences, and perspectives worth closer attention.</p>
-    </div>
-  </header>
+  <PageHero eyebrow="Community" title="Ideas deserve conversation." lede="Convera is designed to listen as well as publish. Community participation helps surface questions, records, experiences, and perspectives worth closer attention." />
 
   <section class="section">
     <div class="container community-grid">
@@ -45,7 +40,7 @@ import { communityPathways } from '../config/community';
 
   <style>
     .community-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
-    .community-card { position:relative; min-height:300px; padding:2rem; display:flex; flex-direction:column; }
+    .community-card { position:relative; min-height:255px; padding:1.7rem; display:flex; flex-direction:column; }
     .community-card__number { position:absolute; right:1.5rem; top:1.2rem; color:color-mix(in srgb,var(--accent) 50%, transparent); font-family:"Cormorant Garamond",Georgia,serif; font-size:2.5rem; }
     .community-card h3 { margin:.6rem 0 .8rem; }
     .community-card p:not(.eyebrow) { color:var(--muted); }

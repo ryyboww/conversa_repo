@@ -46,7 +46,7 @@ const structuredData = {
           '@type': 'ContactPoint',
           contactType: 'professional inquiries',
           email: site.emails.founder,
-          url: new URL('/intake/', site.url).toString()
+          url: new URL('/contact/', site.url).toString()
         }
       ],
       sameAs: [site.social.linkedin, site.social.instagram]
@@ -100,8 +100,8 @@ const structuredData = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content="Convera Strategies — People. Perspective. A More Resilient Tomorrow." />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
-    {plausibleDomain && <script defer data-domain={plausibleDomain} src="https://plausible.io/js/script.js"></script>}
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+    {plausibleDomain && <script is:inline defer data-domain={plausibleDomain} src="https://plausible.io/js/script.js"></script>}
     <script is:inline>
       (() => {
         try {
@@ -120,5 +120,7 @@ const structuredData = {
     <SiteHeader />
     <main id="main-content"><slot /></main>
     <SiteFooter />
+    <script is:inline src="/assets/convera-attribution.js" defer></script>
+    <script is:inline src="/assets/convera-growth.js" defer></script>
   </body>
 </html>

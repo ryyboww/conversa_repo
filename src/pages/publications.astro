@@ -1,18 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import SupportPanel from '../components/shared/SupportPanel.astro';
 import { publications, featuredPublication, publicationRecordHref } from '../config/publications';
 
 const archive = publications.filter((item) => item !== featuredPublication);
 ---
 <BaseLayout title="Publications" description="Publications and public-facing work from Convera Strategies and founder Ryan Brown." canonical="/publications/">
-  <header class="page-hero publications-hero">
-    <div class="container page-hero__inner">
-      <p class="eyebrow">Publications</p>
-      <h1>Ideas intended to remain in conversation.</h1>
-      <p class="lede">Publications bring together writing on institutions, law, workplace culture, public life, social change, and the questions shaping the present moment.</p>
-    </div>
-  </header>
+  <PageHero eyebrow="Publications" title="Ideas intended to remain in conversation." lede="Publications bring together writing on institutions, law, workplace culture, public life, social change, and the questions shaping the present moment." />
 
   <section class="section publication-feature" aria-labelledby="featured-publication-heading">
     <div class="container publication-feature__grid">
@@ -79,13 +74,13 @@ const archive = publications.filter((item) => item !== featuredPublication);
   <style>
     .publications-hero h1 { max-width: 12ch; }
     .publication-feature { background: var(--bg); }
-    .publication-feature__grid { display:grid;grid-template-columns:minmax(260px,.78fr) minmax(0,1.22fr);gap:clamp(2rem,6vw,6rem);align-items:center; }
-    .publication-feature__art { position:relative;min-height:420px;overflow:hidden;background:linear-gradient(160deg,rgba(5,31,43,.14),rgba(5,31,43,.68)),radial-gradient(circle at 26% 22%,#f0cc7d 0 4%,transparent 5%),linear-gradient(145deg,#d7e2df 0%,#7a9b9c 48%,#143c4a 100%); }
+    .publication-feature__grid { display:grid;grid-template-columns:minmax(260px,.78fr) minmax(0,1.22fr);gap:clamp(2rem,5vw,5rem);align-items:center; }
+    .publication-feature__art { position:relative;min-height:340px;overflow:hidden;background:linear-gradient(160deg,rgba(5,31,43,.14),rgba(5,31,43,.68)),radial-gradient(circle at 26% 22%,#f0cc7d 0 4%,transparent 5%),linear-gradient(145deg,#d7e2df 0%,#7a9b9c 48%,#143c4a 100%); }
     .publication-feature__art::before,.publication-feature__art::after { content:'';position:absolute;left:-8%;right:-8%;height:52%;background:#143d49;clip-path:polygon(0 100%,12% 58%,28% 80%,43% 44%,60% 73%,76% 36%,100% 100%); }
     .publication-feature__art::before { bottom:0;opacity:.86; }
     .publication-feature__art::after { bottom:16%;opacity:.32;transform:scale(1.15); }
     .publication-feature__art span { position:absolute;z-index:2;left:1.25rem;top:1.25rem;padding:.45rem .7rem;background:rgba(4,27,38,.78);color:#8eeaf2;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase; }
-    .publication-feature h2 { margin:.6rem 0 1rem;font-size:clamp(2.4rem,4.5vw,4.4rem);max-width:13ch; }
+    .publication-feature h2 { margin:.6rem 0 1rem;font-size:clamp(2.15rem,3.6vw,3.25rem);max-width:13ch; }
     .publication-feature .lede { margin-bottom:1rem; }
     .publication-meta { display:flex;flex-wrap:wrap;gap:.55rem 1rem;margin:1.2rem 0 1.5rem;color:var(--muted);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase; }
     .publication-archive { background:var(--surface-soft);border-block:1px solid var(--line); }
@@ -104,7 +99,7 @@ const archive = publications.filter((item) => item !== featuredPublication);
     .publication-support { background:#082b39; }
     @media(max-width:820px){
       .publication-feature__grid,.archive-heading,.transition-note__grid{grid-template-columns:1fr;}
-      .publication-feature__art{min-height:300px;}
+      .publication-feature__art{min-height:250px;}
       .archive-heading>p{justify-self:start;}
       .publication-row{grid-template-columns:44px minmax(0,1fr);}
       .publication-row__link{grid-column:2;justify-self:start;}

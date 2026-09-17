@@ -1,22 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import CommercialCTA from '../components/shared/CommercialCTA.astro';
 import { supportPaymentOptions, supportCheckout } from '../config/support';
 ---
 <BaseLayout title="Support" description="Support Convera Strategies and its publications, community engagement, public-facing work, and mission." canonical="/support/">
-  <header class="support-hero">
-    <div class="container support-hero__grid">
-      <div>
-        <p class="eyebrow">Support the Work</p>
-        <h1>Support a person, a mission, and a different way of approaching problems.</h1>
-        <p class="lede">Contributions help sustain founder-led public work, publications, community participation, and the infrastructure Convera needs to keep developing independently.</p>
-      </div>
-      <div class="support-hero__statement">
-        <span>Why it matters</span>
-        <strong>Protecting and strengthening our institutions is an investment in what comes next.</strong>
-      </div>
+  <PageHero
+    eyebrow="Support the Work"
+    title="Support a person, a mission, and a different way of approaching problems."
+    lede="Contributions help sustain founder-led public work, publications, community participation, and the infrastructure Convera needs to keep developing independently."
+    tone="dark"
+  >
+    <div slot="aside" class="support-hero__statement">
+      <span>Why it matters</span>
+      <strong>Protecting and strengthening our institutions is an investment in what comes next.</strong>
     </div>
-  </header>
+  </PageHero>
 
   <section class="section">
     <div class="container support-intro">
@@ -62,27 +61,22 @@ import { supportPaymentOptions, supportCheckout } from '../config/support';
   </section>
 
   <style>
-    .support-hero { padding:clamp(4.5rem,8vw,7.5rem) 0;color:#fff;background:linear-gradient(120deg,#062633 0%,#0a4554 62%,#176978 100%); }
-    .support-hero .eyebrow{color:#72deea;}
-    .support-hero__grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.65fr);gap:clamp(2rem,6vw,6rem);align-items:center;}
-    .support-hero h1{max-width:13ch;}
-    .support-hero .lede{margin-top:1.4rem;color:rgba(255,255,255,.82);}
-    .support-hero__statement{padding:1.6rem;border-left:2px solid #72deea;background:rgba(3,28,38,.3);}
-    .support-hero__statement span{display:block;color:#72deea;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
-    .support-hero__statement strong{display:block;margin-top:.7rem;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.8rem,2.8vw,2.6rem);font-weight:500;line-height:1.08;}
+    .support-hero__statement{padding:1.25rem 0 1.25rem 1.4rem;border-left:2px solid #72deea;}
+    .support-hero__statement span{display:block;color:#72deea;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;}
+    .support-hero__statement strong{display:block;margin-top:.65rem;color:#fff;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.55rem,2.3vw,2.1rem);font-weight:500;line-height:1.08;}
     .support-intro{max-width:820px;margin-bottom:2rem;text-align:center;}
     .support-intro h2{margin:.55rem 0 1rem;}
     .support-intro .lede{margin-inline:auto;}
     .support-options{align-items:stretch;}
     .support-option{padding:clamp(1.6rem,3vw,2.5rem);display:flex;flex-direction:column;}
-    .support-option h3{margin:.55rem 0 1rem;font-size:clamp(2rem,3vw,2.8rem);}
+    .support-option h3{margin:.55rem 0 1rem;font-size:clamp(1.8rem,2.6vw,2.35rem);}
     .support-option__amounts{margin-top:1rem;color:var(--accent);font-weight:700;}
-    .support-option .button{margin-top:auto;align-self:flex-start;position:relative;top:1.4rem;margin-bottom:1.4rem;}
+    .support-option .button{margin-top:1.25rem;align-self:flex-start;}
     .support-impact{background:var(--surface-soft);border-block:1px solid var(--line);}
     .support-impact h3{margin:.5rem 0 .7rem;}
     .support-services{background:var(--bg);}
     .support-notice{border-top:1px solid var(--line);}
     .support-notice p{max-width:72rem;color:var(--muted);font-size:.84rem;}
-    @media(max-width:860px){.support-hero__grid{grid-template-columns:1fr;}}
+    
   </style>
 </BaseLayout>

@@ -8,10 +8,12 @@ const excludedFromSitemap = [
   '/work-with-convera/thank-you/',
   '/intake/',
   '/intake/thank-you/',
+  '/follow/thank-you/',
   '/dashboard/'
 ];
 
 export default defineConfig({
+  output: 'static',
   site: 'https://converastrategies.com',
   integrations: [
     sitemap({
