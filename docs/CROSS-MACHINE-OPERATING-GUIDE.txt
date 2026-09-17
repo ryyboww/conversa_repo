@@ -6,7 +6,8 @@ Purpose
 =======
 Use GitHub as the shared handoff point between the Mac and Windows machines.
 Each machine works on its own short-lived branch. The shared branch,
-main_conversa, is kept stable and integration-ready.
+main_conversa, is kept stable and integration-ready. Device branches use the
+names macbook and window so their ownership is immediately visible.
 
 Repository
 ==========
@@ -56,14 +57,14 @@ Do not pull over uncommitted work.
 Create a task branch before editing:
 
 Mac:
-  git switch -c mac/short-task-name
+  git switch -c macbook/short-task-name
 
 Windows:
-  git switch -c windows/short-task-name
+  git switch -c window/short-task-name
 
 Use lowercase words separated by hyphens. Examples:
-  mac/update-contact-page
-  windows/fix-mobile-header
+  macbook/update-contact-page
+  window/fix-mobile-header
 
 If the task branch already exists locally, use this instead:
   git switch branch-name
@@ -91,10 +92,10 @@ NORMAL WORK CYCLE
 5. Push the task branch:
 
 Mac example:
-  git push -u origin mac/update-contact-page
+  git push -u origin macbook/update-contact-page
 
 Windows example:
-  git push -u origin windows/fix-mobile-header
+  git push -u origin window/fix-mobile-header
 
 6. Open a pull request on GitHub from the task branch into main_conversa.
 7. Wait for checks to pass and merge the pull request.

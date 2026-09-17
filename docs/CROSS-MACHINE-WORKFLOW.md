@@ -2,7 +2,8 @@
 
 Use GitHub as the handoff point between the Mac and Windows machine. Keep
 `main_conversa` integration-ready and do day-to-day work on a short-lived
-branch named for the machine and task.
+branch named for the machine and task. Use `macbook` for this Mac and `window`
+for the Windows device.
 
 ## Start of every work session
 
@@ -12,10 +13,10 @@ Run these commands from the repository root:
 git status --short --branch
 git switch main_conversa
 git pull --ff-only
-git switch -c mac/<task-name>
+git switch -c macbook/<task-name>
 ```
 
-On Windows, use `windows/<task-name>` instead of `mac/<task-name>`. If the
+On Windows, use `window/<task-name>` instead of `macbook/<task-name>`. If the
 task branch already exists, switch to it and update it from `main_conversa`
 instead of creating it again.
 
@@ -31,7 +32,7 @@ a descriptive message before switching branches.
 ```text
 git add <files>
 git commit -m "Describe the change"
-git push -u origin mac/<task-name>
+git push -u origin macbook/<task-name>
 ```
 
 4. Open a pull request into `main_conversa` and wait for checks to pass.
