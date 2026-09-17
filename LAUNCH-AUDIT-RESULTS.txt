@@ -1,12 +1,12 @@
 
-> convera-strategies@2.4.0 launch:audit
+> convera-strategies@2.56.0 launch:audit
 > npm run audit && node scripts/launch-readiness.mjs
 
 
-> convera-strategies@2.4.0 audit
+> convera-strategies@2.56.0 audit
 > node scripts/audit.mjs
 
-Convera source audit: 36 source files, 17 pages.
+Convera source audit: 53 source files, 27 pages.
 
 Audit passed: no missing relative imports or required brand assets detected.
 PASS  Founder portrait — public/images/ryan-brown.jpg

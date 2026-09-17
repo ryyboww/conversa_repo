@@ -1,0 +1,13 @@
+{
+  "version": "2.57.0",
+  "name": "Founder Identity Clarification",
+  "baseline": "2.56.0 publication workflow coherence",
+  "status": "publication-candidate",
+  "scope": [
+    "preserve the complete 2.56 publication-candidate architecture and workflow",
+    "clarify Ryan Brown's professional and academic identifiers on high-visibility founder surfaces",
+    "add M.A., Ph.D. Student, Lecturer, and Researcher identifiers without implying a conferred Ph.D.",
+    "centralize founder identifiers in site configuration for consistent reuse",
+    "preserve landing-page artwork, navigation, forms, responsive behavior, and public conversion flow"
+  ]
+}

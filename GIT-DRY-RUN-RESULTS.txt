@@ -1,0 +1,8 @@
+Convera Strategies 2.7.0 — Git dry-run results
+
+Git available: yes
+Temporary repository initialized: yes
+Branch normalized to main: yes
+Ignore rules verified: .env, .env.operations, node_modules/, dist/, .astro/, activation reports
+Candidate first-commit files: 139
+Temporary .git directory removed after test: yes

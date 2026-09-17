@@ -1,0 +1,24 @@
+
+> convera-strategies@2.56.0 verify:2.56
+> node scripts/verify-2.56.mjs
+
+PASS package version is 2.56.0
+PASS VERSION metadata is 2.56.0
+PASS Contact remains public professional entry point
+PASS Work With Convera is orientation-only
+PASS Private Intake remains noindex
+PASS Private Intake uses separate client-intake form
+PASS Form documentation names current forms
+PASS Form documentation does not restore retired work-with-convera form
+PASS Operations document preserves manual review boundary
+PASS Built-output audit verifies current workflow
+PASS Live-site audit verifies current workflow
+PASS Home Featured Publication artwork is preserved
+PASS Home Featured Essay artwork is preserved
+PASS Supplied Featured Publication artwork exists
+PASS Supplied Featured Essay artwork exists
+PASS Current framework status exists
+PASS README points to current verification script
+PASS Source freeze identifies current release
+
+18/18 2.56 checks passed.

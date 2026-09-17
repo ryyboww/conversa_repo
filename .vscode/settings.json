@@ -1,6 +1,0 @@
-{
-  "git.autofetch": true,
-  "git.autofetchPeriod": 900,
-  "git.confirmSync": false,
-  "git.enableSmartCommit": true
-}
