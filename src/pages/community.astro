@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import { site } from '../config/site';
 import SupportPanel from '../components/shared/SupportPanel.astro';
 import { communityPathways } from '../config/community';
 ---
 <BaseLayout title="Community" description="Join the Convera Strategies community by sharing observations, questions, source recommendations, and ideas." canonical="/community/">
-  <PageHero eyebrow="Community" title="Ideas deserve conversation." lede="Convera is designed to listen as well as publish. Community participation helps surface questions, records, experiences, and perspectives worth closer attention." />
+  <PageHero eyebrow="Community"
+    tagline={site.tagline} title="Conversation can sharpen the work." lede="Convera is designed to listen as well as publish. Community participation helps surface questions, records, experiences, and perspectives worth closer attention." compact />
 
   <section class="section">
     <div class="container community-grid">
@@ -22,30 +24,28 @@ import { communityPathways } from '../config/community';
   </section>
 
   <section class="section community-principle">
-    <div class="container grid-2" style="align-items:start">
-      <div>
-        <p class="eyebrow">Why Community Matters</p>
-        <h2 style="margin:.55rem 0 1rem">Different perspectives improve the questions we ask.</h2>
-      </div>
-      <div style="display:grid;gap:1rem;color:var(--muted);font-size:1.08rem">
+    <div class="container community-principle__grid">
+      <div><p class="eyebrow">Why Community Matters</p><h2>Different perspectives improve the questions we ask.</h2></div>
+      <div class="community-principle__copy">
         <p>Useful ideas often begin outside formal settings: in workplaces, conversations, public records, personal experience, and observations that seem ordinary until someone decides to examine them more closely.</p>
         <p>Community participation helps Convera remain attentive to what people are seeing, questioning, and experiencing beyond any single professional or institutional viewpoint.</p>
       </div>
     </div>
   </section>
 
-  <section class="section--tight" style="background:#082b39">
-    <div class="container"><SupportPanel compact dark /></div>
+  <section class="section--tight community-note">
+    <div class="container community-note__inner">
+      <div><p class="eyebrow">Participation</p><h2>Community begins with what people bring to the conversation.</h2></div>
+      <p>Convera’s community is defined by participation rather than affiliation. Readers, practitioners, researchers, and community members can share observations, questions, source recommendations, and ideas without needing a formal relationship with the organization.</p>
+    </div>
   </section>
 
+  <section class="section--tight" style="background:#082b39"><div class="container"><SupportPanel compact dark /></div></section>
+
   <style>
-    .community-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
-    .community-card { position:relative; min-height:255px; padding:1.7rem; display:flex; flex-direction:column; }
-    .community-card__number { position:absolute; right:1.5rem; top:1.2rem; color:color-mix(in srgb,var(--accent) 50%, transparent); font-family:"Cormorant Garamond",Georgia,serif; font-size:2.5rem; }
-    .community-card h3 { margin:.6rem 0 .8rem; }
-    .community-card p:not(.eyebrow) { color:var(--muted); }
-    .community-card a { margin-top:auto; padding-top:1.5rem; color:var(--accent); text-decoration:none; font-weight:700; }
-    .community-principle { background:var(--surface-soft); border-block:1px solid var(--line); }
-    @media(max-width:760px){ .community-grid{grid-template-columns:1fr;} }
+    .community-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.community-card{position:relative;min-height:245px;padding:1.55rem;display:flex;flex-direction:column}.community-card__number{position:absolute;right:1.35rem;top:1.1rem;color:color-mix(in srgb,var(--accent) 50%, transparent);font-family:"Cormorant Garamond",Georgia,serif;font-size:2.35rem}.community-card h3{margin:.55rem 0 .75rem}.community-card p:not(.eyebrow){color:var(--muted)}.community-card a{margin-top:auto;padding-top:1.35rem;color:var(--accent);text-decoration:none;font-weight:700}
+    .community-principle{background:var(--surface-soft);border-block:1px solid var(--line)}.community-principle__grid,.community-note__inner{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(2rem,5vw,5rem);align-items:start}.community-principle h2,.community-note h2{margin:.5rem 0 0}.community-principle__copy{display:grid;gap:1rem;color:var(--muted);font-size:1.04rem}
+    .community-note{background:var(--bg)}.community-note__inner>p{color:var(--muted);font-size:1rem}
+    @media(max-width:760px){.community-grid,.community-principle__grid,.community-note__inner{grid-template-columns:1fr}.community-card{min-height:0}}
   </style>
 </BaseLayout>

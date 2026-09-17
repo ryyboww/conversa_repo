@@ -5,13 +5,14 @@ import process from 'node:process';
 const root = process.cwd();
 const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
 const gitignore = fs.readFileSync(path.join(root, '.gitignore'), 'utf8');
+const versionMeta = JSON.parse(fs.readFileSync(path.join(root, 'VERSION.json'), 'utf8'));
 const checks = [];
 const warnings = [];
 const add = (name, ok, detail) => checks.push({ name, ok, detail });
 const exists = (rel) => fs.existsSync(path.join(root, rel));
 
 const targets = JSON.parse(fs.readFileSync(path.join(root, 'deployment-targets.json'), 'utf8'));
-add(`Release version is ${pkg.version}`, pkg.version === '2.14.0', pkg.version);
+add(`Release version is ${pkg.version}`, pkg.version === versionMeta.version, versionMeta.version);
 add('Deployment target file exists', exists('deployment-targets.json'), 'deployment-targets.json');
 add('Repository target is convera_published_codes', targets.repository === 'convera_published_codes', targets.repository);
 add('Production branch is main_conversa', targets.branch === 'main_conversa', targets.branch);

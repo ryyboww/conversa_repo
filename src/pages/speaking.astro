@@ -32,6 +32,18 @@ import PageHero from '../components/PageHero.astro';
     </div>
   </section>
 
+
+
+  <section class="section speaking-gallery" aria-labelledby="speaking-gallery-title">
+    <div class="container">
+      <div class="speaking-gallery__heading"><div><p class="eyebrow">Public Engagement</p><h2 id="speaking-gallery-title">Conversation in institutional settings.</h2></div><p class="lede">Panels, briefings, classrooms, workshops, and informal exchanges each require a different kind of presence. The emphasis remains on careful listening, clear questions, and useful discussion.</p></div>
+      <div class="speaking-gallery__grid">
+        <figure><img src="/images/editorial/speaking-conversation.jpg" alt="Ryan Brown in conversation at a public event" width="1400" height="1050" loading="lazy" /></figure>
+        <figure><img src="/images/editorial/speaking-room.jpg" alt="A speaker addressing an audience in an institutional room" width="1400" height="1050" loading="lazy" /></figure>
+      </div>
+    </div>
+  </section>
+
   <section class="section speaking-formats">
     <div class="container grid-2">
       <div>
@@ -53,9 +65,16 @@ import PageHero from '../components/PageHero.astro';
     .speaking-note p:last-child{margin-top:.55rem;color:var(--muted);font-size:.92rem;}
     .topic-grid article{padding:1.5rem;min-height:220px;}
     .topic-grid p{margin-top:.65rem;color:var(--muted);}
+    .speaking-gallery{background:var(--bg);border-top:1px solid var(--line);}
+    .speaking-gallery__heading{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:2rem;align-items:end;margin-bottom:1.4rem;}
+    .speaking-gallery__heading h2{margin:.45rem 0 0;}
+    .speaking-gallery__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;}
+    .speaking-gallery__grid figure{margin:0;overflow:hidden;border-radius:12px;background:var(--surface-soft);}
+    .speaking-gallery__grid img{width:100%;aspect-ratio:16/9;object-fit:cover;}
     .speaking-formats{background:var(--surface-soft);border-block:1px solid var(--line);}
     .speaking-formats h2{margin:.45rem 0 .8rem;}
     .speaking-list{margin:0;padding-left:1.2rem;display:grid;gap:.6rem;color:var(--muted);}
     .speaking-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.2rem;}
+    @media(max-width:760px){.speaking-gallery__heading,.speaking-gallery__grid{grid-template-columns:1fr;}}
   </style>
 </BaseLayout>

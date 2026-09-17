@@ -10,13 +10,13 @@ export const inquiryOptions: InquiryOption[] = [
     id: 'professional',
     label: 'Prospective professional engagement',
     subject: 'Prospective professional engagement',
-    message: 'I would like to discuss the following challenge or project:\n\n'
+    message: 'I would like to discuss the following project or question:\n\n'
   },
   {
     id: 'organizational-strategy',
     label: 'Organizational strategy',
     subject: 'Organizational strategy inquiry',
-    message: 'I would like to discuss the following organizational challenge:\n\n'
+    message: 'I would like to discuss the following organizational question or priority:\n\n'
   },
   {
     id: 'workplace-culture',
@@ -28,7 +28,7 @@ export const inquiryOptions: InquiryOption[] = [
     id: 'social-perspectives',
     label: 'Social perspectives or contextual analysis',
     subject: 'Social perspectives inquiry',
-    message: 'I would like to discuss the following question or challenge in broader context:\n\n'
+    message: 'I would like to discuss the following question in broader context:\n\n'
   },
   {
     id: 'community-observation',

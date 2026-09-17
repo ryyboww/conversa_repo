@@ -50,20 +50,20 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
   }
 
   .header-inner {
-    width: min(calc(100% - 48px), 1280px);
+    width: min(calc(100% - var(--page-gutter) - var(--page-gutter)), 1280px);
     min-height: 88px;
     margin-inline: auto;
     display: grid;
-    grid-template-columns: minmax(240px, 290px) 1fr auto;
+    grid-template-columns: minmax(180px, clamp(190px, 18vw, 270px)) minmax(0, 1fr) auto;
     align-items: center;
-    gap: clamp(20px, 2.6vw, 42px);
+    gap: clamp(10px, 2vw, 34px);
     padding: 10px 0 15px;
   }
 
   .site-brand {
     display: flex;
     align-items: center;
-    width: min(100%, 270px);
+    width: min(100%, clamp(190px, 18vw, 270px));
     min-width: 0;
     text-decoration: none;
     opacity: 1;
@@ -91,7 +91,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: clamp(15px, 1.65vw, 26px);
+    gap: clamp(8px, 1.25vw, 22px);
     min-width: 0;
   }
 
@@ -102,7 +102,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     min-height: 44px;
     color: #0a3448;
     text-decoration: none;
-    font-size: 0.82rem;
+    font-size: clamp(.70rem, .78vw, .82rem);
     font-weight: 600;
     white-space: nowrap;
   }
@@ -176,14 +176,14 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
   }
   :global(:root[data-theme='dark']) .desktop-nav a { color: #eef7f8; }
 
-  @media (max-width: 1080px) {
+  @media (max-width: 820px) {
     .header-inner { grid-template-columns: minmax(220px, 1fr) auto; }
     .desktop-nav { display: none; }
     .header-tools { gap: 5px; }
     .mobile-menu { display: block; }
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 560px) {
     .header-inner {
       width: min(calc(100% - 28px), 1280px);
       min-height: 76px;

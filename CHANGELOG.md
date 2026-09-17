@@ -1,3 +1,63 @@
+## 2.41.0 — Fluid Desktop & Client Range
+
+- Added the approved brand tagline **People are what we do.** to the shared site configuration and key public page heroes; recorded it for future stationery and print-brand work.
+- Reworked desktop responsiveness so typography, gutters, navigation, hero proportions, and major grids scale fluidly with the browser rather than jumping through multiple intermediate layouts.
+- Standardized the intentional mobile breakpoint at 820px across the principal public layouts; mobile remains a separate stacked experience.
+- Matched the second Home feature row to the Featured Publication/Support row using the same two-column grid, image/text proportions, spacing, and card alignment.
+- Removed the old hard divider from the featured-publication copy and replaced the secondary feature split with normal inter-card spacing.
+- Enlarged Areas of Inquiry with more vertical presence, larger icons, larger labels, and broader service language including policing and courts.
+- Added a balanced Services client-setting section covering Workplaces & Organizations, Policing & Public Safety, Courts & Justice Institutions, and Public & Community Institutions.
+- Added public-domain provenance documentation for the policing/public-safety image and preserved no-referrer loading for the remote source.
+- Preserved the 2.40 publication/blog architecture, public/private workflow boundaries, sitewide reveal behavior, and compact footer/header brand controls.
+
+## 2.40.0 — Publication Rhythm & Content Coherence
+
+- Tightened shared section and page-hero spacing so interior pages better match the compact editorial rhythm established on Home.
+- Reduced Publications and Essays & Notes card height while preserving readable body copy.
+- Increased the primary homepage button label slightly for better legibility.
+- Replaced design-process language on Community with publication-ready participation language.
+- Added FAQPage structured data to the Work With Convera Q&A without changing the visible content.
+- Preserved the 2.39 information architecture, founder/profile separation, blog readiness rules, sitewide reveal behavior, and public/private workflow boundaries.
+
+# 2.39.0 — Editorial Polish & Archive Readiness
+
+- Compact publication and essay archives.
+- Editorial imagery for public-ready essays.
+- Dense archive hero mode.
+- Refined sitewide reveal behavior.
+- Incomplete legacy essays preserved as drafts rather than publicly exposed.
+- Softer shared card geometry and refined About imagery.
+
+## 2.38.0 — Editorial Expansion, Profile & Compact Publications
+
+- Added a second compact Home feature pairing a selected essay with a people-in-conversation image without disrupting the existing homepage sequence.
+- Rebuilt Publications as a compact three-column archive with shorter image and text blocks so multiple records remain visible within a desktop viewport.
+- Expanded the formal publication archive to four records and normalized publication-specific legal/institutional imagery.
+- Reframed About around Convera as a company, moved fellowship/public-engagement photography out of Community, and placed the founder bridge at the bottom.
+- Added a separate founder Profile page focused on experience, vision, institutional work, research, teaching, and public life.
+- Removed the fellowship photo gallery from Community so professional fellowship imagery is no longer presented as community representation.
+- Added a Work With Convera Questions & Answers section and replaced unnecessary “challenge” framing with project/question/context language.
+- Added a Blog / Essays & Notes archive and migrated five completed public-ready essays from the prior Ryan Brown site while leaving unfinished drafts unpublished.
+- Added the founder CV as a downloadable Profile resource and preserved the shared 2.37 sitewide reveal/motion system.
+
+## 2.37.0 — Shared Motion, Hero Fade & Publication Image System
+
+- Added one restrained sitewide reveal system with reduced-motion fallback rather than page-specific scroll behavior.
+- Updated Home to use the blue-suit founder portrait with a softened edge/fade treatment and modestly larger supporting typography.
+- Preserved equal Areas of Inquiry distribution from 2.36.
+- Added normalized 16:9 editorial images to every publication record and rebuilt the Publications page around consistent image sizing and card geometry.
+- Added publication imagery to individual publication record heroes.
+- Added selected founder, community, service, and public-engagement photography across About, Community, Speaking, and Press Kit.
+- Reused suitable editorial image assets from the prior Ryan Brown site only as reference-derived media; prior-site architecture remains excluded.
+
+## 2.36.0 — Hero Softening & Inquiry Grid Balance
+
+- Softened the homepage founder portrait with restrained 18px corners and balanced vertical breathing room.
+- Kept public presentation static; no new scroll-driven animation or page-specific sticky behavior was introduced.
+- Rebuilt Areas of Inquiry as three equal-width cells with even padding, subtle dividers, and a single shared container.
+- Added stacked mobile separators so the inquiry section retains the same visual logic at narrow widths.
+- Preserved the 2.35 shared public-page architecture and global sticky header.
+
 ## 2.35.1 — Typecheck & Consolidation Hotfix
 
 - Fixed malformed multiline inquiry message strings in `src/config/inquiries.ts`.

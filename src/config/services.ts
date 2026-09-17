@@ -83,7 +83,7 @@ export const starterEngagements = [
 export const engagementProcess = [
   {
     step: '01',
-    title: 'Start with the challenge',
+    title: 'Start with the question',
     description:
       'Share the problem, question, or organizational concern as you currently understand it. You do not need a finished diagnosis before reaching out.'
   },
@@ -103,6 +103,6 @@ export const engagementProcess = [
     step: '04',
     title: 'Leave with direction',
     description:
-      'The goal is a clearer understanding of the challenge and useful next steps—not unnecessary complexity or an open-ended engagement.'
+      'The goal is a clearer understanding of the question and useful next steps—not unnecessary complexity or an open-ended engagement.'
   }
 ] as const;

@@ -6,7 +6,7 @@ export const engagementOptions = [
 ] as const;
 
 export const engagementFit = [
-  'You have a challenge, decision, communication issue, or organizational question that needs clearer framing.',
+  'You have a project, decision, communication issue, or organizational question that needs clearer framing.',
   'You want focused outside perspective without committing to a large consulting engagement.',
   'You value practical direction grounded in people, context, institutions, and available evidence.',
   'You are open to beginning with a defined scope and adjusting only when the work justifies it.'

@@ -10,9 +10,27 @@ export type Publication = {
   readMinutes: number;
   featured?: boolean;
   external?: boolean;
+  image: string;
+  imageAlt: string;
+  imagePosition?: string;
 };
 
 export const publications: Publication[] = [
+  {
+    slug: 'types-of-appellate-review-and-harmlessness',
+    title: 'Types of Appellate Review and the “Harmlessness” of Prosecutorial Misconduct in New Jersey',
+    description: 'An examination of preserved and unpreserved prosecutorial error, harmlessness review, and the standards appellate courts use when evaluating prosecutorial misconduct.',
+    date: '2025-03-20',
+    category: 'Law, Justice & Public Authority',
+    href: 'https://policylab.rutgers.edu/publication/types-of-appellate-review-and-the-harmlessness-of-prosecutorial-misconduct-in-new-jersey/',
+    authors: ['Elizabeth Griffiths', 'Heather L. Scheuerman', 'Ryan Brown'],
+    publisher: 'New Jersey State Policy Lab',
+    readMinutes: 12,
+    external: true,
+    image: '/images/publications/publication-types-review.jpg',
+    imageAlt: 'Editorial image of courthouse columns representing appellate review',
+    imagePosition: 'center'
+  },
   {
     slug: 'an-objective-strategy',
     title: 'An Objective Strategy: Weighing Trial Objections in Appellate Review of Plain Error Cases',
@@ -24,7 +42,10 @@ export const publications: Publication[] = [
     publisher: 'New Jersey State Policy Lab',
     readMinutes: 10,
     featured: true,
-    external: true
+    external: true,
+    image: '/images/publications/publication-objective-strategy.jpg',
+    imageAlt: 'Editorial image of light and shadow across an institutional interior',
+    imagePosition: 'center'
   },
   {
     slug: 'prosecutorial-errors-harmless-vs-not',
@@ -36,7 +57,10 @@ export const publications: Publication[] = [
     authors: ['Heather L. Scheuerman', 'Ryan Brown', 'Elizabeth Griffiths'],
     publisher: 'New Jersey State Policy Lab',
     readMinutes: 8,
-    external: true
+    external: true,
+    image: '/images/publications/publication-prosecutorial-errors.jpg',
+    imageAlt: 'Editorial image of courthouse columns representing judicial review',
+    imagePosition: 'center'
   },
   {
     slug: 'appellate-court-policing-prosecutorial-misconduct',
@@ -48,7 +72,10 @@ export const publications: Publication[] = [
     authors: ['Elizabeth Griffiths', 'Heather L. Scheuerman', 'Ryan Brown'],
     publisher: 'New Jersey State Policy Lab',
     readMinutes: 7,
-    external: true
+    external: true,
+    image: '/images/publications/publication-appellate-court.jpg',
+    imageAlt: 'Editorial image of a legal reading room representing appellate review',
+    imagePosition: 'center'
   }
 ];
 

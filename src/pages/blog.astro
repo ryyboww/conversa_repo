@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => data.status === 'published' && !data.draft && data.access === 'public'))
+  .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+const postHref = (id: string) => `/blog/${id.replace(/\.mdx?$/i, '')}/`;
+---
+<BaseLayout title="Essays & Notes" description="Essays and public writing from Ryan Brown and Convera Strategies on institutions, trust, public life, technology, and social change." canonical="/blog/">
+  <PageHero eyebrow="Essays & Notes" title="Longer arguments. Developing ideas. Public questions." lede="An editorial archive for essays and research notes that sit alongside Convera’s formal publication record." dense />
+
+  <section class="section blog-index" aria-labelledby="blog-index-title">
+    <div class="container">
+      <div class="blog-index__heading"><div><p class="eyebrow">Archive</p><h2 id="blog-index-title">Selected public writing.</h2></div><p class="muted">Only completed pieces are shown here. Earlier working drafts remain preserved in the source archive until they are ready for public release.</p></div>
+      <div class="blog-grid">
+        {posts.map((post) => (
+          <article class="blog-card card">
+            {post.data.image && <a class="blog-card__image" href={postHref(post.id)} aria-label={`Read ${post.data.title}`}><img src={post.data.image} alt={post.data.imageAlt ?? ''} width="1200" height="675" loading="lazy" style={`object-position:${post.data.imagePosition ?? 'center'}`} /></a>}
+            <div class="blog-card__body">
+              <p class="eyebrow">{post.data.category}</p>
+              <h3><a href={postHref(post.id)}>{post.data.title}</a></h3>
+              <p class="blog-card__description">{post.data.description}</p>
+              <div class="blog-card__footer"><span>{post.data.publishedDate.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'})}</span><a href={postHref(post.id)}>Read essay →</a></div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .blog-index{padding:clamp(1.7rem,3vw,2.8rem) 0 3rem;background:var(--surface-soft);border-top:1px solid var(--line)}
+    .blog-index__heading{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:1.7rem;align-items:end;margin-bottom:1rem}.blog-index__heading h2{margin:.35rem 0 0;font-size:clamp(1.75rem,2.6vw,2.35rem)}.blog-index__heading>p{max-width:48rem;justify-self:end;font-size:.88rem;line-height:1.45}
+    .blog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.82rem}.blog-card{display:grid;grid-template-columns:154px minmax(0,1fr);min-height:166px;overflow:hidden;border-radius:10px;background:var(--surface)}.blog-card__image{min-height:166px;overflow:hidden;background:var(--surface-strong)}.blog-card__image img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(.97);transition:transform 220ms ease}.blog-card:hover .blog-card__image img{transform:scale(1.018)}
+    .blog-card__body{min-width:0;display:flex;flex-direction:column;padding:.95rem 1rem .85rem}.blog-card__body>.eyebrow{font-size:.58rem;letter-spacing:.16em}.blog-card h3{margin:.42rem 0 .52rem;font-size:clamp(1.18rem,1.6vw,1.48rem);line-height:1.05}.blog-card h3 a{text-decoration:none}.blog-card h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.16em}.blog-card__description{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3;color:var(--muted);font-size:.82rem;line-height:1.4}.blog-card__footer{display:flex;justify-content:space-between;gap:1rem;margin-top:auto;padding-top:.7rem;color:var(--muted);font-size:.67rem;border-top:1px solid var(--line)}.blog-card__footer a{color:var(--accent);font-weight:700;text-decoration:none}
+    @media(max-width:820px){.blog-index__heading,.blog-grid{grid-template-columns:1fr}.blog-index__heading>p{justify-self:start}.blog-card{grid-template-columns:148px minmax(0,1fr)}}
+    @media(max-width:560px){.blog-card{grid-template-columns:112px minmax(0,1fr);min-height:154px}.blog-card__image{min-height:154px}.blog-card__body{padding:.75rem .8rem}.blog-card h3{font-size:1.08rem}.blog-card__description{display:none}}
+    @media(prefers-reduced-motion:reduce){.blog-card__image img{transition:none}.blog-card:hover .blog-card__image img{transform:none}}
+  </style>
+</BaseLayout>

@@ -2,10 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site, founderQuote } from '../config/site';
 import { featuredPublication, publicationRecordHref } from '../config/publications';
+import { getCollection } from 'astro:content';
 import '../styles/home.css';
 
+const essays = await getCollection('blog', ({ data }) => data.status === 'published' && !data.draft && data.access === 'public');
+const secondFeature = essays.find((entry) => entry.data.title.startsWith('Talk Is Cheap')) ?? essays.find((entry) => entry.data.featured) ?? essays[0];
+const essayHref = secondFeature ? `/blog/${secondFeature.id.replace(/\.mdx?$/i, '')}/` : '/blog/';
+
 const inquiryAreas = [
-  { title: 'Social Perspectives', terms: 'Institutions · Communities · Public Life', href: '/services/#social-perspectives', icon: 'globe' },
+  { title: 'Social Perspectives', terms: 'Institutions · Policing · Courts · Public Life', href: '/services/#social-perspectives', icon: 'globe' },
   { title: 'Workplace Culture', terms: 'People · Communication · Trust', href: '/services/#workplace-culture', icon: 'people' },
   { title: 'Organizational Strategy', terms: 'Direction · Performance · Sustainable Growth', href: '/services/#organizational-strategy', icon: 'compass' }
 ] as const;
@@ -15,10 +20,11 @@ const inquiryAreas = [
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-shell home-hero__grid">
         <div class="home-hero__copy">
-          <h1 id="home-title">People. Perspective.<br />A More Resilient Tomorrow.</h1>
+          <p class="home-tagline">{site.tagline}</p>
+          <h1 id="home-title"><span>People. Perspective.</span><span>A More Resilient Tomorrow.</span></h1>
           <span class="home-rule" aria-hidden="true"></span>
           <p>
-            Convera Strategies helps people and organizations navigate complex challenges, strengthen workplace culture, and protect the institutions that make a healthier, more hopeful future possible.
+            Convera Strategies helps people and organizations navigate complex questions, strengthen workplace culture, and protect the institutions that make a healthier, more hopeful future possible.
           </p>
           <div class="home-hero__actions">
             <a class="home-button home-button--primary" href="/mission/">Explore Our Mission <span aria-hidden="true">→</span></a>
@@ -27,7 +33,7 @@ const inquiryAreas = [
         </div>
 
         <div class="home-hero__portrait">
-          <img src="/images/ryan-brown.jpg" alt="Ryan Brown, founder of Convera Strategies" width="1536" height="1024" loading="eager" fetchpriority="high" />
+          <img src="/images/ryan-brown-hero.jpg" alt="Ryan Brown, founder of Convera Strategies" width="1535" height="1024" loading="eager" fetchpriority="high" />
         </div>
 
         <div class="home-hero__quote">
@@ -45,11 +51,8 @@ const inquiryAreas = [
         <article class="home-featured-publication">
           <div class="home-kicker-row"><p class="home-kicker">Featured Publication</p><span aria-hidden="true"></span></div>
           <div class="home-publication-grid">
-            <div class="home-publication-art" aria-hidden="true">
-              <span class="home-publication-sun"></span>
-              <span class="home-publication-ridge home-publication-ridge--one"></span>
-              <span class="home-publication-ridge home-publication-ridge--two"></span>
-              <span class="home-publication-ridge home-publication-ridge--three"></span>
+            <div class="home-publication-art">
+              <img src={featuredPublication.image} alt={featuredPublication.imageAlt} width="1200" height="675" loading="lazy" />
             </div>
             <div class="home-publication-copy">
               <h2>{featuredPublication.title}</h2>
@@ -71,6 +74,30 @@ const inquiryAreas = [
         </aside>
       </div>
     </section>
+
+    {secondFeature && (
+      <section class="home-feature-band home-feature-band--secondary" aria-label="Featured essay and people in conversation">
+        <div class="home-shell home-feature-grid">
+          <article class="home-featured-publication">
+            <div class="home-kicker-row"><p class="home-kicker">Featured Essay</p><span aria-hidden="true"></span></div>
+            <div class="home-publication-grid">
+              <div class="home-publication-art">
+                <img src={secondFeature.data.image ?? '/images/blog/talk-is-cheap.jpg'} alt={secondFeature.data.imageAlt ?? 'Editorial image representing trust and connection'} width="1200" height="675" loading="lazy" style={`object-position:${secondFeature.data.imagePosition ?? 'center'}`} />
+              </div>
+              <div class="home-publication-copy">
+                <h2>{secondFeature.data.title}</h2>
+                <p>{secondFeature.data.description}</p>
+                <a href={essayHref}>Read the Essay <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+          <figure class="home-people-card">
+            <img src="/images/editorial/people-connection.jpg" alt="People gathered for conversation in an institutional setting" width="1600" height="960" loading="lazy" />
+            <figcaption><strong>People are what we do.</strong><span>Conversation · Connection · Public Life</span></figcaption>
+          </figure>
+        </div>
+      </section>
+    )}
 
     <section class="home-inquiry-band" aria-labelledby="inquiry-title">
       <div class="home-shell">

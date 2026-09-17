@@ -14,7 +14,7 @@ const checks = [
   ['Brand logo (light)', fs.existsSync(path.join(root,'public/brand/convera-logo-light-bg.png')), 'public/brand/convera-logo-light-bg.png'],
   ['Brand logo (dark)', fs.existsSync(path.join(root,'public/brand/convera-logo-dark-bg.png')), 'public/brand/convera-logo-dark-bg.png'],
   ['Professional services page', fs.existsSync(path.join(root,'src/pages/work-with-convera.astro')), 'src/pages/work-with-convera.astro'],
-  ['Direct client intake page', fs.existsSync(path.join(root,'src/pages/intake.astro')), 'src/pages/intake.astro'],
+  ['Private client intake page', fs.existsSync(path.join(root,'src/pages/intake.astro')), 'src/pages/intake.astro'],
   ['Client dashboard shell', fs.existsSync(path.join(root,'src/pages/dashboard.astro')), 'src/pages/dashboard.astro'],
   ['Netlify configuration', fs.existsSync(path.join(root,'netlify.toml')), 'netlify.toml'],
 ];

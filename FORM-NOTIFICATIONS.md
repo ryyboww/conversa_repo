@@ -6,7 +6,7 @@ Convera uses separate form pathways so general correspondence and prospective-cl
 
 - `website-contact` — general website/community correspondence
 - `work-with-convera` — detailed professional inquiry
-- `client-intake` — direct shareable prospective-client intake at `/intake/`
+- `client-intake` — private invitation-based project intake at `/intake/` (no public site link)
 - `convera-newsletter` — preserved behind its feature flag; disabled for launch unless intentionally activated
 
 ## Recommended notification routing

@@ -11,7 +11,8 @@ const issues = [];
 const checks = [];
 const add = (name, ok, detail) => checks.push({ name, ok, detail });
 
-add('Release version is 2.35.1', pkg.version === '2.35.1', pkg.version);
+const releaseVersion = JSON.parse(fs.readFileSync(path.join(root, 'VERSION.json'), 'utf8')).version;
+add('Release version matches VERSION metadata', pkg.version === releaseVersion, pkg.version);
 add('Node version is pinned for local work', fs.existsSync(path.join(root, '.nvmrc')), '.nvmrc');
 add('Node version is pinned for alternate managers', fs.existsSync(path.join(root, '.node-version')), '.node-version');
 add('Supported Node range is declared', typeof pkg.engines?.node === 'string', pkg.engines?.node ?? 'missing');
@@ -58,9 +59,10 @@ add('Production branch target is main_conversa', targets.branch === 'main_conver
 add('GitHub verification workflow targets main_conversa', /branches:\s*\[main_conversa\]/.test(workflow), '.github/workflows/site-verification.yml');
 add('Source readiness alias exists', Boolean(pkg.scripts?.['ready:source']), 'npm run ready:source');
 add('Strict readiness alias exists', Boolean(pkg.scripts?.['ready:strict']), 'npm run ready:strict');
-add('Direct client intake route exists', fs.existsSync(path.join(root, 'src/pages/intake.astro')), '/intake/');
+add('Private client intake route exists', fs.existsSync(path.join(root, 'src/pages/intake.astro')), '/intake/');
 add('Client dashboard shell exists', fs.existsSync(path.join(root, 'src/pages/dashboard.astro')), '/dashboard/');
-add('Homepage uses static editorial composition', !fs.existsSync(path.join(root, 'src/components/home/ScrollExperience.astro')), 'ScrollExperience.astro intentionally absent');
+add('Homepage avoids legacy scroll-experience component', !fs.existsSync(path.join(root, 'src/components/home/ScrollExperience.astro')), 'shared reveal system replaces page-specific scroll architecture');
+add('Shared public motion asset exists', fs.existsSync(path.join(root, 'public/assets/convera-motion.js')), 'public/assets/convera-motion.js');
 add('Approved homepage mockup retained as design reference', fs.existsSync(path.join(root, 'design-reference/approved-homepage-high-ui-mockup.png')), 'design-reference');
 
 for (const check of checks) if (!check.ok) issues.push(`${check.name}: ${check.detail}`);

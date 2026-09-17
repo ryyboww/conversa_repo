@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<BaseLayout title="Ryan Brown · Founder Profile" description="Ryan Brown's founder profile: experience, public service, research, teaching, vision, and the perspective behind Convera Strategies." canonical="/profile/">
+  <PageHero eyebrow="Founder Profile" title="Experience across service, institutions, research, and public life." lede="Ryan Brown’s work is shaped by a long path through service occupations, military and law-enforcement experience, academic research, teaching, public institutions, and the everyday relationships through which organizations become real." compact>
+    <aside slot="aside" class="profile-hero-image"><img src="/images/ryan-brown-profile.jpg" alt="Portrait of Ryan Brown" width="1536" height="1024" loading="eager" fetchpriority="high" /></aside>
+    <div slot="actions"><a class="button button--primary" href="/downloads/ryan-brown-cv.pdf" download>Download CV</a><a class="button button--ghost" href="/contact/">Contact Ryan</a></div>
+  </PageHero>
+
+  <section class="section profile-opening" aria-labelledby="profile-opening-title">
+    <div class="container profile-opening__grid">
+      <div><p class="eyebrow">The Path</p><h2 id="profile-opening-title">Service came before scholarship.</h2></div>
+      <div class="profile-opening__copy">
+        <p>Long before Convera existed, Ryan’s work placed him inside organizations where responsibility, trust, authority, service, conflict, and dependence were not abstract concepts. They were part of daily life.</p>
+        <p>Academic research later provided additional language and methods for examining patterns already visible across workplaces, public institutions, law, and ordinary human relationships. Convera grows from the effort to keep those worlds in conversation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section profile-experience" aria-labelledby="profile-experience-title">
+    <div class="container">
+      <div class="section-intro"><p class="eyebrow">Experience</p><h2 id="profile-experience-title">Different settings. Recurring questions.</h2></div>
+      <div class="profile-experience__grid">
+        <article class="card"><span>01</span><h3>Service & Workplace Life</h3><p>Years in public-facing and service roles shaped attention to supervision, trust, communication, responsibility, and the ordinary dynamics through which workplace culture develops.</p></article>
+        <article class="card"><span>02</span><h3>Military & Law Enforcement</h3><p>Experience in structured institutions deepened attention to authority, discretion, organizational identity, public responsibility, and the distance that can exist between formal rules and lived practice.</p></article>
+        <article class="card"><span>03</span><h3>Research & Teaching</h3><p>Graduate research and classroom experience added systematic methods for examining courts, policing, institutional narratives, public records, social theory, and the interpretation of contested events.</p></article>
+        <article class="card"><span>04</span><h3>Public & Institutional Engagement</h3><p>Fellowship, county research, public events, and collaboration across institutional settings continue to expand the perspective Convera brings to organizational and public questions.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section profile-vision" aria-labelledby="profile-vision-title">
+    <div class="container profile-vision__grid">
+      <div><p class="eyebrow">Vision</p><h2 id="profile-vision-title">A wider field of view can change the quality of a decision.</h2></div>
+      <div class="profile-vision__principles">
+        <div><strong>Institutions matter.</strong><p>People depend on institutions for order, opportunity, recognition, protection, and coordination. Their strength deserves serious attention.</p></div>
+        <div><strong>People are not abstractions.</strong><p>Organizational decisions eventually become lived experiences. Strategy is stronger when it remains attentive to the people who carry it out and live with its consequences.</p></div>
+        <div><strong>Perspective should precede prescription.</strong><p>Useful advice begins with understanding context, relationships, incentives, language, history, and evidence before recommending action.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section profile-gallery" aria-labelledby="profile-gallery-title">
+    <div class="container">
+      <div class="profile-gallery__heading"><div><p class="eyebrow">Across Settings</p><h2 id="profile-gallery-title">Work, public life, and institutional experience.</h2></div><p class="muted">The photographs below are not a résumé. They are a visual record of some of the environments from which the questions behind Convera developed.</p></div>
+      <div class="profile-gallery__grid">
+        <figure><img src="/images/editorial/profile-service.jpg" alt="Ryan Brown in a hospitality setting" width="1400" height="927" loading="lazy" /><figcaption>Service and workplace experience</figcaption></figure>
+        <figure><img src="/images/editorial/profile-public-service.jpg" alt="Ryan Brown at a public-institution event" width="1100" height="1500" loading="lazy" /><figcaption>Public and institutional engagement</figcaption></figure>
+        <figure><img src="/images/editorial/speaking-conversation.jpg" alt="People in conversation at an institutional event" width="1400" height="1050" loading="lazy" /><figcaption>Conversation across professional settings</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section profile-scholarship" aria-labelledby="profile-scholarship-title">
+    <div class="container profile-scholarship__grid">
+      <div><p class="eyebrow">Research & Public Work</p><h2 id="profile-scholarship-title">Scholarship remains connected to public responsibility.</h2></div>
+      <div class="profile-scholarship__copy">
+        <p>Ryan is a doctoral researcher in Criminal Justice at Rutgers University–Newark. His work examines institutions, courts, policing, public authority, institutional narratives, trust, and the social conditions through which legitimacy is sustained or weakened.</p>
+        <p>His public writing extends those questions into broader discussions of technology, social cohesion, workplace life, civic responsibility, and the relationship between institutions and the people who depend upon them.</p>
+        <div class="profile-scholarship__actions"><a class="button button--ghost" href="/publications/">View Publications →</a><a class="button button--ghost" href="/blog/">Read Essays & Notes →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight profile-closing">
+    <div class="container profile-closing__inner"><div><p class="eyebrow">Why Convera</p><h2>Bring lived experience, research, and organizational perspective into the same room.</h2></div><div><a class="button button--light" href="/about/">About Convera →</a><a class="button button--light" href="/work-with-convera/">Work With Convera →</a></div></div>
+  </section>
+
+  <style>
+    .profile-hero-image{margin:0;max-width:430px;overflow:hidden;border-radius:18px;box-shadow:var(--shadow)}.profile-hero-image img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 38%}
+    .profile-opening__grid,.profile-vision__grid,.profile-scholarship__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,5vw,5rem);align-items:start}.profile-opening h2,.profile-vision h2,.profile-scholarship h2{margin:.5rem 0 0}.profile-opening__copy,.profile-scholarship__copy{display:grid;gap:1rem;color:var(--muted);font-size:1.04rem}
+    .profile-experience{background:var(--surface-soft);border-block:1px solid var(--line)}.profile-experience__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.profile-experience article{padding:1.4rem}.profile-experience article>span{color:var(--accent);font-size:.7rem;font-weight:700;letter-spacing:.16em}.profile-experience h3{margin:.55rem 0 .7rem}.profile-experience p{color:var(--muted);font-size:.94rem}
+    .profile-vision__principles{display:grid;gap:1rem}.profile-vision__principles>div{padding-bottom:1rem;border-bottom:1px solid var(--line)}.profile-vision__principles strong{display:block;margin-bottom:.3rem;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.55rem;font-weight:500}.profile-vision__principles p{color:var(--muted)}
+    .profile-gallery{background:var(--surface-soft);border-block:1px solid var(--line)}.profile-gallery__heading{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:2rem;align-items:end;margin-bottom:1.2rem}.profile-gallery__heading h2{margin:.5rem 0 0}.profile-gallery__grid{display:grid;grid-template-columns:1.1fr .7fr 1.1fr;gap:1rem;align-items:stretch}.profile-gallery figure{position:relative;margin:0;overflow:hidden;border-radius:12px;background:var(--surface)}.profile-gallery img{width:100%;height:100%;min-height:260px;object-fit:cover}.profile-gallery figure:nth-child(1) img{object-position:center}.profile-gallery figure:nth-child(2) img{object-position:center 22%}.profile-gallery figure:nth-child(3) img{object-position:center}.profile-gallery figcaption{position:absolute;left:.7rem;bottom:.7rem;padding:.38rem .52rem;background:rgba(5,37,50,.8);color:#fff;font-size:.68rem}
+    .profile-scholarship__actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}.profile-closing{color:#fff;background:linear-gradient(120deg,#082c3b,#0d5262)}.profile-closing .eyebrow{color:#72deea}.profile-closing__inner{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}.profile-closing h2{margin:.45rem 0 0;max-width:26ch;font-size:clamp(1.9rem,3vw,2.7rem)}.profile-closing__inner>div:last-child{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:flex-end}
+    @media(max-width:820px){.profile-opening__grid,.profile-vision__grid,.profile-scholarship__grid,.profile-gallery__heading,.profile-closing__inner{grid-template-columns:1fr}.profile-experience__grid{grid-template-columns:1fr}.profile-gallery__grid{grid-template-columns:1fr 1fr}.profile-gallery figure:nth-child(3){grid-column:1/-1}.profile-closing__inner>div:last-child{justify-content:flex-start}}
+    @media(max-width:600px){.profile-gallery__grid{grid-template-columns:1fr}.profile-gallery figure:nth-child(3){grid-column:auto}.profile-gallery img{min-height:220px}}
+  </style>
+</BaseLayout>

@@ -3,7 +3,7 @@
 **Production repository:** `convera_published_codes`  
 **Production branch:** `main_conversa`
 
-This release keeps the approved homepage composition while adding restrained high-UI scrolling, a direct client intake page, complete branded-email routing, and a safe dashboard foundation.
+This release preserves the approved compact editorial system, shared sitewide reveal behavior, branded-email routing, and private project infrastructure. Professional inquiries begin through Contact; the Intake route remains private/noindex and is used only after manual review and invitation.
 
 ## 1. Verify the Astro site on an internet-connected computer
 

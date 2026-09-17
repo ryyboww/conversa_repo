@@ -71,7 +71,7 @@ if (exists('work-with-convera/index.html')) {
 
 if (exists('intake/index.html')) {
   const clientIntake = read('intake/index.html');
-  add('Built direct client intake retains Netlify marker', /name=["']form-name["'][^>]+value=["']client-intake["']|data-netlify=["']true["']/i.test(clientIntake), 'client-intake');
+  add('Built private client intake retains Netlify marker', /name=["']form-name["'][^>]+value=["']client-intake["']|data-netlify=["']true["']/i.test(clientIntake), 'client-intake');
   add('Direct intake remains noindex', /<meta[^>]+name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(clientIntake), 'noindex, nofollow');
 }
 if (exists('dashboard/index.html')) {

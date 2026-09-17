@@ -1,16 +1,13 @@
 {
-  "version": "2.35.0",
-  "name": "Site-Wide Visual Consistency & Public Page Consolidation",
-  "baseline": "2.34.0 full-source homepage recovery",
+  "version": "2.41.0",
+  "name": "Fluid Desktop & Client Range",
+  "baseline": "2.40.0 publication rhythm and content coherence",
   "status": "publication-candidate",
   "scope": [
-    "shared PageHero system across public-facing Astro pages",
-    "consistent outer grid, heading scale, section rhythm, and responsive behavior",
-    "single sticky global header with no page-specific sticky content",
-    "new founder portrait on Home, About, and Press Kit",
-    "Speaking, Press Kit, and Follow the Work migrated from standalone public HTML into shared Astro layout",
-    "public professional inquiries route through Contact before private Intake",
-    "session attribution and public-journey event scripts loaded from the shared layout",
-    "privacy disclosure updated for first-party referral attribution"
+    "fluid desktop scaling with one deliberate mobile breakpoint across public layouts",
+    "matched Home feature rows and enlarged Areas of Inquiry",
+    "approved People are what we do. tagline integrated into the public brand system",
+    "policing, courts, workplaces, and public institutions foregrounded as balanced client settings",
+    "brand and image provenance notes retained for future stationery and launch governance"
   ]
 }

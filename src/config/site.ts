@@ -3,8 +3,9 @@ export const site = {
   legalName: 'Convera Strategies',
   url: 'https://converastrategies.com',
   descriptor: 'Social Perspectives · Workplace Culture · Organizational Strategy',
+  tagline: 'People are what we do.',
   description:
-    'Convera Strategies helps people and organizations navigate complex challenges, strengthen workplace culture, and develop practical organizational strategy through a broader social perspective.',
+    'People are what we do. Convera Strategies helps people and organizations navigate complex questions, strengthen workplace culture, and develop practical organizational strategy through a broader social perspective.',
   founder: 'Ryan Brown',
   founderTitle: 'Founder',
   emails: {
