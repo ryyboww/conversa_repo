@@ -1,0 +1,42 @@
+
+> convera-strategies@2.6.0 external:audit
+> node scripts/external-systems-audit.mjs
+
+
+Convera Strategies — external systems audit
+
+
+=== Domain / HTTPS ===
+
+Convera Strategies — external domain audit (converastrategies.com)
+
+FAIL  Apex DNS resolves — No A/AAAA/CNAME records returned
+WARN  www DNS resolves — No A/AAAA/CNAME records returned
+FAIL  Apex HTTPS responds — fetch failed
+WARN  HSTS header present — Could not inspect because HTTPS request failed
+WARN  www behavior — fetch failed
+
+0/5 checks passed; 3 warning(s); 2 failure(s).
+
+=== Email DNS ===
+
+Convera Strategies — branded-email DNS audit (converastrategies.com)
+
+FAIL  MX records — ECONNREFUSED
+WARN  SPF record — converastrategies.com TXT lookup timed out
+WARN  DMARC record — _dmarc.converastrategies.com TXT lookup timed out
+INFO  Verification TXT records — TXT lookup unavailable
+
+1 failure(s); 2 warning(s). DKIM is provider-specific and must be checked using the selector supplied by the mailbox provider.
+
+=== Contribution links ===
+
+Convera Strategies — contribution-link audit
+
+PENDING  One-time contribution — URL not configured
+PENDING  Monthly contribution — URL not configured
+PENDING  Distinct checkout links — Both contribution URLs are not yet configured
+
+0 failure(s); 3 pending item(s).
+
+External systems audit complete.

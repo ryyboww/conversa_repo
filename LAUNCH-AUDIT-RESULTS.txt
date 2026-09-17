@@ -1,9 +1,9 @@
 
-> convera-strategies@2.4.0 launch:audit
+> convera-strategies@2.5.0 launch:audit
 > npm run audit && node scripts/launch-readiness.mjs
 
 
-> convera-strategies@2.4.0 audit
+> convera-strategies@2.5.0 audit
 > node scripts/audit.mjs
 
 Convera source audit: 36 source files, 17 pages.

@@ -23,11 +23,11 @@ PUBLIC_SUPPORT_MONTHLY_URL=https://...
 
 `PUBLIC_PLAUSIBLE_DOMAIN` is optional and may remain blank.
 
-## 2. Put this source in the production GitHub repository
+## 2. Put this source in `convera_published_codes`
 
-The recommended production branch is `main`.
+The recommended production branch is `main_conversa`.
 
-The repository already contains a verification workflow. Every push to `main` should install dependencies, run release audits, run Astro diagnostics, and create a production build.
+The repository already contains a verification workflow. Every push to `main_conversa` should install dependencies, run release audits, run Astro diagnostics, and create a production build.
 
 Do not proceed to the custom domain until the GitHub verification workflow passes.
 
@@ -99,3 +99,8 @@ Perform one real low-value test contribution if the payment provider permits it,
 - `npm run live:audit -- https://converastrategies.com` passes.
 
 At that point, the website can be treated as live production rather than a development candidate.
+
+
+## 2.14.0 client operations note
+
+Launch email verification now covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. The direct prospective-client form is `/intake/` (`client-intake` in Netlify). The `/dashboard/` route is a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.

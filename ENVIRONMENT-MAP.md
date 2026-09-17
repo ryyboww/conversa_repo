@@ -30,3 +30,8 @@ These values belong only in `.env.operations`. They are local launch records and
 - `OPS_SOCIAL_SHARE_VERIFIED`
 
 They must reflect completed tests, not planned work.
+
+
+## 2.14.0 client operations note
+
+Launch email verification now covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. The direct prospective-client form is `/intake/` (`client-intake` in Netlify). The `/dashboard/` route is a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.

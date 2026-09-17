@@ -5,7 +5,10 @@ const excludedFromSitemap = [
   '/404/',
   '/thank-you/',
   '/support/thank-you/',
-  '/work-with-convera/thank-you/'
+  '/work-with-convera/thank-you/',
+  '/intake/',
+  '/intake/thank-you/',
+  '/dashboard/'
 ];
 
 export default defineConfig({

@@ -1,0 +1,54 @@
+---
+/**
+ * Convera Strategies 2.33.0 — proportional brand mark fallback.
+ * Header/footer now render their own stable marks, but this component remains
+ * corrected for any existing pages that already import Brand.astro.
+ */
+interface Props {
+  variant?: 'header' | 'footer';
+  href?: string;
+  class?: string;
+}
+
+const {
+  variant = 'header',
+  href = '/',
+  class: className = '',
+} = Astro.props;
+
+const logoSrc = variant === 'footer'
+  ? '/images/convera-logo-footer.png'
+  : '/images/convera-logo-header.png';
+---
+
+<a href={href} class:list={['cv-brand', `cv-brand--${variant}`, className]} aria-label="Convera Strategies home">
+  <img
+    src={logoSrc}
+    alt="Convera Strategies"
+    class="cv-brand__logo"
+    width="562"
+    height="134"
+    loading="eager"
+    decoding="async"
+  />
+</a>
+
+<style>
+  .cv-brand {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    line-height: 0;
+    text-decoration: none;
+  }
+  .cv-brand__logo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+  .cv-brand--header .cv-brand__logo { width: min(268px, 100%); }
+  .cv-brand--footer .cv-brand__logo { width: min(202px, 100%); }
+</style>

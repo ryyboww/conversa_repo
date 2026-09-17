@@ -1,0 +1,49 @@
+
+> convera-strategies@2.14.0 repository:audit
+> node scripts/repository-audit.mjs
+
+
+Convera Strategies 2.14.0 — repository handoff audit
+
+PASS  Release version is 2.14.0 — 2.14.0
+PASS  Deployment target file exists — deployment-targets.json
+PASS  Repository target is convera_published_codes — convera_published_codes
+PASS  Production branch is main_conversa — main_conversa
+PASS  .gitignore exists — .gitignore
+PASS  .editorconfig exists — .editorconfig
+PASS  .gitattributes exists — .gitattributes
+PASS  Environment file is excluded — .gitignore
+PASS  Operations environment file is excluded — .gitignore
+PASS  node_modules is excluded — .gitignore
+PASS  dist is excluded — .gitignore
+PASS  Local .env is absent from release — .env
+PASS  Local .env.operations is absent from release — .env.operations
+PASS  node_modules is absent from release — node_modules/
+PASS  dist is absent from release — dist/
+PASS  .astro cache is absent from release — .astro/
+PASS  Verification workflow exists — .github/workflows/site-verification.yml
+PASS  Post-deploy workflow exists — .github/workflows/postdeploy-verification.yml
+PASS  Dependabot configuration exists — .github/dependabot.yml
+PASS  Netlify configuration exists — netlify.toml
+PASS  Node version pin exists — .nvmrc + .node-version
+PASS  Public configuration template exists — .env.example
+PASS  Repository audit command exists — npm run repository:audit
+PASS  Deployment preflight command exists — npm run deploy:preflight
+PASS  Git remote audit command exists — npm run git:remote-status
+PASS  Strict Git remote command exists — npm run git:remote-strict
+PASS  Remote handoff guide exists — REMOTE-REPOSITORY-HANDOFF.md
+PASS  Source freeze guide exists — SOURCE-FREEZE.md
+PASS  Remote bootstrap command exists — npm run remote:bootstrap
+PASS  Remote bootstrap script exists — scripts/remote-bootstrap.mjs
+PASS  Remote bootstrap guide exists — REMOTE-BOOTSTRAP.md
+PASS  Framework bootstrap script exists — scripts/framework-bootstrap.mjs
+PASS  Windows quick-start exists — START-HERE.cmd
+PASS  macOS quick-start exists — START-HERE.command
+PASS  .DS_Store is absent from release — .DS_Store
+PASS  ACTIVATION-REPORT.md is absent from release — ACTIVATION-REPORT.md
+PASS  ACTIVATION-REPORT.json is absent from release — ACTIVATION-REPORT.json
+
+37/37 repository checks passed.
+
+Advisories:
+- package-lock.json is not present because dependency installation has not completed in this environment. Generate and commit it after the first successful npm install.

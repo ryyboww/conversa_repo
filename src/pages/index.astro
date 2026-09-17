@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FounderPortrait from '../components/home/FounderPortrait.astro';
+import ScrollExperience from '../components/home/ScrollExperience.astro';
 import SupportPanel from '../components/shared/SupportPanel.astro';
 import CommercialCTA from '../components/shared/CommercialCTA.astro';
 import { site, legacyQuote } from '../config/site';
@@ -9,11 +10,15 @@ import { serviceAreas } from '../config/services';
 import '../styles/home.css';
 ---
 <BaseLayout title="Convera Strategies" description={site.description} canonical="/">
-  <section class="home-hero">
+  <ScrollExperience />
+
+  <section class="home-hero" id="home-hero">
+    <div class="home-hero__atmosphere" aria-hidden="true"></div>
     <div class="container home-hero__inner">
-      <div class="home-hero__copy">
+      <div class="home-hero__copy" data-reveal>
         <p class="eyebrow home-hero__descriptor">{site.descriptor}</p>
         <h1>People. Perspective.<br />A More Resilient Tomorrow.</h1>
+        <span class="home-hero__rule" aria-hidden="true"></span>
         <p class="home-hero__text">
           Convera Strategies helps people and organizations navigate complex challenges, strengthen workplace culture, and protect the institutions that make a healthier, more hopeful future possible.
         </p>
@@ -21,43 +26,46 @@ import '../styles/home.css';
           <a class="button button--primary" href="/mission/">Explore Our Mission <span aria-hidden="true">→</span></a>
           <a class="button button--ghost home-hero__support" href="/support/">Support the Work <span aria-hidden="true">→</span></a>
         </div>
-        <p class="home-hero__signature">“A more thoughtful way forward.”</p>
       </div>
-      <FounderPortrait />
+      <div class="home-hero__founder" data-reveal>
+        <FounderPortrait />
+      </div>
     </div>
+    <a class="home-hero__scroll" href="#home-publication" aria-label="Scroll to featured publication"><span>Scroll</span><i aria-hidden="true"></i></a>
   </section>
 
-  <section class="section--tight home-priority-row">
+  <section class="section--tight home-priority-row" id="home-publication">
     <div class="container home-split">
-      <article class="featured-publication">
-        <div class="publication-art" aria-hidden="true"></div>
+      <article class="featured-publication" data-reveal>
+        <div class="publication-art" aria-hidden="true"><span></span></div>
         <div>
           <p class="eyebrow">Featured Publication</p>
           <h2>{featuredPublication.title}</h2>
           <p class="muted">{featuredPublication.description}</p>
-          <a class="text-link" href={publicationRecordHref(featuredPublication)}>View publication →</a>
+          <a class="text-link" href={publicationRecordHref(featuredPublication)}>Read the publication <span aria-hidden="true">→</span></a>
         </div>
       </article>
-      <SupportPanel />
+      <div data-reveal><SupportPanel /></div>
     </div>
   </section>
 
-  <section class="section inquiry-section">
+  <section class="section inquiry-section" id="home-inquiry">
     <div class="container">
-      <div class="section-intro">
+      <div class="section-intro" data-reveal>
+        <span class="section-intro__line" aria-hidden="true"></span>
         <p class="eyebrow">Areas of Inquiry</p>
         <h2>Different questions. A shared purpose.</h2>
         <p class="lede">Convera moves between social perspective, workplace culture, and organizational strategy to understand problems in context and identify practical ways forward.</p>
       </div>
       <div class="inquiry-grid">
-        {serviceAreas.map((area) => (
-          <article class:list={['inquiry-card', `inquiry-card--${area.id}`]}>
-            <div class="inquiry-card__wash" aria-hidden="true"></div>
+        {serviceAreas.map((area, index) => (
+          <article class:list={['inquiry-card', `inquiry-card--${area.id}`]} data-reveal style={`--reveal-delay:${index * 90}ms`}>
+            <div class="inquiry-card__icon" aria-hidden="true"><span>{String(index + 1).padStart(2, '0')}</span></div>
             <div class="inquiry-card__content">
               <p class="eyebrow">{area.shortTitle}</p>
               <h3>{area.title}</h3>
               <p>{area.summary}</p>
-              <a href={`/services/#${area.id}`}>Learn more →</a>
+              <a href={`/services/#${area.id}`}>Explore this area <span aria-hidden="true">→</span></a>
             </div>
           </article>
         ))}
@@ -65,13 +73,11 @@ import '../styles/home.css';
     </div>
   </section>
 
-  <section class="section--tight home-commercial">
-    <div class="container">
-      <CommercialCTA />
-    </div>
+  <section class="section--tight home-commercial" data-reveal>
+    <div class="container"><CommercialCTA /></div>
   </section>
 
-  <section class="section legacy-quote">
+  <section class="section legacy-quote" data-reveal>
     <div class="container legacy-quote__inner">
       <span class="legacy-quote__mark" aria-hidden="true">“</span>
       <blockquote>{legacyQuote}</blockquote>
@@ -79,20 +85,18 @@ import '../styles/home.css';
     </div>
   </section>
 
-  <section class="section--tight home-community">
-    <div class="container community-row">
+  <section class="section--tight home-community" id="home-community">
+    <div class="container community-row" data-reveal>
       <div>
         <p class="eyebrow">Join the Conversation</p>
         <h2>A thoughtful community for a stronger tomorrow.</h2>
       </div>
       <p class="lede">Share observations, recommend literature or records, suggest questions, and take part in conversations about people, culture, institutions, and what comes next.</p>
-      <a class="button button--ghost" href="/community/">Visit Community →</a>
+      <a class="button button--ghost" href="/community/">Visit Community <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
-  <section class="section--tight home-support-band">
-    <div class="container">
-      <SupportPanel compact dark />
-    </div>
+  <section class="section--tight home-support-band" id="home-support">
+    <div class="container" data-reveal><SupportPanel compact dark /></div>
   </section>
 </BaseLayout>

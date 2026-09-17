@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+import { clientDashboard } from '../config/dashboard';
+---
+<BaseLayout title="Client Dashboard" description="Convera Strategies client dashboard access." canonical="/dashboard/" noindex>
+  <header class="page-hero dashboard-hero">
+    <div class="container dashboard-hero__grid">
+      <div class="page-hero__inner">
+        <p class="eyebrow">Client Dashboard</p>
+        <h1>A simple home for active engagements.</h1>
+        <p class="lede">The dashboard foundation is in place for project status, documents, meetings, billing, and client communication. Client-specific access will only be activated after secure authentication is connected.</p>
+      </div>
+      <div class="dashboard-status card">
+        <span>Portal status</span>
+        <strong>Staged for secure activation</strong>
+        <p>{clientDashboard.active ? `${clientDashboard.provider} is configured for secure access.` : 'No confidential client information is stored on this public page.'}</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="dashboard-grid">
+        <article class="dashboard-card"><span>01</span><h2>Engagement Overview</h2><p>Project scope, current phase, next decision, and upcoming milestones.</p></article>
+        <article class="dashboard-card"><span>02</span><h2>Documents</h2><p>Secure access to approved project files, deliverables, and client-provided materials.</p></article>
+        <article class="dashboard-card"><span>03</span><h2>Meetings & Messages</h2><p>Meeting notes, next steps, and a clear record of project communication.</p></article>
+        <article class="dashboard-card"><span>04</span><h2>Billing</h2><p>Invoices, payment status, and billing correspondence routed through {site.emails.billing}.</p></article>
+      </div>
+      <div class="dashboard-access">
+        <div><p class="eyebrow">Need Access?</p><h2>Current clients will receive access directly.</h2><p class="lede">Until authentication is activated, use your existing correspondence with Convera. For access questions, contact <a href={`mailto:${site.emails.help}`}>{site.emails.help}</a>.</p></div>
+        {clientDashboard.active ? <a class="button button--primary" href={clientDashboard.url ?? '/intake/'} rel="noopener">Open Secure Client Portal →</a> : <a class="button button--primary" href="/intake/">Prospective Client Intake →</a>}
+      </div>
+    </div>
+  </section>
+
+  <style>.dashboard-hero__grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.55fr);gap:clamp(2rem,6vw,6rem);align-items:end}.dashboard-status{padding:1.5rem;border-left:2px solid var(--accent)}.dashboard-status span{color:var(--accent);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.dashboard-status strong{display:block;margin:.65rem 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.8rem;font-weight:500;line-height:1.08}.dashboard-status p{color:var(--muted);font-size:.84rem}.dashboard-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line)}.dashboard-card{padding:clamp(1.5rem,3vw,2.4rem);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.dashboard-card:nth-child(2n){border-right:0}.dashboard-card:nth-child(n+3){border-bottom:0}.dashboard-card>span{color:var(--accent);font-size:.68rem;font-weight:700;letter-spacing:.14em}.dashboard-card h2{margin:.45rem 0 .7rem;font-size:clamp(1.6rem,2.5vw,2.1rem)}.dashboard-card p{color:var(--muted)}.dashboard-access{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:2rem;padding:clamp(1.5rem,3vw,2.3rem);background:var(--surface-soft);border:1px solid var(--line)}.dashboard-access h2{margin:.4rem 0 .65rem}.dashboard-access a:not(.button){color:var(--accent);font-weight:700}@media(max-width:800px){.dashboard-hero__grid,.dashboard-access{grid-template-columns:1fr}.dashboard-grid{grid-template-columns:1fr}.dashboard-card,.dashboard-card:nth-child(2n),.dashboard-card:nth-child(n+3){border-right:0;border-bottom:1px solid var(--line)}.dashboard-card:last-child{border-bottom:0}.dashboard-access .button{width:fit-content}}@media(max-width:520px){.dashboard-access .button{width:100%}}</style>
+</BaseLayout>

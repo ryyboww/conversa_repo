@@ -1,20 +1,20 @@
 
-> convera-strategies@2.4.0 production:audit
+> convera-strategies@2.5.0 production:audit
 > npm run launch:final && npm run metadata:audit && npm run config:audit
 
 
-> convera-strategies@2.4.0 launch:final
+> convera-strategies@2.5.0 launch:final
 > npm run audit && npm run forms:audit && npm run content:audit && node scripts/launch-readiness.mjs && node scripts/predeploy-readiness.mjs
 
 
-> convera-strategies@2.4.0 audit
+> convera-strategies@2.5.0 audit
 > node scripts/audit.mjs
 
 Convera source audit: 36 source files, 17 pages.
 
 Audit passed: no missing relative imports or required brand assets detected.
 
-> convera-strategies@2.4.0 forms:audit
+> convera-strategies@2.5.0 forms:audit
 > node scripts/forms-audit.mjs
 
 Convera forms audit: 3 form(s) found.
@@ -24,7 +24,7 @@ PASS  work-with-convera — src/pages/work-with-convera.astro → /work-with-con
 
 Forms audit passed.
 
-> convera-strategies@2.4.0 content:audit
+> convera-strategies@2.5.0 content:audit
 > node scripts/content-audit.mjs
 
 Convera content audit: 41 text/code files scanned.
@@ -58,7 +58,7 @@ Required checks: 5/5 passing.
 External launch settings: 0/3 configured in local .env.
 Note: .env is not present. Copy .env.example to .env for local production configuration; do not commit secrets.
 
-> convera-strategies@2.4.0 metadata:audit
+> convera-strategies@2.5.0 metadata:audit
 > node scripts/metadata-audit.mjs
 
 
@@ -74,7 +74,7 @@ PASS  Manifest has 512 icon — PWA icon
 
 7/7 metadata checks passed.
 
-> convera-strategies@2.4.0 config:audit
+> convera-strategies@2.5.0 config:audit
 > node scripts/config-audit.mjs
 
 

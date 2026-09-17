@@ -1,0 +1,12 @@
+---
+interface Props { speaking?: boolean; follow?: boolean; pressKit?: boolean; }
+const { speaking = true, follow = true, pressKit = true } = Astro.props;
+---
+<nav class="convera-visibility-footer" aria-label="Professional and media links">
+  {speaking && <a href="/speaking/" data-convera-event="footer_speaking">Speaking &amp; Media</a>}
+  {pressKit && <a href="/press-kit/" data-convera-event="footer_press_kit">Press Kit</a>}
+  {follow && <a href="/follow/" data-convera-event="footer_follow">Follow the Work</a>}
+</nav>
+<style>
+.convera-visibility-footer{display:flex;gap:.8rem 1rem;flex-wrap:wrap}.convera-visibility-footer a{text-underline-offset:.22em}
+</style>

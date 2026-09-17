@@ -46,7 +46,7 @@ const structuredData = {
           '@type': 'ContactPoint',
           contactType: 'professional inquiries',
           email: site.emails.founder,
-          url: new URL('/work-with-convera/', site.url).toString()
+          url: new URL('/intake/', site.url).toString()
         }
       ],
       sameAs: [site.social.linkedin, site.social.instagram]
@@ -108,6 +108,7 @@ const structuredData = {
           const saved = localStorage.getItem('convera-theme');
           const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
           document.documentElement.dataset.theme = saved || preferred;
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion-ready');
         } catch {
           document.documentElement.dataset.theme = 'light';
         }

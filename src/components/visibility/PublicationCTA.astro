@@ -1,0 +1,21 @@
+---
+interface Props {
+  title?: string;
+  source?: string;
+}
+const { title = 'Continue with the work', source = 'publication' } = Astro.props;
+const contactHref = `/contact/?inquiry=professional&source=${encodeURIComponent(source)}`;
+---
+<aside class="convera-publication-cta" aria-label="Continue with Convera Strategies">
+  <p class="eyebrow">Convera Strategies</p>
+  <h2>{title}</h2>
+  <p>Follow new essays and research, invite Ryan to speak, or begin a professional inquiry. Professional inquiries always begin with Contact; Intake is offered separately after review.</p>
+  <div class="actions">
+    <a href="/follow/" data-convera-event="publication_follow" data-convera-source={source}>Follow the Work</a>
+    <a href="/speaking/" data-convera-event="publication_speaking" data-convera-source={source}>Speaking & Media</a>
+    <a href={contactHref} data-convera-event="publication_contact" data-convera-source={source}>Contact Convera</a>
+  </div>
+</aside>
+<style>
+.convera-publication-cta{margin:3rem 0;padding:1.5rem;border:1px solid currentColor;border-left:4px solid #a77a2e}.eyebrow{font:700 .75rem Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#a77a2e}.convera-publication-cta h2{margin:.25rem 0 .6rem;font-weight:500}.actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem}.actions a{font:600 .9rem Arial,sans-serif;text-underline-offset:.2em}
+</style>

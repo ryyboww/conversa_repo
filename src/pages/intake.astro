@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { engagementOptions } from '../config/engagement';
+import { site } from '../config/site';
+---
+<BaseLayout
+  title="Client Intake"
+  description="A straightforward intake form for prospective Convera Strategies clients and organizations."
+  canonical="/intake/"
+  noindex
+>
+  <header class="page-hero intake-hero">
+    <div class="container intake-hero__grid">
+      <div class="page-hero__inner">
+        <p class="eyebrow">Client Intake</p>
+        <h1>Tell Convera what you are working through.</h1>
+        <p class="lede">This form is designed for prospective clients who are ready to share enough context for an initial conversation. You do not need a formal scope, proposal, or polished brief.</p>
+      </div>
+      <aside class="intake-note card">
+        <span>What happens next</span>
+        <strong>Your response is reviewed directly by the founder.</strong>
+        <p>If the matter appears to fit Convera's work, you will receive a reply about the next step, which may be a short conversation or a request for limited additional context.</p>
+      </aside>
+    </div>
+  </header>
+
+  <section class="section intake-section">
+    <div class="container intake-layout">
+      <aside class="intake-sidebar">
+        <p class="eyebrow">Before You Begin</p>
+        <h2>A useful intake can be simple.</h2>
+        <p class="lede">Explain the situation in your own words. Focus on what is happening, why it matters, and what would be useful to understand or improve.</p>
+        <div class="intake-sidebar__contact">
+          <strong>Prefer direct email?</strong>
+          <a href={`mailto:${site.emails.founder}`}>{site.emails.founder}</a>
+          <span>General inquiries: <a href={`mailto:${site.emails.public}`}>{site.emails.public}</a></span>
+        </div>
+      </aside>
+
+      <form class="card client-intake-form" name="client-intake" action="/intake/thank-you/" method="POST" accept-charset="UTF-8" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="client-intake" />
+        <p class="honeypot" aria-hidden="true"><label>Leave this field blank <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+        <div class="form-section-heading">
+          <span>01</span>
+          <div><h2>About you</h2><p>Basic information so Convera knows who is reaching out.</p></div>
+        </div>
+        <div class="form-row">
+          <label>Full name<input required name="name" autocomplete="name" maxlength="100" /></label>
+          <label>Email<input required type="email" name="email" autocomplete="email" maxlength="254" /></label>
+        </div>
+        <div class="form-row">
+          <label>Phone <span class="muted">(optional)</span><input type="tel" name="phone" autocomplete="tel" maxlength="40" /></label>
+          <label>Preferred contact
+            <select name="preferred-contact">
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
+              <option value="either">Either is fine</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Organization <span class="muted">(optional)</span><input name="organization" autocomplete="organization" maxlength="160" /></label>
+          <label>Your role <span class="muted">(optional)</span><input name="role" autocomplete="organization-title" maxlength="120" /></label>
+        </div>
+        <label>Organization website <span class="muted">(optional)</span><input type="url" name="website" inputmode="url" maxlength="300" placeholder="https://" /></label>
+
+        <div class="form-section-heading form-section-heading--spaced">
+          <span>02</span>
+          <div><h2>What brings you here?</h2><p>A short description is enough for an initial review.</p></div>
+        </div>
+        <label>What kind of help seems closest?
+          <select name="engagement">
+            {engagementOptions.map((option) => <option value={option.value}>{option.label}</option>)}
+          </select>
+        </label>
+        <label>What is happening?<textarea required name="challenge" rows="7" maxlength="6000" placeholder="Describe the challenge, decision, workplace concern, communication issue, or organizational question."></textarea></label>
+        <label>What would a useful outcome look like?<textarea required name="desired-outcome" rows="4" maxlength="4000" placeholder="For example: clearer direction, outside perspective, a review of communication, stronger workplace relationships, or practical next steps."></textarea></label>
+
+        <div class="form-row">
+          <label>Timing
+            <select name="timing">
+              <option value="exploring">I am exploring options</option>
+              <option value="30-days">Within about 30 days</option>
+              <option value="60-90-days">Within 60–90 days</option>
+              <option value="specific-deadline">I have a specific deadline</option>
+            </select>
+          </label>
+          <label>Approximate budget <span class="muted">(optional)</span>
+            <select name="budget">
+              <option value="not-sure">Not sure yet</option>
+              <option value="under-1000">Under $1,000</option>
+              <option value="1000-2500">$1,000–$2,500</option>
+              <option value="2500-5000">$2,500–$5,000</option>
+              <option value="5000-plus">$5,000+</option>
+            </select>
+          </label>
+        </div>
+        <label>How did you hear about Convera? <span class="muted">(optional)</span><input name="referral-source" maxlength="240" /></label>
+        <label>Anything else Convera should know? <span class="muted">(optional)</span><textarea name="additional-context" rows="3" maxlength="3000"></textarea></label>
+        <label class="consent"><input required type="checkbox" name="acknowledgement" value="yes" /><span>I understand submitting this form does not create a professional, legal, employment, or confidential advisory relationship.</span></label>
+        <button class="button button--primary" type="submit">Submit Client Intake <span aria-hidden="true">→</span></button>
+        <p class="form-note">Please do not submit privileged legal material, protected health information, financial account numbers, passwords, or other sensitive personal information. Convera can request appropriate materials later if needed.</p>
+      </form>
+    </div>
+  </section>
+
+  <style>
+    .intake-hero__grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.62fr);gap:clamp(2rem,6vw,6rem);align-items:end}.intake-note{padding:1.5rem;border-left:2px solid var(--accent)}.intake-note span{color:var(--accent);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.intake-note strong{display:block;margin:.65rem 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.6rem,2.5vw,2.15rem);font-weight:500;line-height:1.08}.intake-note p{color:var(--muted);font-size:.9rem}.intake-section{background:var(--bg)}.intake-layout{display:grid;grid-template-columns:minmax(250px,.65fr) minmax(500px,1.35fr);gap:clamp(2rem,6vw,6rem);align-items:start}.intake-sidebar{position:sticky;top:110px}.intake-sidebar h2{margin:.5rem 0 1rem}.intake-sidebar__contact{display:grid;gap:.25rem;margin-top:1.6rem;padding-top:1.25rem;border-top:1px solid var(--line);font-size:.88rem}.intake-sidebar__contact a{color:var(--accent);font-weight:700}.intake-sidebar__contact span{color:var(--muted)}.client-intake-form{position:relative;display:grid;gap:1rem;padding:clamp(1.4rem,3vw,2.5rem)}.form-section-heading{display:grid;grid-template-columns:44px 1fr;gap:1rem;align-items:start;padding-bottom:.8rem;border-bottom:1px solid var(--line)}.form-section-heading>span{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--accent);border-radius:50%;color:var(--accent);font-size:.66rem;font-weight:700}.form-section-heading h2{font-size:1.8rem}.form-section-heading p{margin-top:.25rem;color:var(--muted);font-size:.82rem}.form-section-heading--spaced{margin-top:1.1rem}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.client-intake-form label{display:grid;gap:.4rem;font-size:.88rem;font-weight:700}.client-intake-form input,.client-intake-form select,.client-intake-form textarea{width:100%;padding:.82rem .88rem;border:1px solid var(--line-strong);border-radius:3px;background:var(--surface);color:var(--text)}.client-intake-form textarea{resize:vertical}.honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}.consent{grid-template-columns:auto 1fr!important;align-items:start;font-weight:500!important;color:var(--muted)}.consent input{width:auto!important;margin-top:.25rem}.form-note{color:var(--muted);font-size:.74rem;line-height:1.55}@media(max-width:900px){.intake-hero__grid,.intake-layout{grid-template-columns:1fr}.intake-sidebar{position:static}}@media(max-width:560px){.form-row{grid-template-columns:1fr}.client-intake-form{padding:1.15rem}.form-section-heading{grid-template-columns:1fr}.form-section-heading>span{width:34px;height:34px}}
+  </style>
+</BaseLayout>

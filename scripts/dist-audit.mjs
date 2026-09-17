@@ -25,6 +25,9 @@ const requiredHtml = [
   'contact/index.html',
   'support/index.html',
   'work-with-convera/index.html',
+  'intake/index.html',
+  'intake/thank-you/index.html',
+  'dashboard/index.html',
   'privacy/index.html',
   'terms/index.html',
   'accessibility/index.html',
@@ -66,7 +69,17 @@ if (exists('work-with-convera/index.html')) {
   add('Built professional intake retains Netlify marker', /name=["']form-name["'][^>]+value=["']work-with-convera["']|data-netlify=["']true["']/i.test(intake), 'work-with-convera');
 }
 
-for (const rel of ['thank-you/index.html', 'support/thank-you/index.html', 'work-with-convera/thank-you/index.html']) {
+if (exists('intake/index.html')) {
+  const clientIntake = read('intake/index.html');
+  add('Built direct client intake retains Netlify marker', /name=["']form-name["'][^>]+value=["']client-intake["']|data-netlify=["']true["']/i.test(clientIntake), 'client-intake');
+  add('Direct intake remains noindex', /<meta[^>]+name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(clientIntake), 'noindex, nofollow');
+}
+if (exists('dashboard/index.html')) {
+  const dashboard = read('dashboard/index.html');
+  add('Dashboard shell remains noindex', /<meta[^>]+name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(dashboard), 'noindex, nofollow');
+}
+
+for (const rel of ['thank-you/index.html', 'support/thank-you/index.html', 'work-with-convera/thank-you/index.html', 'intake/thank-you/index.html']) {
   if (exists(rel)) {
     const html = read(rel);
     add(`Noindex retained: ${rel}`, /<meta[^>]+name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(html), 'noindex, nofollow');

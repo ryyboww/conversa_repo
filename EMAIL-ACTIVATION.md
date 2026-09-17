@@ -1,44 +1,42 @@
 # Convera Strategies — Email Activation
 
-The public site is already configured around branded Convera addresses. Mail delivery itself must be activated and tested with the selected email provider.
+The site is configured around five branded Convera addresses. Mail delivery still requires activation and real send/receive testing with the selected email provider.
 
-## Public-facing addresses
+## Mailboxes and roles
 
-- `ryan@converastrategies.com` — founder and direct professional correspondence
+- `ryan@converastrategies.com` — founder, proposals, prospective clients, and direct professional correspondence
 - `hello@converastrategies.com` — general public and website correspondence
-- `help@converastrategies.com` — support/help pathway when operationally needed
-- `admin@converastrategies.com` — private administrative use; do not promote as a public contact address
+- `help@converastrategies.com` — client/site support and dashboard-access questions
+- `admin@converastrategies.com` — private administrative, vendor, software, domain, and account management; do not publish casually
+- `billing@converastrategies.com` — invoices, payment administration, and billing correspondence
 
-A future `billing@converastrategies.com` mailbox may be useful for invoices and payment administration, but it is not required for the website launch.
+Do not place mailbox passwords, app passwords, SMTP credentials, recovery codes, or provider API secrets in the Astro repository.
 
 ## DNS authentication
 
-Use the exact DNS records supplied by the selected mail provider. Do not invent SPF, DKIM, or MX values.
+Use only the exact MX, SPF, DKIM, and verification records supplied by the selected mail provider. DMARC belongs at `_dmarc.converastrategies.com`. Do not invent record values.
 
-The provider should normally supply or guide configuration for:
+Before tightening DMARC enforcement, confirm legitimate Convera mail passes SPF/DKIM alignment.
 
-- MX records;
-- SPF TXT record;
-- DKIM record(s);
-- DMARC policy at `_dmarc.converastrategies.com`.
+## Launch verification
 
-Before tightening DMARC enforcement, confirm legitimate Convera mail is passing SPF/DKIM alignment.
-
-## Minimum launch verification
-
-For both `ryan@` and `hello@`:
+For each mailbox above:
 
 1. Send a message from an unrelated external account to the Convera mailbox.
-2. Confirm it arrives without being quarantined or rejected.
+2. Confirm receipt without rejection or quarantine.
 3. Reply from the Convera mailbox.
 4. Confirm the reply reaches the external inbox rather than spam.
-5. Inspect the received message headers and confirm the provider reports SPF/DKIM as expected.
+5. Confirm sender display/name is appropriate.
+6. Inspect headers where practical and confirm SPF/DKIM results supplied by the provider.
 
-Once complete, update the local operational file:
+Record successful tests only after they occur:
 
 ```text
 OPS_RYAN_MAIL_VERIFIED=true
 OPS_HELLO_MAIL_VERIFIED=true
+OPS_HELP_MAIL_VERIFIED=true
+OPS_ADMIN_MAIL_VERIFIED=true
+OPS_BILLING_MAIL_VERIFIED=true
 ```
 
-These flags are only a local operational record. They do not alter the public site.
+These flags are local operational records; they do not activate mail delivery.

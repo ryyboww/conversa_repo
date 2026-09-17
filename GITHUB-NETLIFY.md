@@ -1,6 +1,10 @@
 # Convera Strategies — GitHub + Netlify Handoff
 
-## GitHub repository
+**Production repository:** `convera_published_codes`  
+**Production branch:** `main_conversa`
+
+
+## GitHub repository: `convera_published_codes`
 
 Create or use the production repository for Convera Strategies, then commit the complete source package from this release.
 
@@ -9,10 +13,10 @@ Recommended first push sequence:
 ```bash
 git init
 git add .
-git commit -m "Prepare Convera Strategies 2.4.0 deployment bootstrap"
-git branch -M main
+git commit -m "Prepare Convera Strategies 2.14.0 remote handoff"
+git branch -M main_conversa
 git remote add origin <YOUR_GITHUB_REPOSITORY_URL>
-git push -u origin main
+git push -u origin main_conversa
 ```
 
 Do not commit `.env`, `.env.operations`, `node_modules`, `dist`, or generated activation reports.

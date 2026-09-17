@@ -1,5 +1,5 @@
 
-> convera-strategies@2.4.0 go-live:status
+> convera-strategies@2.5.0 go-live:status
 > node scripts/go-live-gate.mjs
 
 

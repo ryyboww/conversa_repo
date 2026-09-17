@@ -7,7 +7,7 @@ import { site } from '../config/site';
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 ---
-<header class="site-header">
+<header class="site-header" data-site-header>
   <div class="container header-inner">
     <a class="brand" href="/" aria-label={`${site.name} home`}>
       <span class="brand-logo" aria-hidden="true">
@@ -37,6 +37,13 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
   </div>
 </header>
 
+<script>
+  const header = document.querySelector('[data-site-header]');
+  const updateHeader = () => header?.classList.toggle('is-compact', window.scrollY > 56);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+</script>
+
 <style>
   .site-header {
     position: sticky;
@@ -45,9 +52,12 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     background: var(--header);
     border-bottom: 1px solid var(--line);
     backdrop-filter: blur(18px);
+    transition: background 180ms ease, box-shadow 180ms ease;
   }
+  .site-header.is-compact { box-shadow: 0 12px 34px rgba(7, 31, 43, .08); }
   .header-inner {
     min-height: 90px;
+    transition: min-height 180ms ease;
     display: grid;
     grid-template-columns: minmax(220px, 300px) 1fr auto;
     gap: clamp(1rem, 2.5vw, 2rem);
@@ -59,11 +69,14 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     color: inherit;
     text-decoration: none;
   }
-  .brand-logo { display: block; position: relative; width: min(100%, 280px); }
+  .brand-logo { display: block; position: relative; width: min(100%, 280px); transition: width 180ms ease; }
   .brand-logo img { display: block; width: 100%; }
   .brand-logo__dark { display: none !important; }
   :global(:root[data-theme='dark']) .brand-logo__light { display: none !important; }
   :global(:root[data-theme='dark']) .brand-logo__dark { display: block !important; }
+  .site-header.is-compact .header-inner { min-height: 70px; }
+  .site-header.is-compact .brand-logo { width: min(100%, 238px); }
+  .site-header.is-compact .brand > span { opacity: 0; height: 0; overflow: hidden; }
   .brand > span {
     color: var(--muted);
     font-family: "Cormorant Garamond", Georgia, serif;

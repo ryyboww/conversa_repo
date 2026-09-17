@@ -1,25 +1,40 @@
 # Netlify Forms and Notification Verification
 
-Convera uses separate form pathways for general contact, professional intake, and optional newsletter signup when enabled.
+Convera uses separate form pathways so general correspondence and prospective-client intake remain distinguishable.
+
+## Expected production forms
+
+- `website-contact` — general website/community correspondence
+- `work-with-convera` — detailed professional inquiry
+- `client-intake` — direct shareable prospective-client intake at `/intake/`
+- `convera-newsletter` — preserved behind its feature flag; disabled for launch unless intentionally activated
+
+## Recommended notification routing
+
+- `website-contact` → `hello@converastrategies.com`
+- `work-with-convera` → `ryan@converastrategies.com`
+- `client-intake` → `ryan@converastrategies.com` with an optional second notification to `hello@converastrategies.com`
+- billing questions handled manually → `billing@converastrategies.com`
+- dashboard/access support → `help@converastrategies.com`
+
+Notification routing is configured in Netlify after the forms are detected. Do not place mailbox credentials in the repository.
 
 ## Production verification
 
 After the first successful Netlify deployment:
 
-1. Open the Netlify Forms area and confirm the expected forms were detected.
-2. Submit one test through the public Contact page.
-3. Submit one test through Work With Convera.
-4. Confirm both redirect to the correct success page.
-5. Confirm the submissions appear in Netlify.
-6. Configure notification delivery to the intended branded mailbox.
-7. Submit fresh tests and confirm notification emails arrive.
-8. Check spam/junk placement and sender labeling.
-9. Delete or clearly label test submissions according to your operating practice.
-10. Only then mark both form operational flags as true.
+1. Confirm all enabled forms appear in Netlify Forms.
+2. Submit a test through Contact.
+3. Submit a test through Work With Convera.
+4. Submit a test through the direct Client Intake page.
+5. Confirm each reaches its correct success page.
+6. Confirm each submission appears in Netlify.
+7. Configure the notification routing above.
+8. Submit fresh tests and confirm notification messages arrive at the intended mailbox(es).
+9. Check spam/junk placement and sender labeling.
+10. Only then record the form flags as verified.
 
 ```text
 OPS_NETLIFY_FORMS_VERIFIED=true
 OPS_FORM_NOTIFICATIONS_VERIFIED=true
 ```
-
-Do not place mailbox passwords or SMTP credentials in the Astro repository.

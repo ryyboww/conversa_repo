@@ -1,5 +1,5 @@
 
-> convera-strategies@2.4.0 activation:audit
+> convera-strategies@2.5.0 activation:audit
 > node scripts/activation-audit.mjs
 
 

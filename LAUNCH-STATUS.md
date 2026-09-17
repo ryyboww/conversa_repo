@@ -1,13 +1,13 @@
 # Convera Strategies — Launch Status
 
-**Release:** 2.4.0 Go-Live Gate Candidate  
-**Source architecture:** Stable  
-**Dependency-free release audits:** Passing  
-**Privacy/exposure audit:** Passing  
-**Runtime core prerequisites:** Passing  
-**Astro dependency installation:** Pending in this environment  
-**Production Astro build:** Not yet verified here  
-**External activation:** Pending  
+**Release:** 2.14.0 Launch Console Candidate
+**Source architecture:** Stable
+**Dependency-free release audits:** Passing
+**Privacy/exposure audit:** Passing
+**Runtime core prerequisites:** Passing
+**Astro dependency installation:** Pending in this environment
+**Production Astro build:** Not yet verified here
+**External activation:** Pending
 
 ## Current verified state
 

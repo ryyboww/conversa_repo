@@ -1,6 +1,6 @@
 # Convera Strategies — Activation Status
 
-**Release:** 2.4.0  
+**Release:** 2.14.0
 **Current state:** source ready; external business infrastructure remains pending.
 
 | Area | Status | Next action |

@@ -13,5 +13,6 @@ export const navigation = [
 export const footerNavigation = [
   ...navigation,
   { label: 'Work With Convera', href: '/work-with-convera/', enabled: features.services },
+  { label: 'Client Intake', href: '/intake/', enabled: features.services },
   { label: 'Support', href: '/support/', enabled: features.support }
 ].filter((item) => item.enabled);

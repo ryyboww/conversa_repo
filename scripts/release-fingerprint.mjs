@@ -5,7 +5,7 @@ import process from 'node:process';
 
 const root = process.cwd();
 const files = [
-  'package.json', 'astro.config.mjs', 'netlify.toml',
+  'package.json', 'deployment-targets.json', 'astro.config.mjs', 'netlify.toml',
   'src/config/site.ts', 'src/config/support.ts', 'src/config/navigation.ts',
   'src/pages/index.astro', 'src/pages/mission.astro', 'src/pages/services.astro',
   'src/pages/publications.astro', 'src/pages/community.astro', 'src/pages/about.astro',

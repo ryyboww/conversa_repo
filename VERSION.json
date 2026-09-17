@@ -1,0 +1,14 @@
+{
+  "version": "2.33.0",
+  "name": "Homepage Composition Recovery",
+  "baseline": "ConveraStrategies-2.14.0-Launch-Kit plus later operational patches",
+  "status": "publication-candidate",
+  "scope": [
+    "stable sticky header",
+    "persistent logo",
+    "25 percent hero scale correction",
+    "proportionate homepage bands",
+    "simplified footer",
+    "single-line brand descriptor"
+  ]
+}

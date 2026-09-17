@@ -14,5 +14,6 @@ export const features = {
   podcast: false,
   institute: false,
   events: false,
-  speaking: false
+  speaking: false,
+  clientDashboard: false
 } as const;

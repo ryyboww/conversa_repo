@@ -1,4 +1,4 @@
-# Deployment Notes — Convera Strategies 2.4.0
+# Deployment Notes — Convera Strategies 2.14.0
 
 ## Recommended host
 
