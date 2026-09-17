@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Workplace collaboration</title>
+  <desc id="desc">Abstract illustration of colleagues working together around a shared table.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4f0e8"/><stop offset="1" stop-color="#dceef0"/></linearGradient></defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <g fill="none" stroke="#174e62" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M340 472h520l-52 126H392l-52-126Z"/>
+    <circle cx="385" cy="270" r="52"/><circle cx="600" cy="235" r="58"/><circle cx="815" cy="270" r="52"/>
+    <path d="M305 420c0-62 33-101 80-101s80 39 80 101M510 420c0-70 38-115 90-115s90 45 90 115M735 420c0-62 33-101 80-101s80 39 80 101"/>
+  </g>
+  <g fill="#14879a"><circle cx="520" cy="500" r="11"/><circle cx="600" cy="500" r="11"/><circle cx="680" cy="500" r="11"/></g>
+</svg>

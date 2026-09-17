@@ -1,0 +1,17 @@
+---
+interface Props {
+  speaking?: boolean;
+  follow?: boolean;
+  pressKit?: boolean;
+  compact?: boolean;
+}
+const { speaking = true, follow = true, pressKit = false, compact = false } = Astro.props;
+---
+<span class:list={["convera-visibility-links", { compact }]}>
+  {speaking && <a href="/speaking/" data-convera-event="nav_speaking">Speaking</a>}
+  {follow && <a href="/follow/" data-convera-event="nav_follow">Follow the Work</a>}
+  {pressKit && <a href="/press-kit/" data-convera-event="nav_press_kit">Press Kit</a>}
+</span>
+<style>
+.convera-visibility-links{display:inline-flex;align-items:center;gap:1rem;flex-wrap:wrap}.convera-visibility-links.compact{gap:.65rem}.convera-visibility-links a{text-underline-offset:.22em}
+</style>

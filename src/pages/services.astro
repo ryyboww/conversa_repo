@@ -1,7 +1,43 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import { serviceAreas, starterEngagements, engagementProcess } from '../config/services';
 import { site } from '../config/site';
+
+const sectorSettings = [
+  {
+    title: 'Workplaces & Organizations',
+    description: 'Businesses, nonprofits, teams, and professional organizations working through culture, communication, strategy, or organizational change.',
+    image: '/images/editorial/convera-workplace.svg',
+    imageAlt: 'Abstract illustration representing workplace collaboration and organizational life',
+    position: 'center',
+    external: false
+  },
+  {
+    title: 'Policing & Public Safety',
+    description: 'Law-enforcement agencies, public-safety organizations, professional associations, and partners working on culture, trust, communication, policy, and institutional practice.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Youth_at_the_DC_Ward_8-Metropolitan_Police_Department_%28MPD%29_Seventh_District_holiday_party_for_underprivileged_children_look_up_to_a_Cadet_from_the_MPD_Police_Academy_131218-N-CG900-006.jpg',
+    imageAlt: 'A Metropolitan Police Department cadet interacting with children at a community event',
+    position: 'center 58%',
+    external: true
+  },
+  {
+    title: 'Courts & Justice Institutions',
+    description: 'Courts, justice-system organizations, legal institutions, and research partners examining institutional practice, communication, accountability, and public authority.',
+    image: '/images/publications/publication-appellate-court.jpg',
+    imageAlt: 'A court and legal institutional interior',
+    position: 'center',
+    external: false
+  },
+  {
+    title: 'Public & Community Institutions',
+    description: 'Government offices, universities, civic organizations, community-serving institutions, and other groups whose work depends on people, relationships, and public trust.',
+    image: '/images/editorial/convera-people-network.svg',
+    imageAlt: 'Abstract illustration representing people, public trust, and community connection',
+    position: 'center',
+    external: false
+  }
+] as const;
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -21,14 +57,8 @@ const serviceSchema = {
 };
 ---
 <BaseLayout title="Services" description="Founder-led organizational strategy, workplace culture, and contextual analysis from Convera Strategies." canonical="/services/">
-  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)}></script>
-  <header class="page-hero">
-    <div class="container page-hero__inner">
-      <p class="eyebrow">Services</p>
-      <h1>Understand the problem. Strengthen the organization.</h1>
-      <p class="lede">Convera offers focused, founder-led engagements for people and organizations seeking a clearer view of workplace challenges, organizational direction, and the context surrounding difficult decisions.</p>
-    </div>
-  </header>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)}></script>
+  <PageHero eyebrow="Services" title="Clearer perspective. Stronger decisions." lede="Convera Strategies offers focused, founder-led engagements for people and organizations seeking a clearer view of workplace questions, organizational direction, and the context surrounding difficult decisions." />
 
   <section class="section">
     <div class="container" style="display:grid;gap:1rem">
@@ -48,6 +78,25 @@ const serviceSchema = {
           </div>
         </article>
       ))}
+    </div>
+  </section>
+
+  <section class="section sector-settings" aria-labelledby="sector-settings-heading">
+    <div class="container">
+      <div class="sector-settings__heading">
+        <div><p class="eyebrow">Where Convera Can Work</p><h2 id="sector-settings-heading">People-centered work crosses sectors.</h2></div>
+        <p class="lede">Convera is not limited to one industry. Its perspective is relevant wherever culture, institutional practice, communication, trust, public authority, or organizational direction shape what people experience.</p>
+      </div>
+      <div class="sector-settings__grid">
+        {sectorSettings.map((sector) => (
+          <article class="sector-card card">
+            <div class="sector-card__image">
+              <img src={sector.image} alt={sector.imageAlt} width="1200" height="675" loading="lazy" decoding="async" referrerpolicy={sector.external ? 'no-referrer' : undefined} onerror={sector.external ? "this.onerror=null;this.src='/images/editorial/convera-institution-systems.svg';" : undefined} style={`object-position:${sector.position}`} />
+            </div>
+            <div class="sector-card__copy"><h3>{sector.title}</h3><p>{sector.description}</p></div>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -74,7 +123,7 @@ const serviceSchema = {
       <div class="engagement-process__heading">
         <p class="eyebrow">How an Engagement Begins</p>
         <h2 id="engagement-process-heading">Clear scope. Practical expectations.</h2>
-        <p class="lede">Convera is designed around focused work. The first conversation is used to understand the challenge and determine whether a defined engagement would be useful.</p>
+        <p class="lede">Convera is designed around focused work. The first conversation is used to understand the question and determine whether a defined engagement would be useful.</p>
       </div>
       <div class="engagement-process__grid">
         {engagementProcess.map((item) => (
@@ -91,10 +140,10 @@ const serviceSchema = {
   <section class="section--tight service-cta">
     <div class="container service-cta__inner">
       <div>
-        <p class="eyebrow">Start With the Problem</p>
-        <h2>You do not need to know the solution before you reach out.</h2>
+        <p class="eyebrow">Start With Context</p>
+        <h2>You do not need to have the answer before you reach out.</h2>
       </div>
-      <a class="button button--light" href="/work-with-convera/#start">Discuss a Challenge →</a>
+      <a class="button button--light" href="/work-with-convera/#start">Start a Conversation →</a>
     </div>
   </section>
 
@@ -107,8 +156,8 @@ const serviceSchema = {
   <style>
     .service-row {
       display: grid;
-      grid-template-columns: 80px minmax(230px,.8fr) minmax(0,1.2fr);
-      gap: clamp(1.5rem,4vw,3rem);
+      grid-template-columns: clamp(48px,5.5vw,80px) minmax(180px,.8fr) minmax(0,1.2fr);
+      gap: clamp(1rem,3vw,3rem);
       align-items: start;
       padding: clamp(1.6rem,3vw,2.4rem);
       scroll-margin-top: 120px;
@@ -118,6 +167,17 @@ const serviceSchema = {
     .service-row__copy { display:grid; gap:1rem; color:var(--muted); }
     .service-row__copy ul { margin:0; padding-left:1.2rem; display:grid; gap:.45rem; }
     .service-row__copy .button { width:fit-content; color:var(--text); }
+
+    .sector-settings{background:var(--surface-soft);border-block:1px solid var(--line)}
+    .sector-settings__heading{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(1.5rem,4vw,4rem);align-items:end;margin-bottom:1.35rem}
+    .sector-settings__heading h2{margin:.45rem 0 0}.sector-settings__heading .lede{max-width:50rem;justify-self:end}
+    .sector-settings__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.7rem,1.2vw,1rem)}
+    .sector-card{overflow:hidden;min-width:0;background:var(--surface)}
+    .sector-card__image{height:clamp(118px,10vw,154px);overflow:hidden;background:var(--surface-strong)}
+    .sector-card__image img{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(.96)}
+    .sector-card__copy{padding:clamp(.9rem,1.3vw,1.2rem)}
+    .sector-card__copy h3{font-size:clamp(1.25rem,1.6vw,1.55rem);line-height:1.02}
+    .sector-card__copy p{margin-top:.55rem;color:var(--muted);font-size:.82rem;line-height:1.42}
     .starter-section { background:var(--surface-soft); border-block:1px solid var(--line); }
     .starter-section__heading { max-width:800px; margin-bottom:2rem; }
     .starter-section__heading h2 { margin:.55rem 0 1rem; }
@@ -137,14 +197,16 @@ const serviceSchema = {
     .service-cta .eyebrow { color:#72deea; }
     .service-cta__inner { display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
     .service-cta h2 { margin:.45rem 0 0; font-size:clamp(2rem,3.2vw,3rem); }
-    @media (max-width:860px) {
+    @media (max-width:820px) {
       .service-row { grid-template-columns:1fr; }
+      .sector-settings__heading{grid-template-columns:1fr}.sector-settings__heading .lede{justify-self:start}.sector-settings__grid{grid-template-columns:1fr 1fr}
       .service-row__number { font-size:1.35rem; }
       .engagement-process__grid { grid-template-columns:1fr 1fr; }
       .engagement-step:nth-child(2) { border-right:0; }
       .engagement-step:nth-child(n+3) { border-top:1px solid var(--line); }
     }
     @media (max-width:560px) {
+      .sector-settings__grid{grid-template-columns:1fr}.sector-card{display:grid;grid-template-columns:112px minmax(0,1fr)}.sector-card__image{height:100%;min-height:130px}
       .engagement-process__grid { grid-template-columns:1fr; }
       .engagement-step, .engagement-step + .engagement-step { padding:1.25rem 0; border-right:0; border-top:1px solid var(--line); }
       .engagement-step:first-child { border-top:0; }

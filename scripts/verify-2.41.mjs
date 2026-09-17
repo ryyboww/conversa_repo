@@ -1,0 +1,43 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
+
+const root = process.cwd();
+const read = (rel) => fs.readFileSync(path.join(root, rel), 'utf8');
+const checks = [];
+const add = (name, ok) => checks.push({ name, ok });
+const pkg = JSON.parse(read('package.json'));
+const version = JSON.parse(read('VERSION.json'));
+const site = read('src/config/site.ts');
+const globalCss = read('src/styles/global.css');
+const header = read('src/components/SiteHeader.astro');
+const hero = read('src/components/PageHero.astro');
+const home = read('src/pages/index.astro');
+const homeCss = read('src/styles/home.css');
+const services = read('src/pages/services.astro');
+const brand = read('BRAND-NOTES.md');
+const credits = read('IMAGE-CREDITS.md');
+
+add('package version is 2.41.0', pkg.version === '2.41.0');
+add('VERSION metadata is 2.41.0', version.version === '2.41.0');
+add('approved tagline is configured', site.includes("tagline: 'People are what we do.'"));
+add('organization metadata exposes tagline as slogan', read('src/layouts/BaseLayout.astro').includes('slogan: site.tagline'));
+add('PageHero supports shared tagline rendering', hero.includes('tagline?: string') && hero.includes('page-hero__tagline'));
+add('desktop root type scales fluidly', globalCss.includes('@media (min-width: 821px)') && globalCss.includes('font-size: clamp(14.75px'));
+add('shared desktop gutter scales fluidly', globalCss.includes('--page-gutter: clamp(18px, 3vw, 48px)'));
+add('principal mobile breakpoint is 820px', globalCss.includes('@media (max-width: 820px)') && header.includes('@media (max-width: 820px)'));
+add('Home no longer has 1100px reflow breakpoint', !homeCss.includes('max-width: 1100px'));
+add('Home secondary feature reuses primary feature grid', home.includes('home-feature-band--secondary') && home.match(/home-shell home-feature-grid/g)?.length >= 2);
+add('legacy secondary split component is removed', !home.includes('home-connection-card') && !homeCss.includes('.home-connection-card'));
+add('Home feature copy has no hard vertical divider', !homeCss.includes('border-right: 1px solid #4599aa'));
+add('Areas of Inquiry has larger proportional height', homeCss.includes('min-height: clamp(108px, 9vw, 126px)'));
+add('Home visibly names policing and courts', home.includes('Institutions · Policing · Courts · Public Life'));
+add('Services includes balanced client settings', ['Workplaces & Organizations','Policing & Public Safety','Courts & Justice Institutions','Public & Community Institutions'].every((x) => services.includes(x)));
+add('public-safety image uses no-referrer', services.includes("referrerpolicy={sector.external ? 'no-referrer' : undefined}"));
+add('brand notes preserve tagline for stationery', brand.includes('People are what we do.') && brand.toLowerCase().includes('stationery'));
+add('public-safety image provenance documented', credits.includes('Metropolitan Police Department') && credits.includes('public domain'));
+
+const failures = checks.filter((c) => !c.ok);
+for (const c of checks) console.log(`${c.ok ? 'PASS' : 'FAIL'}  ${c.name}`);
+console.log(`\n${checks.length - failures.length}/${checks.length} 2.41 checks passed.`);
+if (failures.length) process.exit(1);

@@ -1,0 +1,45 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
+
+const root = process.cwd();
+const read = (rel) => fs.readFileSync(path.join(root, rel), 'utf8');
+const exists = (rel) => fs.existsSync(path.join(root, rel));
+const checks = [];
+const add = (name, ok) => checks.push({ name, ok });
+const pkg = JSON.parse(read('package.json'));
+const version = JSON.parse(read('VERSION.json'));
+const header = read('src/components/SiteHeader.astro');
+const home = read('src/pages/index.astro');
+const about = read('src/pages/about.astro');
+const services = read('src/pages/services.astro');
+const speaking = read('src/pages/speaking.astro');
+const profile = read('src/pages/profile.astro');
+const community = read('src/pages/community.astro');
+const work = read('src/pages/work-with-convera.astro');
+const brand = read('BRAND-NOTES.md');
+
+add('package version is 2.44.0', pkg.version === '2.44.0');
+add('VERSION metadata is 2.44.0', version.version === '2.44.0');
+add('approved tagline remains in the header lockup', header.includes('site-brand__tagline') && header.includes('{site.tagline}'));
+add('tagline is styled as a slogan', header.includes('font-style: italic') && header.includes('.site-brand__tagline::before') && header.includes('.site-brand__tagline::after'));
+add('tagline remains aligned under the wordmark', header.includes('margin-left: 34.5%') && header.includes('width: 64%'));
+add('brand governance preserves slogan treatment for stationery', brand.includes('Slogan treatment') && brand.toLowerCase().includes('business cards') && brand.toLowerCase().includes('stationery'));
+add('brand governance distinguishes formal and conversational name usage', brand.includes('Name usage') && brand.includes('Convera Strategies') && brand.includes('Convera'));
+add('About introduces the formal Convera Strategies name', about.includes('About Convera Strategies') && about.includes('Convera Strategies is an independent'));
+add('How Convera Works begins where the client is', about.includes('We begin where you are.') && about.includes('Change can be incremental and still be strategic'));
+add('incremental approach protects strengths and uses deliberate steps', about.includes('Protect what is working.') && about.includes('Move in deliberate increments.'));
+add('About founder bridge uses unused executive portrait', about.includes('/images/ryan-brown.jpg') && !about.includes('/images/ryan-brown-about.jpg'));
+add('About founder bridge is compact', about.includes('height:230px') && about.includes('grid-template-columns:minmax(0,1fr) minmax(240px,310px)'));
+add('neutral Convera visual assets exist', exists('public/images/editorial/convera-people-network.svg') && exists('public/images/editorial/convera-institution-systems.svg') && exists('public/images/editorial/convera-workplace.svg'));
+add('Home no longer uses Maryland/state-house people photo', !home.includes('people-connection.jpg') && home.includes('convera-people-network.svg'));
+add('About no longer uses fellowship/state-house imagery', !about.includes('about-fellowship-cohort.jpg') && !about.includes('about-public-conversation.jpg'));
+add('Services no longer uses personal service/public-event imagery', !services.includes('service-experience.jpg') && !services.includes('about-public-conversation.jpg') && services.includes('convera-workplace.svg') && services.includes('convera-people-network.svg'));
+add('Speaking no longer uses fellowship/state-house event imagery', !speaking.includes('speaking-conversation.jpg') && !speaking.includes('speaking-room.jpg') && speaking.includes('convera-people-network.svg'));
+add('personal institutional imagery remains available in Profile', profile.includes('profile-public-service.jpg') && profile.includes('speaking-conversation.jpg'));
+add('formal name appears on primary company/service entry points', services.includes('Convera Strategies offers') && community.includes('Convera Strategies is designed') && work.includes('Convera Strategies is built'));
+
+const failures = checks.filter((c) => !c.ok);
+for (const c of checks) console.log(`${c.ok ? 'PASS' : 'FAIL'}  ${c.name}`);
+console.log(`\n${checks.length - failures.length}/${checks.length} 2.44 checks passed.`);
+if (failures.length) process.exit(1);

@@ -32,6 +32,7 @@ const structuredData = {
       name: site.name,
       url: site.url,
       description: site.description,
+      slogan: site.tagline,
       email: site.emails.public,
       logo: new URL('/brand/convera-logo-light-bg.png', site.url).toString(),
       founder: { '@id': `${site.url}/#founder` },
@@ -46,7 +47,7 @@ const structuredData = {
           '@type': 'ContactPoint',
           contactType: 'professional inquiries',
           email: site.emails.founder,
-          url: new URL('/work-with-convera/', site.url).toString()
+          url: new URL('/contact/', site.url).toString()
         }
       ],
       sameAs: [site.social.linkedin, site.social.instagram]
@@ -55,9 +56,10 @@ const structuredData = {
       '@type': 'Person',
       '@id': `${site.url}/#founder`,
       name: site.founder,
-      jobTitle: site.founderTitle,
+      honorificSuffix: site.founderCredential,
+      jobTitle: [site.founderTitle, ...site.founderRoles],
       email: site.emails.founder,
-      image: new URL('/images/ryan-brown.jpg', site.url).toString(),
+      image: new URL('/images/ryan-brown-press.jpg', site.url).toString(),
       worksFor: { '@id': `${site.url}/#organization` },
       sameAs: [site.social.linkedin, site.social.instagram, 'https://ryanbrownonline.com']
     }
@@ -80,7 +82,7 @@ const structuredData = {
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="alternate" type="application/rss+xml" title="Convera Strategies Publications" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Convera Strategies Publications & Essays" href="/rss.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -100,8 +102,8 @@ const structuredData = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content="Convera Strategies — People. Perspective. A More Resilient Tomorrow." />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
-    {plausibleDomain && <script defer data-domain={plausibleDomain} src="https://plausible.io/js/script.js"></script>}
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+    {plausibleDomain && <script is:inline defer data-domain={plausibleDomain} src="https://plausible.io/js/script.js"></script>}
     <script is:inline>
       (() => {
         try {
@@ -119,5 +121,8 @@ const structuredData = {
     <SiteHeader />
     <main id="main-content"><slot /></main>
     <SiteFooter />
+    <script is:inline src="/assets/convera-attribution.js" defer></script>
+    <script is:inline src="/assets/convera-growth.js" defer></script>
+    <script is:inline src="/assets/convera-motion.js" defer></script>
   </body>
 </html>

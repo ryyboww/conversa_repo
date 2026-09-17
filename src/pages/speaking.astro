@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<BaseLayout title="Speaking & Media" description="Speaking, media, and moderated-conversation topics from Ryan Brown and Convera Strategies." canonical="/speaking/">
+  <PageHero eyebrow="Speaking · Media · Moderated Conversation" title="Ideas in public." lede="Ryan Brown speaks about institutions, law and justice, workplace culture, public authority, research, and the ways organizations create meaning through language, records, decisions, and practice.">
+    <div slot="actions">
+      <a class="button button--primary" href="/contact/?reason=speaking-media&source=speaking-page" data-convera-event="speaking_contact" data-convera-source="speaking-page">Invite Ryan →</a>
+      <a class="button button--ghost" href="/press-kit/">Open Press Kit</a>
+    </div>
+    <aside slot="aside" class="speaking-note card">
+      <p class="eyebrow">For organizers</p>
+      <p>Include the event, audience, proposed date, format, location or virtual platform, and any honorarium or budget information available.</p>
+    </aside>
+  </PageHero>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <p class="eyebrow">Topics</p>
+        <h2>Areas for conversation.</h2>
+        <p class="lede">These are starting points rather than fixed speeches. Programs can be shaped for professional organizations, universities, public institutions, community audiences, podcasts, panels, classrooms, and moderated discussions.</p>
+      </div>
+      <div class="grid-3 topic-grid">
+        <article class="card"><h3>Institutions, legitimacy & public authority</h3><p>How organizations explain decisions, exercise authority, and communicate legitimacy when conduct or outcomes are contested.</p></article>
+        <article class="card"><h3>Law, justice & legal meaning</h3><p>How legal rules operate through institutional interpretation, procedural choices, records, and the language of courts and justice institutions.</p></article>
+        <article class="card"><h3>Workplace culture & institutional narratives</h3><p>How organizations describe conduct, responsibility, reliability, and expectations—and what those descriptions reveal about institutional priorities.</p></article>
+        <article class="card"><h3>Research through records</h3><p>Using archival, administrative, legal, and narrative data to examine institutions without reducing complex cases to counts alone.</p></article>
+        <article class="card"><h3>Public life, trust & meaning</h3><p>How public confidence, language, social expectations, and shared interpretations shape institutional relationships.</p></article>
+        <article class="card"><h3>Research-to-practice conversations</h3><p>Translating careful inquiry into questions organizations can use to examine systems, communication, process, and decision-making.</p></article>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section speaking-gallery" aria-labelledby="speaking-gallery-title">
+    <div class="container">
+      <div class="speaking-gallery__heading"><div><p class="eyebrow">Public Engagement</p><h2 id="speaking-gallery-title">Conversation in institutional settings.</h2></div><p class="lede">Panels, briefings, classrooms, workshops, and informal exchanges each require a different kind of presence. The emphasis remains on careful listening, clear questions, and useful discussion.</p></div>
+      <div class="speaking-gallery__grid">
+        <figure><img src="/images/editorial/convera-people-network.svg" alt="Abstract illustration representing public conversation and shared inquiry" width="1200" height="720" loading="lazy" /></figure>
+        <figure><img src="/images/editorial/convera-institution-systems.svg" alt="Abstract illustration representing institutions, systems, and public settings" width="1200" height="720" loading="lazy" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section speaking-formats">
+    <div class="container grid-2">
+      <div>
+        <p class="eyebrow">Formats</p>
+        <h2>Flexible by setting.</h2>
+        <ul class="speaking-list"><li>Keynotes and invited talks</li><li>Panels and moderated conversations</li><li>Podcasts, radio, and media interviews</li><li>University and classroom visits</li><li>Professional workshops and facilitated discussions</li><li>Research presentations and public scholarship events</li></ul>
+      </div>
+      <div>
+        <p class="eyebrow">Media</p>
+        <h2>For journalists and producers.</h2>
+        <p class="lede">For interview requests, background conversations, commentary related to Ryan’s published work, or requests for biography and approved descriptive materials, identify the outlet, topic, and deadline.</p>
+        <div class="speaking-actions"><a class="button button--primary" href="/contact/?reason=speaking-media&source=media-page">Media inquiry →</a><a class="button button--ghost" href="/press-kit/">Biography & fact sheet</a></div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .speaking-note{padding:1.25rem 1.35rem;background:color-mix(in srgb,var(--surface) 92%,transparent);}
+    .speaking-note p:last-child{margin-top:.55rem;color:var(--muted);font-size:.92rem;}
+    .topic-grid article{padding:1.5rem;min-height:220px;}
+    .topic-grid p{margin-top:.65rem;color:var(--muted);}
+    .speaking-gallery{background:var(--bg);border-top:1px solid var(--line);}
+    .speaking-gallery__heading{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:2rem;align-items:end;margin-bottom:1.4rem;}
+    .speaking-gallery__heading h2{margin:.45rem 0 0;}
+    .speaking-gallery__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;}
+    .speaking-gallery__grid figure{margin:0;overflow:hidden;border-radius:12px;background:var(--surface-soft);}
+    .speaking-gallery__grid img{width:100%;aspect-ratio:16/9;object-fit:cover;}
+    .speaking-formats{background:var(--surface-soft);border-block:1px solid var(--line);}
+    .speaking-formats h2{margin:.45rem 0 .8rem;}
+    .speaking-list{margin:0;padding-left:1.2rem;display:grid;gap:.6rem;color:var(--muted);}
+    .speaking-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.2rem;}
+    @media(max-width:760px){.speaking-gallery__heading,.speaking-gallery__grid{grid-template-columns:1fr;}}
+  </style>
+</BaseLayout>

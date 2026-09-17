@@ -19,7 +19,7 @@ async function fetchText(path, options={}) {
 
 const routes = [
   '/', '/mission/', '/services/', '/publications/', '/community/', '/about/', '/contact/',
-  '/work-with-convera/', '/support/', '/privacy/', '/terms/', '/accessibility/'
+  '/work-with-convera/', '/follow/', '/support/', '/privacy/', '/terms/', '/accessibility/'
 ];
 
 console.log(`\nConvera Strategies — live-site audit\nTarget: ${base}\n`);
@@ -32,6 +32,8 @@ for (const route of routes) {
     add('Homepage exposes canonical URL', /<link[^>]+rel=["']canonical["'][^>]+href=["']https:\/\/converastrategies\.com\/?["']/i.test(result.text), 'canonical');
     add('Homepage includes Open Graph image', /property=["']og:image["']/i.test(result.text), 'og:image');
     add('Founder portrait is present', /ryan-brown\.jpg/i.test(result.text), 'founder image');
+    add('Featured Publication artwork is present', /an_objective_strategy\.png/i.test(result.text), 'featured publication');
+    add('Featured Essay artwork is present', /talk_is_cheap\.png/i.test(result.text), 'featured essay');
   }
 }
 
@@ -61,8 +63,22 @@ add('Legacy /consulting redirect works', [301,302,307,308].includes(redirect.res
 
 const contact = await fetchText('/contact/');
 if (contact.res?.status === 200) add('Contact form visible in production HTML', /name=["']website-contact["']/i.test(contact.text), 'website-contact');
-const intake = await fetchText('/work-with-convera/');
-if (intake.res?.status === 200) add('Client-intake form visible in production HTML', /name=["']work-with-convera["']/i.test(intake.text), 'work-with-convera');
+
+const work = await fetchText('/work-with-convera/');
+if (work.res?.status === 200) {
+  add('Work With Convera does not expose retired public intake form', !/name=["']work-with-convera["']/i.test(work.text), 'orientation page');
+  add('Work With Convera links professional inquiries to Contact', /\/contact\/\?reason=professional/i.test(work.text), 'Contact professional preset');
+}
+
+const follow = await fetchText('/follow/');
+if (follow.res?.status === 200) add('Follow form visible in production HTML', /name=["']follow-the-work["']/i.test(follow.text), 'follow-the-work');
+
+const intake = await fetchText('/intake/');
+add('Private Intake route returns 200 for direct operator verification', intake.res?.status === 200, intake.res ? `${intake.res.status}` : String(intake.error));
+if (intake.res?.status === 200) {
+  add('Private Intake form visible in production HTML', /name=["']client-intake["']/i.test(intake.text), 'client-intake');
+  add('Private Intake remains noindex', /name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(intake.text), 'noindex, nofollow');
+}
 
 for (const c of checks) console.log(`${c.ok ? 'PASS' : 'FAIL'}  ${c.name}${c.detail ? ` — ${c.detail}` : ''}`);
 console.log(`\n${checks.length - failures.length}/${checks.length} live checks passed.`);

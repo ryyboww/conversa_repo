@@ -11,6 +11,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: postdeploy-${{ inputs.base_url }}
+  cancel-in-progress: true
+
 jobs:
   live-audit:
     runs-on: ubuntu-latest
