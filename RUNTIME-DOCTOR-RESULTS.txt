@@ -1,0 +1,23 @@
+
+> convera-strategies@2.14.0 doctor
+> node scripts/runtime-doctor.mjs
+
+
+Convera Strategies — runtime doctor
+
+PASS  Supported Node runtime — Node 22.16.0; package requires >=20 <23
+PASS  npm is available — npm 10.9.2
+PASS  Git is available — git version 2.47.3
+PASS  Required file: package.json — package.json
+PASS  Required file: astro.config.mjs — astro.config.mjs
+PASS  Required file: netlify.toml — netlify.toml
+PASS  Required file: src/pages/index.astro — src/pages/index.astro
+PASS  Required file: public/images/ryan-brown.jpg — public/images/ryan-brown.jpg
+SETUP  Dependencies installed — Run npm install --no-audit --no-fund
+SETUP  Astro CLI available — Requires successful dependency installation
+SETUP  Public build environment file — Optional locally; configure equivalent variables in Netlify
+SETUP  Operations verification file — Copy .env.operations.example after external verification begins
+SETUP  Built production output — Run npm run build:verify after dependencies install
+
+Core runtime prerequisites: 7/7 ready.
+SETUP items are expected before deployment and are not source-code failures.

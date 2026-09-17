@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../config/site';
+---
+<BaseLayout title="Terms" description="Website terms for Convera Strategies." canonical="/terms/">
+  <PageHero eyebrow="Terms" title="Clear boundaries for a thoughtful professional platform." lede="This website provides information about Convera Strategies, its services, publications, community activity, and mission." />
+
+  <section class="section">
+    <div class="container terms-copy">
+      <section>
+        <h2>General information</h2>
+        <p>Material on this website is provided for general informational and professional purposes. Viewing the site, reading a publication, or contacting Convera does not by itself create a client relationship.</p>
+      </section>
+      <section>
+        <h2>Professional services</h2>
+        <p>Professional services begin only after scope, expectations, and applicable terms are agreed upon. Convera Strategies does not present its services as legal advice, legal representation, licensed human-resources services, mental-health services, or formal employee investigations.</p>
+      </section>
+      <section>
+        <h2>Contributions</h2>
+        <p>Voluntary contributions support Convera’s public-facing work and organizational development. Contributions are separate from payment for professional services and are not represented as tax-deductible charitable donations.</p>
+      </section>
+      <section>
+        <h2>Publications and ideas</h2>
+        <p>Unless otherwise indicated, original writing and site content remain the intellectual property of their respective author or rights holder. Links to outside publications remain subject to the terms of the original publisher.</p>
+      </section>
+      <section>
+        <h2>Questions</h2>
+        <p>Questions about these terms may be sent to <a href={`mailto:${site.emails.public}`}>{site.emails.public}</a>.</p>
+      </section>
+    </div>
+  </section>
+
+  <style>
+    .terms-copy{max-width:880px;display:grid;gap:2.2rem;}
+    .terms-copy h2{font-size:clamp(1.8rem,3vw,2.35rem);margin-bottom:.7rem;}
+    .terms-copy p{color:var(--muted);font-size:1.04rem;}
+    .terms-copy a{color:var(--accent);font-weight:700;}
+  </style>
+</BaseLayout>

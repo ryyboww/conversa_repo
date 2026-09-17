@@ -1,0 +1,53 @@
+name: Convera site verification
+
+on:
+  push:
+    branches: [main_conversa]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-verification-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          if [[ -f package-lock.json ]]; then
+            npm ci --no-audit --no-fund
+          else
+            npm install --no-audit --no-fund
+          fi
+
+      - name: Run dependency-free release audits
+        run: npm run release:audit
+
+      - name: Run Astro diagnostics
+        run: npm run check
+
+      - name: Build and audit production site
+        run: npm run build:verify
+
+      - name: Upload production build
+        uses: actions/upload-artifact@v4
+        with:
+          name: convera-dist
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7

@@ -1,0 +1,49 @@
+<button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" data-theme-toggle>
+  <svg class="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.1 15.4A8.4 8.4 0 0 1 8.6 3.9a8.5 8.5 0 1 0 11.5 11.5Z" />
+  </svg>
+</button>
+
+<style>
+  .theme-toggle {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #0b4357;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { background: rgba(13, 103, 122, 0.08); }
+  .theme-toggle__icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+  :global(:root[data-theme='dark']) .theme-toggle { color: #dff5f7; }
+</style>
+
+<script is:inline>
+  (() => {
+    const button = document.querySelector('[data-theme-toggle]');
+    if (!(button instanceof HTMLButtonElement)) return;
+
+    const sync = () => {
+      const dark = document.documentElement.dataset.theme === 'dark';
+      button.setAttribute('aria-pressed', String(dark));
+      button.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    };
+
+    sync();
+    button.addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('convera-theme', next);
+      sync();
+    });
+  })();
+</script>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../config/site';
+---
+<BaseLayout title="Intake Received" description="Your Convera Strategies client intake has been received." canonical="/intake/thank-you/" noindex>
+  <section class="section confirmation">
+    <div class="container confirmation__inner">
+      <p class="eyebrow">Intake Received</p>
+      <h1>Thank you for the context.</h1>
+      <p class="lede">Your prospective-client intake has been submitted. Convera will review what you shared before determining the most useful next step.</p>
+      <div class="confirmation__actions">
+        <a class="button button--primary" href="/">Return Home</a>
+        <a class="button button--ghost" href={`mailto:${site.emails.founder}`}>Email {site.emails.founder}</a>
+      </div>
+    </div>
+  </section>
+  <style>.confirmation{min-height:60vh;display:grid;align-items:center}.confirmation__inner{max-width:760px}.confirmation h1{margin:.5rem 0 1rem}.confirmation__actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem}@media(max-width:560px){.confirmation__actions{display:grid}.confirmation__actions .button{width:100%}}</style>
+</BaseLayout>

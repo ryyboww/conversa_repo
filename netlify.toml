@@ -1,0 +1,117 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# Production security and browser behavior.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://plausible.io; upgrade-insecure-requests"
+
+# Utility success pages should not be indexed or cached as durable content.
+[[headers]]
+  for = "/thank-you/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/work-with-convera/thank-you/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/support/thank-you/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/intake/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/dashboard/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+# Long-lived cache for versioned brand assets.
+[[headers]]
+  for = "/brand/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Founder imagery may be replaced without changing the filename.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+
+# Normalize the public hostname to the canonical apex domain.
+[[redirects]]
+  from = "https://www.converastrategies.com/*"
+  to = "https://converastrategies.com/:splat"
+  status = 301
+  force = true
+
+# Helpful aliases if older links or shorthand URLs are shared.
+[[redirects]]
+  from = "/work"
+  to = "/services/"
+  status = 301
+
+[[redirects]]
+  from = "/writing"
+  to = "/publications/"
+  status = 301
+
+[[redirects]]
+  from = "/support-the-work"
+  to = "/support/"
+  status = 301
+
+[[redirects]]
+  from = "/about-us"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/consulting"
+  to = "/work-with-convera/"
+  status = 301
+
+[[redirects]]
+  from = "/work-with-us"
+  to = "/work-with-convera/"
+  status = 301
+
+# Social-sharing images can be cached while remaining replaceable between releases.
+[[headers]]
+  for = "/og/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[redirects]]
+  from = "/client-intake"
+  to = "/intake/"
+  status = 301
+
+[[redirects]]
+  from = "/client"
+  to = "/dashboard/"
+  status = 301

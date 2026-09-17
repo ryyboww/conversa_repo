@@ -1,0 +1,21 @@
+---
+import { site, founderQuote } from '../../config/site';
+---
+<div class="founder-portrait">
+  <div class="founder-portrait__image">
+    <img src="/images/ryan-brown.jpg" alt="Ryan Brown, founder of Convera Strategies" width="1400" height="696" loading="eager" fetchpriority="high" />
+    <span class="founder-portrait__glow" aria-hidden="true"></span>
+  </div>
+  <blockquote class="founder-portrait__quote">
+    <span aria-hidden="true" class="founder-portrait__quote-mark">“</span>
+    <p>{founderQuote}</p>
+    <span class="founder-portrait__quote-rule" aria-hidden="true"></span>
+    <cite>
+      <strong>{site.founder}</strong>
+      <span>{site.founderTitle}, {site.name}</span>
+    </cite>
+  </blockquote>
+</div>
+<style>
+  .founder-portrait{display:grid;grid-template-columns:minmax(300px,1.2fr) minmax(210px,.72fr);gap:clamp(1.25rem,2.8vw,2.6rem);align-items:center;min-width:0}.founder-portrait__image{position:relative;overflow:hidden;min-height:520px;align-self:end;background:#123746;box-shadow:0 32px 85px rgba(0,0,0,.28);transform:translateY(calc(var(--hero-scroll,0) * -12px));will-change:transform}.founder-portrait__image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(4,27,38,.26));pointer-events:none}.founder-portrait__image img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:28% center;filter:saturate(.92) contrast(1.025)}.founder-portrait__glow{position:absolute;inset:auto -20% -20% 20%;height:45%;background:radial-gradient(circle,rgba(91,214,227,.2),transparent 65%);pointer-events:none}.founder-portrait__quote{position:relative;margin:0;color:#fff;font-size:clamp(1.4rem,2.25vw,2.15rem);line-height:1.08}.founder-portrait__quote-mark{display:block;margin-bottom:.15rem;font-family:Georgia,serif;font-size:3.5rem;line-height:.55;color:#86e5ee}.founder-portrait__quote p{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic}.founder-portrait__quote-rule{display:block;width:42px;height:2px;margin:1.15rem 0;background:#72deea}.founder-portrait__quote cite{display:grid;gap:.2rem;font-family:Inter,sans-serif;font-style:normal}.founder-portrait__quote strong{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}.founder-portrait__quote cite span{color:rgba(255,255,255,.78);font-size:.74rem;line-height:1.35}@media(max-width:1060px){.founder-portrait{grid-template-columns:minmax(0,1.2fr) minmax(180px,.7fr)}.founder-portrait__image{min-height:470px}}@media(max-width:780px){.founder-portrait{grid-template-columns:1fr}.founder-portrait__image{min-height:440px}.founder-portrait__quote{padding:1.35rem 0 1.8rem;border-top:1px solid rgba(255,255,255,.18)}}@media(max-width:520px){.founder-portrait__image{min-height:360px}.founder-portrait__quote{font-size:1.45rem}}@media(prefers-reduced-motion:reduce){.founder-portrait__image{transform:none!important}}
+</style>

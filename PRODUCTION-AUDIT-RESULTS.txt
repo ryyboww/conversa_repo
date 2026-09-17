@@ -1,0 +1,94 @@
+
+> convera-strategies@2.5.0 production:audit
+> npm run launch:final && npm run metadata:audit && npm run config:audit
+
+
+> convera-strategies@2.5.0 launch:final
+> npm run audit && npm run forms:audit && npm run content:audit && node scripts/launch-readiness.mjs && node scripts/predeploy-readiness.mjs
+
+
+> convera-strategies@2.5.0 audit
+> node scripts/audit.mjs
+
+Convera source audit: 36 source files, 17 pages.
+
+Audit passed: no missing relative imports or required brand assets detected.
+
+> convera-strategies@2.5.0 forms:audit
+> node scripts/forms-audit.mjs
+
+Convera forms audit: 3 form(s) found.
+PASS  convera-newsletter — src/components/shared/NewsletterSignup.astro → /thank-you/?from=newsletter
+PASS  website-contact — src/pages/contact.astro → /thank-you/
+PASS  work-with-convera — src/pages/work-with-convera.astro → /work-with-convera/thank-you/
+
+Forms audit passed.
+
+> convera-strategies@2.5.0 content:audit
+> node scripts/content-audit.mjs
+
+Convera content audit: 41 text/code files scanned.
+
+Content audit passed: no placeholder or legacy-brand blockers detected.
+PASS  Founder portrait — public/images/ryan-brown.jpg
+PASS  Light logo — public/brand/convera-logo-light-bg.png
+PASS  Dark logo — public/brand/convera-logo-dark-bg.png
+PASS  Netlify config — netlify.toml
+PASS  Robots file — public/robots.txt
+PASS  Manifest — public/site.webmanifest
+PASS  Support thank-you page — /support/thank-you/
+PASS  Contribution configuration documented — Set live hosted checkout URLs before launch.
+PASS  Analytics remains opt-in — Leave blank to disable.
+
+9/9 readiness checks passed.
+
+Convera Strategies — predeploy readiness
+
+PASS  Founder portrait — public/images/ryan-brown.jpg
+PASS  Brand logo (light) — public/brand/convera-logo-light-bg.png
+PASS  Brand logo (dark) — public/brand/convera-logo-dark-bg.png
+PASS  Professional intake page — src/pages/work-with-convera.astro
+PASS  Netlify configuration — netlify.toml
+
+SETUP One-time contribution URL — PUBLIC_SUPPORT_ONE_TIME_URL
+SETUP Monthly contribution URL — PUBLIC_SUPPORT_MONTHLY_URL
+SETUP Analytics domain — PUBLIC_PLAUSIBLE_DOMAIN
+
+Required checks: 5/5 passing.
+External launch settings: 0/3 configured in local .env.
+Note: .env is not present. Copy .env.example to .env for local production configuration; do not commit secrets.
+
+> convera-strategies@2.5.0 metadata:audit
+> node scripts/metadata-audit.mjs
+
+
+Convera Strategies — metadata audit
+
+PASS  Default social card exists — public/og/convera-social-card.jpg
+PASS  Open Graph dimensions declared — 1200 × 630 metadata
+PASS  Open Graph site identity declared — site name + locale
+PASS  Twitter image alt declared — accessible share metadata
+PASS  Apple touch icon exists — 180 × 180
+PASS  Manifest has 192 icon — PWA icon
+PASS  Manifest has 512 icon — PWA icon
+
+7/7 metadata checks passed.
+
+> convera-strategies@2.5.0 config:audit
+> node scripts/config-audit.mjs
+
+
+Convera Strategies — configuration audit
+
+PASS  Canonical domain uses HTTPS — converastrategies.com
+PASS  Branded mailbox declared: ryan — ryan@converastrategies.com
+PASS  Branded mailbox declared: hello — hello@converastrategies.com
+PASS  Branded mailbox declared: help — help@converastrategies.com
+PASS  Branded mailbox declared: admin — admin@converastrategies.com
+PASS  Content Security Policy present — Netlify production headers
+PASS  HSTS includes subdomains — HTTPS hardening
+PASS  WWW redirects to canonical apex domain — hostname normalization
+PASS  PUBLIC_SUPPORT_ONE_TIME_URL is HTTPS when configured — not configured
+PASS  PUBLIC_SUPPORT_MONTHLY_URL is HTTPS when configured — not configured
+
+10/10 configuration checks passed.

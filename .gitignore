@@ -141,3 +141,10 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Astro and project-local files
+.astro/
+.env.operations
+ACTIVATION-REPORT.md
+ACTIVATION-REPORT.json
+.DS_Store

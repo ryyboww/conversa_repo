@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { serviceAreas, starterEngagements, engagementProcess } from '../config/services';
+import { site } from '../config/site';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Convera Strategies Services',
+  itemListElement: serviceAreas.map((area, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Service',
+      name: area.title,
+      description: area.description,
+      provider: { '@type': 'Organization', name: site.name, url: site.url },
+      url: new URL(`/services/#${area.id}`, site.url).toString()
+    }
+  }))
+};
+---
+<BaseLayout title="Services" description="Founder-led organizational strategy, workplace culture, and contextual analysis from Convera Strategies." canonical="/services/">
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)}></script>
+  <PageHero eyebrow="Services" title="Understand the problem. Strengthen the organization." lede="Convera offers focused, founder-led engagements for people and organizations seeking a clearer view of workplace challenges, organizational direction, and the context surrounding difficult decisions." />
+
+  <section class="section">
+    <div class="container" style="display:grid;gap:1rem">
+      {serviceAreas.map((area, index) => (
+        <article id={area.id} class="service-row card">
+          <div class="service-row__number">0{index + 1}</div>
+          <div>
+            <p class="eyebrow">{area.title}</p>
+            <h2>{area.summary}</h2>
+          </div>
+          <div class="service-row__copy">
+            <p>{area.description}</p>
+            <ul>
+              {area.highlights.map((item) => <li>{item}</li>)}
+            </ul>
+            <a class="button button--ghost" href="/work-with-convera/#start">Discuss this service →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section starter-section">
+    <div class="container">
+      <div class="starter-section__heading">
+        <p class="eyebrow">Initial Engagements</p>
+        <h2>Useful, focused, and intentionally manageable.</h2>
+        <p class="lede">Convera is beginning with project types that can be handled carefully by a founder-led practice without creating unnecessary scale or complexity.</p>
+      </div>
+      <div class="grid-2">
+        {starterEngagements.map((engagement) => (
+          <article class="card starter-card">
+            <h3>{engagement.title}</h3>
+            <p class="muted">{engagement.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section engagement-process" aria-labelledby="engagement-process-heading">
+    <div class="container">
+      <div class="engagement-process__heading">
+        <p class="eyebrow">How an Engagement Begins</p>
+        <h2 id="engagement-process-heading">Clear scope. Practical expectations.</h2>
+        <p class="lede">Convera is designed around focused work. The first conversation is used to understand the challenge and determine whether a defined engagement would be useful.</p>
+      </div>
+      <div class="engagement-process__grid">
+        {engagementProcess.map((item) => (
+          <article class="engagement-step">
+            <span>{item.step}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight service-cta">
+    <div class="container service-cta__inner">
+      <div>
+        <p class="eyebrow">Start With the Problem</p>
+        <h2>You do not need to know the solution before you reach out.</h2>
+      </div>
+      <a class="button button--light" href="/work-with-convera/#start">Discuss a Challenge →</a>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="container">
+      <p class="muted" style="font-size:.85rem;max-width:72rem">Convera Strategies provides analytical and strategic services. Services are not legal advice, legal representation, licensed human-resources services, or formal employee investigations.</p>
+    </div>
+  </section>
+
+  <style>
+    .service-row {
+      display: grid;
+      grid-template-columns: 80px minmax(230px,.8fr) minmax(0,1.2fr);
+      gap: clamp(1.5rem,4vw,3rem);
+      align-items: start;
+      padding: clamp(1.6rem,3vw,2.4rem);
+      scroll-margin-top: 120px;
+    }
+    .service-row__number { color: var(--accent); font-family: "Cormorant Garamond", Georgia, serif; font-size: 2rem; }
+    .service-row h2 { margin: .55rem 0 0; font-size: clamp(1.8rem,3vw,2.6rem); }
+    .service-row__copy { display:grid; gap:1rem; color:var(--muted); }
+    .service-row__copy ul { margin:0; padding-left:1.2rem; display:grid; gap:.45rem; }
+    .service-row__copy .button { width:fit-content; color:var(--text); }
+    .starter-section { background:var(--surface-soft); border-block:1px solid var(--line); }
+    .starter-section__heading { max-width:800px; margin-bottom:2rem; }
+    .starter-section__heading h2 { margin:.55rem 0 1rem; }
+    .starter-card { padding:1.8rem; }
+    .starter-card p { margin-top:.75rem; }
+    .engagement-process { background:var(--bg); }
+    .engagement-process__heading { max-width:800px; margin-bottom:2.2rem; }
+    .engagement-process__heading h2 { margin:.55rem 0 1rem; }
+    .engagement-process__grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid var(--line); }
+    .engagement-step { padding:1.5rem 1.2rem 1.5rem 0; border-right:1px solid var(--line); }
+    .engagement-step + .engagement-step { padding-left:1.2rem; }
+    .engagement-step:last-child { border-right:0; }
+    .engagement-step>span { color:var(--accent); font-size:.72rem; font-weight:700; letter-spacing:.16em; }
+    .engagement-step h3 { margin:.55rem 0 .7rem; font-size:clamp(1.5rem,2.3vw,2rem); }
+    .engagement-step p { color:var(--muted); font-size:.94rem; }
+    .service-cta { color:#fff; background:linear-gradient(120deg,#082c3b,#0d5262); }
+    .service-cta .eyebrow { color:#72deea; }
+    .service-cta__inner { display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+    .service-cta h2 { margin:.45rem 0 0; font-size:clamp(2rem,3.2vw,3rem); }
+    @media (max-width:860px) {
+      .service-row { grid-template-columns:1fr; }
+      .service-row__number { font-size:1.35rem; }
+      .engagement-process__grid { grid-template-columns:1fr 1fr; }
+      .engagement-step:nth-child(2) { border-right:0; }
+      .engagement-step:nth-child(n+3) { border-top:1px solid var(--line); }
+    }
+    @media (max-width:560px) {
+      .engagement-process__grid { grid-template-columns:1fr; }
+      .engagement-step, .engagement-step + .engagement-step { padding:1.25rem 0; border-right:0; border-top:1px solid var(--line); }
+      .engagement-step:first-child { border-top:0; }
+    }
+  </style>
+</BaseLayout>

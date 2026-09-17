@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const source = Astro.url.searchParams.get('from');
+const newsletter = source === 'newsletter';
+---
+<BaseLayout noindex title={newsletter ? 'Subscription Received' : 'Thank You'} description={newsletter ? 'Thank you for subscribing to Convera Strategies updates.' : 'Thank you for contacting Convera Strategies.'} canonical="/thank-you/">
+  <section class="page-hero" style="min-height:60vh;display:grid;align-items:center">
+    <div class="container page-hero__inner">
+      <p class="eyebrow">{newsletter ? 'Stay Informed' : 'Message Sent'}</p>
+      <h1>{newsletter ? 'Your subscription request has been received.' : 'Thank you for reaching out.'}</h1>
+      <p class="lede">{newsletter ? 'When the Convera newsletter is active, this address will receive publication, community, and organizational updates.' : 'Your message has been submitted to Convera Strategies. Ryan will review it and respond as appropriate.'}</p>
+      <div><a class="button button--primary" href="/">Return Home →</a></div>
+    </div>
+  </section>
+</BaseLayout>

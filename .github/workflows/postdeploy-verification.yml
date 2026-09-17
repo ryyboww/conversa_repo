@@ -1,0 +1,32 @@
+name: Convera post-deploy verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: 'Deployed site URL to verify'
+        required: true
+        default: 'https://converastrategies.com'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: postdeploy-${{ inputs.base_url }}
+  cancel-in-progress: true
+
+jobs:
+  live-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Verify deployed site
+        run: node scripts/live-site-audit.mjs "${{ inputs.base_url }}"

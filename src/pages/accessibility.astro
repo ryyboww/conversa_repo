@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../config/site';
+---
+<BaseLayout title="Accessibility" description="Accessibility commitment for Convera Strategies." canonical="/accessibility/">
+  <PageHero eyebrow="Accessibility" title="A website intended to remain usable, readable, and welcoming." lede="Convera aims to make its public website accessible across devices, input methods, and common assistive technologies." />
+  <section class="section">
+    <div class="container" style="max-width:850px;display:grid;gap:1.5rem">
+      <p class="lede">The site uses semantic structure, keyboard-visible focus states, responsive layouts, reduced-motion support, descriptive image text where applicable, and user-selectable light and dark presentation.</p>
+      <p class="muted">If you encounter a barrier, contact <a href={`mailto:${site.emails.public}`} style="color:var(--accent);font-weight:700">{site.emails.public}</a> and identify the page or feature involved.</p>
+    </div>
+  </section>
+</BaseLayout>

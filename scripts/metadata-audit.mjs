@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd();
+const read=(p)=>fs.readFileSync(path.join(root,p),'utf8');
+const checks=[]; const add=(n,ok,note)=>checks.push({n,ok,note});
+const layout=read('src/layouts/BaseLayout.astro');
+const manifest=JSON.parse(read('public/site.webmanifest'));
+add('Default social card exists', fs.existsSync(path.join(root,'public/og/convera-social-card.jpg')), 'public/og/convera-social-card.jpg');
+add('Open Graph dimensions declared', layout.includes('og:image:width') && layout.includes('og:image:height'), '1200 × 630 metadata');
+add('Open Graph site identity declared', layout.includes('og:site_name') && layout.includes('og:locale'), 'site name + locale');
+add('Twitter image alt declared', layout.includes('twitter:image:alt'), 'accessible share metadata');
+add('Apple touch icon exists', fs.existsSync(path.join(root,'public/apple-touch-icon.png')), '180 × 180');
+add('Manifest has 192 icon', manifest.icons?.some(i=>i.sizes==='192x192'), 'PWA icon');
+add('Manifest has 512 icon', manifest.icons?.some(i=>i.sizes==='512x512'), 'PWA icon');
+console.log('\nConvera Strategies — metadata audit\n');
+for(const c of checks) console.log(`${c.ok?'PASS':'FAIL'}  ${c.n} — ${c.note}`);
+const bad=checks.filter(c=>!c.ok); console.log(`\n${checks.length-bad.length}/${checks.length} metadata checks passed.`); if(bad.length) process.exit(1);

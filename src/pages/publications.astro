@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SupportPanel from '../components/shared/SupportPanel.astro';
+import { publications, featuredPublication, publicationRecordHref } from '../config/publications';
+
+const archive = publications.filter((item) => item !== featuredPublication);
+---
+<BaseLayout title="Publications" description="Publications and public-facing work from Convera Strategies and founder Ryan Brown." canonical="/publications/">
+  <PageHero eyebrow="Publications" title="Ideas intended to remain in conversation." lede="Publications bring together writing on institutions, law, workplace culture, public life, social change, and the questions shaping the present moment." />
+
+  <section class="section publication-feature" aria-labelledby="featured-publication-heading">
+    <div class="container publication-feature__grid">
+      <div class="publication-feature__art" aria-hidden="true">
+        <span>Featured</span>
+      </div>
+      <article>
+        <p class="eyebrow">Featured Publication · {new Date(featuredPublication.date).getFullYear()}</p>
+        <h2 id="featured-publication-heading">{featuredPublication.title}</h2>
+        <p class="lede">{featuredPublication.description}</p>
+        <div class="publication-meta">
+          <span>{featuredPublication.category}</span>
+          {featuredPublication.external && <span>Published externally</span>}
+        </div>
+        <a class="button button--primary" href={publicationRecordHref(featuredPublication)}>
+          View Publication <span aria-hidden="true">→</span>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section publication-archive" aria-labelledby="publication-archive-heading">
+    <div class="container">
+      <div class="archive-heading">
+        <div>
+          <p class="eyebrow">Selected Work</p>
+          <h2 id="publication-archive-heading">More from the archive.</h2>
+        </div>
+        <p class="muted">Only completed, publicly supportable work appears here at launch. Future essays and Convera publications can be added without changing the page structure.</p>
+      </div>
+
+      <div class="publication-list">
+        {archive.map((publication, index) => (
+          <article class="publication-row">
+            <div class="publication-row__number">0{index + 1}</div>
+            <div>
+              <p class="eyebrow">{publication.category} · {new Date(publication.date).getFullYear()}</p>
+              <h3>{publication.title}</h3>
+              <p class="muted">{publication.description}</p>
+            </div>
+            <a class="publication-row__link" href={publicationRecordHref(publication)} aria-label={`Read ${publication.title}`}>
+              View <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight transition-note">
+    <div class="container transition-note__grid">
+      <div>
+        <p class="eyebrow">A Moment of Transition</p>
+        <h2>A continuing editorial theme.</h2>
+      </div>
+      <p class="lede">Future essays and public-facing pieces will continue examining how institutions, workplaces, technology, trust, and social life are changing—and what those changes may require from us.</p>
+    </div>
+  </section>
+
+  <section class="section--tight publication-support">
+    <div class="container"><SupportPanel compact dark /></div>
+  </section>
+
+  <style>
+    .publications-hero h1 { max-width: 12ch; }
+    .publication-feature { background: var(--bg); }
+    .publication-feature__grid { display:grid;grid-template-columns:minmax(260px,.78fr) minmax(0,1.22fr);gap:clamp(2rem,5vw,5rem);align-items:center; }
+    .publication-feature__art { position:relative;min-height:340px;overflow:hidden;background:linear-gradient(160deg,rgba(5,31,43,.14),rgba(5,31,43,.68)),radial-gradient(circle at 26% 22%,#f0cc7d 0 4%,transparent 5%),linear-gradient(145deg,#d7e2df 0%,#7a9b9c 48%,#143c4a 100%); }
+    .publication-feature__art::before,.publication-feature__art::after { content:'';position:absolute;left:-8%;right:-8%;height:52%;background:#143d49;clip-path:polygon(0 100%,12% 58%,28% 80%,43% 44%,60% 73%,76% 36%,100% 100%); }
+    .publication-feature__art::before { bottom:0;opacity:.86; }
+    .publication-feature__art::after { bottom:16%;opacity:.32;transform:scale(1.15); }
+    .publication-feature__art span { position:absolute;z-index:2;left:1.25rem;top:1.25rem;padding:.45rem .7rem;background:rgba(4,27,38,.78);color:#8eeaf2;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase; }
+    .publication-feature h2 { margin:.6rem 0 1rem;font-size:clamp(2.15rem,3.6vw,3.25rem);max-width:13ch; }
+    .publication-feature .lede { margin-bottom:1rem; }
+    .publication-meta { display:flex;flex-wrap:wrap;gap:.55rem 1rem;margin:1.2rem 0 1.5rem;color:var(--muted);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase; }
+    .publication-archive { background:var(--surface-soft);border-block:1px solid var(--line); }
+    .archive-heading { display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:2rem;align-items:end;margin-bottom:2rem; }
+    .archive-heading h2 { margin:.5rem 0 0; }
+    .archive-heading>p { max-width:44rem;justify-self:end; }
+    .publication-list { display:grid;border-top:1px solid var(--line); }
+    .publication-row { display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:clamp(1rem,3vw,2rem);align-items:center;padding:1.7rem 0;border-bottom:1px solid var(--line); }
+    .publication-row__number { color:var(--accent);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.7rem; }
+    .publication-row h3 { margin:.42rem 0 .6rem;font-size:clamp(1.65rem,2.7vw,2.4rem); }
+    .publication-row__link { color:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap; }
+    .publication-row__link:hover { text-decoration:underline;text-underline-offset:.25rem; }
+    .transition-note { background:var(--bg); }
+    .transition-note__grid { display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:2rem;align-items:start; }
+    .transition-note h2 { margin:.5rem 0 0; }
+    .publication-support { background:#082b39; }
+    @media(max-width:820px){
+      .publication-feature__grid,.archive-heading,.transition-note__grid{grid-template-columns:1fr;}
+      .publication-feature__art{min-height:250px;}
+      .archive-heading>p{justify-self:start;}
+      .publication-row{grid-template-columns:44px minmax(0,1fr);}
+      .publication-row__link{grid-column:2;justify-self:start;}
+    }
+    @media(max-width:520px){
+      .publication-row{grid-template-columns:1fr;}
+      .publication-row__number{display:none;}
+      .publication-row__link{grid-column:auto;}
+    }
+  </style>
+</BaseLayout>

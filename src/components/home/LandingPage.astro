@@ -1,0 +1,177 @@
+---
+import '../../styles/home.css';
+
+/**
+ * Convera Strategies — approved homepage composition
+ * Release 2.31.0
+ *
+ * This component intentionally keeps the homepage compact.  Desktop rhythm:
+ *   hero ~400px → feature/support ~260px → inquiry band ~150px → footer.
+ * The approved mockup in design-reference/homepage-approved.png is the
+ * visual authority for this implementation.
+ */
+const inquiries = [
+  {
+    title: 'Social Perspectives',
+    detail: 'Institutions · Communities · Public Life',
+    icon: 'globe',
+  },
+  {
+    title: 'Workplace Culture',
+    detail: 'People · Communication · Trust',
+    icon: 'people',
+  },
+  {
+    title: 'Organizational Strategy',
+    detail: 'Direction · Performance · Sustainable Growth',
+    icon: 'compass',
+  },
+];
+---
+
+<main class="convera-home" id="main-content">
+  <section class="home-hero" aria-labelledby="home-hero-title">
+    <div class="home-hero__wash" aria-hidden="true"></div>
+    <div class="home-shell home-hero__grid">
+      <div class="home-hero__copy">
+        <h1 id="home-hero-title">People. Perspective.<br />A More Resilient Tomorrow.</h1>
+        <span class="home-accent-rule" aria-hidden="true"></span>
+        <p>
+          Convera Strategies helps people and organizations navigate complex
+          challenges, strengthen workplace culture, and protect the institutions
+          that make a healthier, more hopeful future possible.
+        </p>
+        <div class="home-actions" aria-label="Primary homepage actions">
+          <a class="home-button home-button--primary" href="/mission/">
+            Explore Our Mission <span aria-hidden="true">→</span>
+          </a>
+          <a class="home-button home-button--ghost" href="/support/">
+            Support the Work <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="home-hero__portrait" aria-label="Founder portrait">
+        <img
+          src="/images/ryan-brown.jpg"
+          alt="Ryan Brown, founder of Convera Strategies"
+          width="720"
+          height="860"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+
+      <aside class="home-hero__quote" aria-label="Founder statement">
+        <span class="home-quote-mark" aria-hidden="true">“</span>
+        <blockquote>
+          Stronger institutions aren’t just possible—they’re worth fighting for.
+        </blockquote>
+        <span class="home-accent-rule home-accent-rule--short" aria-hidden="true"></span>
+        <p class="home-quote-name">Ryan Brown</p>
+        <p class="home-quote-role">Founder, Convera Strategies</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="home-feature-band" aria-labelledby="featured-publication-label">
+    <div class="home-shell home-feature-grid">
+      <article class="home-featured-publication">
+        <div class="home-kicker-row">
+          <p class="home-kicker" id="featured-publication-label">Featured Publication</p>
+          <span aria-hidden="true"></span>
+        </div>
+        <div class="home-publication-grid">
+          <div class="home-publication-art" aria-hidden="true">
+            <div class="home-publication-art__sun"></div>
+            <div class="home-publication-art__ridge home-publication-art__ridge--one"></div>
+            <div class="home-publication-art__ridge home-publication-art__ridge--two"></div>
+            <div class="home-publication-art__ridge home-publication-art__ridge--three"></div>
+          </div>
+          <div class="home-publication-copy">
+            <h2>Why Stronger Institutions<br />Matter More Than Ever</h2>
+            <p>
+              Stable, trusted institutions create opportunity, expand human
+              potential, and make a more resilient future possible. Protecting
+              and strengthening them is an investment in what comes next.
+            </p>
+            <a href="/publications/">Read the Article <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="home-support-card" aria-labelledby="home-support-heading">
+        <div class="home-support-main">
+          <div class="home-support-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="16" r="6"></circle>
+              <circle cx="11" cy="20" r="4"></circle>
+              <circle cx="37" cy="20" r="4"></circle>
+              <path d="M14 39v-5c0-6 4-10 10-10s10 4 10 10v5"></path>
+              <path d="M3 37v-4c0-4 3-7 8-7 2 0 4 .5 5.5 1.8"></path>
+              <path d="M45 37v-4c0-4-3-7-8-7-2 0-4 .5-5.5 1.8"></path>
+            </svg>
+          </div>
+          <h2 id="home-support-heading">Make a Difference</h2>
+          <p>
+            Your support fuels real change. As a contributor, you’re investing
+            in an organization committed to doing things differently—and in a
+            stronger future for our institutions, communities, and society.
+          </p>
+          <a class="home-button home-button--dark" href="/support/">
+            Support the Work <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="home-support-note" aria-label="Support statement">
+          <p>Real change<br />starts with<br />people who<br />care.</p>
+          <span aria-hidden="true"></span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="home-inquiry-band" aria-labelledby="home-inquiry-heading">
+    <div class="home-shell">
+      <div class="home-section-title-row">
+        <span aria-hidden="true"></span>
+        <h2 id="home-inquiry-heading">Areas of Inquiry</h2>
+        <span aria-hidden="true"></span>
+      </div>
+
+      <div class="home-inquiry-grid">
+        {inquiries.map((item) => (
+          <article class="home-inquiry-item">
+            <div class="home-inquiry-icon" aria-hidden="true">
+              {item.icon === 'globe' && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <circle cx="24" cy="24" r="17"></circle>
+                  <path d="M7 24h34M24 7c6 6 9 11 9 17s-3 11-9 17c-6-6-9-11-9-17s3-11 9-17Z"></path>
+                </svg>
+              )}
+              {item.icon === 'people' && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <circle cx="24" cy="17" r="5"></circle>
+                  <circle cx="12" cy="20" r="3.5"></circle>
+                  <circle cx="36" cy="20" r="3.5"></circle>
+                  <path d="M16 38v-4c0-5 3-9 8-9s8 4 8 9v4M5 36v-3c0-4 3-7 7-7 2 0 3 .3 4.5 1M43 36v-3c0-4-3-7-7-7-2 0-3 .3-4.5 1"></path>
+                </svg>
+              )}
+              {item.icon === 'compass' && (
+                <svg viewBox="0 0 48 48" fill="none">
+                  <circle cx="24" cy="24" r="17"></circle>
+                  <path d="m30 17-4 10-10 4 4-10 10-4Z"></path>
+                  <circle cx="24" cy="24" r="2"></circle>
+                </svg>
+              )}
+            </div>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.detail}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</main>
