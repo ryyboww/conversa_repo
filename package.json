@@ -2,7 +2,7 @@
   "name": "convera-strategies",
   "version": "2.57.0",
   "private": true,
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
