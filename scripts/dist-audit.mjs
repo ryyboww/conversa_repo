@@ -16,33 +16,20 @@ if (!fs.existsSync(dist)) {
 }
 
 const requiredHtml = [
-  'index.html',
-  'mission/index.html',
-  'services/index.html',
-  'publications/index.html',
-  'community/index.html',
-  'about/index.html',
-  'contact/index.html',
-  'support/index.html',
-  'work-with-convera/index.html',
-  'privacy/index.html',
-  'terms/index.html',
-  'accessibility/index.html',
-  'thank-you/index.html',
-  'support/thank-you/index.html',
-  'work-with-convera/thank-you/index.html'
+  'index.html', 'mission/index.html', 'services/index.html', 'publications/index.html',
+  'community/index.html', 'about/index.html', 'contact/index.html', 'support/index.html',
+  'work-with-convera/index.html', 'follow/index.html', 'follow/thank-you/index.html',
+  'intake/index.html', 'intake/thank-you/index.html', 'dashboard/index.html',
+  'privacy/index.html', 'terms/index.html', 'accessibility/index.html',
+  'thank-you/index.html', 'support/thank-you/index.html'
 ];
 
 for (const rel of requiredHtml) add(`Built route: /${rel.replace(/index\.html$/, '')}`, exists(rel), rel);
 
 for (const rel of [
-  'robots.txt',
-  'rss.xml',
-  'site.webmanifest',
-  'og/convera-social-card.jpg',
-  'images/ryan-brown.jpg',
-  'brand/convera-logo-light-bg.png',
-  'brand/convera-logo-dark-bg.png'
+  'robots.txt', 'rss.xml', 'site.webmanifest', 'og/convera-social-card.jpg',
+  'images/ryan-brown.jpg', 'brand/convera-logo-light-bg.png', 'brand/convera-logo-dark-bg.png',
+  'images/home/an_objective_strategy.png', 'images/home/talk_is_cheap.png'
 ]) add(`Built asset: ${rel}`, exists(rel), rel);
 
 const sitemapExists = ['sitemap-index.xml', 'sitemap-0.xml', 'sitemap.xml'].some(exists);
@@ -53,6 +40,8 @@ if (exists('index.html')) {
   add('Homepage canonical uses production domain', /<link[^>]+rel=["']canonical["'][^>]+href=["']https:\/\/converastrategies\.com\/["']/i.test(home), 'https://converastrategies.com/');
   add('Homepage references branded social card', home.includes('https://converastrategies.com/og/convera-social-card.jpg'), 'Open Graph/Twitter image');
   add('Homepage contains founder portrait', home.includes('/images/ryan-brown.jpg'), '/images/ryan-brown.jpg');
+  add('Homepage retains Featured Publication artwork', home.includes('/images/home/an_objective_strategy.png'), 'an_objective_strategy.png');
+  add('Homepage retains Featured Essay artwork', home.includes('/images/home/talk_is_cheap.png'), 'talk_is_cheap.png');
   add('Private Outlook address absent from built homepage', !/ryy_boww@outlook\.com/i.test(home), 'privacy');
 }
 
@@ -62,11 +51,28 @@ if (exists('contact/index.html')) {
 }
 
 if (exists('work-with-convera/index.html')) {
-  const intake = read('work-with-convera/index.html');
-  add('Built professional intake retains Netlify marker', /name=["']form-name["'][^>]+value=["']work-with-convera["']|data-netlify=["']true["']/i.test(intake), 'work-with-convera');
+  const work = read('work-with-convera/index.html');
+  add('Work With Convera remains orientation page, not retired intake form', !/name=["']form-name["'][^>]+value=["']work-with-convera["']/i.test(work), 'no work-with-convera form');
+  add('Work With Convera routes professional inquiries to Contact', /href=["']\/contact\/?\?reason=professional["']|href=["']\/contact\/\?reason=professional["']/i.test(work), 'Contact professional preset');
 }
 
-for (const rel of ['thank-you/index.html', 'support/thank-you/index.html', 'work-with-convera/thank-you/index.html']) {
+if (exists('follow/index.html')) {
+  const follow = read('follow/index.html');
+  add('Built Follow form retains Netlify marker', /name=["']form-name["'][^>]+value=["']follow-the-work["']|data-netlify=["']true["']/i.test(follow), 'follow-the-work');
+}
+
+if (exists('intake/index.html')) {
+  const clientIntake = read('intake/index.html');
+  add('Built private client intake retains Netlify marker', /name=["']form-name["'][^>]+value=["']client-intake["']|data-netlify=["']true["']/i.test(clientIntake), 'client-intake');
+  add('Direct intake remains noindex', /<meta[^>]+name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(clientIntake), 'noindex, nofollow');
+}
+
+if (exists('dashboard/index.html')) {
+  const dashboard = read('dashboard/index.html');
+  add('Dashboard shell remains noindex', /<meta[^>]+name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(dashboard), 'noindex, nofollow');
+}
+
+for (const rel of ['thank-you/index.html', 'support/thank-you/index.html', 'follow/thank-you/index.html', 'intake/thank-you/index.html']) {
   if (exists(rel)) {
     const html = read(rel);
     add(`Noindex retained: ${rel}`, /<meta[^>]+name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(html), 'noindex, nofollow');

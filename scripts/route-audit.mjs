@@ -34,7 +34,7 @@ for (const match of publicationsText.matchAll(/\bslug:\s*['"]([^'"]+)['"]/g)) {
 
 const requiredLaunchRoutes = [
   '/', '/mission/', '/services/', '/publications/', '/community/', '/about/', '/contact/',
-  '/support/', '/work-with-convera/', '/privacy/', '/terms/', '/accessibility/'
+  '/support/', '/work-with-convera/', '/profile/', '/blog/', '/intake/', '/dashboard/', '/privacy/', '/terms/', '/accessibility/'
 ];
 for (const route of requiredLaunchRoutes) {
   if (!routeSet.has(route)) issues.push(`Missing required launch route: ${route}`);

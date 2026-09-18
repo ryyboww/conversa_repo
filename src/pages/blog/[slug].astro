@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => data.status === 'published' && !data.draft && data.access === 'public');
+  return posts.map((post) => ({ params: { slug: post.id.replace(/\.mdx?$/i, '') }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<BaseLayout title={post.data.title} description={post.data.description} canonical={`/blog/${post.id.replace(/\.mdx?$/i, '')}/`}>
+  <PageHero eyebrow={post.data.category} title={post.data.title} lede={post.data.description} dense>
+    {post.data.image && <figure slot="aside" class="essay-hero-image"><img src={post.data.image} alt={post.data.imageAlt ?? ''} width="1200" height="675" loading="eager" style={`object-position:${post.data.imagePosition ?? 'center'}`} /></figure>}
+    <div slot="meta" class="essay-meta">
+      <span>{post.data.publishedDate.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</span>
+      {post.data.readMinutes && <span>{post.data.readMinutes} min read</span>}
+      <span>Ryan Brown</span>
+    </div>
+  </PageHero>
+
+  <section class="section essay-page">
+    <div class="container essay-layout">
+      <article class="essay-copy"><Content /></article>
+      <aside class="essay-aside card">
+        <p class="eyebrow">Continue</p>
+        <h2>Keep the work in conversation.</h2>
+        <p class="muted">Explore formal publications, learn more about Convera, or continue with other essays and notes.</p>
+        <a href="/publications/">Publications →</a>
+        <a href="/blog/">All Essays & Notes →</a>
+        <a href="/about/">About Convera →</a>
+      </aside>
+    </div>
+  </section>
+
+  <style>
+    .essay-hero-image{margin:0;overflow:hidden;border-radius:14px;box-shadow:var(--shadow)}.essay-hero-image img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.9) contrast(.97)}
+    .essay-meta{display:flex;flex-wrap:wrap;gap:.45rem 1rem;color:var(--muted);font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+    .essay-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(250px,.65fr);gap:clamp(2rem,5vw,5rem);align-items:start}
+    .essay-copy{max-width:780px;font-size:1.02rem;line-height:1.72}
+    .essay-copy :global(h2){margin:2.4rem 0 .85rem;font-size:clamp(1.8rem,2.8vw,2.45rem)}
+    .essay-copy :global(h3){margin:1.8rem 0 .65rem;font-size:clamp(1.45rem,2.2vw,1.9rem)}
+    .essay-copy :global(p){margin:0 0 1.15rem;color:var(--muted)}
+    .essay-copy :global(blockquote){margin:1.7rem 0;padding-left:1.2rem;border-left:2px solid var(--accent);font-size:1.35rem;color:var(--text)}
+    .essay-copy :global(ul),.essay-copy :global(ol){color:var(--muted);display:grid;gap:.5rem}
+    .essay-aside{display:grid;gap:.75rem;padding:1.4rem;position:static}
+    .essay-aside h2{font-size:1.8rem}.essay-aside a{color:var(--accent);font-weight:700;text-decoration:none}
+    @media(max-width:820px){.essay-layout{grid-template-columns:1fr}.essay-copy{max-width:none}}
+  </style>
+</BaseLayout>

@@ -34,6 +34,9 @@ add('Payments', 'One-time contribution URL configured', https(buildEnv.PUBLIC_SU
 add('Payments', 'Monthly contribution URL configured', https(buildEnv.PUBLIC_SUPPORT_MONTHLY_URL), buildEnv.PUBLIC_SUPPORT_MONTHLY_URL || 'PUBLIC_SUPPORT_MONTHLY_URL missing');
 add('Email', 'Founder mailbox send/receive verified', bool('OPS_RYAN_MAIL_VERIFIED'), 'OPS_RYAN_MAIL_VERIFIED');
 add('Email', 'Public mailbox send/receive verified', bool('OPS_HELLO_MAIL_VERIFIED'), 'OPS_HELLO_MAIL_VERIFIED');
+add('Email', 'Help mailbox send/receive verified', bool('OPS_HELP_MAIL_VERIFIED'), 'OPS_HELP_MAIL_VERIFIED');
+add('Email', 'Admin mailbox send/receive verified', bool('OPS_ADMIN_MAIL_VERIFIED'), 'OPS_ADMIN_MAIL_VERIFIED');
+add('Email', 'Billing mailbox send/receive verified', bool('OPS_BILLING_MAIL_VERIFIED'), 'OPS_BILLING_MAIL_VERIFIED');
 add('Deploy', 'Production deployment completed', bool('OPS_PRODUCTION_DEPLOYED'), 'OPS_PRODUCTION_DEPLOYED');
 add('Domain', 'Canonical domain verified', bool('OPS_CANONICAL_DOMAIN_VERIFIED'), 'OPS_CANONICAL_DOMAIN_VERIFIED');
 add('Domain', 'TLS/SSL verified', bool('OPS_SSL_VERIFIED'), 'OPS_SSL_VERIFIED');

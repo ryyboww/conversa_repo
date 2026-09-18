@@ -10,7 +10,8 @@ const layout = read('src/layouts/BaseLayout.astro');
 const globalCss = read('src/styles/global.css');
 const header = read('src/components/SiteHeader.astro');
 const toggle = read('src/components/ThemeToggle.astro');
-const portrait = read('src/components/home/FounderPortrait.astro');
+const home = read('src/pages/index.astro');
+const about = read('src/pages/about.astro');
 
 const checks = [
   ['Document language declared', /<html\s+lang=["']en["']/.test(layout)],
@@ -21,7 +22,7 @@ const checks = [
   ['Theme toggle exposes state', toggle.includes('aria-pressed')],
   ['Primary navigation is labelled', header.includes('aria-label="Primary navigation"')],
   ['Mobile navigation is labelled', header.includes('aria-label="Mobile navigation"')],
-  ['Founder portrait has descriptive alt text', /<img[^>]+alt=["']Ryan Brown, founder of Convera Strategies["']/.test(portrait)]
+  ['Founder portrait has descriptive alt text', /<img[^>]+alt=["']Ryan Brown, founder of Convera Strategies["']/.test(home) && /<img[^>]+alt=["']Ryan Brown, founder of Convera Strategies["']/.test(about)]
 ];
 for (const [name, ok] of checks) if (!ok) issues.push(name);
 
@@ -48,7 +49,7 @@ for (const file of astroFiles) {
   }
 }
 
-const formFiles = ['src/pages/contact.astro', 'src/pages/work-with-convera.astro'];
+const formFiles = ['src/pages/contact.astro', 'src/pages/follow.astro', 'src/pages/intake.astro'];
 for (const rel of formFiles) {
   const text = read(rel);
   if (!/<form\b/.test(text)) continue;

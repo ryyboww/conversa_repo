@@ -31,13 +31,13 @@ add('Payment provider label', Boolean(provider), provider ? 'READY' : 'SETUP', p
 add('Analytics domain (optional)', !analytics || /^[A-Za-z0-9.-]+$/.test(analytics), analytics ? 'READY' : 'OPTIONAL', analytics || 'PUBLIC_PLAUSIBLE_DOMAIN may remain blank');
 
 const site = fs.readFileSync(path.join(root, 'src/config/site.ts'), 'utf8');
-for (const mailbox of ['ryan@converastrategies.com', 'hello@converastrategies.com']) {
+for (const mailbox of ['ryan@converastrategies.com', 'hello@converastrategies.com', 'help@converastrategies.com', 'admin@converastrategies.com', 'billing@converastrategies.com']) {
   add(`Public mailbox declared: ${mailbox}`, site.includes(mailbox), site.includes(mailbox) ? 'READY' : 'FAIL', 'Delivery must still be verified with the mail provider.');
 }
 
 console.log('\nConvera Strategies — external activation audit\n');
 for (const c of checks) console.log(`${c.ok ? 'PASS' : c.state.padEnd(4)}  ${c.name} — ${c.note}`);
-const requiredNames = new Set(['One-time contribution checkout','Monthly contribution checkout','Payment provider label','Public mailbox declared: ryan@converastrategies.com','Public mailbox declared: hello@converastrategies.com']);
+const requiredNames = new Set(['One-time contribution checkout','Monthly contribution checkout','Payment provider label','Public mailbox declared: ryan@converastrategies.com','Public mailbox declared: hello@converastrategies.com','Public mailbox declared: help@converastrategies.com','Public mailbox declared: admin@converastrategies.com','Public mailbox declared: billing@converastrategies.com']);
 const requiredFailures = checks.filter(c => requiredNames.has(c.name) && !c.ok);
 console.log(`\nRequired activation items configured in this environment: ${requiredNames.size - requiredFailures.length}/${requiredNames.size}.`);
 console.log('Mailbox entries above confirm site configuration only; actual mail delivery requires an external send/receive test.');

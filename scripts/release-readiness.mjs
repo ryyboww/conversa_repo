@@ -5,11 +5,14 @@ import process from 'node:process';
 const root = process.cwd();
 const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
 const netlify = fs.readFileSync(path.join(root, 'netlify.toml'), 'utf8');
+const targets = JSON.parse(fs.readFileSync(path.join(root, 'deployment-targets.json'), 'utf8'));
+const workflow = fs.readFileSync(path.join(root, '.github/workflows/site-verification.yml'), 'utf8');
 const issues = [];
 const checks = [];
 const add = (name, ok, detail) => checks.push({ name, ok, detail });
 
-add('Release version is 2.4.0', pkg.version === '2.4.0', pkg.version);
+const releaseVersion = JSON.parse(fs.readFileSync(path.join(root, 'VERSION.json'), 'utf8')).version;
+add('Release version matches VERSION metadata', pkg.version === releaseVersion, pkg.version);
 add('Node version is pinned for local work', fs.existsSync(path.join(root, '.nvmrc')), '.nvmrc');
 add('Node version is pinned for alternate managers', fs.existsSync(path.join(root, '.node-version')), '.node-version');
 add('Supported Node range is declared', typeof pkg.engines?.node === 'string', pkg.engines?.node ?? 'missing');
@@ -30,6 +33,37 @@ add('Runtime doctor command exists', Boolean(pkg.scripts?.doctor), 'npm run doct
 add('Release fingerprint command exists', Boolean(pkg.scripts?.['release:fingerprint']), 'npm run release:fingerprint');
 add('Go-live status command exists', Boolean(pkg.scripts?.['go-live:status']), 'npm run go-live:status');
 add('Strict deployment gate exists', Boolean(pkg.scripts?.['deploy:gate']), 'npm run deploy:gate');
+add('Strict deployment gate includes external systems verification', /external:strict/.test(pkg.scripts?.['deploy:gate'] ?? ''), pkg.scripts?.['deploy:gate'] ?? 'missing');
+
+add('External domain audit command exists', Boolean(pkg.scripts?.['external:domain']), 'npm run external:domain');
+add('Email DNS audit command exists', Boolean(pkg.scripts?.['external:email']), 'npm run external:email');
+add('Contribution-link audit command exists', Boolean(pkg.scripts?.['external:payments']), 'npm run external:payments');
+add('External systems audit command exists', Boolean(pkg.scripts?.['external:audit']), 'npm run external:audit');
+add('Git remote status command exists', Boolean(pkg.scripts?.['git:remote-status']), 'npm run git:remote-status');
+add('Strict Git remote command exists', Boolean(pkg.scripts?.['git:remote-strict']), 'npm run git:remote-strict');
+add('Source freeze document exists', fs.existsSync(path.join(root, 'SOURCE-FREEZE.md')), 'SOURCE-FREEZE.md');
+add('Remote repository handoff exists', fs.existsSync(path.join(root, 'REMOTE-REPOSITORY-HANDOFF.md')), 'REMOTE-REPOSITORY-HANDOFF.md');
+add('Remote bootstrap command exists', Boolean(pkg.scripts?.['remote:bootstrap']), 'npm run remote:bootstrap');
+add('Remote bootstrap guide exists', fs.existsSync(path.join(root, 'REMOTE-BOOTSTRAP.md')), 'REMOTE-BOOTSTRAP.md');
+add('Download center exists', fs.existsSync(path.join(root, 'DOWNLOAD-CENTER.md')), 'DOWNLOAD-CENTER.md');
+add('Release packaging guide exists', fs.existsSync(path.join(root, 'RELEASE-PACKAGING.md')), 'RELEASE-PACKAGING.md');
+add('Release packaging command exists', Boolean(pkg.scripts?.['release:package']), 'npm run release:package');
+add('Launch console command exists', Boolean(pkg.scripts?.launch), 'npm run launch');
+add('Primary launch guide exists', fs.existsSync(path.join(root, 'LAUNCH-NOW.md')), 'LAUNCH-NOW.md');
+add('Framework bootstrap command exists', Boolean(pkg.scripts?.['framework:bootstrap']), 'npm run framework:bootstrap');
+add('Launch bootstrap alias exists', Boolean(pkg.scripts?.['launch:bootstrap']), 'npm run launch:bootstrap');
+add('Framework lockfile command exists', Boolean(pkg.scripts?.['framework:lock']), 'npm run framework:lock');
+add('Cross-platform quick-start files exist', fs.existsSync(path.join(root, 'START-HERE.cmd')) && fs.existsSync(path.join(root, 'START-HERE.command')), 'START-HERE.cmd + START-HERE.command');
+add('Production repository target is convera_published_codes', targets.repository === 'convera_published_codes', targets.repository);
+add('Production branch target is main_conversa', targets.branch === 'main_conversa', targets.branch);
+add('GitHub verification workflow targets main_conversa', /branches:\s*\[main_conversa\]/.test(workflow), '.github/workflows/site-verification.yml');
+add('Source readiness alias exists', Boolean(pkg.scripts?.['ready:source']), 'npm run ready:source');
+add('Strict readiness alias exists', Boolean(pkg.scripts?.['ready:strict']), 'npm run ready:strict');
+add('Private client intake route exists', fs.existsSync(path.join(root, 'src/pages/intake.astro')), '/intake/');
+add('Client dashboard shell exists', fs.existsSync(path.join(root, 'src/pages/dashboard.astro')), '/dashboard/');
+add('Homepage avoids legacy scroll-experience component', !fs.existsSync(path.join(root, 'src/components/home/ScrollExperience.astro')), 'shared reveal system replaces page-specific scroll architecture');
+add('Shared public motion asset exists', fs.existsSync(path.join(root, 'public/assets/convera-motion.js')), 'public/assets/convera-motion.js');
+add('Approved homepage mockup retained as design reference', fs.existsSync(path.join(root, 'design-reference/approved-homepage-high-ui-mockup.png')), 'design-reference');
 
 for (const check of checks) if (!check.ok) issues.push(`${check.name}: ${check.detail}`);
 

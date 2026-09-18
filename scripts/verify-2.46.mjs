@@ -1,0 +1,35 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root = process.cwd();
+const checks = [];
+const add = (label, ok) => checks.push({label, ok:Boolean(ok)});
+const read = p => fs.readFileSync(path.join(root,p),'utf8');
+const pkg = JSON.parse(read('package.json'));
+const ver = JSON.parse(read('VERSION.json'));
+const blog = read('src/pages/blog.astro');
+const pubs = read('src/pages/publications.astro');
+const footer = read('src/components/SiteFooter.astro');
+const support = read('src/pages/support.astro');
+const header = read('src/components/SiteHeader.astro');
+add('package version is 2.46.0', pkg.version === '2.46.0');
+add('VERSION metadata is 2.46.0', ver.version === '2.46.0');
+add('header retains approved slogan lockup', header.includes('site-brand__tagline') && header.includes('{site.tagline}'));
+add('footer does not repeat approved slogan', !footer.includes('{site.tagline}'));
+add('footer uses fluid page gutter width', footer.includes('var(--page-gutter) - var(--page-gutter)'));
+add('footer descriptor has improved legibility', footer.includes('clamp(9.5px, .76vw, 11.5px)'));
+add('blog avoids internal source-archive language', !blog.includes('source archive'));
+add('blog uses publication-aligned desktop card width', blog.includes('grid-template-columns:clamp(130px,12vw,156px) minmax(0,1fr)'));
+add('blog uses publication-aligned desktop card height', blog.includes('min-height:clamp(148px,12vw,156px)'));
+add('blog descriptions are clamped to two lines', blog.includes('-webkit-line-clamp:2'));
+add('publications retain compact card geometry', pubs.includes('grid-template-columns:clamp(130px,12vw,156px) minmax(0,1fr)'));
+add('support leads with independent work', support.includes('Support independent work, a mission'));
+add('support formally names Convera Strategies in hero lede', support.includes('infrastructure behind Convera Strategies'));
+const firstPlural = /\b(?:we|our|us)\b/i;
+for (const file of ['src/pages/index.astro','src/pages/mission.astro','src/pages/about.astro','src/pages/services.astro','src/pages/community.astro','src/pages/contact.astro','src/pages/support.astro','src/pages/work-with-convera.astro']) {
+  const offenders = read(file).split(/\r?\n/).filter(line => firstPlural.test(line));
+  add(`${file} preserves third-person company voice`, offenders.length === 0);
+}
+const failed = checks.filter(c=>!c.ok);
+for (const c of checks) console.log(`${c.ok?'PASS':'FAIL'} ${c.label}`);
+console.log(`\n${checks.length-failed.length}/${checks.length} 2.46 checks passed.`);
+if (failed.length) process.exit(1);
