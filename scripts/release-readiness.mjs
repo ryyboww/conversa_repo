@@ -54,7 +54,7 @@ add('Framework bootstrap command exists', Boolean(pkg.scripts?.['framework:boots
 add('Launch bootstrap alias exists', Boolean(pkg.scripts?.['launch:bootstrap']), 'npm run launch:bootstrap');
 add('Framework lockfile command exists', Boolean(pkg.scripts?.['framework:lock']), 'npm run framework:lock');
 add('Cross-platform quick-start files exist', fs.existsSync(path.join(root, 'START-HERE.cmd')) && fs.existsSync(path.join(root, 'START-HERE.command')), 'START-HERE.cmd + START-HERE.command');
-add('Production repository target is convera_published_codes', targets.repository === 'convera_published_codes', targets.repository);
+add('Production repository target is conversa_repo', targets.repository === 'conversa_repo', targets.repository);
 add('Production branch target is main_conversa', targets.branch === 'main_conversa', targets.branch);
 add('GitHub verification workflow targets main_conversa', /branches:\s*\[main_conversa\]/.test(workflow), '.github/workflows/site-verification.yml');
 add('Source readiness alias exists', Boolean(pkg.scripts?.['ready:source']), 'npm run ready:source');
