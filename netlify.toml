@@ -49,6 +49,12 @@
     X-Robots-Tag = "noindex, nofollow"
     Cache-Control = "no-store"
 
+[[headers]]
+  for = "/operator/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "no-store"
+
 # Long-lived cache for versioned brand assets.
 [[headers]]
   for = "/brand/*"

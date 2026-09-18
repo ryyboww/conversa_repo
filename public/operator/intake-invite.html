@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Convera Strategies | Intake Invitation</title>
+  <style>:root{color-scheme:dark;--bg:#0d0d0d;--panel:#151515;--ink:#f7f2e8;--muted:#aaa69e;--line:#33302a;--gold:#d4b56a;--danger:#ffb4ab;--success:#a8dbb2}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}main{width:min(720px,calc(100% - 32px));margin:0 auto;padding:48px 0 80px}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.16em;font-size:.77rem;font-weight:800}h1{margin:8px 0 10px;font-size:clamp(2rem,5vw,3.2rem)}p{color:var(--muted);line-height:1.6}a{color:var(--gold)}form{display:grid;gap:16px;margin-top:28px;padding:24px;background:var(--panel);border:1px solid var(--line);border-radius:14px}label{display:grid;gap:7px;font-weight:750}input,textarea,button{width:100%;border:1px solid var(--line);background:#111;color:var(--ink);border-radius:9px;padding:12px;font:inherit}textarea{min-height:150px;resize:vertical}button{background:var(--gold);color:#111;border:0;font-weight:850;cursor:pointer}.status{min-height:1.5em}.status.error{color:var(--danger)}.status.success{color:var(--success)}small{color:var(--muted);line-height:1.5}</style>
+</head>
+<body><main>
+  <div class="eyebrow">Convera operator</div>
+  <h1>Send Private Intake Invitation</h1>
+  <p>Use this only after reviewing an initial contact. The recipient receives a direct Postmark email containing the private intake link.</p>
+  <p><a href="/operator/projects.html">Project Registry</a></p>
+  <form id="invite-form">
+    <label>Operator key<input id="key" type="password" autocomplete="current-password" required></label>
+    <label>Recipient name <small>Optional</small><input id="name" maxlength="120" autocomplete="name"></label>
+    <label>Recipient email<input id="email" type="email" maxlength="254" autocomplete="email" required></label>
+    <label>Invitation note <small>Optional; the standard invitation text is used when blank.</small><textarea id="note" maxlength="1500"></textarea></label>
+    <button type="submit">Send Intake Invitation</button>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+  </form>
+</main><script>const form=document.getElementById('invite-form'),status=document.getElementById('status');form.addEventListener('submit',async e=>{e.preventDefault();const button=form.querySelector('button');button.disabled=true;status.className='status';status.textContent='Sending…';try{const response=await fetch('/.netlify/functions/intake-invitation',{method:'POST',headers:{'content-type':'application/json','x-convera-operator-key':document.getElementById('key').value},body:JSON.stringify({recipientName:document.getElementById('name').value,recipientEmail:document.getElementById('email').value,note:document.getElementById('note').value})}),data=await response.json();if(!response.ok)throw Error(data.error||'Invitation could not be sent.');status.className='status success';status.textContent=data.message;document.getElementById('name').value='';document.getElementById('email').value='';document.getElementById('note').value=''}catch(error){status.className='status error';status.textContent=error.message}finally{button.disabled=false}});</script></body>
+</html>
