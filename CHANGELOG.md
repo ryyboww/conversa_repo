@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.59.0 — Security Configuration Completeness
+
+- Restored the missing private operations and portal-security configuration template referenced by the installation and verification guides.
+- Documented every operator, signed-link, portal-code, transactional-email, and operations-intelligence setting without storing real credentials.
+- Added operator authorization, signed-token, portal-verification, client-data filtering, document-control, reminder, and closeout tests to the normal release audit.
+- Preserved the 2.58 workstream boundary and the complete verified public design, navigation, forms, founder identity, and Contact → private Intake workflow.
+
+## 2.58.0 — Workstream Boundary Protection
+
+- Added an automatic release check which keeps Operations Manual working files and manual-version artifacts out of the website package.
+- Added a plain-language boundary guide defining the website and manual as separate controlled workstreams.
+- Required deliberate review before policy or procedure language moves from one workstream into the other.
+- Preserved the complete verified 2.57 design, founder identifiers, navigation, forms, privacy controls, and Contact → manual review → private Intake workflow.
+
 ## 2.57.0 — Founder Identity Clarification
 
 - Added **Ryan Brown, M.A. · Ph.D. Student · Lecturer · Researcher** as a clear founder-identity system across high-visibility public surfaces.

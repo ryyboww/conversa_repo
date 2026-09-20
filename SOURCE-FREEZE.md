@@ -1,6 +1,6 @@
-# Convera Strategies 2.57.0 — Publication Source Freeze
+# Convera Strategies 2.59.0 — Publication Source Freeze
 
-Release 2.57.0 freezes the approved public presentation while making the founder’s academic and professional identifiers explicit on the principal public-facing identity surfaces.
+Release 2.59.0 freezes the verified 2.58 public presentation and workstream boundary while restoring the private security-configuration template required for reliable deployment and recovery. Founder identifiers, public pages, forms, navigation, privacy controls, and the Contact-to-private-Intake workflow remain unchanged.
 
 ## Frozen without explicit revision
 

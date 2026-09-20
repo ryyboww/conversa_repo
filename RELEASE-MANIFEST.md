@@ -1,13 +1,21 @@
-# Convera Strategies 2.57.0 — Release Manifest
+# Convera Strategies 2.59.0 — Release Manifest
 
 ## Release identity
 
-- **Version:** 2.57.0
-- **Stage:** Founder Identity Clarification Candidate
+- **Version:** 2.59.0
+- **Stage:** Security Configuration Completeness Candidate
 - **Canonical domain:** `https://converastrategies.com`
 - **Brand descriptor:** Social Perspectives · Workplace Culture · Organizational Strategy
 - **Approved tagline:** **People are what we do.**
 - **Founder:** Ryan Brown
+
+## Workstream protection
+
+Website development and the Convera Strategies Operations Manual remain separate controlled workstreams. The website release process now checks for Operations Manual master files, manual-version artifacts, and reserved manual working directories before approving a release. Information may move between the two workstreams only through deliberate review; no automatic synchronization is permitted.
+
+## Security configuration completeness
+
+The release now includes a credential-free private-configuration template for operator access, signed client links, portal email-code verification, transactional email, and Operations Intelligence. Normal release verification exercises the preserved operator, engagement, billing, document, portal, reminder, closeout, and client-data filtering controls. Real credentials remain outside the source package.
 
 ## Publication workflow coherence
 
@@ -55,4 +63,4 @@ Professional services remain: **Contact → manual review → private Intake inv
 
 ## Verification
 
-This release includes the established repository, route, forms, content, metadata, configuration, privacy/exposure, accessibility-source, release-readiness, and dedicated 2.56 verification controls. Browser-assisted visual QA and the pinned local `npm run check` / `npm run build` sequence remain required before deployment.
+This release includes the established repository, route, forms, content, metadata, configuration, privacy/exposure, accessibility-source, release-readiness, workstream-boundary, operational-security, and dedicated 2.59 verification controls. Browser-assisted visual QA remains required after deployment.

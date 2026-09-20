@@ -20,7 +20,7 @@ export const site = {
   },
   social: {
     linkedin: 'https://www.linkedin.com/in/ryan-brown-7b153621',
-    instagram: 'https://www.instagram.com/convera_strategies'
+    instagram: 'https://www.instagram.com/ryyboww'
   }
 } as const;
 

@@ -30,7 +30,7 @@ export default async function handler(req) {
   const note = cleanText(body?.note, 1500);
   if (!/^\S+@\S+\.\S+$/.test(recipientEmail)) return json({ error: 'Valid recipient email required.' }, 400);
 
-  const siteUrl = cleanText(getEnv('URL'), 'https://converastrategies.com').replace(/\/$/, '');
+  const siteUrl = (cleanText(getEnv('URL')) || 'https://converastrategies.com').replace(/\/$/, '');
   const secret = getEnv('NETLIFY_EMAILS_SECRET');
   const from = getEnv('CONVERA_FORM_FROM_EMAIL');
   if (!secret || !from) return json({ error: 'Intake invitation email configuration is incomplete.' }, 503);

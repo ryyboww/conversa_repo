@@ -10,12 +10,6 @@ It is not a public prospective-client entry point and should not be linked from 
 
 The Netlify form name is `client-intake`. It redirects to `/intake/thank-you/` and is excluded from search indexing and the sitemap.
 
-After reviewing an initial Contact submission, the operator can send a private invitation from:
-
-`https://converastrategies.com/operator/intake-invite.html`
-
-The control requires the Convera operator key. The recipient name, recipient email, and optional note are entered manually; the Postmark-backed email includes the private Intake URL.
-
 ## Client dashboard
 
 The staged dashboard URL is:

@@ -1,13 +1,14 @@
 {
-  "version": "2.57.0",
-  "name": "Founder Identity Clarification",
-  "baseline": "2.56.0 publication workflow coherence",
+  "version": "2.62.0",
+  "name": "Authoritative Workflow Source Recovery",
+  "baseline": "2.61.0 live function parity confirmation",
   "status": "publication-candidate",
   "scope": [
-    "preserve the complete 2.56 publication-candidate architecture and workflow",
-    "clarify Ryan Brown's professional and academic identifiers on high-visibility founder surfaces",
-    "add M.A., Ph.D. Student, Lecturer, and Researcher identifiers without implying a conferred Ph.D.",
-    "centralize founder identifiers in site configuration for consistent reuse",
-    "preserve landing-page artwork, navigation, forms, responsive behavior, and public conversion flow"
+    "preserve the verified public architecture, security configuration, and workstream boundary",
+    "replace the reconstructed Resend fallback with the authoritative Netlify Emails and Postmark workflow source",
+    "restore Contact, Follow the Work, private Intake notification, and controlled Intake invitation handlers",
+    "restore all four branded email templates",
+    "verify the 23-function main_conversa source inventory while preserving the earlier protected live deployment",
+    "keep all credentials and production delivery configuration outside website source"
   ]
 }

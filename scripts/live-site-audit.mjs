@@ -31,7 +31,7 @@ for (const route of routes) {
     add('Homepage identifies Convera Strategies', /Convera Strategies/i.test(result.text), 'brand marker');
     add('Homepage exposes canonical URL', /<link[^>]+rel=["']canonical["'][^>]+href=["']https:\/\/converastrategies\.com\/?["']/i.test(result.text), 'canonical');
     add('Homepage includes Open Graph image', /property=["']og:image["']/i.test(result.text), 'og:image');
-    add('Founder portrait is present', /ryan-brown-hero\.jpg/i.test(result.text), 'founder hero image');
+    add('Founder portrait is present', /ryan-brown\.jpg/i.test(result.text), 'founder image');
     add('Featured Publication artwork is present', /an_objective_strategy\.png/i.test(result.text), 'featured publication');
     add('Featured Essay artwork is present', /talk_is_cheap\.png/i.test(result.text), 'featured essay');
   }
