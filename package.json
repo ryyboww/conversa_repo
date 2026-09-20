@@ -1,10 +1,6 @@
 {
   "name": "convera-strategies",
-<<<<<<< HEAD
-  "version": "2.41.0",
-=======
   "version": "2.62.0",
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   "private": true,
   "type": "module",
   "scripts": {
@@ -75,9 +71,6 @@
     "framework:lock": "node scripts/framework-bootstrap.mjs --lock-only",
     "launch:bootstrap": "npm run framework:bootstrap",
     "verify:2.39": "node scripts/verify-2.39.mjs",
-<<<<<<< HEAD
-    "verify:2.40": "node scripts/verify-2.40.mjs"
-=======
     "verify:2.40": "node scripts/verify-2.40.mjs",
     "verify:2.42": "node scripts/verify-2.42.mjs",
     "verify:2.43": "node scripts/verify-2.43.mjs",
@@ -100,7 +93,6 @@
     "verify:2.60": "node scripts/function-parity-audit.mjs",
     "verify:2.61": "npm run functions:audit",
     "verify:2.62": "npm run functions:audit"
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   },
   "dependencies": {
     "@astrojs/sitemap": "3.6.0",
