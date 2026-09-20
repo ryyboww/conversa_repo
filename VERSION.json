@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "version": "2.41.0",
   "name": "Fluid Desktop & Client Range",
   "baseline": "2.40.0 publication rhythm and content coherence",
@@ -9,5 +10,18 @@
     "approved People are what we do. tagline integrated into the public brand system",
     "policing, courts, workplaces, and public institutions foregrounded as balanced client settings",
     "brand and image provenance notes retained for future stationery and launch governance"
+=======
+  "version": "2.62.0",
+  "name": "Authoritative Workflow Source Recovery",
+  "baseline": "2.61.0 live function parity confirmation",
+  "status": "publication-candidate",
+  "scope": [
+    "preserve the verified public architecture, security configuration, and workstream boundary",
+    "replace the reconstructed Resend fallback with the authoritative Netlify Emails and Postmark workflow source",
+    "restore Contact, Follow the Work, private Intake notification, and controlled Intake invitation handlers",
+    "restore all four branded email templates",
+    "verify the 23-function main_conversa source inventory while preserving the earlier protected live deployment",
+    "keep all credentials and production delivery configuration outside website source"
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   ]
 }

@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 > convera-strategies@2.5.0 go-live:status
+=======
+> convera-strategies@2.56.0 go-live:status
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/go-live-gate.mjs
 
 
@@ -16,6 +20,9 @@ BLOCK  Monthly contribution URL configured — PUBLIC_SUPPORT_MONTHLY_URL missin
 [Email]
 BLOCK  Founder mailbox send/receive verified — OPS_RYAN_MAIL_VERIFIED
 BLOCK  Public mailbox send/receive verified — OPS_HELLO_MAIL_VERIFIED
+BLOCK  Help mailbox send/receive verified — OPS_HELP_MAIL_VERIFIED
+BLOCK  Admin mailbox send/receive verified — OPS_ADMIN_MAIL_VERIFIED
+BLOCK  Billing mailbox send/receive verified — OPS_BILLING_MAIL_VERIFIED
 
 [Deploy]
 BLOCK  Production deployment completed — OPS_PRODUCTION_DEPLOYED
@@ -36,5 +43,5 @@ BLOCK  Desktop browser QA completed — OPS_BROWSER_QA_VERIFIED
 BLOCK  Mobile QA completed — OPS_MOBILE_QA_VERIFIED
 BLOCK  Social sharing preview verified — OPS_SOCIAL_SHARE_VERIFIED
 
-Go-live checks passed: 0/14.
+Go-live checks passed: 0/17.
 Launch remains gated until every BLOCK item is verified. Do not mark operational flags true before completing the corresponding real-world test.

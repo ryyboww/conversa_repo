@@ -3,7 +3,10 @@ interface Props {
   eyebrow: string;
   title: string;
   lede?: string;
+<<<<<<< HEAD
   tagline?: string;
+=======
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   tone?: 'light' | 'dark';
   compact?: boolean;
   dense?: boolean;
@@ -13,7 +16,10 @@ const {
   eyebrow,
   title,
   lede,
+<<<<<<< HEAD
   tagline,
+=======
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   tone = 'light',
   compact = false,
   dense = false
@@ -33,7 +39,10 @@ const hasMeta = Astro.slots.has('meta');
   <div class:list={['container', 'page-hero__layout', hasAside && 'page-hero__layout--split']}>
     <div class="page-hero__inner">
       <p class="eyebrow">{eyebrow}</p>
+<<<<<<< HEAD
       {tagline && <p class="page-hero__tagline">{tagline}</p>}
+=======
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
       <h1>{title}</h1>
       {lede && <p class="lede">{lede}</p>}
       {hasMeta && <div class="page-hero__meta"><slot name="meta" /></div>}

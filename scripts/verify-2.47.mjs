@@ -1,0 +1,38 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root = process.cwd();
+const checks = [];
+const add = (label, ok) => checks.push({label, ok:Boolean(ok)});
+const read = p => fs.readFileSync(path.join(root,p),'utf8');
+const pkg = JSON.parse(read('package.json'));
+const ver = JSON.parse(read('VERSION.json'));
+const home = read('src/pages/index.astro');
+const homeCss = read('src/styles/home.css');
+const support = read('src/pages/support.astro');
+const supportConfig = read('src/config/support.ts');
+const header = read('src/components/SiteHeader.astro');
+const footer = read('src/components/SiteFooter.astro');
+add('package version is 2.47.0', pkg.version === '2.47.0');
+add('VERSION metadata is 2.47.0', ver.version === '2.47.0');
+add('header retains approved slogan lockup', header.includes('site-brand__tagline') && header.includes('{site.tagline}'));
+add('footer does not repeat approved slogan', !footer.includes('{site.tagline}'));
+add('home hero grid is compressed to 340px', homeCss.includes('min-height: 340px;'));
+add('home hero portrait remains right-edge composition', homeCss.includes('margin-right: 0;') && home.includes('home-hero__portrait'));
+add('home founder identity panel remains integrated', home.includes('home-hero__identity') && home.includes('Founder, Convera Strategies'));
+add('home support card explains greater reach', home.includes('greater room to write, speak'));
+add('support hero leads with ideas traveling farther', support.includes('Help necessary ideas travel farther.'));
+add('support identifies Ryan Brown directly', support.includes('Contributions give Ryan Brown greater room to write, speak'));
+add('support states belief that meaningful change is necessary', support.includes('meaningful change is necessary'));
+add('support explains thoughtful strategic change', support.includes('thoughtful, strategic, and attentive to the institutions people depend on'));
+add('support impact includes public engagement reach', support.includes('Carry the idea farther.'));
+add('support notice preserves non-charitable disclosure', support.includes('not represented as tax-deductible charitable donations'));
+add('support config includes speaking and institutional settings', supportConfig.includes('research, publications, speaking, travel') && supportConfig.includes('institutional and public settings'));
+const firstPlural = /\b(?:we|our|us)\b/i;
+for (const file of ['src/pages/index.astro','src/pages/mission.astro','src/pages/about.astro','src/pages/services.astro','src/pages/community.astro','src/pages/contact.astro','src/pages/support.astro','src/pages/work-with-convera.astro']) {
+  const offenders = read(file).split(/\r?\n/).filter(line => firstPlural.test(line));
+  add(`${file} preserves third-person company voice`, offenders.length === 0);
+}
+const failed = checks.filter(c=>!c.ok);
+for (const c of checks) console.log(`${c.ok?'PASS':'FAIL'} ${c.label}`);
+console.log(`\n${checks.length-failed.length}/${checks.length} 2.47 checks passed.`);
+if (failed.length) process.exit(1);

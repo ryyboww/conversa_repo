@@ -14,7 +14,7 @@ export const supportPaymentOptions = [
     eyebrow: 'One-time contribution',
     title: 'Support the work now.',
     description:
-      'Make a one-time contribution toward publications, community-facing work, platform costs, travel, source access, and the time required to develop thoughtful publications and public-facing work.',
+      'Make a one-time contribution toward research, publications, speaking, travel, source access, platform costs, and the time required to carry thoughtful ideas into more institutional and public settings.',
     suggestedAmounts: ['$25', '$50', '$100', 'Custom'],
     url: supportCheckout.oneTimeUrl
   },
@@ -23,7 +23,7 @@ export const supportPaymentOptions = [
     eyebrow: 'Monthly support',
     title: 'Help sustain the work over time.',
     description:
-      'Recurring support creates dependable room for publications, public engagement, and continued development of Convera’s mission, publications, and community work.',
+      'Recurring support creates dependable room for Ryan Brown to write, speak, travel, and extend the reach of Convera’s public-facing mission over time.',
     suggestedAmounts: ['$10/mo', '$25/mo', '$50/mo'],
     url: supportCheckout.monthlyUrl
   }

@@ -20,6 +20,7 @@ const inquiryAreas = [
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-shell home-hero__grid">
         <div class="home-hero__copy">
+<<<<<<< HEAD
           <p class="home-tagline">{site.tagline}</p>
           <h1 id="home-title"><span>People. Perspective.</span><span>A More Resilient Tomorrow.</span></h1>
           <span class="home-rule" aria-hidden="true"></span>
@@ -28,10 +29,24 @@ const inquiryAreas = [
           </p>
           <div class="home-hero__actions">
             <a class="home-button home-button--primary" href="/mission/">Explore Our Mission <span aria-hidden="true">→</span></a>
+=======
+          <h1 id="home-title"><span>People. Perspective.</span><span>A More Resilient Tomorrow.</span></h1>
+          <span class="home-rule" aria-hidden="true"></span>
+          <p>
+            Convera Strategies helps people and organizations navigate complex questions, strengthen workplace culture, and approach institutional change with greater perspective and purpose.
+          </p>
+          <div class="home-founder-line" aria-label="Founder credentials">
+            <strong>{site.founder}, {site.founderCredential}</strong>
+            <span>{site.founderRoles.join(' · ')}</span>
+          </div>
+          <div class="home-hero__actions">
+            <a class="home-button home-button--primary" href="/mission/">Explore the Mission <span aria-hidden="true">→</span></a>
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
             <a class="home-button home-button--ghost" href="/support/">Support the Work <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
+<<<<<<< HEAD
         <div class="home-hero__portrait">
           <img src="/images/ryan-brown-hero.jpg" alt="Ryan Brown, founder of Convera Strategies" width="1535" height="1024" loading="eager" fetchpriority="high" />
         </div>
@@ -43,6 +58,23 @@ const inquiryAreas = [
           <p class="home-quote-name">Ryan Brown</p>
           <p class="home-quote-role">Founder, Convera Strategies</p>
         </div>
+=======
+        <figure class="home-hero__portrait">
+          <div class="home-hero__portrait-media">
+            <img src="/images/ryan-brown-hero.jpg" alt="Ryan Brown, founder of Convera Strategies" width="1535" height="1024" loading="eager" fetchpriority="high" />
+          </div>
+          <figcaption class="home-hero__identity">
+            <div class="home-hero__identity-quote">
+              <span class="home-quote-mark" aria-hidden="true">“</span>
+              <blockquote>{founderQuote}</blockquote>
+            </div>
+            <div class="home-hero__identity-name">
+              <p class="home-quote-name">{site.founder}, {site.founderCredential}</p>
+              <p class="home-quote-role">Founder, Convera Strategies</p>
+            </div>
+          </figcaption>
+        </figure>
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
       </div>
     </section>
 
@@ -52,7 +84,11 @@ const inquiryAreas = [
           <div class="home-kicker-row"><p class="home-kicker">Featured Publication</p><span aria-hidden="true"></span></div>
           <div class="home-publication-grid">
             <div class="home-publication-art">
+<<<<<<< HEAD
               <img src={featuredPublication.image} alt={featuredPublication.imageAlt} width="1200" height="675" loading="lazy" />
+=======
+              <img src="/images/home/an_objective_strategy.png" alt="Wooden judge’s gavel and sound block on a textured cream background" width="1536" height="1024" loading="lazy" />
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
             </div>
             <div class="home-publication-copy">
               <h2>{featuredPublication.title}</h2>
@@ -62,6 +98,7 @@ const inquiryAreas = [
           </div>
         </article>
 
+<<<<<<< HEAD
         <aside class="home-support-card">
           <div class="home-support-icon" aria-hidden="true">
             <svg viewBox="0 0 48 48"><circle cx="24" cy="15" r="6"></circle><circle cx="12" cy="20" r="4.5"></circle><circle cx="36" cy="20" r="4.5"></circle><path d="M14 38v-5c0-5 4-9 10-9s10 4 10 9v5M4 38v-4c0-4 3-7 8-7 2 0 4 .6 5.5 1.7M44 38v-4c0-4-3-7-8-7-2 0-4 .6-5.5 1.7"></path></svg>
@@ -69,6 +106,18 @@ const inquiryAreas = [
           <div>
             <h2>Make a Difference</h2>
             <p>Your support helps Convera pursue thoughtful work on people, organizations, institutions, and stronger communities.</p>
+=======
+        <aside class="home-side-card home-support-card">
+          <div class="home-side-card__visual home-support-card__visual" aria-hidden="true">
+            <div class="home-support-icon">
+              <svg viewBox="0 0 48 48"><circle cx="24" cy="15" r="6"></circle><circle cx="12" cy="20" r="4.5"></circle><circle cx="36" cy="20" r="4.5"></circle><path d="M14 38v-5c0-5 4-9 10-9s10 4 10 9v5M4 38v-4c0-4 3-7 8-7 2 0 4 .6 5.5 1.7M44 38v-4c0-4-3-7-8-7-2 0-4 .6-5.5 1.7"></path></svg>
+            </div>
+          </div>
+          <div class="home-side-card__copy">
+            <p class="home-kicker">Support the Work</p>
+            <h2>Help the Work Travel Farther</h2>
+            <p>Support gives Ryan Brown greater room to write, speak, and carry ideas about thoughtful institutional change into more organizations and public conversations.</p>
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
             <a class="home-button home-button--dark" href="/support/">Support the Work <span aria-hidden="true">→</span></a>
           </div>
         </aside>
@@ -82,7 +131,11 @@ const inquiryAreas = [
             <div class="home-kicker-row"><p class="home-kicker">Featured Essay</p><span aria-hidden="true"></span></div>
             <div class="home-publication-grid">
               <div class="home-publication-art">
+<<<<<<< HEAD
                 <img src={secondFeature.data.image ?? '/images/blog/talk-is-cheap.jpg'} alt={secondFeature.data.imageAlt ?? 'Editorial image representing trust and connection'} width="1200" height="675" loading="lazy" style={`object-position:${secondFeature.data.imagePosition ?? 'center'}`} />
+=======
+                <img src="/images/home/talk_is_cheap.png" alt="Speech bubble with a price tag changing from one dollar to one cent" width="1536" height="1024" loading="lazy" />
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
               </div>
               <div class="home-publication-copy">
                 <h2>{secondFeature.data.title}</h2>
@@ -91,10 +144,24 @@ const inquiryAreas = [
               </div>
             </div>
           </article>
+<<<<<<< HEAD
           <figure class="home-people-card">
             <img src="/images/editorial/people-connection.jpg" alt="People gathered for conversation in an institutional setting" width="1600" height="960" loading="lazy" />
             <figcaption><strong>People are what we do.</strong><span>Conversation · Connection · Public Life</span></figcaption>
           </figure>
+=======
+          <aside class="home-side-card home-connection-card">
+            <div class="home-side-card__visual home-connection-card__media">
+              <img src="/images/editorial/convera-people-network.svg" alt="Abstract illustration representing conversation, connection, and public life" width="1200" height="720" loading="lazy" />
+            </div>
+            <div class="home-side-card__copy home-connection-card__copy">
+              <p class="home-kicker">Connection & Public Life</p>
+              <h2>Conversation shapes what people notice, trust, and carry forward.</h2>
+              <p>Shared experience can reveal what formal reports miss and where closer attention may be useful.</p>
+              <a href="/community/">Explore Community <span aria-hidden="true">→</span></a>
+            </div>
+          </aside>
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
         </div>
       </section>
     )}

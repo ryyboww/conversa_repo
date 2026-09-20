@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Convera Strategies 2.5.0 — Operator Activation verification
 
 Dependency-free release audit: PASS
@@ -16,3 +17,137 @@ Dependency-free release audit: PASS
 - launch:summary clean-state test: PASS
 
 Framework build remains pending because npm dependency installation could not complete in this environment.
+=======
+
+> convera-strategies@2.56.0 operator:audit
+> npm run doctor && npm run launch:summary && npm run activation:report && npm run go-live:status
+
+
+> convera-strategies@2.56.0 doctor
+> node scripts/runtime-doctor.mjs
+
+
+Convera Strategies — runtime doctor
+
+PASS  Supported Node runtime — Node 22.16.0; package requires >=20 <23
+PASS  npm is available — npm 10.9.2
+PASS  Git is available — git version 2.47.3
+PASS  Required file: package.json — package.json
+PASS  Required file: astro.config.mjs — astro.config.mjs
+PASS  Required file: netlify.toml — netlify.toml
+PASS  Required file: src/pages/index.astro — src/pages/index.astro
+PASS  Required file: public/images/ryan-brown.jpg — public/images/ryan-brown.jpg
+SETUP  Dependencies installed — Run npm install --no-audit --no-fund
+SETUP  Astro CLI available — Requires successful dependency installation
+SETUP  Public build environment file — Optional locally; configure equivalent variables in Netlify
+SETUP  Operations verification file — Copy .env.operations.example after external verification begins
+SETUP  Built production output — Run npm run build:verify after dependencies install
+
+Core runtime prerequisites: 7/7 ready.
+SETUP items are expected before deployment and are not source-code failures.
+
+> convera-strategies@2.56.0 launch:summary
+> node scripts/launch-summary.mjs
+
+
+Convera Strategies 2.56.0 — launch operator summary
+
+NEXT  Astro dependencies installed — npm install
+NEXT  Production dist exists — npm run build:verify
+NEXT  One-time contribution URL — npm run config:set -- PUBLIC_SUPPORT_ONE_TIME_URL=https://...
+NEXT  Monthly contribution URL — npm run config:set -- PUBLIC_SUPPORT_MONTHLY_URL=https://...
+NEXT  Founder mailbox verified — npm run activation:set -- OPS_RYAN_MAIL_VERIFIED=true
+NEXT  Public mailbox verified — npm run activation:set -- OPS_HELLO_MAIL_VERIFIED=true
+NEXT  Help mailbox verified — npm run activation:set -- OPS_HELP_MAIL_VERIFIED=true
+NEXT  Admin mailbox verified — npm run activation:set -- OPS_ADMIN_MAIL_VERIFIED=true
+NEXT  Billing mailbox verified — npm run activation:set -- OPS_BILLING_MAIL_VERIFIED=true
+NEXT  Production deployed — npm run activation:set -- OPS_PRODUCTION_DEPLOYED=true
+NEXT  Domain verified — npm run activation:set -- OPS_CANONICAL_DOMAIN_VERIFIED=true
+NEXT  SSL verified — npm run activation:set -- OPS_SSL_VERIFIED=true
+NEXT  Forms verified — npm run activation:set -- OPS_NETLIFY_FORMS_VERIFIED=true
+NEXT  Form notifications verified — npm run activation:set -- OPS_FORM_NOTIFICATIONS_VERIFIED=true
+NEXT  Contribution flow verified — npm run activation:set -- OPS_SUPPORT_FLOW_VERIFIED=true
+NEXT  Desktop QA verified — npm run activation:set -- OPS_BROWSER_QA_VERIFIED=true
+NEXT  Mobile QA verified — npm run activation:set -- OPS_MOBILE_QA_VERIFIED=true
+NEXT  Social share preview verified — npm run activation:set -- OPS_SOCIAL_SHARE_VERIFIED=true
+
+Completed locally/externally: 0/18
+Recommended next action: npm install
+
+
+> convera-strategies@2.56.0 activation:report
+> node scripts/activation-report.mjs
+
+# Convera Strategies — Activation Report
+
+**Release:** 2.56.0  
+**Generated:** 2026-09-17T20:13:55.178Z  
+**State:** ACTIVATION PENDING  
+**Completed:** 0/17
+
+| Item | Status | Detail |
+|---|---|---|
+| One-time contribution checkout | Pending | Not configured |
+| Monthly contribution checkout | Pending | Not configured |
+| Payment provider label | Pending | Not configured |
+| ryan@converastrategies.com send/receive verified | Pending | Pending external test |
+| hello@converastrategies.com send/receive verified | Pending | Pending external test |
+| help@converastrategies.com send/receive verified | Pending | Pending external test |
+| admin@converastrategies.com send/receive verified | Pending | Pending external test |
+| billing@converastrategies.com send/receive verified | Pending | Pending external test |
+| Production Netlify deployment completed | Pending | Pending |
+| Canonical production domain verified | Pending | Pending DNS/domain test |
+| Production TLS/SSL verified | Pending | Pending HTTPS test |
+| Production Contact and intake forms verified | Pending | Pending production test |
+| Production form notifications verified | Pending | Pending notification-delivery test |
+| Production contribution flow verified | Pending | Pending production test |
+| Production desktop browser QA completed | Pending | Pending production QA |
+| Production mobile QA completed | Pending | Pending mobile QA |
+| Social sharing preview verified | Pending | Pending social-preview test |
+
+This report distinguishes source configuration from external verification. It does not infer mailbox delivery, payment success, Netlify form delivery, or browser QA from source code.
+
+
+> convera-strategies@2.56.0 go-live:status
+> node scripts/go-live-gate.mjs
+
+
+Convera Strategies — go-live gate
+
+
+[Build]
+BLOCK  Production dist exists — npm run build:verify
+
+[Payments]
+BLOCK  One-time contribution URL configured — PUBLIC_SUPPORT_ONE_TIME_URL missing
+BLOCK  Monthly contribution URL configured — PUBLIC_SUPPORT_MONTHLY_URL missing
+
+[Email]
+BLOCK  Founder mailbox send/receive verified — OPS_RYAN_MAIL_VERIFIED
+BLOCK  Public mailbox send/receive verified — OPS_HELLO_MAIL_VERIFIED
+BLOCK  Help mailbox send/receive verified — OPS_HELP_MAIL_VERIFIED
+BLOCK  Admin mailbox send/receive verified — OPS_ADMIN_MAIL_VERIFIED
+BLOCK  Billing mailbox send/receive verified — OPS_BILLING_MAIL_VERIFIED
+
+[Deploy]
+BLOCK  Production deployment completed — OPS_PRODUCTION_DEPLOYED
+
+[Domain]
+BLOCK  Canonical domain verified — OPS_CANONICAL_DOMAIN_VERIFIED
+BLOCK  TLS/SSL verified — OPS_SSL_VERIFIED
+
+[Forms]
+BLOCK  Netlify form submissions verified — OPS_NETLIFY_FORMS_VERIFIED
+BLOCK  Form notifications verified — OPS_FORM_NOTIFICATIONS_VERIFIED
+
+[Support]
+BLOCK  Contribution flow verified end to end — OPS_SUPPORT_FLOW_VERIFIED
+
+[QA]
+BLOCK  Desktop browser QA completed — OPS_BROWSER_QA_VERIFIED
+BLOCK  Mobile QA completed — OPS_MOBILE_QA_VERIFIED
+BLOCK  Social sharing preview verified — OPS_SOCIAL_SHARE_VERIFIED
+
+Go-live checks passed: 0/17.
+Launch remains gated until every BLOCK item is verified. Do not mark operational flags true before completing the corresponding real-world test.
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997

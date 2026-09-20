@@ -4,24 +4,36 @@ import PageHero from '../components/PageHero.astro';
 import CommercialCTA from '../components/shared/CommercialCTA.astro';
 import { supportPaymentOptions, supportCheckout } from '../config/support';
 ---
+<<<<<<< HEAD
 <BaseLayout title="Support" description="Support Convera Strategies and its publications, community engagement, public-facing work, and mission." canonical="/support/">
   <PageHero
     eyebrow="Support the Work"
     title="Support a person, a mission, and a different way of approaching problems."
     lede="Contributions help sustain founder-led public work, publications, community participation, and the infrastructure Convera needs to keep developing independently."
+=======
+<BaseLayout title="Support" description="Support Ryan Brown’s independent publications, speaking, public engagement, and work advancing thoughtful institutional change." canonical="/support/">
+  <PageHero
+    eyebrow="Support the Work"
+    title="Help necessary ideas travel farther."
+    lede="Contributions give Ryan Brown greater room to write, speak, and carry a case for thoughtful institutional change into more organizations, public settings, and conversations."
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     tone="dark"
   >
     <div slot="aside" class="support-hero__statement">
       <span>Why it matters</span>
+<<<<<<< HEAD
       <strong>Protecting and strengthening our institutions is an investment in what comes next.</strong>
+=======
+      <strong>Support expands the reach of an independent voice grounded in the belief that meaningful change is necessary.</strong>
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     </div>
   </PageHero>
 
   <section class="section">
     <div class="container support-intro">
       <p class="eyebrow">Contribute</p>
-      <h2>Choose the level of support that makes sense for you.</h2>
-      <p class="lede">Contributions are voluntary support for Convera’s public-facing mission. They are separate from fees paid for professional services.</p>
+      <h2>Support the voice behind the work.</h2>
+      <p class="lede">Contributions support independent public work by Ryan Brown. They help extend a perspective grounded in the belief that change is necessary, but most durable when it is thoughtful, strategic, and attentive to the institutions people depend on. Contributions are separate from fees paid for professional services.</p>
     </div>
     <div class="container grid-2 support-options" id="support-options">
       {supportPaymentOptions.map((option) => (
@@ -42,9 +54,9 @@ import { supportPaymentOptions, supportCheckout } from '../config/support';
 
   <section class="section support-impact">
     <div class="container grid-3">
-      <article><p class="eyebrow">Publications</p><h3>Make room for thoughtful work.</h3><p class="muted">Support helps create time and infrastructure for essays, analysis, and public-facing publications.</p></article>
-      <article><p class="eyebrow">Community</p><h3>Keep conversation open.</h3><p class="muted">Support helps maintain pathways for observations, questions, recommendations, and public participation.</p></article>
-      <article><p class="eyebrow">Institutions</p><h3>Invest in what comes next.</h3><p class="muted">Convera’s mission is grounded in the belief that stronger institutions help create a more resilient future.</p></article>
+      <article><p class="eyebrow">Publications</p><h3>Develop the argument.</h3><p class="muted">Support creates room for research, essays, analysis, and public-facing work capable of traveling beyond a single conversation.</p></article>
+      <article><p class="eyebrow">Public Engagement</p><h3>Carry the idea farther.</h3><p class="muted">Support helps create opportunities to speak, convene, travel, and bring ideas about institutional change into more organizations and public settings.</p></article>
+      <article><p class="eyebrow">Institutions</p><h3>Keep the purpose visible.</h3><p class="muted">The work is grounded in the belief that stronger institutions require thoughtful change, sustained attention, and a clear sense of what should be preserved.</p></article>
     </div>
   </section>
 
@@ -56,7 +68,7 @@ import { supportPaymentOptions, supportCheckout } from '../config/support';
 
   <section class="section--tight support-notice">
     <div class="container">
-      <p>Contributions support Convera Strategies’ publications, public-facing work, community engagement, and organizational development. Convera Strategies is not presented as a charitable organization, and contributions are not represented as tax-deductible charitable donations. Professional services are separate paid engagements and are described on the Services page.</p>
+      <p>Contributions support Ryan Brown’s independent publications, speaking, public-facing work, community engagement, and the broader reach of ideas associated with Convera Strategies. Convera Strategies is not presented as a charitable organization, and contributions are not represented as tax-deductible charitable donations. Professional services are separate paid engagements and are described on the Services page.</p>
     </div>
   </section>
 

@@ -15,9 +15,9 @@ export const serviceAreas: ServiceArea[] = [
     shortTitle: 'Social Perspectives',
     summary: 'Broader context for complex organizational and institutional questions.',
     description:
-      'Convera examines the social, institutional, community, and relational conditions surrounding a challenge so decisions are not made from an unnecessarily narrow view.',
+      'Convera examines the social, institutional, community, and relational conditions surrounding a question or situation so decisions are not made from an unnecessarily narrow view.',
     highlights: [
-      'Contextual review of organizational or institutional challenges',
+      'Contextual review of organizational or institutional questions',
       'Stakeholder, community, and social-condition framing',
       'Interpretation of recurring patterns, language, and competing perspectives'
     ],
@@ -43,7 +43,7 @@ export const serviceAreas: ServiceArea[] = [
     shortTitle: 'Organizational Strategy',
     summary: 'Practical direction grounded in context, priorities, and organizational realities.',
     description:
-      'Convera works with owners, professionals, and organizations to clarify challenges, identify priorities, assess options, and develop practical next steps without forcing every problem into a predetermined model.',
+      'Convera works with owners, professionals, and organizations to clarify questions, identify priorities, assess options, and develop practical next steps without forcing every problem into a predetermined model.',
     highlights: [
       'Focused strategy sessions',
       'Problem framing and priority clarification',
@@ -58,7 +58,7 @@ export const starterEngagements = [
     id: 'focused-strategy-session',
     title: 'Focused Strategy Session',
     description:
-      'A structured conversation to clarify a challenge, identify what matters most, and define practical next steps.'
+      'A structured conversation to clarify the question, identify what matters most, and define practical next steps.'
   },
   {
     id: 'workplace-culture-review',

@@ -1,105 +1,55 @@
-# Convera Strategies — Launch Activation Sequence
-
-This document is the shortest path from the 1.8.0 code package to a public launch.
+# Convera Strategies 2.56.0 — Launch Activation Sequence
 
 ## 1. Activate branded correspondence
 
-Confirm these mailboxes can send and receive before publishing the domain:
-
-- `ryan@converastrategies.com` — founder and direct professional correspondence
-- `hello@converastrategies.com` — general/public inquiries
-- `help@converastrategies.com` — visitor and client support
-- `admin@converastrategies.com` — private administration; do not publish unless needed
-
-Send a message into and out of each public mailbox and confirm SPF/DKIM/DMARC behavior through your email provider.
+Confirm send and receive for the five configured Convera mailboxes. Record verification only after real tests succeed.
 
 ## 2. Activate contribution checkout
 
-Convera is designed to use hosted checkout pages rather than collect card details directly.
+Set hosted one-time and recurring public checkout URLs in Netlify. Keep all secret payment credentials outside `PUBLIC_*` variables.
 
-Create one-time and recurring contribution links with your chosen provider, then set these environment variables in Netlify:
-
-```text
-PUBLIC_SUPPORT_PROVIDER_LABEL=Stripe
-PUBLIC_SUPPORT_ONE_TIME_URL=<your hosted one-time checkout URL>
-PUBLIC_SUPPORT_MONTHLY_URL=<your hosted recurring checkout URL>
-```
-
-Where the provider permits a success redirect, use:
-
-```text
-https://converastrategies.com/support/thank-you/
-```
-
-Do not place secret API keys in `PUBLIC_` environment variables.
-
-## 3. Install and build locally
+## 3. Install, diagnose, and build
 
 ```bash
-npm install
-npm run launch:final
+npm ci
+npm run release:audit
+npm run verify:2.56
 npm run check
-npm run build
-npm run preview
+npm run build:verify
 ```
 
-`launch:final` is dependency-free and can run before Astro is installed. `check`, `build`, and `preview` require the package dependencies.
+## 4. Connect GitHub and Netlify
 
-## 4. Connect the repository to Netlify
+Use `convera_published_codes`, branch `main_conversa`, repository root, build command `npm run build`, and publish directory `dist`.
 
-Expected build settings are already in `netlify.toml`:
+## 5. Verify Netlify Forms
 
-- Build command: `npm run build`
-- Publish directory: `dist`
+Expected forms are `website-contact`, `follow-the-work`, `client-intake`, and feature-flagged `convera-newsletter`. `/work-with-convera/` is an orientation page, not a form.
 
-Add the public environment variables from Step 2 to the production site settings.
+For the professional-services test: submit Contact, review it manually, send the private Intake link directly to the test recipient, submit Intake, and confirm Contact and Intake remain separate submissions with separate notifications.
 
-## 5. Verify Netlify Forms after first deployment
+## 6. Verify public journeys
 
-The production site should detect these forms:
-
-- `website-contact`
-- `work-with-convera`
-- `convera-newsletter` only when the newsletter feature flag is enabled
-
-Configure form notifications for an appropriate Convera mailbox and submit one real test through each enabled form.
-
-## 6. Verify production visitor journeys
-
-Test each journey from the public domain, not only the local preview:
-
-### Prospective client
-Home/Services → **Work With Convera** → intake form → thank-you page → submission notification.
-
-### Contributor
-Home/Header/Support panel → **Support the Work** → hosted checkout → provider confirmation → Convera support thank-you page where supported.
-
-### Reader
-Home/Publications → Convera publication record → original publisher page.
-
-### Community participant
-Home/Community → relevant participation pathway → Contact form preset.
+- **Prospective client:** Work With Convera → Contact → manual review → private Intake invitation → Intake.
+- **General correspondent:** Contact → thank-you.
+- **Follower:** Follow the Work → follow thank-you.
+- **Contributor:** Support → hosted checkout → provider confirmation/return.
+- **Reader:** Publications → publication record → original publisher page.
+- **Community participant:** Community → relevant Contact pathway.
 
 ## 7. Verify presentation
 
-Test at minimum:
-
-- light mode
-- dark mode
-- desktop navigation
-- narrow mobile navigation
-- keyboard-only navigation
-- founder portrait crop
-- homepage support visibility
-- Mission page “A Moment of Transition” section
-- publication records
-- 404 page
+Test light/dark modes, desktop and mobile navigation, keyboard-only navigation, reduced motion, founder portrait treatment, Home featured artwork, publication records, forms, and 404 handling.
 
 ## 8. Publish deliberately
 
+<<<<<<< HEAD
 Before announcing the site publicly, complete `PRE-LAUNCH-QA.md` and `LAUNCH-CHECKLIST.md`, then preserve the deployed ZIP/repository tag as the launch baseline.
 
 
 ## 2.14.0 client operations note
 
 Launch email verification now covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. The direct prospective-client form is `/intake/` (`client-intake` in Netlify). The `/dashboard/` route is a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
+=======
+Run `npm run live:audit -- https://converastrategies.com`, update only verified operational flags, and run `npm run deploy:gate`. Preserve the deployed ZIP/repository tag as the launch baseline.
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997

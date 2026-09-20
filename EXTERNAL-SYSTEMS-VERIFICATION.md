@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # External Systems Verification — Convera Strategies 2.14.0
 
 The repository can be source-ready while the business infrastructure is still incomplete. Release 2.14.0 adds live checks for the external systems required before public launch.
+=======
+# External Systems Verification — Convera Strategies 2.56.0
+
+The repository can be source-ready while the business infrastructure is still incomplete. Release 2.56.0 adds live checks for the external systems required before public launch.
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 ## 1. Domain and HTTPS
 

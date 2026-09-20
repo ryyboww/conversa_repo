@@ -25,10 +25,10 @@
 
 - [x] Run dependency-free source/path audit.
 - [x] Add dependency-free launch-readiness audit.
-- [ ] Run `npm install` on Ryan's machine.
+- [ ] Run `npm ci` on an internet-connected Node 20 environment.
 - [ ] Run `npm run launch:audit` locally.
 - [ ] Run `npm run check` and resolve Astro diagnostics.
-- [ ] Run `npm run build` successfully.
+- [ ] Run `npm run build:verify` successfully.
 - [ ] Confirm `converastrategies.com` points to the correct Netlify production site.
 - [ ] Confirm HTTPS certificate is active.
 - [ ] Test light and dark mode on desktop and mobile.
@@ -37,9 +37,13 @@
 - [ ] Test 404 page.
 - [ ] Confirm `/rss.xml`, sitemap, manifest, and robots.txt in production.
 
-## Contact form
+## Contact and private Intake
 
 - [ ] Confirm Netlify Forms detects `website-contact`.
+- [ ] Confirm professional inquiries remain Contact-first and are reviewed manually.
+- [ ] Send the private Intake link directly only after review when more project context is useful.
+- [ ] Confirm Netlify Forms detects `client-intake` separately and the route remains noindex/public-navigation-free.
+- [ ] Confirm Netlify Forms detects `follow-the-work`.
 - [ ] Configure form-submission notification email.
 - [ ] Test each prefilled contact pathway from Services and Community.
 - [ ] Test live submission and Thank You redirect.
@@ -83,6 +87,12 @@
 - Speaking
 
 
+<<<<<<< HEAD
 ## 2.14.0 client operations note
 
 Launch email verification now covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. The direct prospective-client form is `/intake/` (`client-intake` in Netlify). The `/dashboard/` route is a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
+=======
+## 2.56.0 client operations note
+
+Launch email verification covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. Professional inquiries begin through the public Contact pathway. The `/intake/` route (`client-intake` in Netlify) is private/noindex and is used only after manual review and a direct Intake invitation. The `/dashboard/` route remains a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997

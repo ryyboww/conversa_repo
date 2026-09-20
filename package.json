@@ -1,6 +1,10 @@
 {
   "name": "convera-strategies",
+<<<<<<< HEAD
   "version": "2.41.0",
+=======
+  "version": "2.62.0",
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   "private": true,
   "type": "module",
   "scripts": {
@@ -22,7 +26,10 @@
     "routes:audit": "node scripts/route-audit.mjs",
     "a11y:audit": "node scripts/accessibility-audit.mjs",
     "release:readiness": "node scripts/release-readiness.mjs",
-    "release:audit": "npm run production:audit && npm run routes:audit && npm run a11y:audit && npm run release:readiness",
+    "release:audit": "npm run production:audit && npm run routes:audit && npm run a11y:audit && npm run workstreams:audit && npm run security:controls && npm run functions:audit && npm run release:readiness",
+    "functions:audit": "node scripts/function-parity-audit.mjs && node scripts/function-contract-audit.mjs",
+    "workstreams:audit": "node scripts/workstream-boundary-audit.mjs",
+    "security:controls": "node scripts/verify-2.25.mjs && node scripts/verify-2.26.mjs && node scripts/verify-2.27.mjs && node scripts/verify-2.28.mjs",
     "verify": "npm run release:audit && npm run check && npm run build:verify",
     "live:audit": "node scripts/live-site-audit.mjs",
     "release:verify": "npm run release:audit && npm run check && npm run build:verify",
@@ -68,7 +75,32 @@
     "framework:lock": "node scripts/framework-bootstrap.mjs --lock-only",
     "launch:bootstrap": "npm run framework:bootstrap",
     "verify:2.39": "node scripts/verify-2.39.mjs",
+<<<<<<< HEAD
     "verify:2.40": "node scripts/verify-2.40.mjs"
+=======
+    "verify:2.40": "node scripts/verify-2.40.mjs",
+    "verify:2.42": "node scripts/verify-2.42.mjs",
+    "verify:2.43": "node scripts/verify-2.43.mjs",
+    "verify:2.44": "node scripts/verify-2.44.mjs",
+    "verify:2.45": "node scripts/verify-2.45.mjs",
+    "verify:2.46": "node scripts/verify-2.46.mjs",
+    "verify:2.47": "node scripts/verify-2.47.mjs",
+    "verify:2.48": "node scripts/verify-2.48.mjs",
+    "verify:2.49": "node scripts/verify-2.49.mjs",
+    "verify:2.50": "node scripts/verify-2.50.mjs",
+    "verify:2.51": "node scripts/verify-2.51.mjs",
+    "verify:2.52": "node scripts/verify-2.52.mjs",
+    "verify:2.53": "node scripts/verify-2.53.mjs",
+    "verify:2.54": "node scripts/verify-2.54.mjs",
+    "verify:2.55": "node scripts/verify-2.55.mjs",
+    "verify:2.56": "node scripts/verify-2.56.mjs",
+    "verify:2.57": "node scripts/verify-2.57.mjs",
+    "verify:2.58": "node scripts/verify-2.58.mjs",
+    "verify:2.59": "node scripts/verify-2.59.mjs",
+    "verify:2.60": "node scripts/function-parity-audit.mjs",
+    "verify:2.61": "npm run functions:audit",
+    "verify:2.62": "npm run functions:audit"
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   },
   "dependencies": {
     "@astrojs/sitemap": "3.6.0",

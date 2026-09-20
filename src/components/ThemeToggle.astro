@@ -42,7 +42,7 @@
       const root = document.documentElement;
       const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
       root.dataset.theme = next;
-      localStorage.setItem('convera-theme', next);
+      try { localStorage.setItem('convera-theme', next); } catch {}
       sync();
     });
   })();

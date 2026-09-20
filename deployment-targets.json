@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "repository": "convera_published_codes",
+=======
+  "repository": "conversa_repo",
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   "branch": "main_conversa",
   "remote": "origin",
   "canonicalUrl": "https://converastrategies.com"

@@ -10,7 +10,8 @@
 ## Client conversion
 - [ ] `Explore Our Mission` points to `/mission/`.
 - [ ] `Work With Convera` pathways reach Services or the correct prefilled Contact inquiry.
-- [ ] Services clearly explains the initial engagement process.
+- [ ] Services and Work With Convera clearly explain the Contact → manual review → private Intake invitation process.
+- [ ] `/intake/` remains absent from public navigation and indexed search pathways.
 - [ ] Support remains visible but distinct from paid professional services.
 - [ ] Contact form language does not imply legal, HR, investigative, or other licensed services.
 
@@ -38,8 +39,8 @@
 ## Technical
 - [ ] `npm run launch:audit` passes.
 - [ ] `npm run check` passes.
-- [ ] `npm run build` passes.
-- [ ] Contact form appears in Netlify Forms.
+- [ ] `npm run build:verify` passes.
+- [ ] `website-contact`, `follow-the-work`, and `client-intake` appear in Netlify Forms as separate pathways.
 - [ ] `/rss.xml`, sitemap, manifest, robots.txt, canonical tags, and social metadata resolve.
 - [ ] 404 page works.
 - [ ] HTTPS and custom domain resolve correctly.

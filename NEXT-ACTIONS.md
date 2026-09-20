@@ -11,6 +11,12 @@ The site architecture is stable. Work from this sequence rather than adding more
 Use `npm run activation:init` once, `npm run launch:summary` whenever you need orientation, and `npm run activation:report` after each verified external step.
 
 
+<<<<<<< HEAD
 ## 2.14.0 client operations note
 
 Launch email verification now covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. The direct prospective-client form is `/intake/` (`client-intake` in Netlify). The `/dashboard/` route is a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
+=======
+## 2.56.0 client operations note
+
+Launch email verification covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. Professional inquiries begin through the public Contact pathway. The `/intake/` route (`client-intake` in Netlify) is private/noindex and is used only after manual review and a direct Intake invitation. The `/dashboard/` route remains a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997

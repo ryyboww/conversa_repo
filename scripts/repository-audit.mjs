@@ -14,7 +14,11 @@ const exists = (rel) => fs.existsSync(path.join(root, rel));
 const targets = JSON.parse(fs.readFileSync(path.join(root, 'deployment-targets.json'), 'utf8'));
 add(`Release version is ${pkg.version}`, pkg.version === versionMeta.version, versionMeta.version);
 add('Deployment target file exists', exists('deployment-targets.json'), 'deployment-targets.json');
+<<<<<<< HEAD
 add('Repository target is convera_published_codes', targets.repository === 'convera_published_codes', targets.repository);
+=======
+add('Repository target is conversa_repo', targets.repository === 'conversa_repo', targets.repository);
+>>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 add('Production branch is main_conversa', targets.branch === 'main_conversa', targets.branch);
 add('.gitignore exists', exists('.gitignore'), '.gitignore');
 add('.editorconfig exists', exists('.editorconfig'), '.editorconfig');
