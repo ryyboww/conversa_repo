@@ -1,6 +1,6 @@
 {
   "name": "convera-strategies",
-  "version": "2.57.0",
+  "version": "2.62.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -22,7 +22,10 @@
     "routes:audit": "node scripts/route-audit.mjs",
     "a11y:audit": "node scripts/accessibility-audit.mjs",
     "release:readiness": "node scripts/release-readiness.mjs",
-    "release:audit": "npm run production:audit && npm run routes:audit && npm run a11y:audit && npm run release:readiness",
+    "release:audit": "npm run production:audit && npm run routes:audit && npm run a11y:audit && npm run workstreams:audit && npm run security:controls && npm run functions:audit && npm run release:readiness",
+    "functions:audit": "node scripts/function-parity-audit.mjs && node scripts/function-contract-audit.mjs",
+    "workstreams:audit": "node scripts/workstream-boundary-audit.mjs",
+    "security:controls": "node scripts/verify-2.25.mjs && node scripts/verify-2.26.mjs && node scripts/verify-2.27.mjs && node scripts/verify-2.28.mjs",
     "verify": "npm run release:audit && npm run check && npm run build:verify",
     "live:audit": "node scripts/live-site-audit.mjs",
     "release:verify": "npm run release:audit && npm run check && npm run build:verify",
@@ -84,7 +87,12 @@
     "verify:2.54": "node scripts/verify-2.54.mjs",
     "verify:2.55": "node scripts/verify-2.55.mjs",
     "verify:2.56": "node scripts/verify-2.56.mjs",
-    "verify:2.57": "node scripts/verify-2.57.mjs"
+    "verify:2.57": "node scripts/verify-2.57.mjs",
+    "verify:2.58": "node scripts/verify-2.58.mjs",
+    "verify:2.59": "node scripts/verify-2.59.mjs",
+    "verify:2.60": "node scripts/function-parity-audit.mjs",
+    "verify:2.61": "npm run functions:audit",
+    "verify:2.62": "npm run functions:audit"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.6.0",

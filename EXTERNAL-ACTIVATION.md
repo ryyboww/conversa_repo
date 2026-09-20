@@ -1,6 +1,6 @@
 # Convera Strategies — External Activation
 
-Release 2.4.0 keeps the site source stable and concentrates the remaining work on services outside the repository.
+Release 2.56.0 keeps the site source stable and concentrates the remaining work on services outside the repository.
 
 ## 1. Branded email
 
@@ -49,7 +49,7 @@ These cannot be proven from source code. Before launch:
 
 1. Send a message from an unrelated account to both public Convera addresses.
 2. Reply from each Convera mailbox and confirm delivery.
-3. Submit the Contact and Work With Convera forms on the deployed site.
+3. Submit the public Contact form, review the professional test manually, then send the private Intake link directly and submit a separate Intake test. Also test Follow the Work.
 4. Open each hosted contribution checkout from the live Support page.
 5. If the provider permits, complete a low-value live transaction and verify receipt/return behavior.
 
@@ -66,3 +66,8 @@ After all external values are activated:
 ```bash
 npm run ops:strict
 ```
+
+
+## 2.56.0 client operations note
+
+Launch email verification covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. Professional inquiries begin through the public Contact pathway. The `/intake/` route (`client-intake` in Netlify) is private/noindex and is used only after manual review and a direct Intake invitation. The `/dashboard/` route remains a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.

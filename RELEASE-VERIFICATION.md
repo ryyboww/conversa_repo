@@ -1,41 +1,27 @@
-# Convera Strategies 2.4.0 — Release Verification
+# Convera Strategies 2.51.0 — Release Verification
 
-## Dependency-free verification completed
+## Current release boundary
 
-The current package passes the source-level and operational verification suite in this environment.
+Release 2.51.0 preserves the approved Convera Strategies public architecture, clean slogan lockup, compact Home hero, third-person company voice, and founder-led service model. Professional services use **Contact → manual review → private Intake invitation → Intake → Project # → scope/estimate → agreement → readiness → active project**. The private `/intake/` route remains noindex and absent from public navigation.
 
-### Passing controls
+## Source-level verification
 
-- source/import integrity;
-- Netlify Forms markup;
-- content/placeholder scan;
-- launch-readiness checks;
-- predeploy checks;
-- metadata checks;
-- configuration checks, including canonical `www` redirect;
-- route integrity;
-- accessibility source checks;
-- release-readiness checks: **21/21**;
-- privacy/exposure checks: **5/5**;
-- external activation status check;
-- runtime doctor core prerequisites: **7/7**;
-- go-live gate reports pending real-world activation without falsely passing it;
-- standalone TypeScript configuration check: **PASS** for central dependency-free configuration modules.
+The release includes repository, routes, forms, content, metadata, configuration, privacy/exposure, accessibility-source, and release-readiness audits. The public configuration and operational-verification templates are included as `.env.example` and `.env.operations.example`.
 
-## Build verification still pending
+## Framework verification
 
-`npm install --no-audit --no-fund` was attempted again in this environment and timed out before dependencies were installed. For that reason, this release does not claim a completed Astro framework build.
-
-The first dependency-enabled verification should run:
+When dependencies are available, run:
 
 ```bash
-npm install --no-audit --no-fund
-npm run verify
+npm install
+npm run check
+npm run build
+npm run dist:audit
 ```
 
-`npm run verify` now includes the new built-output audit after the production build.
+A source audit is not a substitute for a successful Astro check/build or rendered browser QA.
 
-## External verification still pending
+## External verification still required before launch-complete status
 
 - branded mailbox delivery;
 - contribution checkout links;
@@ -43,5 +29,7 @@ npm run verify
 - production form and notification delivery;
 - canonical domain and TLS verification;
 - live contribution flow;
-- desktop/mobile QA;
+- desktop/mobile browser QA;
 - social-sharing preview verification.
+
+Only mark operational flags true after the corresponding real-world test succeeds.

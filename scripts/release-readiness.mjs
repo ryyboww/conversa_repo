@@ -25,6 +25,10 @@ add('Netlify Node version is pinned', /NODE_VERSION\s*=\s*"20"/.test(netlify), '
 add('Release audit command exists', Boolean(pkg.scripts?.['release:audit']), 'npm run release:audit');
 add('Full verification command exists', Boolean(pkg.scripts?.verify), 'npm run verify');
 add('Privacy audit command exists', Boolean(pkg.scripts?.['privacy:audit']), 'npm run privacy:audit');
+add('Workstream boundary audit command exists', Boolean(pkg.scripts?.['workstreams:audit']), 'npm run workstreams:audit');
+add('Workstream boundary guide exists', fs.existsSync(path.join(root, 'WORKSTREAM-BOUNDARIES.md')), 'WORKSTREAM-BOUNDARIES.md');
+add('Operations security audit command exists', Boolean(pkg.scripts?.['security:controls']), 'npm run security:controls');
+add('Private operations security template exists', fs.existsSync(path.join(root, '.env.operations-security.example')), '.env.operations-security.example');
 add('Activation audit command exists', Boolean(pkg.scripts?.['activation:audit']), 'npm run activation:audit');
 add('Built-output audit command exists', Boolean(pkg.scripts?.['dist:audit']), 'npm run dist:audit');
 add('Build verification command exists', Boolean(pkg.scripts?.['build:verify']), 'npm run build:verify');

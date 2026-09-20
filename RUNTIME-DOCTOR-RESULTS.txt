@@ -1,5 +1,5 @@
 
-> convera-strategies@2.4.0 doctor
+> convera-strategies@2.14.0 doctor
 > node scripts/runtime-doctor.mjs
 
 

@@ -1,19 +1,34 @@
-# Convera Strategies — Deploy Now
+# Convera Strategies 2.56.0 — Deploy Now
 
-This document is the shortest path from the verified source package to a live Convera Strategies site.
+This is the shortest path from the publication-candidate source package to a live Convera Strategies site.
 
-## 1. Activate the external items first
+## 1. Verify the source and build
 
-Before production deployment, confirm:
+On an internet-connected machine with Node 20:
 
-- `ryan@converastrategies.com` receives mail.
-- `hello@converastrategies.com` receives mail.
-- The one-time contribution checkout URL is live.
-- The monthly contribution checkout URL is live, if monthly support will launch immediately.
+```bash
+npm ci
+npm run release:audit
+npm run verify:2.56
+npm run check
+npm run build:verify
+```
 
-Copy `.env.example` to `.env` for local testing only. Do not commit `.env`.
+Do not deploy until the build and built-output audit pass.
 
-Required public values:
+## 2. Activate branded email
+
+Verify send and receive for:
+
+- `ryan@converastrategies.com`
+- `hello@converastrategies.com`
+- `help@converastrategies.com`
+- `admin@converastrategies.com`
+- `billing@converastrategies.com`
+
+## 3. Activate hosted contribution checkout
+
+Configure public hosted checkout values in Netlify:
 
 ```text
 PUBLIC_SUPPORT_PROVIDER_LABEL=Stripe
@@ -21,81 +36,61 @@ PUBLIC_SUPPORT_ONE_TIME_URL=https://...
 PUBLIC_SUPPORT_MONTHLY_URL=https://...
 ```
 
-`PUBLIC_PLAUSIBLE_DOMAIN` is optional and may remain blank.
+Where supported, return successful checkouts to `https://converastrategies.com/support/thank-you/`.
 
-## 2. Put this source in the production GitHub repository
+## 4. Deploy GitHub → Netlify
 
-The recommended production branch is `main`.
+Production repository: `convera_published_codes`  
+Production branch: `main_conversa`
 
-The repository already contains a verification workflow. Every push to `main` should install dependencies, run release audits, run Astro diagnostics, and create a production build.
+Netlify uses `npm run build`, publishes `dist`, and runs on Node 20.
 
-Do not proceed to the custom domain until the GitHub verification workflow passes.
+## 5. Verify the form workflow
 
-## 3. Connect the repository to Netlify
-
-Use the repository root as the base directory.
-
-Netlify configuration is already committed in `netlify.toml`:
-
-- Build command: `npm run build`
-- Publish directory: `dist`
-- Node: 20
-
-Add the public contribution variables in Netlify environment variables before the production build.
-
-## 4. Confirm Netlify Forms
-
-After the first deploy, Netlify should discover these forms:
+Expected production forms:
 
 - `website-contact`
-- `work-with-convera`
-- `convera-newsletter` only when the newsletter feature is enabled
+- `follow-the-work`
+- `client-intake`
+- `convera-newsletter` only if intentionally enabled
 
-Submit one test through Contact and one through Work With Convera. Confirm the submissions appear in Netlify and the visitor reaches the expected thank-you page.
+Test Contact first. For professional inquiries, review the Contact submission manually and send the private `/intake/` invitation directly only when additional detail is useful. Then submit an operator/admin test through Intake and confirm the separate `client-intake` submission and notification.
 
-## 5. Connect `converastrategies.com`
+## 6. Verify production journeys
 
-Add the custom domain in Netlify and follow the DNS instructions Netlify provides for the domain registrar/DNS provider.
+### Professional work
 
-Confirm both:
+Home/Services → **Work With Convera** → Contact → manual review → direct private Intake invitation → Intake → private thank-you page.
 
-- `https://converastrategies.com`
-- the preferred `www` behavior, if used
+### General correspondence
 
-Do not change existing DNS records unrelated to the website or branded email unless required by the provider.
+Contact → `website-contact` → general thank-you page.
 
-## 6. Run the live-site audit
+### Follow the work
+
+Follow → `follow-the-work` → follow thank-you page.
+
+### Contributions
+
+Support → hosted checkout → provider confirmation → Convera support thank-you page where supported.
+
+## 7. Connect the domain and run live verification
 
 After HTTPS is active:
 
 ```bash
 npm run live:audit -- https://converastrategies.com
+npm run go-live:status
 ```
 
-The audit checks the major public routes, canonical metadata, social metadata, founder image, security headers, robots, sitemap, RSS, redirects, and production form markup.
+Then verify mobile navigation, desktop composition, light/dark mode, keyboard navigation, form notifications, social sharing, and contribution flow in real browsers.
 
-A GitHub manual workflow is also provided at `.github/workflows/postdeploy-verification.yml`.
+## 8. Final gate
 
-## 7. Test the two revenue paths
+Only after every external and browser test is genuinely complete:
 
-### Professional work
+```bash
+npm run deploy:gate
+```
 
-Home/Services → **Work With Convera** → submit intake → thank-you page.
-
-### Contributions
-
-Home/Support → contribution option → hosted checkout → return/confirmation flow.
-
-Perform one real low-value test contribution if the payment provider permits it, then confirm the payment record, receipt, and return experience.
-
-## 8. Launch only after these are true
-
-- GitHub verification workflow passes.
-- Netlify production deploy passes.
-- Both live forms have been submitted successfully.
-- Contribution links open the correct hosted checkout pages.
-- Mobile navigation and theme toggle work on a real phone.
-- Light and dark mode are readable across Home, Mission, Services, Publications, Support, and Work With Convera.
-- `npm run live:audit -- https://converastrategies.com` passes.
-
-At that point, the website can be treated as live production rather than a development candidate.
+A failing gate means one or more required launch checks remain unverified.

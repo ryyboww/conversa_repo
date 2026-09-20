@@ -39,7 +39,7 @@ if (exists('index.html')) {
   const home = read('index.html');
   add('Homepage canonical uses production domain', /<link[^>]+rel=["']canonical["'][^>]+href=["']https:\/\/converastrategies\.com\/["']/i.test(home), 'https://converastrategies.com/');
   add('Homepage references branded social card', home.includes('https://converastrategies.com/og/convera-social-card.jpg'), 'Open Graph/Twitter image');
-  add('Homepage contains founder portrait', home.includes('/images/ryan-brown.jpg'), '/images/ryan-brown.jpg');
+  add('Homepage contains founder portrait', home.includes('/images/ryan-brown-hero.jpg'), '/images/ryan-brown-hero.jpg');
   add('Homepage retains Featured Publication artwork', home.includes('/images/home/an_objective_strategy.png'), 'an_objective_strategy.png');
   add('Homepage retains Featured Essay artwork', home.includes('/images/home/talk_is_cheap.png'), 'talk_is_cheap.png');
   add('Private Outlook address absent from built homepage', !/ryy_boww@outlook\.com/i.test(home), 'privacy');

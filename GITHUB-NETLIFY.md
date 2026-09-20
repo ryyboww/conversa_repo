@@ -1,45 +1,36 @@
 # Convera Strategies — GitHub + Netlify Handoff
 
+**Production repository:** `convera_published_codes`  
+**Production branch:** `main_conversa`
+
 ## GitHub repository
 
-Create or use the production repository for Convera Strategies, then commit the complete source package from this release.
-
-Recommended first push sequence:
+Commit the complete 2.56.0 source package to the production repository.
 
 ```bash
 git init
 git add .
-git commit -m "Prepare Convera Strategies 2.4.0 deployment bootstrap"
-git branch -M main
+git commit -m "Prepare Convera Strategies 2.56.0 publication candidate"
+git branch -M main_conversa
 git remote add origin <YOUR_GITHUB_REPOSITORY_URL>
-git push -u origin main
+git push -u origin main_conversa
 ```
 
-Do not commit `.env`, `.env.operations`, `node_modules`, `dist`, or generated activation reports.
-
-The included GitHub workflow runs source audits, Astro diagnostics, the production build, and the built-output audit.
-
-### Lockfile note
-
-The current package does not claim a generated `package-lock.json` because npm registry installation has not completed in the present environment. After the first successful dependency installation, commit the resulting lockfile so future CI installs can be made more reproducible.
+Do not commit `.env`, `.env.operations`, `node_modules`, `.astro`, `dist`, or secrets. The repository includes a lockfile and verification workflows so CI can use the pinned dependency graph.
 
 ## Netlify connection
 
-Connect the production GitHub repository to Netlify and use the repository root.
-
-The repository already contains `netlify.toml` with:
+Connect the production GitHub repository to Netlify and use the repository root. `netlify.toml` already declares:
 
 - build command: `npm run build`;
 - publish directory: `dist`;
 - Node 20;
 - production security headers;
 - utility-page noindex/no-store headers;
-- route aliases;
+- route aliases; and
 - canonical `www` → apex redirect.
 
-## Environment values
-
-Add only the public values needed by the static build:
+## Public environment values
 
 ```text
 PUBLIC_SUPPORT_PROVIDER_LABEL
@@ -55,24 +46,19 @@ Do not add payment-provider secret keys to `PUBLIC_*` variables.
 After the first production deploy, verify these forms are detected:
 
 - `website-contact`
-- `work-with-convera`
+- `follow-the-work`
+- `client-intake`
+- `convera-newsletter` only if intentionally enabled
 
-The newsletter form remains feature-flagged and should not be enabled until the newsletter workflow is ready.
+The professional-services flow is Contact first. `/work-with-convera/` directs prospects to Contact; detailed Intake is sent privately after manual review. Configure notifications according to `FORM-NOTIFICATIONS.md` and submit real production tests.
 
-Configure Netlify form notifications to the intended Convera mailbox and submit real production tests.
+## Domain and post-deploy verification
 
-## Domain
-
-Use `https://converastrategies.com` as canonical public host. The Netlify configuration redirects `https://www.converastrategies.com/*` to the apex domain.
-
-Confirm both domain aliases are attached to the same production site and HTTPS is active before relying on the redirect.
-
-## Post-deploy
-
-Run:
+Use `https://converastrategies.com` as the canonical host. After HTTPS is active, run:
 
 ```bash
 npm run live:audit -- https://converastrategies.com
+npm run go-live:status
 ```
 
-Then complete `ACTIVATION-CHECKLIST.md` and record verified external steps in `.env.operations` before running `npm run activation:report`.
+Complete real-world activation flags only after the corresponding tests pass.

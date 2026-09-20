@@ -1,4 +1,4 @@
-# Convera Strategies 2.57.0
+# Convera Strategies 2.59.0
 
 Current publication candidate for the Convera Strategies public site and private project-operations infrastructure.
 
@@ -42,7 +42,7 @@ If `npm ci` cannot reach the npm registry, the dependency-free source suite can 
 
 ```powershell
 npm run ops:audit
-npm run verify:2.57
+npm run verify:2.59
 ```
 
 The final production decision remains gated by an actual Astro build, deployed-site verification, form notification tests, branded email, contribution links, domain/TLS, and desktop/mobile browser QA.

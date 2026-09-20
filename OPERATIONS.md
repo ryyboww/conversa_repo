@@ -2,54 +2,46 @@
 
 ## Inquiry routing
 
-Convera separates three visitor pathways:
+Convera separates public correspondence, invitation-only Intake, and voluntary support.
 
-1. **Paid professional work** → `/work-with-convera/` → Netlify form `work-with-convera` → `/work-with-convera/thank-you/`
+1. **Prospective professional work** → `/work-with-convera/` for orientation → `/contact/?reason=professional` → Netlify form `website-contact` → manual review → direct private Intake invitation when appropriate → `/intake/` → Netlify form `client-intake` → `/intake/thank-you/`
 2. **General/community correspondence** → `/contact/` → Netlify form `website-contact` → `/thank-you/`
-3. **Voluntary support** → `/support/` → external hosted checkout when configured → `/support/thank-you/` where supported
+3. **Follow the work** → `/follow/` → Netlify form `follow-the-work` → `/follow/thank-you/`
+4. **Voluntary support** → `/support/` → external hosted checkout when configured → `/support/thank-you/` where supported
 
-This separation is intentional. Paid services should not be presented as contributions, and contributions should not imply purchase of professional services.
+The Contact form and private Intake form are intentionally separate. Intake is sent directly after manual Contact review; it is not linked in public navigation. Paid services must not be presented as contributions, and contributions must not imply purchase of professional services.
 
 ## Mailboxes
 
 - `ryan@converastrategies.com` — founder and direct professional correspondence
-- `hello@converastrategies.com` — general website/public inquiries
+- `hello@converastrategies.com` — general website/public inquiries and Contact notifications
 - `help@converastrategies.com` — visitor and client support questions
 - `admin@converastrategies.com` — private operational/vendor administration
+- `billing@converastrategies.com` — billing correspondence
 
-## Netlify forms to verify after first deployment
+## Netlify forms to verify after deployment
 
 - `website-contact`
-- `work-with-convera`
-- `convera-newsletter` only after the newsletter feature is enabled
+- `follow-the-work`
+- `client-intake` — operator/admin test only; private invitation route
+- `convera-newsletter` — only when the newsletter feature is intentionally enabled
 
-Set form-submission notifications to an appropriate Convera mailbox. Keep `admin@` private unless an operational need requires publishing it.
+Use `FORM-NOTIFICATIONS.md` for recommended notification routing.
 
-## Contribution configuration
+## Security boundary
 
-Copy `.env.example` to `.env` locally and set:
-
-- `PUBLIC_SUPPORT_ONE_TIME_URL`
-- `PUBLIC_SUPPORT_MONTHLY_URL`
-- `PUBLIC_SUPPORT_PROVIDER_LABEL`
-
-Use hosted checkout/payment pages. Do not place secret payment keys in a `PUBLIC_` variable or browser-delivered Astro code.
+Do not store mailbox credentials, payment secrets, client records, confidential documents, authentication tokens, or other secrets in the static Astro source or `PUBLIC_*` environment variables.
 
 ## Audit commands
 
 - `npm run audit` — relative-import and required-asset audit
 - `npm run forms:audit` — Netlify form structure and success-route audit
 - `npm run content:audit` — placeholder and visible legacy-brand audit
-- `npm run launch:audit` — dependency-free site readiness audit
-- `npm run predeploy` — reports external production settings still missing locally
-- `npm run launch:final` — runs all dependency-free final launch checks
-- `npm run launch:strict` — fails when required files or contribution configuration are missing
-- `npm run build` — full Astro production build after dependencies are installed
+- `npm run release:audit` — complete dependency-free publication-source suite
+- `npm run privacy:audit` — source privacy/exposure checks
+- `npm run verify:2.56` — release-specific workflow coherence verification
+- `npm run check` — Astro/TypeScript diagnostics after dependencies are installed
+- `npm run build:verify` — production build plus built-output audit
+- `npm run live:audit -- https://converastrategies.com` — deployed-site verification
 
-## Launch operations documents
-
-- `FINAL-HANDOFF.md` — locked public direction
-- `LAUNCH-ACTIVATION.md` — go-live order
-- `SUPPORT-ACTIVATION.md` — hosted checkout and contribution boundaries
-- `PRE-LAUNCH-QA.md` — production testing
-- `LAUNCH-CHECKLIST.md` — final release checklist
+The final operational gate is `npm run deploy:gate` after external systems and real-world QA are complete.
