@@ -38,8 +38,8 @@ jobs:
       - name: Run dependency-free release audits
         run: npm run release:audit
 
-      - name: Verify 2.56 publication workflow coherence
-        run: npm run verify:2.56
+      - name: Verify 2.62 workflow coherence
+        run: npm run verify:2.62
 
       - name: Run Astro diagnostics
         run: npm run check
