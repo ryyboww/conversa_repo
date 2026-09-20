@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 go-live:status
-=======
 > convera-strategies@2.56.0 go-live:status
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/go-live-gate.mjs
 
 

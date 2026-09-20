@@ -11,10 +11,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     <a class="site-brand" href="/" aria-label={`${site.name} home`}>
       <img class="site-brand__light" src="/brand/convera-logo-header.png" alt="Convera Strategies" width="1038" height="250" />
       <img class="site-brand__dark" src="/brand/convera-logo-inverse.png" alt="Convera Strategies" width="562" height="134" />
-<<<<<<< HEAD
-=======
       <span class="site-brand__tagline">{site.tagline}</span>
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     </a>
 
     <nav class="desktop-nav" aria-label="Primary navigation">
@@ -28,11 +25,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     <div class="header-tools">
       <ThemeToggle />
       <details class="mobile-menu">
-<<<<<<< HEAD
-        <summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary>
-=======
         <summary aria-label="Navigation menu"><span></span><span></span><span></span></summary>
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
         <nav aria-label="Mobile navigation">
           {navigation.map((item) => (
             <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
@@ -59,11 +52,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
 
   .header-inner {
     width: min(calc(100% - var(--page-gutter) - var(--page-gutter)), 1280px);
-<<<<<<< HEAD
-    min-height: 88px;
-=======
     min-height: 96px;
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     margin-inline: auto;
     display: grid;
     grid-template-columns: minmax(180px, clamp(190px, 18vw, 270px)) minmax(0, 1fr) auto;
@@ -74,12 +63,8 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
 
   .site-brand {
     display: flex;
-<<<<<<< HEAD
-    align-items: center;
-=======
     flex-direction: column;
     align-items: flex-start;
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     width: min(100%, clamp(190px, 18vw, 270px));
     min-width: 0;
     text-decoration: none;
@@ -98,10 +83,6 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     opacity: 1;
     visibility: visible;
     transform: none;
-<<<<<<< HEAD
-  }
-
-=======
   }
 
 
@@ -120,7 +101,6 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     text-align: center;
     white-space: nowrap;
   }
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   .site-brand__dark { display: none !important; }
   :global(:root[data-theme='dark']) .site-brand__light { display: none !important; }
   :global(:root[data-theme='dark']) .site-brand__dark { display: block !important; }
@@ -213,8 +193,6 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     border-bottom-color: rgba(206, 237, 241, 0.13);
   }
   :global(:root[data-theme='dark']) .desktop-nav a { color: #eef7f8; }
-<<<<<<< HEAD
-=======
   :global(:root[data-theme='dark']) .site-brand__tagline { color: #d8eef1; }
 
   @media (min-width: 821px) and (max-width: 1080px) {
@@ -229,7 +207,6 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     .desktop-nav { gap: clamp(6px, .9vw, 12px); }
     .desktop-nav a { font-size: clamp(.64rem, .71vw, .72rem); }
   }
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
   @media (max-width: 820px) {
     .header-inner { grid-template-columns: minmax(220px, 1fr) auto; }
@@ -241,18 +218,11 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
   @media (max-width: 560px) {
     .header-inner {
       width: min(calc(100% - 28px), 1280px);
-<<<<<<< HEAD
-      min-height: 76px;
-      padding: 8px 0 11px;
-    }
-    .site-brand { width: min(100%, 220px); }
-=======
       min-height: 84px;
       padding: 8px 0 12px;
     }
     .site-brand { width: min(100%, 220px); }
     .site-brand__tagline { width: 64%; margin-left: 34.5%; font-size: .69rem; }
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   }
 </style>
 

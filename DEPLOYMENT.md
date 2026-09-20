@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Deployment Notes — Convera Strategies 2.14.0
-=======
 # Deployment Notes — Convera Strategies 2.56.0
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 ## Recommended host
 

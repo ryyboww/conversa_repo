@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Deployment Execution Sequence — Convera Strategies 2.14.0
-=======
 # Deployment Execution Sequence — Convera Strategies 2.56.0
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 Use this sequence after GitHub and Netlify are connected.
 
@@ -73,11 +69,7 @@ npm run activation:set -- OPS_HELLO_MAIL_VERIFIED=true
 
 ## Phase 6 — Forms and notifications
 
-<<<<<<< HEAD
-Submit the Contact and Work With Convera forms from the production site. Confirm both appear in Netlify Forms and the configured notification email receives them.
-=======
 Submit Contact from the production site. For the professional test, review the Contact submission manually, send the private Intake invitation directly, then submit Intake separately. Confirm `website-contact`, `client-intake`, and `follow-the-work` appear in Netlify Forms and each configured notification reaches the intended mailbox.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 ```bash
 npm run activation:set -- OPS_NETLIFY_FORMS_VERIFIED=true
@@ -121,12 +113,6 @@ npm run deploy:gate
 Only a successful final gate should be treated as a verified production launch.
 
 
-<<<<<<< HEAD
-## 2.14.0 client operations note
-
-Launch email verification now covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. The direct prospective-client form is `/intake/` (`client-intake` in Netlify). The `/dashboard/` route is a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
-=======
 ## 2.56.0 client operations note
 
 Launch email verification covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. Professional inquiries begin through the public Contact pathway. The `/intake/` route (`client-intake` in Netlify) is private/noindex and is used only after manual review and a direct Intake invitation. The `/dashboard/` route remains a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997

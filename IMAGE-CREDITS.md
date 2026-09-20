@@ -9,10 +9,7 @@ Most Convera imagery is supplied by Ryan Brown or carried forward from approved 
 Source: https://commons.wikimedia.org/wiki/File:Youth_at_the_DC_Ward_8-Metropolitan_Police_Department_(MPD)_Seventh_District_holiday_party_for_underprivileged_children_look_up_to_a_Cadet_from_the_MPD_Police_Academy_131218-N-CG900-006.jpg
 
 The image is loaded with `referrerpolicy="no-referrer"`. If Convera later localizes the asset, retain this provenance note.
-<<<<<<< HEAD
-=======
 
 ## Neutral Convera illustrations
 
 `convera-people-network.svg`, `convera-institution-systems.svg`, and `convera-workplace.svg` are in-project placeholder illustrations created for Convera Strategies. They replace personal fellowship, state-house, Maryland, and prior-service photography on company-facing pages. Personal institutional photography remains reserved for the Founder Profile unless Ryan later approves another use.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997

@@ -44,19 +44,4 @@ Do not store mailbox credentials, payment secrets, client records, confidential 
 - `npm run build:verify` — production build plus built-output audit
 - `npm run live:audit -- https://converastrategies.com` — deployed-site verification
 
-<<<<<<< HEAD
-## Launch operations documents
-
-- `FINAL-HANDOFF.md` — locked public direction
-- `LAUNCH-ACTIVATION.md` — go-live order
-- `SUPPORT-ACTIVATION.md` — hosted checkout and contribution boundaries
-- `PRE-LAUNCH-QA.md` — production testing
-- `LAUNCH-CHECKLIST.md` — final release checklist
-
-
-## 2.14.0 client operations note
-
-Launch email verification now covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. The direct prospective-client form is `/intake/` (`client-intake` in Netlify). The `/dashboard/` route is a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
-=======
 The final operational gate is `npm run deploy:gate` after external systems and real-world QA are complete.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997

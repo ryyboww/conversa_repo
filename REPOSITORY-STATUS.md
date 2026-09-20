@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-# Convera Strategies 2.14.0 — Repository Status
-
-Generated: 2026-09-16T18:53:43.669Z
-=======
 # Convera Strategies 2.56.0 — Repository Status
 
 Generated: 2026-09-17T20:14:10.755Z
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 ## Repository handoff
 
@@ -17,11 +11,7 @@ Generated: 2026-09-17T20:14:10.755Z
 - [x] Environment template
 - [x] Founder image
 - [x] Social share image
-<<<<<<< HEAD
-- [ ] Package lock
-=======
 - [x] Package lock
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 - [ ] Installed dependencies
 - [ ] Built production output
 

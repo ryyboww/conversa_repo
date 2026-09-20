@@ -1,14 +1,5 @@
 # Client Intake and Dashboard Foundation
 
-<<<<<<< HEAD
-## Direct client intake
-
-The shareable prospective-client URL is:
-
-`https://converastrategies.com/intake/`
-
-The form is intentionally straightforward for launch and can be refined after real inquiries show which questions are most useful. It collects contact information, organization/role, engagement type, challenge, desired outcome, timing, optional budget range, referral source, and additional context.
-=======
 ## Private client intake
 
 The private Intake route is:
@@ -16,7 +7,6 @@ The private Intake route is:
 `https://converastrategies.com/intake/`
 
 It is not a public prospective-client entry point and should not be linked from public navigation, service calls to action, or general correspondence. Professional inquiries begin through Contact. After manual review, a private Intake invitation may be sent when additional project information is useful.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 The Netlify form name is `client-intake`. It redirects to `/intake/thank-you/` and is excluded from search indexing and the sitemap.
 

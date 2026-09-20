@@ -1,30 +1,4 @@
 
-<<<<<<< HEAD
-> convera-strategies@2.14.0 release:fingerprint
-> node scripts/release-fingerprint.mjs
-
-Convera Strategies release fingerprint
-Version: 2.14.0
-Generated: 2026-09-16T21:46:56.906Z
-
-a8d3f2ede3c6d76d22598a36c0c971424f9b5eae6b9774edc821d70e3abc8cda  package.json
-0d6ca9b01ad284fa7c0a2714ca05b396a3c887c95f8cc7da7ca9313ec258f38f  deployment-targets.json
-49415c74eef8bcbea3e4ad01df1415c6ea667bf2a4934f85b4191c3431fa4f38  astro.config.mjs
-a273cdb8b34079793ec521054b2eb6a1883d07071c380c19fe246878a6a4a326  netlify.toml
-14e83a3c778bdd6c7051920aa2201126e350b4908dae4cda2cdc5dccfa3c8847  src/config/site.ts
-755b4f5bef34c86629188444ab2706b13b797c6fc43f791696d97087b4af9bc8  src/config/support.ts
-0fa5991157dd79256ffa11979c483b756571f0cb093b45f16f98abfc63bb7695  src/config/navigation.ts
-6c5b8d1298a5174d14fa6d08f7f4df8a6ff4c0b82b37a89c478301c4f92ae93c  src/pages/index.astro
-8ddfb8f8b487ac32aa101ee72d09c2b05c83abc002658732377fd4fb6dc964a9  src/pages/mission.astro
-f2d2951f2f90403a8461daf6cfd606750074d24d452ce1f47f8c448a52b9ed79  src/pages/services.astro
-4d3a5f727e2d5482c383cd6c4598e59cab9d2e66bb0509a475a057da79aa8a88  src/pages/publications.astro
-9c9fec6ad920d15d81973efaf51edaf6fbdcfcfbcc314500a6995576decd82b6  src/pages/community.astro
-ee20b839743258e4cdc92f98450289f6a7fd6f1930251d72510e7bfd5e06fe7f  src/pages/about.astro
-eb49a4545c9c48588ed3eead3ffc683c1e3dbb4fdc1a0d6eeeed24d0492da317  src/pages/contact.astro
-0ec91e11fae0d70473f1c53f5ac32611e0250ac8b09b7d18f3b59505a9c904d6  src/pages/support.astro
-ad6606f1b75e890fa0e397eedda0cc09ea938b96174269c8ec41f2041d8e1c3f  src/pages/work-with-convera.astro
-2486758e82e0407714af84f8e9b7179db4170411d1a9cc2889c164fad622aaad  public/images/ryan-brown.jpg
-=======
 > convera-strategies@2.56.0 release:fingerprint
 > node scripts/release-fingerprint.mjs
 
@@ -49,13 +23,8 @@ a1a791eba39b3fdf03f1e70117b71233d24c4803967a64dfe136b34c8fe75b44  src/pages/serv
 e52a5308aa0ed68ba7a162afc644e13470e88310b8018d33716774f9ea9b0cde  src/pages/support.astro
 182c1006e3593f7fa622ee34f3a2e69fc4218abff988ff3e97baffc2eca4de27  src/pages/work-with-convera.astro
 5d1f5076969ecb6e2750ced40b0bd3cacde3088fe92568fdb2db559b98e11f4a  public/images/ryan-brown.jpg
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 5b89103c50d94ce077cb82360e802ac9b8680a443e8077ad158e83e8dcadca2a  public/og/convera-social-card.jpg
 718621e432b58c8618fba6f3c76e1be9cc68cc9714c0f4f74966a3c9552db221  public/brand/convera-logo-light-bg.png
 18b2e848642f817998b1fedff7696e6f6448a3fefb6a6709051ea84ca719d023  public/brand/convera-logo-dark-bg.png
 
-<<<<<<< HEAD
-Wrote /mnt/data/ConveraStrategies-2.14.0/RELEASE-FINGERPRINT.txt
-=======
 Wrote /mnt/data/convera_256/RELEASE-FINGERPRINT.txt
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997

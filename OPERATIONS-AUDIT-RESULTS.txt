@@ -1,23 +1,4 @@
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 ops:audit
-> npm run release:audit && npm run privacy:audit && npm run activation:audit
-
-
-> convera-strategies@2.5.0 release:audit
-> npm run production:audit && npm run routes:audit && npm run a11y:audit && npm run release:readiness
-
-
-> convera-strategies@2.5.0 production:audit
-> npm run launch:final && npm run metadata:audit && npm run config:audit
-
-
-> convera-strategies@2.5.0 launch:final
-> npm run audit && npm run forms:audit && npm run content:audit && node scripts/launch-readiness.mjs && node scripts/predeploy-readiness.mjs
-
-
-> convera-strategies@2.5.0 audit
-=======
 > convera-strategies@2.56.0 ops:audit
 > npm run release:audit && npm run privacy:audit && npm run activation:audit
 
@@ -35,18 +16,13 @@
 
 
 > convera-strategies@2.56.0 audit
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/audit.mjs
 
 Convera source audit: 53 source files, 27 pages.
 
 Audit passed: no missing relative imports or required brand assets detected.
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 forms:audit
-=======
 > convera-strategies@2.56.0 forms:audit
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/forms-audit.mjs
 
 Convera forms audit: 4 form(s) found.
@@ -57,11 +33,7 @@ PASS  client-intake — src/pages/intake.astro → /intake/thank-you/
 
 Forms audit passed.
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 content:audit
-=======
 > convera-strategies@2.56.0 content:audit
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/content-audit.mjs
 
 Convera content audit: 69 text/code files scanned.
@@ -97,11 +69,7 @@ Required checks: 7/7 passing.
 External launch settings: 0/3 configured in local .env.
 Note: .env is not present. Copy .env.example to .env for local production configuration; do not commit secrets.
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 metadata:audit
-=======
 > convera-strategies@2.56.0 metadata:audit
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/metadata-audit.mjs
 
 
@@ -117,11 +85,7 @@ PASS  Manifest has 512 icon — PWA icon
 
 7/7 metadata checks passed.
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 config:audit
-=======
 > convera-strategies@2.56.0 config:audit
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/config-audit.mjs
 
 
@@ -142,22 +106,14 @@ PASS  PUBLIC_CLIENT_PORTAL_URL is HTTPS when configured — not configured
 
 12/12 configuration checks passed.
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 routes:audit
-=======
 > convera-strategies@2.56.0 routes:audit
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/route-audit.mjs
 
 Convera route audit: 29 concrete route(s), 82 literal internal link(s) checked.
 
 Route audit passed: launch routes, literal internal links, navigation, and redirect targets resolve to known pages.
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 a11y:audit
-=======
 > convera-strategies@2.56.0 a11y:audit
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/accessibility-audit.mjs
 
 Convera accessibility source audit: 39 Astro file(s), 22 image element(s) checked.
@@ -173,21 +129,13 @@ PASS  Founder portrait has descriptive alt text
 
 Accessibility source audit passed. Browser-assisted WCAG testing is still required after deployment.
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 release:readiness
-=======
 > convera-strategies@2.56.0 release:readiness
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/release-readiness.mjs
 
 
 Convera Strategies — release readiness
 
-<<<<<<< HEAD
-PASS  Release version is 2.5.0 — 2.5.0
-=======
 PASS  Release version matches VERSION metadata — 2.56.0
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 PASS  Node version is pinned for local work — .nvmrc
 PASS  Node version is pinned for alternate managers — .node-version
 PASS  Supported Node range is declared — >=20.0.0 <23
@@ -241,11 +189,7 @@ PASS  Approved homepage mockup retained as design reference — design-reference
 
 51/51 release-readiness checks passed.
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 privacy:audit
-=======
 > convera-strategies@2.56.0 privacy:audit
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/privacy-audit.mjs
 
 
@@ -259,11 +203,7 @@ PASS  Generated activation reports are ignored by Git — .gitignore
 
 5/5 privacy/exposure checks passed.
 
-<<<<<<< HEAD
-> convera-strategies@2.5.0 activation:audit
-=======
 > convera-strategies@2.56.0 activation:audit
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 > node scripts/activation-audit.mjs
 
 

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Remote Repository Handoff — Convera Strategies 2.14.0
-=======
 # Remote Repository Handoff — Convera Strategies 2.56.0
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 This release is prepared for transfer from the verified local Git baseline to the existing GitHub repository `convera_published_codes` and then to Netlify.
 
@@ -16,11 +12,7 @@ git log -1 --oneline
 git tag --points-at HEAD
 ```
 
-<<<<<<< HEAD
-The packaged baseline should be clean and tagged `v2.14.0`.
-=======
 The packaged baseline should be clean and tagged `v2.56.0`.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 ## 2. Connect the existing GitHub repository
 
@@ -46,11 +38,7 @@ npm run git:remote-strict
 
 ```bash
 git push -u origin main_conversa
-<<<<<<< HEAD
-git push origin v2.14.0
-=======
 git push origin v2.56.0
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 ```
 
 Do not commit `.env`, `.env.operations`, `node_modules/`, `dist/`, or private credentials.

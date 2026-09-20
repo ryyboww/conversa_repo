@@ -1,16 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-<<<<<<< HEAD
----
-<BaseLayout title="Press Kit" description="Approved biography, areas of inquiry, brand description, and media resources for Ryan Brown and Convera Strategies." canonical="/press-kit/">
-  <PageHero eyebrow="Press Kit" title="Ryan Brown" lede="Founder, Convera Strategies · Doctoral researcher in Criminal Justice and Socio-Legal Studies at Rutgers University–Newark.">
-=======
 import { site } from '../config/site';
 ---
 <BaseLayout title="Press Kit" description="Approved biography, areas of inquiry, brand description, and media resources for Ryan Brown and Convera Strategies." canonical="/press-kit/">
   <PageHero eyebrow="Press Kit" title={`${site.founder}, ${site.founderCredential}`} lede={`Founder, Convera Strategies · ${site.founderRoles.join(' · ')} · Rutgers University–Newark, School of Criminal Justice.`}>
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     <div slot="actions" class="press-actions no-print"><button class="button button--primary" type="button" onclick="window.print()">Print / Save as PDF</button><a class="button button--ghost" href="/press-kit/downloads/ryan-brown-bios.txt" download>Download Bios</a><a class="button button--ghost" href="/images/ryan-brown-press.jpg" download>Download Portrait</a><a class="button button--ghost" href="/contact/?reason=speaking-media&source=press-kit">Media Inquiry</a></div>
   </PageHero>
 
@@ -18,11 +12,7 @@ import { site } from '../config/site';
     <div class="container press-grid">
       <div class="press-copy">
         <p class="eyebrow">Short Biography</p><h2>Approved short bio.</h2>
-<<<<<<< HEAD
-        <p>Ryan Brown is founder of Convera Strategies and a doctoral researcher in Criminal Justice and Socio-Legal Studies at Rutgers University–Newark. His work examines law, institutions, public authority, workplace culture, and the narratives organizations use to define conduct, responsibility, legitimacy, and meaning. Convera Strategies extends this inquiry into research, organizational strategy, public scholarship, and professional conversation.</p>
-=======
         <p>Ryan Brown, M.A., is founder of Convera Strategies, a Ph.D. student, lecturer, and researcher in Criminal Justice and Socio-Legal Studies at Rutgers University–Newark. His work examines law, institutions, public authority, workplace culture, and the narratives organizations use to define conduct, responsibility, legitimacy, and meaning. Convera Strategies extends this inquiry into research, organizational strategy, public scholarship, and professional conversation.</p>
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
       </div>
       <aside class="press-portrait card"><img src="/images/ryan-brown-press.jpg" alt="Ryan Brown, founder of Convera Strategies" /></aside>
     </div>
@@ -31,11 +21,7 @@ import { site } from '../config/site';
   <section class="section press-soft">
     <div class="container reading-width press-copy">
       <p class="eyebrow">Extended Biography</p><h2>Approved extended bio.</h2>
-<<<<<<< HEAD
-      <p>Ryan Brown is founder of Convera Strategies and a doctoral researcher in Criminal Justice and Socio-Legal Studies at Rutgers University–Newark. His scholarly and professional interests center on law, criminal justice, socio-legal studies, institutional narratives, public authority, legitimacy, workplace culture, and organizational meaning.</p>
-=======
       <p>Ryan Brown, M.A., is founder of Convera Strategies, a Ph.D. student, lecturer, and researcher in Criminal Justice and Socio-Legal Studies at Rutgers University–Newark. His scholarly and professional interests center on law, criminal justice, socio-legal studies, institutional narratives, public authority, legitimacy, workplace culture, and organizational meaning.</p>
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
       <p>His work examines how legal and public institutions construct meaning through language, records, decisions, and institutional practices. He is particularly interested in how organizations interpret contested events, explain the exercise of authority, and transform complex social and legal circumstances into institutional narratives.</p>
       <p>Through Convera Strategies, Ryan brings this research orientation into public scholarship, speaking, facilitated conversation, organizational inquiry, and project-based professional work. Convera is organized around three intersecting areas: Social Perspectives, Workplace Culture, and Organizational Strategy.</p>
     </div>
@@ -44,22 +30,14 @@ import { site } from '../config/site';
   <section class="section">
     <div class="container fact-layout">
       <div><p class="eyebrow">Fact Sheet</p><h2>At a glance.</h2></div>
-<<<<<<< HEAD
-      <dl class="fact-sheet"><div><dt>Name</dt><dd>Ryan Brown</dd></div><div><dt>Role</dt><dd>Founder, Convera Strategies</dd></div><div><dt>Academic affiliation</dt><dd>Rutgers University–Newark, School of Criminal Justice</dd></div><div><dt>Brand descriptor</dt><dd>Social Perspectives · Workplace Culture · Organizational Strategy</dd></div><div><dt>Primary areas</dt><dd>Institutions; law and justice; workplace culture; archival data and narrative analysis; public authority; public life and meaning.</dd></div><div><dt>Website</dt><dd>converastrategies.com</dd></div></dl>
-=======
       <dl class="fact-sheet"><div><dt>Name</dt><dd>Ryan Brown, M.A.</dd></div><div><dt>Roles</dt><dd>Founder, Convera Strategies · Ph.D. Student · Lecturer · Researcher</dd></div><div><dt>Academic affiliation</dt><dd>Rutgers University–Newark, School of Criminal Justice</dd></div><div><dt>Brand descriptor</dt><dd>Social Perspectives · Workplace Culture · Organizational Strategy</dd></div><div><dt>Primary areas</dt><dd>Institutions; law and justice; workplace culture; archival data and narrative analysis; public authority; public life and meaning.</dd></div><div><dt>Website</dt><dd>converastrategies.com</dd></div></dl>
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     </div>
   </section>
 
   <section class="section press-soft">
     <div class="container reading-width press-copy">
       <p class="eyebrow">Editorial Guidance</p><h2>Use and attribution.</h2>
-<<<<<<< HEAD
-      <ul class="press-list"><li>Use “Ryan Brown” on first reference.</li><li>Use “founder of Convera Strategies” when the Convera role is relevant.</li><li>Use “doctoral researcher” rather than “Ph.D.” until the degree is conferred.</li><li>For research-specific descriptions, link to the relevant original publication whenever possible.</li><li>Request approval before materially altering biography language or implying institutional endorsement.</li></ul>
-=======
       <ul class="press-list"><li>Use “Ryan Brown” on first reference.</li><li>Use “founder of Convera Strategies” when the Convera role is relevant.</li><li>Use “Ph.D. Student” or “doctoral researcher” as context warrants; do not style Ryan as “Ph.D.” until the degree is conferred.</li><li>For research-specific descriptions, link to the relevant original publication whenever possible.</li><li>Request approval before materially altering biography language or implying institutional endorsement.</li></ul>
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     </div>
   </section>
 

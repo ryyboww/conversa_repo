@@ -16,33 +16,12 @@ if (!fs.existsSync(dist)) {
 }
 
 const requiredHtml = [
-<<<<<<< HEAD
-  'index.html',
-  'mission/index.html',
-  'services/index.html',
-  'publications/index.html',
-  'community/index.html',
-  'about/index.html',
-  'contact/index.html',
-  'support/index.html',
-  'work-with-convera/index.html',
-  'intake/index.html',
-  'intake/thank-you/index.html',
-  'dashboard/index.html',
-  'privacy/index.html',
-  'terms/index.html',
-  'accessibility/index.html',
-  'thank-you/index.html',
-  'support/thank-you/index.html',
-  'work-with-convera/thank-you/index.html'
-=======
   'index.html', 'mission/index.html', 'services/index.html', 'publications/index.html',
   'community/index.html', 'about/index.html', 'contact/index.html', 'support/index.html',
   'work-with-convera/index.html', 'follow/index.html', 'follow/thank-you/index.html',
   'intake/index.html', 'intake/thank-you/index.html', 'dashboard/index.html',
   'privacy/index.html', 'terms/index.html', 'accessibility/index.html',
   'thank-you/index.html', 'support/thank-you/index.html'
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 ];
 
 for (const rel of requiredHtml) add(`Built route: /${rel.replace(/index\.html$/, '')}`, exists(rel), rel);
@@ -77,33 +56,23 @@ if (exists('work-with-convera/index.html')) {
   add('Work With Convera routes professional inquiries to Contact', /href=["']\/contact\/?\?reason=professional["']|href=["']\/contact\/\?reason=professional["']/i.test(work), 'Contact professional preset');
 }
 
-<<<<<<< HEAD
-=======
 if (exists('follow/index.html')) {
   const follow = read('follow/index.html');
   add('Built Follow form retains Netlify marker', /name=["']form-name["'][^>]+value=["']follow-the-work["']|data-netlify=["']true["']/i.test(follow), 'follow-the-work');
 }
 
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 if (exists('intake/index.html')) {
   const clientIntake = read('intake/index.html');
   add('Built private client intake retains Netlify marker', /name=["']form-name["'][^>]+value=["']client-intake["']|data-netlify=["']true["']/i.test(clientIntake), 'client-intake');
   add('Direct intake remains noindex', /<meta[^>]+name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(clientIntake), 'noindex, nofollow');
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 if (exists('dashboard/index.html')) {
   const dashboard = read('dashboard/index.html');
   add('Dashboard shell remains noindex', /<meta[^>]+name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(dashboard), 'noindex, nofollow');
 }
 
-<<<<<<< HEAD
-for (const rel of ['thank-you/index.html', 'support/thank-you/index.html', 'work-with-convera/thank-you/index.html', 'intake/thank-you/index.html']) {
-=======
 for (const rel of ['thank-you/index.html', 'support/thank-you/index.html', 'follow/thank-you/index.html', 'intake/thank-you/index.html']) {
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
   if (exists(rel)) {
     const html = read(rel);
     add(`Noindex retained: ${rel}`, /<meta[^>]+name=["']robots["'][^>]+content=["']noindex, nofollow["']/i.test(html), 'noindex, nofollow');

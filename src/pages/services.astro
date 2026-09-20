@@ -8,15 +8,9 @@ const sectorSettings = [
   {
     title: 'Workplaces & Organizations',
     description: 'Businesses, nonprofits, teams, and professional organizations working through culture, communication, strategy, or organizational change.',
-<<<<<<< HEAD
-    image: '/images/editorial/service-experience.jpg',
-    imageAlt: 'A professional workplace setting representing organizational and service environments',
-    position: 'center 48%',
-=======
     image: '/images/editorial/convera-workplace.svg',
     imageAlt: 'Abstract illustration representing workplace collaboration and organizational life',
     position: 'center',
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     external: false
   },
   {
@@ -38,15 +32,9 @@ const sectorSettings = [
   {
     title: 'Public & Community Institutions',
     description: 'Government offices, universities, civic organizations, community-serving institutions, and other groups whose work depends on people, relationships, and public trust.',
-<<<<<<< HEAD
-    image: '/images/editorial/about-public-conversation.jpg',
-    imageAlt: 'People in conversation at a public institutional event',
-    position: 'center 44%',
-=======
     image: '/images/editorial/convera-people-network.svg',
     imageAlt: 'Abstract illustration representing people, public trust, and community connection',
     position: 'center',
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     external: false
   }
 ] as const;
@@ -70,12 +58,7 @@ const serviceSchema = {
 ---
 <BaseLayout title="Services" description="Founder-led organizational strategy, workplace culture, and contextual analysis from Convera Strategies." canonical="/services/">
   <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)}></script>
-<<<<<<< HEAD
-  <PageHero eyebrow="Services"
-    tagline={site.tagline} title="Clearer perspective. Stronger decisions." lede="Convera offers focused, founder-led engagements for people and organizations seeking a clearer view of workplace questions, organizational direction, and the context surrounding difficult decisions." />
-=======
   <PageHero eyebrow="Services" title="Clearer perspective. Stronger decisions." lede="Convera Strategies offers focused, founder-led engagements for people and organizations seeking a clearer view of workplace questions, organizational direction, and the context surrounding difficult decisions." />
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
   <section class="section">
     <div class="container" style="display:grid;gap:1rem">
@@ -108,11 +91,7 @@ const serviceSchema = {
         {sectorSettings.map((sector) => (
           <article class="sector-card card">
             <div class="sector-card__image">
-<<<<<<< HEAD
-              <img src={sector.image} alt={sector.imageAlt} loading="lazy" decoding="async" referrerpolicy={sector.external ? 'no-referrer' : undefined} style={`object-position:${sector.position}`} />
-=======
               <img src={sector.image} alt={sector.imageAlt} width="1200" height="675" loading="lazy" decoding="async" referrerpolicy={sector.external ? 'no-referrer' : undefined} onerror={sector.external ? "this.onerror=null;this.src='/images/editorial/convera-institution-systems.svg';" : undefined} style={`object-position:${sector.position}`} />
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
             </div>
             <div class="sector-card__copy"><h3>{sector.title}</h3><p>{sector.description}</p></div>
           </article>

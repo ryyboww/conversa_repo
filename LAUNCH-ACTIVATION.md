@@ -43,13 +43,4 @@ Test light/dark modes, desktop and mobile navigation, keyboard-only navigation, 
 
 ## 8. Publish deliberately
 
-<<<<<<< HEAD
-Before announcing the site publicly, complete `PRE-LAUNCH-QA.md` and `LAUNCH-CHECKLIST.md`, then preserve the deployed ZIP/repository tag as the launch baseline.
-
-
-## 2.14.0 client operations note
-
-Launch email verification now covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. The direct prospective-client form is `/intake/` (`client-intake` in Netlify). The `/dashboard/` route is a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
-=======
 Run `npm run live:audit -- https://converastrategies.com`, update only verified operational flags, and run `npm run deploy:gate`. Preserve the deployed ZIP/repository tag as the launch baseline.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997

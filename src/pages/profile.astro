@@ -1,16 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-<<<<<<< HEAD
----
-<BaseLayout title="Ryan Brown · Founder Profile" description="Ryan Brown's founder profile: experience, public service, research, teaching, vision, and the perspective behind Convera Strategies." canonical="/profile/">
-  <PageHero eyebrow="Founder Profile" title="Experience across service, institutions, research, and public life." lede="Ryan Brown’s work is shaped by a long path through service occupations, military and law-enforcement experience, academic research, teaching, public institutions, and the everyday relationships through which organizations become real." compact>
-=======
 import { site } from '../config/site';
 ---
 <BaseLayout title="Ryan Brown · Founder Profile" description="Ryan Brown's founder profile: experience, public service, research, teaching, vision, and the perspective behind Convera Strategies." canonical="/profile/">
   <PageHero eyebrow="Founder Profile" title="Experience across service, institutions, research, and public life." lede={`${site.founder}, ${site.founderCredential}, is a ${site.founderRoles[0]}, ${site.founderRoles[1].toLowerCase()}, ${site.founderRoles[2].toLowerCase()}, and founder of Convera Strategies. His work is shaped by a long path through service occupations, military and law-enforcement experience, academic research, teaching, public institutions, and the everyday relationships through which organizations become real.`} compact>
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     <aside slot="aside" class="profile-hero-image"><img src="/images/ryan-brown-profile.jpg" alt="Portrait of Ryan Brown" width="1536" height="1024" loading="eager" fetchpriority="high" /></aside>
     <div slot="actions"><a class="button button--primary" href="/downloads/ryan-brown-cv.pdf" download>Download CV</a><a class="button button--ghost" href="/contact/">Contact Ryan</a></div>
   </PageHero>

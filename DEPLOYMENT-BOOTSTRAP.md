@@ -1,10 +1,6 @@
 # Convera Strategies — Deployment Bootstrap
 
-<<<<<<< HEAD
-Release 2.14.0 is designed to move from a source-ready package to a verified production deployment without changing the approved site architecture.
-=======
 Release 2.56.0 is designed to move from a source-ready package to a verified production deployment without changing the approved site architecture.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 ## Phase 1 — local or CI build
 

@@ -1,12 +1,7 @@
 # Convera Strategies — Activation Status
 
-<<<<<<< HEAD
-**Release:** 2.14.0
-**Current state:** source ready; external business infrastructure remains pending.
-=======
 **Release:** 2.56.0  
 **Current state:** publication-source candidate; external business infrastructure remains pending.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 | Area | Status | Next action |
 |---|---|---|

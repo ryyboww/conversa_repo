@@ -1,21 +1,11 @@
 # Convera Strategies — Launch Status
 
-<<<<<<< HEAD
-**Release:** 2.14.0 Launch Console Candidate
-**Source architecture:** Stable
-**Dependency-free release audits:** Passing
-**Privacy/exposure audit:** Passing
-**Runtime core prerequisites:** Passing
-**Astro dependency installation:** Pending in this environment
-**Production Astro build:** Not yet verified here
-=======
 **Release:** 2.56.0 Publication Workflow Coherence Candidate  
 **Public design/content:** Source-frozen  
 **Dependency-free release audits:** Passing when run from clean source  
 **Privacy/exposure audit:** Passing  
 **Contact/Intake separation:** Implemented  
 **Production Astro build:** Still requires verification in an environment with npm registry access  
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 **External activation:** Pending
 
 ## Current verified source state

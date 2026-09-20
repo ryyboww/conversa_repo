@@ -7,10 +7,6 @@
     '.page-hero__aside',
     '.home-hero__copy',
     '.home-hero__portrait',
-<<<<<<< HEAD
-    '.home-hero__quote',
-=======
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
     '.home-feature-grid > *',
     '.home-connection-card > *',
     '.home-inquiry-item',

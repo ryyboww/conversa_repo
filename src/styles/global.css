@@ -142,11 +142,6 @@ p { margin: 0; }
   gap: clamp(2rem, 5vw, 5rem);
 }
 .page-hero__inner { display: grid; gap: .9rem; max-width: 920px; min-width: 0; }
-<<<<<<< HEAD
-.page-hero__tagline { margin: -.18rem 0 .02rem; color: color-mix(in srgb, var(--text) 74%, var(--accent)); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.12rem, 1.45vw, 1.34rem); font-weight: 600; line-height: 1.1; }
-.page-hero--dark .page-hero__tagline { color: #dff8fa; }
-=======
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 .page-hero h1 {
   max-width: 16ch;
   font-size: clamp(2.4rem, 4vw, 3.4rem);

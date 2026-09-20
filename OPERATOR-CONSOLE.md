@@ -1,10 +1,6 @@
 # Convera Strategies — Operator Console
 
-<<<<<<< HEAD
-Release 2.14.0 adds safe local commands for moving the launch forward without editing environment files by hand.
-=======
 Release 2.56.0 adds safe local commands for moving the launch forward without editing environment files by hand.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 ## 1. Initialize local activation files
 
@@ -82,12 +78,6 @@ npm run deploy:gate
 A failing gate is not a defect by itself. It means one or more required launch checks have not yet been verified.
 
 
-<<<<<<< HEAD
-## 2.14.0 client operations note
-
-Launch email verification now covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. The direct prospective-client form is `/intake/` (`client-intake` in Netlify). The `/dashboard/` route is a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
-=======
 ## 2.56.0 client operations note
 
 Launch email verification covers `ryan@converastrategies.com`, `hello@converastrategies.com`, `help@converastrategies.com`, `admin@converastrategies.com`, and `billing@converastrategies.com`. Professional inquiries begin through the public Contact pathway. The `/intake/` route (`client-intake` in Netlify) is private/noindex and is used only after manual review and a direct Intake invitation. The `/dashboard/` route remains a staged noindex/no-store shell and must not contain client-specific information before secure authentication is connected.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997

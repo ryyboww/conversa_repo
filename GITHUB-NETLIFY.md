@@ -3,23 +3,14 @@
 **Production repository:** `convera_published_codes`  
 **Production branch:** `main_conversa`
 
-<<<<<<< HEAD
-
-## GitHub repository: `convera_published_codes`
-=======
 ## GitHub repository
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 
 Commit the complete 2.56.0 source package to the production repository.
 
 ```bash
 git init
 git add .
-<<<<<<< HEAD
-git commit -m "Prepare Convera Strategies 2.14.0 remote handoff"
-=======
 git commit -m "Prepare Convera Strategies 2.56.0 publication candidate"
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
 git branch -M main_conversa
 git remote add origin <YOUR_GITHUB_REPOSITORY_URL>
 git push -u origin main_conversa

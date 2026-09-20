@@ -6,9 +6,6 @@
 
 Use this wording consistently across Convera public-facing materials. Preserve it for future business stationery, letterhead, email-signature, presentation, proposal, and print-brand work unless Ryan explicitly revises it.
 
-<<<<<<< HEAD
-The tagline should support the brand rather than crowd the logo. Do not place it inside the primary header lockup or beneath the footer logo unless a later stationery/brand composition specifically calls for it.
-=======
 The tagline should support the brand rather than compete with surrounding page copy. Do not repeat it beneath the footer logo or as ordinary hero/body copy.
 
 ## Header lockup
@@ -19,4 +16,3 @@ On the public site, **People are what we do.** should read as a slogan rather th
 
 ## Name usage
 Use **Convera Strategies** for formal identification, SEO, structured data, page titles, first substantive references on company/service pages, contracts, proposals, and stationery. Use **Convera** as the conversational short form within body copy after the full name is established. Avoid mechanically repeating either form in every heading or sentence.
->>>>>>> 18869ceba24513e112b27a234f935784f3c71997
