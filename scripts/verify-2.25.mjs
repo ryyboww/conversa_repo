@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
-const root=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 let pass=0,fail=0;
 function ok(condition,label){if(condition){console.log(`PASS ${label}`);pass++}else{console.error(`FAIL ${label}`);fail++}}
 function text(rel){return fs.readFileSync(path.join(root,rel),'utf8')}

@@ -1,5 +1,5 @@
-import fs from 'node:fs';import path from 'node:path';
-const root=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..');const checks=[];const text=p=>fs.readFileSync(path.join(root,p),'utf8');const ok=(n,c)=>checks.push([n,Boolean(c)]);
+import fs from 'node:fs';import path from 'node:path';import { fileURLToPath } from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');const checks=[];const text=p=>fs.readFileSync(path.join(root,p),'utf8');const ok=(n,c)=>checks.push([n,Boolean(c)]);
 const token=text('netlify/functions/_shared/engagement-token.mjs'),admin=text('netlify/functions/_shared/command-center-admin.mjs'),portal=text('netlify/functions/project-portal.mjs'),client=text('netlify/functions/client-project-portal.mjs'),cmd=text('netlify/functions/project-command.mjs'),ms=text('netlify/functions/project-milestones.mjs'),rem=text('netlify/functions/project-reminders.mjs'),close=text('netlify/functions/project-closeout.mjs'),op=text('public/operator/project.html'),cp=text('public/project/index.html'),registry=text('public/operator/projects.html'),docs=text('docs/COMMAND-CENTER-CLIENT-PORTAL.md');
 ok('Portal token kind enabled',token.includes("'project_portal'"));
 ok('Portal records revocable',portal.includes("status:'Revoked'")&&client.includes("portal.status!=='Active'"));

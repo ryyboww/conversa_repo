@@ -1,5 +1,5 @@
-import fs from 'node:fs';import path from 'node:path';
-const root=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..'),checks=[];const text=p=>fs.readFileSync(path.join(root,p),'utf8'),ok=(n,c)=>checks.push([n,Boolean(c)]);
+import fs from 'node:fs';import path from 'node:path';import { fileURLToPath } from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),checks=[];const text=p=>fs.readFileSync(path.join(root,p),'utf8'),ok=(n,c)=>checks.push([n,Boolean(c)]);
 const token=text('netlify/functions/_shared/engagement-token.mjs'),sec=text('netlify/functions/_shared/portal-security.mjs'),portal=text('netlify/functions/project-portal.mjs'),client=text('netlify/functions/client-project-portal.mjs'),ops=text('netlify/functions/_shared/operations-intelligence.mjs'),opsFn=text('netlify/functions/project-operations.mjs'),opsPage=text('public/operator/operations.html'),clientPage=text('public/project/index.html'),registry=text('netlify/functions/project-registry.mjs'),registryPage=text('public/operator/projects.html'),cmd=text('netlify/functions/project-command.mjs'),cmdPage=text('public/operator/project.html'),docs=text('docs/OPERATIONS-INTELLIGENCE-PORTAL-SECURITY.md'),env=text('.env.operations-security.example');
 ok('Portal session token kind enabled',token.includes("'project_portal_session'"));
 ok('Portal verification defaults on',portal.includes("CONVERA_PORTAL_REQUIRE_EMAIL_VERIFICATION||'true'"));

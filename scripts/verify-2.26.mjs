@@ -1,5 +1,5 @@
-import fs from 'node:fs'; import path from 'node:path';
-const root=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..');
+import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const checks=[];const text=p=>fs.readFileSync(path.join(root,p),'utf8');const ok=(name,cond)=>checks.push([name,Boolean(cond)]);
 const billing=text('netlify/functions/project-billing.mjs'),docs=text('netlify/functions/project-documents.mjs'),clientDocs=text('netlify/functions/client-documents.mjs'),token=text('netlify/functions/_shared/engagement-token.mjs'),helper=text('netlify/functions/_shared/billing-admin.mjs'),registry=text('public/operator/projects.html'),install=text('docs/BILLING-AND-DOCUMENTS.md');
 ok('Invoice requires signed agreement',billing.includes('signed Project Agreement is required'));
