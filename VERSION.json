@@ -1,15 +1,16 @@
 {
-  "version": "2.64.0",
-  "name": "Client Portal Activation Guardrails",
-  "baseline": "2.63.0 hosting capacity release control",
+  "version": "2.65.0",
+  "name": "Public Positioning and Support Pathway",
+  "baseline": "2.64.0 client portal activation guardrails",
   "status": "publication-candidate",
   "scope": [
-    "preserve the verified public architecture, security configuration, and workstream boundary",
-    "require an explicit public-build switch before the external client portal handoff can activate",
-    "require a valid HTTPS portal URL and provider label when portal activation is requested",
-    "extend the supported public configuration command to manage all portal settings safely",
+    "make light mode the default while preserving visitor-selected dark mode",
+    "clarify Convera's institutional strategy, records analysis, and organizational culture positioning",
+    "place Areas of Inquiry directly below the homepage hero and add a six-card engagement structure",
+    "separate broad support participation from optional financial sponsorship",
+    "preserve the approved Convera Approach language on the homepage and About page",
     "preserve the Contact to manual review to direct private Intake invitation boundary",
-    "preserve the validated 2.63 public architecture, functions, email workflow, hosting-capacity control, and security controls",
+    "preserve the validated 2.64 functions, portal guardrails, email workflow, hosting-capacity control, and security controls",
     "keep all credentials and production delivery configuration outside website source"
   ]
 }

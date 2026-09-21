@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.65.0 — Public Positioning and Support Pathway
+
+- Made light mode the default while retaining dark mode as an explicit visitor choice.
+- Clarified the homepage around institutional strategy, records analysis, organizational culture, and context-specific problem definition.
+- Moved Areas of Inquiry directly below the hero and added a six-card pathway for services, speaking, and support.
+- Preserved the approved “Similar problems may require different responses” language on the homepage and About page.
+- Expanded Support the Work into reading, sharing, following, referring, collaborating, and optional financial sponsorship.
+- Increased primary-navigation sizing and removed the Ph.D. student identifier from the landing-page presentation while retaining it on the founder profile.
+- Preserved the validated 2.64 operational, security, portal, email, and deployment controls.
+
 ## 2.64.0 — Client Portal Activation Guardrails
 
 - Added `PUBLIC_CLIENT_PORTAL_ENABLED=false` as an explicit activation decision separate from portal configuration.
