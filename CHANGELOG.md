@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.63.0 — Hosting Capacity Release Control
+
+- Added `OPS_NETLIFY_PRODUCTION_DEPLOYS_AVAILABLE` as a separate, current-state release control.
+- Updated the activation report to distinguish hosting capacity from a completed production deployment.
+- Updated the strict go-live gate so a paused Netlify team blocks publication before another production attempt.
+- Added operator guidance for credit, billing, and platform restrictions without storing account or payment information in source.
+- Excluded Netlify's generated `.netlify/` workspace so local builds and draft deploys do not appear as source changes.
+- Preserved the validated 2.62 architecture, functions, email workflow, and workstream boundary.
+
 ## 2.59.0 — Security Configuration Completeness
 
 - Restored the missing private operations and portal-security configuration template referenced by the installation and verification guides.

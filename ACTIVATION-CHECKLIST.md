@@ -9,6 +9,7 @@ Use this after source development is complete.
 - [ ] One-time hosted contribution link is configured.
 - [ ] Monthly hosted contribution link is configured.
 - [ ] Netlify environment variables are configured.
+- [ ] Netlify confirms production deploy capacity is available for the team.
 - [ ] Production Netlify deploy succeeds.
 - [ ] `converastrategies.com` resolves to the production deploy.
 - [ ] `www.converastrategies.com` redirects to the apex domain.

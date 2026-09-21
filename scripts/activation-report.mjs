@@ -40,6 +40,7 @@ const items = [
   { key: 'help_mail', label: 'help@converastrategies.com send/receive verified', ready: yes(env.OPS_HELP_MAIL_VERIFIED), detail: yes(env.OPS_HELP_MAIL_VERIFIED) ? 'Verified externally' : 'Pending external test' },
   { key: 'admin_mail', label: 'admin@converastrategies.com send/receive verified', ready: yes(env.OPS_ADMIN_MAIL_VERIFIED), detail: yes(env.OPS_ADMIN_MAIL_VERIFIED) ? 'Verified externally' : 'Pending external test' },
   { key: 'billing_mail', label: 'billing@converastrategies.com send/receive verified', ready: yes(env.OPS_BILLING_MAIL_VERIFIED), detail: yes(env.OPS_BILLING_MAIL_VERIFIED) ? 'Verified externally' : 'Pending external test' },
+  { key: 'netlify_capacity', label: 'Netlify production deploy capacity available', ready: yes(env.OPS_NETLIFY_PRODUCTION_DEPLOYS_AVAILABLE), detail: yes(env.OPS_NETLIFY_PRODUCTION_DEPLOYS_AVAILABLE) ? 'Production deploys currently permitted' : 'Paused, unavailable, or not yet verified' },
   { key: 'netlify_deployed', label: 'Production Netlify deployment completed', ready: yes(env.OPS_PRODUCTION_DEPLOYED), detail: yes(env.OPS_PRODUCTION_DEPLOYED) ? 'Confirmed externally' : 'Pending' },
   { key: 'canonical_domain', label: 'Canonical production domain verified', ready: yes(env.OPS_CANONICAL_DOMAIN_VERIFIED), detail: yes(env.OPS_CANONICAL_DOMAIN_VERIFIED) ? 'Verified externally' : 'Pending DNS/domain test' },
   { key: 'ssl', label: 'Production TLS/SSL verified', ready: yes(env.OPS_SSL_VERIFIED), detail: yes(env.OPS_SSL_VERIFIED) ? 'Verified externally' : 'Pending HTTPS test' },
@@ -74,7 +75,7 @@ const md = [
   '|---|---|---|',
   ...items.map((x) => `| ${x.label} | ${x.ready ? 'Ready' : 'Pending'} | ${x.detail} |`),
   '',
-  'This report distinguishes source configuration from external verification. It does not infer mailbox delivery, payment success, Netlify form delivery, or browser QA from source code.',
+  'This report distinguishes source configuration from external verification. It does not infer mailbox delivery, payment success, Netlify production capacity, form delivery, or browser QA from source code.',
   ''
 ].join('\n');
 

@@ -37,6 +37,7 @@ add('Email', 'Public mailbox send/receive verified', bool('OPS_HELLO_MAIL_VERIFI
 add('Email', 'Help mailbox send/receive verified', bool('OPS_HELP_MAIL_VERIFIED'), 'OPS_HELP_MAIL_VERIFIED');
 add('Email', 'Admin mailbox send/receive verified', bool('OPS_ADMIN_MAIL_VERIFIED'), 'OPS_ADMIN_MAIL_VERIFIED');
 add('Email', 'Billing mailbox send/receive verified', bool('OPS_BILLING_MAIL_VERIFIED'), 'OPS_BILLING_MAIL_VERIFIED');
+add('Deploy', 'Netlify production deploy capacity available', bool('OPS_NETLIFY_PRODUCTION_DEPLOYS_AVAILABLE'), 'OPS_NETLIFY_PRODUCTION_DEPLOYS_AVAILABLE');
 add('Deploy', 'Production deployment completed', bool('OPS_PRODUCTION_DEPLOYED'), 'OPS_PRODUCTION_DEPLOYED');
 add('Domain', 'Canonical domain verified', bool('OPS_CANONICAL_DOMAIN_VERIFIED'), 'OPS_CANONICAL_DOMAIN_VERIFIED');
 add('Domain', 'TLS/SSL verified', bool('OPS_SSL_VERIFIED'), 'OPS_SSL_VERIFIED');

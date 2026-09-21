@@ -19,6 +19,7 @@ These values belong only in `.env.operations`. They are local launch records and
 
 - `OPS_RYAN_MAIL_VERIFIED`
 - `OPS_HELLO_MAIL_VERIFIED`
+- `OPS_NETLIFY_PRODUCTION_DEPLOYS_AVAILABLE`
 - `OPS_PRODUCTION_DEPLOYED`
 - `OPS_CANONICAL_DOMAIN_VERIFIED`
 - `OPS_SSL_VERIFIED`
