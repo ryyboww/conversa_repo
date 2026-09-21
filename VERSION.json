@@ -1,14 +1,14 @@
 {
-  "version": "2.65.0",
-  "name": "Public Positioning and Support Pathway",
-  "baseline": "2.64.0 client portal activation guardrails",
+  "version": "2.66.0",
+  "name": "Light Theme and Content Refinement",
+  "baseline": "2.65.0 public positioning and support pathway",
   "status": "publication-candidate",
   "scope": [
-    "make light mode the default while preserving visitor-selected dark mode",
-    "clarify Convera's institutional strategy, records analysis, and organizational culture positioning",
-    "place Areas of Inquiry directly below the homepage hero and add a six-card engagement structure",
-    "separate broad support participation from optional financial sponsorship",
-    "preserve the approved Convera Approach language on the homepage and About page",
+    "preserve light mode as the sitewide default while completing theme-aware page presentation",
+    "refine homepage positioning, founder-role placement, and selected-work hierarchy",
+    "remove Approach from primary navigation while preserving contextual links",
+    "simplify Support page headings and retain distinct participation and sponsorship paths",
+    "preserve the approved Convera Approach language verbatim on the homepage and About page",
     "preserve the Contact to manual review to direct private Intake invitation boundary",
     "preserve the validated 2.64 functions, portal guardrails, email workflow, hosting-capacity control, and security controls",
     "keep all credentials and production delivery configuration outside website source"

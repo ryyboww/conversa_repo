@@ -6,7 +6,7 @@ import { supportPaymentOptions, supportCheckout } from '../config/support';
 ---
 <BaseLayout title="Support" description="Support Ryan Brown’s independent publications, speaking, public engagement, and work advancing thoughtful institutional change." canonical="/support/">
   <PageHero
-    eyebrow="Support the Work"
+    eyebrow="Support"
     title="Help meaningful work move forward."
     lede="Support expands independent research, public scholarship, publications, and conversations capable of strengthening organizations and public life."
   >
@@ -23,16 +23,15 @@ import { supportPaymentOptions, supportCheckout } from '../config/support';
       <p class="lede">Read, share, follow, recommend, collaborate, or introduce Convera to an organization facing a consequential problem. Each action helps strengthen the public work and the relationships through which it can create value.</p>
     </div>
     <div class="container grid-3 support-participation">
-      <article class="card"><p class="eyebrow">Read & Share</p><h3>Help ideas circulate.</h3><p class="muted">Read a publication, share an essay, or bring the work into a conversation where it may be useful.</p><a href="/publications/">Explore Publications →</a></article>
-      <article class="card"><p class="eyebrow">Connect</p><h3>Follow the work.</h3><p class="muted">Follow Convera, recommend its work, or invite Ryan into a serious professional or public conversation.</p><a href="/follow/">Follow Convera →</a></article>
-      <article class="card"><p class="eyebrow">Collaborate</p><h3>Put the approach to work.</h3><p class="muted">Refer an organization or begin a conversation about research, analysis, strategy, or facilitation.</p><a href="/work-with-convera/">Work With Convera →</a></article>
+      <article class="card"><h3>Read & Share</h3><p class="muted">Read a publication, share an essay, or bring the work into a conversation where it may be useful.</p><a href="/publications/">Explore Publications →</a></article>
+      <article class="card"><h3>Connect</h3><p class="muted">Follow Convera, recommend its work, or invite Ryan into a serious professional or public conversation.</p><a href="/follow/">Follow Convera →</a></article>
+      <article class="card"><h3>Collaborate</h3><p class="muted">Refer an organization or begin a conversation about research, analysis, strategy, or facilitation.</p><a href="/work-with-convera/">Work With Convera →</a></article>
     </div>
     <div class="container support-sponsorship"><p class="eyebrow">Financial Sponsorship</p><h2>Sponsor Convera’s public work.</h2><p>Financial support helps create time and capacity for independent research, publications, public resources, speaking, and wider engagement. It remains separate from fees for professional services.</p></div>
     <div class="container grid-2 support-options" id="support-options">
       {supportPaymentOptions.map((option) => (
         <article class="card support-option">
           <p class="eyebrow">{option.eyebrow}</p>
-          <h3>{option.title}</h3>
           <p class="muted">{option.description}</p>
           <p class="support-option__amounts">{option.suggestedAmounts.join(' · ')}</p>
           {option.url ? (

@@ -200,6 +200,20 @@
   -webkit-backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255,255,255,.10);
 }
+.home-hero__roles {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding-top: 9px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.86);
+  font: 600 9px/1.25 Inter, sans-serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.home-hero__roles span { color: #65d4df; }
 .home-hero__identity-quote {
   min-width: 0;
   display: grid;
@@ -235,7 +249,8 @@
 .home-quote-name { font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
 .home-quote-role { margin-top: 3px; color: rgba(255,255,255,.76); font-size: 10px; line-height: 1.25; }
 
-.home-feature-band {
+.home-feature-band,
+.home-selected-work {
   background: #f8f6f1;
   border-bottom: 1px solid rgba(15,73,92,.09);
 }
@@ -375,11 +390,13 @@
 .home-support-icon { width: clamp(54px, 5.1vw, 68px); height: clamp(54px, 5.1vw, 68px); }
 .home-support-icon svg { width: 100%; height: 100%; fill: none; stroke: #174a63; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
 
-.home-feature-band--secondary {
+.home-feature-band--secondary,
+.home-selected-work--secondary {
   background: #f2f5f3;
   border-top: 0;
 }
-.home-feature-band--secondary .home-feature-grid { padding-top: 17px; padding-bottom: 18px; }
+.home-feature-band--secondary .home-feature-grid,
+.home-selected-work--secondary .home-feature-grid { padding-top: 17px; padding-bottom: 18px; }
 .home-connection-card__media::after {
   content: '';
   position: absolute;
@@ -459,7 +476,8 @@
 }
 
 html[data-theme='dark'] .convera-home { background: #0b2a35; }
-html[data-theme='dark'] .home-feature-band { background: #0d2d39; }
+html[data-theme='dark'] .home-feature-band,
+html[data-theme='dark'] .home-selected-work { background: #0d2d39; }
 html[data-theme='dark'] .home-publication-copy h2,
 html[data-theme='dark'] .home-publication-copy p,
 html[data-theme='dark'] .home-publication-copy a { color: #edf7f8; }
@@ -470,7 +488,18 @@ html[data-theme='dark'] .home-side-card__copy p,
 html[data-theme='dark'] .home-side-card__copy a { color: #edf7f8; }
 html[data-theme='dark'] .home-support-card__visual { background: linear-gradient(145deg, #163f4d 0%, #113743 100%); }
 html[data-theme='dark'] .home-support-icon svg { stroke: #79dbe5; }
-html[data-theme='dark'] .home-feature-band--secondary { background: #0c2b37; }
+html[data-theme='dark'] .home-feature-band--secondary,
+html[data-theme='dark'] .home-selected-work--secondary { background: #0c2b37; }
+html[data-theme='dark'] .home-positioning,
+html[data-theme='dark'] .home-approach { background:#0b2a35; border-color:rgba(114,212,223,.14); }
+html[data-theme='dark'] .home-positioning h2,
+html[data-theme='dark'] .home-approach h2 { color:#edf7f8; }
+html[data-theme='dark'] .home-positioning p,
+html[data-theme='dark'] .home-approach__copy p { color:#bad0d5; }
+html[data-theme='dark'] .home-services { background:#0a2632; }
+html[data-theme='dark'] .home-services__grid { border-color:rgba(114,212,223,.18); }
+html[data-theme='dark'] .home-service-card { color:#edf7f8; background:rgba(255,255,255,.035); border-color:rgba(114,212,223,.14); }
+html[data-theme='dark'] .home-service-card p { color:#bad0d5; }
 html[data-theme='dark'] .home-inquiry-band { background: #103541; }
 html[data-theme='dark'] .home-inquiry-grid { background: rgba(255,255,255,.025); border-color: rgba(114,212,223,.2); }
 html[data-theme='dark'] .home-inquiry-item + .home-inquiry-item { border-left-color: rgba(114,212,223,.17); }
@@ -539,6 +568,7 @@ html[data-theme='dark'] .home-inquiry-icon svg { stroke: #72d4df; }
   .home-hero__portrait img { min-height: 300px; object-position: 56% 40%; }
   .home-hero__identity { grid-template-columns: 1fr; gap: 10px; padding: 14px 16px 15px; }
   .home-hero__identity-name { min-width: 0; padding: 10px 0 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.16); }
+  .home-hero__roles { flex-wrap:wrap; justify-content:flex-start; gap:.35rem .65rem; }
   .home-side-card { grid-template-columns: 1fr; }
   .home-side-card__visual { min-height: 196px; border-right: 0; border-bottom: 1px solid rgba(44,115,132,.10); }
   .home-support-card__visual { min-height: 118px; }

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.66.0 — Light Theme and Content Refinement
+
+- Preserved light mode as the sitewide default and completed theme-aware presentation across Home, Mission, Services, About, and Support.
+- Refined homepage positioning, moved founder roles beneath the portrait, corrected Group & Organizational Culture, and clarified the selected-work section.
+- Preserved the approved “Similar problems may require different responses” passage verbatim and retained contextual links to the Convera Approach.
+- Removed Approach from primary navigation and shortened Support the Work to Support in navigation.
+- Reframed the Mission hero and simplified Support participation and sponsorship headings.
+- Preserved Publications and Contact without content changes.
+
 ## 2.65.0 — Public Positioning and Support Pathway
 
 - Made light mode the default while retaining dark mode as an explicit visitor choice.

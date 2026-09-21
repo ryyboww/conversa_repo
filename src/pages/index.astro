@@ -11,7 +11,7 @@ const essayHref = secondFeature ? `/blog/${secondFeature.id.replace(/\.mdx?$/i, 
 
 const inquiryAreas = [
   { title: 'Institutions & Public Life', terms: 'Authority · Trust · Public Responsibility', href: '/services/#social-perspectives', icon: 'globe' },
-  { title: 'Groups & Organizational Culture', terms: 'Relationships · Communication · Practice', href: '/services/#workplace-culture', icon: 'people' },
+  { title: 'Group & Organizational Culture', terms: 'Relationships · Communication · Practice', href: '/services/#workplace-culture', icon: 'people' },
   { title: 'Records & Institutional Meaning', terms: 'Records · Narratives · Decisions', href: '/services/#organizational-strategy', icon: 'compass' }
 ] as const;
 
@@ -21,7 +21,7 @@ const serviceCards = [
   { title: 'Culture & Organizational Change', text: 'Study relationships among stated values, everyday practices, group experiences, and institutional outcomes.', href: '/services/#workplace-culture' },
   { title: 'Narrative & Communication', text: 'Understand how language, interpretation, and public narratives influence trust and collective action.', href: '/services/' },
   { title: 'Speaking & Facilitation', text: 'Guide serious conversations about institutions, organizational culture, leadership, and social change.', href: '/speaking/' },
-  { title: 'Support the Work', text: 'Help sustain independent research, public scholarship, publications, and resources serving a broader public purpose.', href: '/support/' }
+  { title: 'Support', text: 'Help sustain independent research, public scholarship, publications, and resources serving a broader public purpose.', href: '/support/' }
 ] as const;
 ---
 <BaseLayout title="Convera Strategies" description={site.description} canonical="/">
@@ -30,15 +30,11 @@ const serviceCards = [
       <div class="home-shell home-hero__grid">
         <div class="home-hero__copy">
           <p class="home-hero__eyebrow">Institutional Strategy · Records Analysis · Organizational Culture</p>
-          <h1 id="home-title"><span>Understand the whole problem.</span></h1>
+          <h1 id="home-title"><span>Distinct approaches to complex institutional problems.</span></h1>
           <span class="home-rule" aria-hidden="true"></span>
           <p>
             Convera Strategies helps organizations examine complex problems, understand the conditions behind them, and develop responses suited to the groups and institutions involved.
           </p>
-          <div class="home-founder-line" aria-label="Founder credentials">
-            <strong>{site.founder}, {site.founderCredential}</strong>
-            <span>Researcher · Lecturer · Institutional Strategist</span>
-          </div>
           <div class="home-hero__actions">
             <a class="home-button home-button--primary" href="/work-with-convera/">Work With Convera <span aria-hidden="true">→</span></a>
             <a class="home-button home-button--ghost" href="/about/#convera-approach">Explore Our Approach <span aria-hidden="true">→</span></a>
@@ -58,6 +54,7 @@ const serviceCards = [
               <p class="home-quote-name">{site.founder}, {site.founderCredential}</p>
               <p class="home-quote-role">Founder, Convera Strategies</p>
             </div>
+            <p class="home-hero__roles">Researcher <span>·</span> Lecturer <span>·</span> Institutional Strategist</p>
           </figcaption>
         </figure>
       </div>
@@ -109,7 +106,7 @@ const serviceCards = [
       </div>
     </section>
 
-    <section class="home-feature-band" aria-label="Featured publication and support">
+    <section class="home-selected-work" aria-label="Selected work and support">
       <div class="home-shell home-feature-grid">
         <article class="home-featured-publication">
           <div class="home-kicker-row"><p class="home-kicker">Featured Publication</p><span aria-hidden="true"></span></div>
@@ -132,17 +129,17 @@ const serviceCards = [
             </div>
           </div>
           <div class="home-side-card__copy">
-            <p class="home-kicker">Support the Work</p>
+            <p class="home-kicker">Support</p>
             <h2>Help the Work Travel Farther</h2>
             <p>Support gives Ryan Brown greater room to write, speak, and carry ideas about thoughtful institutional change into more organizations and public conversations.</p>
-            <a class="home-button home-button--dark" href="/support/">Support the Work <span aria-hidden="true">→</span></a>
+            <a class="home-button home-button--dark" href="/support/">Explore Support Options <span aria-hidden="true">→</span></a>
           </div>
         </aside>
       </div>
     </section>
 
     {secondFeature && (
-      <section class="home-feature-band home-feature-band--secondary" aria-label="Featured essay and people in conversation">
+      <section class="home-selected-work home-selected-work--secondary" aria-label="Featured essay and people in conversation">
         <div class="home-shell home-feature-grid">
           <article class="home-featured-publication">
             <div class="home-kicker-row"><p class="home-kicker">Featured Essay</p><span aria-hidden="true"></span></div>
