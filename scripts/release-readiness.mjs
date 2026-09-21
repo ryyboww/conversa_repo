@@ -21,7 +21,7 @@ add('Sitemap dependency is exact-pinned', /^\d+\.\d+\.\d+$/.test(pkg.dependencie
 add('GitHub verification workflow exists', fs.existsSync(path.join(root, '.github/workflows/site-verification.yml')), '.github/workflows/site-verification.yml');
 add('Post-deploy verification workflow exists', fs.existsSync(path.join(root, '.github/workflows/postdeploy-verification.yml')), '.github/workflows/postdeploy-verification.yml');
 add('Live-site audit command exists', Boolean(pkg.scripts?.['live:audit']), 'npm run live:audit -- https://converastrategies.com');
-add('Netlify Node version is pinned', /NODE_VERSION\s*=\s*"20"/.test(netlify), 'netlify.toml');
+add('Netlify Node version is pinned', /NODE_VERSION\s*=\s*"22"/.test(netlify), 'netlify.toml');
 add('Release audit command exists', Boolean(pkg.scripts?.['release:audit']), 'npm run release:audit');
 add('Full verification command exists', Boolean(pkg.scripts?.verify), 'npm run verify');
 add('Privacy audit command exists', Boolean(pkg.scripts?.['privacy:audit']), 'npm run privacy:audit');
