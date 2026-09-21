@@ -17,7 +17,10 @@ const allowed = new Set([
   'PUBLIC_SUPPORT_PROVIDER_LABEL',
   'PUBLIC_SUPPORT_ONE_TIME_URL',
   'PUBLIC_SUPPORT_MONTHLY_URL',
-  'PUBLIC_PLAUSIBLE_DOMAIN'
+  'PUBLIC_PLAUSIBLE_DOMAIN',
+  'PUBLIC_CLIENT_PORTAL_ENABLED',
+  'PUBLIC_CLIENT_PORTAL_PROVIDER_LABEL',
+  'PUBLIC_CLIENT_PORTAL_URL'
 ]);
 if (!allowed.has(key)) {
   console.error(`Unsupported public setting: ${key}`);
@@ -27,12 +30,16 @@ if (!allowed.has(key)) {
 const isHttps = (v) => {
   try { const u = new URL(v); return u.protocol === 'https:' && Boolean(u.hostname); } catch { return false; }
 };
-if (['PUBLIC_SUPPORT_ONE_TIME_URL', 'PUBLIC_SUPPORT_MONTHLY_URL'].includes(key) && value && !isHttps(value)) {
+if (['PUBLIC_SUPPORT_ONE_TIME_URL', 'PUBLIC_SUPPORT_MONTHLY_URL', 'PUBLIC_CLIENT_PORTAL_URL'].includes(key) && value && !isHttps(value)) {
   console.error(`${key} must be a full https:// URL.`);
   process.exit(1);
 }
-if (key === 'PUBLIC_SUPPORT_PROVIDER_LABEL' && !value) {
-  console.error('PUBLIC_SUPPORT_PROVIDER_LABEL cannot be blank when set with this command.');
+if (['PUBLIC_SUPPORT_PROVIDER_LABEL', 'PUBLIC_CLIENT_PORTAL_PROVIDER_LABEL'].includes(key) && !value) {
+  console.error(`${key} cannot be blank when set with this command.`);
+  process.exit(1);
+}
+if (key === 'PUBLIC_CLIENT_PORTAL_ENABLED' && !['true', 'false'].includes(value.toLowerCase())) {
+  console.error('PUBLIC_CLIENT_PORTAL_ENABLED must be true or false.');
   process.exit(1);
 }
 if (key === 'PUBLIC_PLAUSIBLE_DOMAIN' && value && !/^[A-Za-z0-9.-]+$/.test(value)) {

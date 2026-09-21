@@ -10,8 +10,13 @@ These values are consumed by the static Astro build and may become visible in ge
 | `PUBLIC_SUPPORT_ONE_TIME_URL` | Yes | Hosted one-time contribution checkout URL. |
 | `PUBLIC_SUPPORT_MONTHLY_URL` | Yes | Hosted recurring contribution checkout URL. |
 | `PUBLIC_PLAUSIBLE_DOMAIN` | No | Enables Plausible analytics when configured. |
+| `PUBLIC_CLIENT_PORTAL_ENABLED` | No | Explicitly activates the external client-portal handoff only when set to `true`. |
+| `PUBLIC_CLIENT_PORTAL_PROVIDER_LABEL` | No | Human-readable label for the authenticated portal provider. |
+| `PUBLIC_CLIENT_PORTAL_URL` | No | HTTPS URL for the authenticated client portal. |
 
 Do not place secret keys, API secrets, mailbox passwords, payment credentials, or private tokens in `PUBLIC_*` values.
+
+The client portal remains inactive unless `PUBLIC_CLIENT_PORTAL_ENABLED=true` and `PUBLIC_CLIENT_PORTAL_URL` is a valid HTTPS URL. Configure the provider label and URL first, confirm authentication and access controls outside the public site, then make the separate activation decision. The switch does not make `/intake/` public and does not replace the Contact → manual review → direct invitation workflow.
 
 ## Operational verification variables
 

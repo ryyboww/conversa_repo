@@ -1,14 +1,15 @@
 {
-  "version": "2.63.0",
-  "name": "Hosting Capacity Release Control",
-  "baseline": "2.62.0 authoritative workflow source recovery",
+  "version": "2.64.0",
+  "name": "Client Portal Activation Guardrails",
+  "baseline": "2.63.0 hosting capacity release control",
   "status": "publication-candidate",
   "scope": [
     "preserve the verified public architecture, security configuration, and workstream boundary",
-    "add a separate operational control for current Netlify production deploy availability",
-    "block the strict go-live gate when operational credits, billing, or another platform restriction pauses production deploys",
-    "report hosting capacity separately from successful production publication",
-    "preserve the validated 2.62 public architecture, functions, email workflow, and security controls",
+    "require an explicit public-build switch before the external client portal handoff can activate",
+    "require a valid HTTPS portal URL and provider label when portal activation is requested",
+    "extend the supported public configuration command to manage all portal settings safely",
+    "preserve the Contact to manual review to direct private Intake invitation boundary",
+    "preserve the validated 2.63 public architecture, functions, email workflow, hosting-capacity control, and security controls",
     "keep all credentials and production delivery configuration outside website source"
   ]
 }

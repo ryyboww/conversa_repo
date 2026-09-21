@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.64.0 — Client Portal Activation Guardrails
+
+- Added `PUBLIC_CLIENT_PORTAL_ENABLED=false` as an explicit activation decision separate from portal configuration.
+- Prevented a configured portal URL from activating the public dashboard handoff by itself.
+- Extended `npm run config:set` to support the portal enable switch, provider label, and HTTPS URL.
+- Extended configuration auditing so an enabled portal must have both an HTTPS URL and provider label.
+- Preserved the staged noindex dashboard and Contact → manual review → direct private Intake invitation boundary.
+- Preserved the 2.63 hosting-capacity control; Netlify production remains unchanged while production deploys are paused.
+
 ## 2.63.0 — Hosting Capacity Release Control
 
 - Added `OPS_NETLIFY_PRODUCTION_DEPLOYS_AVAILABLE` as a separate, current-state release control.

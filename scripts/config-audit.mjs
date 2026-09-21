@@ -19,6 +19,12 @@ for (const key of ['PUBLIC_SUPPORT_ONE_TIME_URL','PUBLIC_SUPPORT_MONTHLY_URL']) 
 }
 const portal=env.PUBLIC_CLIENT_PORTAL_URL;
 add('PUBLIC_CLIENT_PORTAL_URL is HTTPS when configured', !portal || /^https:\/\//i.test(portal), portal || 'not configured');
+const portalEnabled=(env.PUBLIC_CLIENT_PORTAL_ENABLED || 'false').toLowerCase();
+add('PUBLIC_CLIENT_PORTAL_ENABLED is true or false', ['true','false'].includes(portalEnabled), portalEnabled);
+if (portalEnabled === 'true') {
+  add('Enabled client portal has an HTTPS URL', /^https:\/\//i.test(portal || ''), portal || 'not configured');
+  add('Enabled client portal has a provider label', Boolean(env.PUBLIC_CLIENT_PORTAL_PROVIDER_LABEL), env.PUBLIC_CLIENT_PORTAL_PROVIDER_LABEL || 'not configured');
+}
 console.log('\nConvera Strategies — configuration audit\n');
 for(const c of checks) console.log(`${c.ok?'PASS':'FAIL'}  ${c.n} — ${c.note}`);
 const bad=checks.filter(c=>!c.ok); console.log(`\n${checks.length-bad.length}/${checks.length} configuration checks passed.`); if(bad.length) process.exit(1);

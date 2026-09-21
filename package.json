@@ -1,6 +1,6 @@
 {
   "name": "convera-strategies",
-  "version": "2.63.0",
+  "version": "2.64.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -93,7 +93,8 @@
     "verify:2.60": "node scripts/function-parity-audit.mjs",
     "verify:2.61": "npm run functions:audit",
     "verify:2.62": "npm run functions:audit",
-    "verify:2.63": "node scripts/verify-2.63.mjs"
+    "verify:2.63": "node scripts/verify-2.63.mjs",
+    "verify:2.64": "node scripts/verify-2.64.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.6.0",
