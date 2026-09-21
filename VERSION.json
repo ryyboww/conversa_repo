@@ -1,10 +1,11 @@
 {
-  "version": "2.66.0",
-  "name": "Light Theme and Content Refinement",
-  "baseline": "2.65.0 public positioning and support pathway",
+  "version": "2.67.0",
+  "name": "Responsive Theme and Hero Correction",
+  "baseline": "2.66.0 light theme and content refinement",
   "status": "publication-candidate",
   "scope": [
-    "preserve light mode as the sitewide default while completing theme-aware page presentation",
+    "correct theme-aware presentation across Home, Mission, Services, and Support",
+    "prevent homepage hero text from entering the portrait at intermediate desktop widths",
     "refine homepage positioning, founder-role placement, and selected-work hierarchy",
     "remove Approach from primary navigation while preserving contextual links",
     "simplify Support page headings and retain distinct participation and sponsorship paths",

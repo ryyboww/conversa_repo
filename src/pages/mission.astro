@@ -9,7 +9,6 @@ import { serviceAreas } from '../config/services';
     eyebrow="Mission"
     title="Institutional strength requires deliberate investment."
     lede="Convera Strategies helps people and organizations navigate complex questions, strengthen workplace culture, and approach institutional change with greater perspective and purpose."
-    tone="dark"
   >
     <blockquote slot="aside" class="mission-hero__quote">
       “Strengthening institutions is an investment in the future people hope to build.”
@@ -66,14 +65,14 @@ import { serviceAreas } from '../config/services';
     </div>
   </section>
 
-  <section class="section--tight" style="background:#082b39">
-    <div class="container"><SupportPanel compact dark /></div>
+  <section class="section--tight mission-support">
+    <div class="container"><SupportPanel compact /></div>
   </section>
 
   <style>
-    .mission-hero__quote{margin:0;padding:1.2rem 0 1.2rem 1.4rem;border-left:2px solid #72deea;font-size:clamp(1.55rem,2.35vw,2.15rem);line-height:1.08;}
-    .mission-hero__quote cite{display:block;margin-top:.9rem;color:#83e3ed;font-family:Inter,sans-serif;font-size:.66rem;font-style:normal;font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
-    .mission-hero__statement{max-width:46rem;color:rgba(255,255,255,.9);font-size:.94rem;font-weight:600;line-height:1.5;}
+    .mission-hero__quote{margin:0;padding:1.2rem 0 1.2rem 1.4rem;border-left:2px solid var(--accent);color:var(--text);font-size:clamp(1.55rem,2.35vw,2.15rem);line-height:1.08;}
+    .mission-hero__quote cite{display:block;margin-top:.9rem;color:var(--accent);font-family:Inter,sans-serif;font-size:.66rem;font-style:normal;font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
+    .mission-hero__statement{max-width:46rem;color:var(--muted);font-size:.94rem;font-weight:600;line-height:1.5;}
     .mission-intro{max-width:800px;margin:0 auto 2.4rem;text-align:center;}
     .mission-intro h2{margin:.55rem 0 0;}
     .mission-card{position:relative;padding:2rem;min-height:280px;}
@@ -90,6 +89,7 @@ import { serviceAreas } from '../config/services';
     .investment-points>div{display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line);}
     .investment-points strong{color:var(--accent);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;}
     .investment-points span{color:var(--muted);}
+    .mission-support{background:var(--surface-soft);border-top:1px solid var(--line);}
     @media(max-width:820px){.transition-grid,.investment-grid{grid-template-columns:1fr;}.mission-card{min-height:0;}}
   </style>
 </BaseLayout>

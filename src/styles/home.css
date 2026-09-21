@@ -28,12 +28,11 @@
 }
 
 .home-hero__grid {
-  width: calc(100% - max(var(--home-gutter), (100vw - var(--home-shell)) / 2));
-  margin-left: max(var(--home-gutter), (100vw - var(--home-shell)) / 2);
-  margin-right: 0;
+  width: min(calc(100% - var(--home-gutter) - var(--home-gutter)), var(--home-shell));
+  margin-inline: auto;
   min-height: 340px;
   display: grid;
-  grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr);
+  grid-template-columns: minmax(0, .94fr) minmax(360px, 1.06fr);
   gap: clamp(24px, 3vw, 52px);
   align-items: stretch;
 }
@@ -42,6 +41,7 @@
   align-self: center;
   min-width: 0;
   padding: clamp(24px, 2.6vw, 30px) 0;
+  overflow-wrap: anywhere;
 }
 
 .home-hero__copy h1 {
@@ -54,7 +54,7 @@
   line-height: .96;
   letter-spacing: -0.027em;
 }
-.home-hero__copy h1 span { display: block; white-space: nowrap; }
+.home-hero__copy h1 span { display: block; white-space: normal; }
 
 .home-rule {
   display: block;
@@ -476,6 +476,17 @@
 }
 
 html[data-theme='dark'] .convera-home { background: #0b2a35; }
+html[data-theme='dark'] .home-hero {
+  color:#edf7f8;
+  background:
+    radial-gradient(circle at 78% 15%, rgba(99,216,229,.12), transparent 34%),
+    linear-gradient(105deg,#071f2b 0%,#0a2a36 56%,#103b46 100%);
+  border-bottom-color:rgba(193,229,235,.14);
+}
+html[data-theme='dark'] .home-hero__copy h1 { color:#f5f8f7; }
+html[data-theme='dark'] .home-hero__copy>p { color:#c7d6da; }
+html[data-theme='dark'] .home-hero__eyebrow { color:#79dce7!important; }
+html[data-theme='dark'] .home-button--ghost { color:#edf7f8; background:rgba(255,255,255,.04); border-color:rgba(237,247,248,.5); }
 html[data-theme='dark'] .home-feature-band,
 html[data-theme='dark'] .home-selected-work { background: #0d2d39; }
 html[data-theme='dark'] .home-publication-copy h2,
@@ -512,11 +523,11 @@ html[data-theme='dark'] .home-inquiry-icon svg { stroke: #72d4df; }
 @media (min-width: 821px) and (max-width: 1080px) {
   .home-hero__grid {
     min-height: 330px;
-    grid-template-columns: minmax(0, .98fr) minmax(360px, 1.02fr);
+    grid-template-columns: minmax(0, .98fr) minmax(320px, 1.02fr);
     gap: clamp(18px, 2.2vw, 28px);
   }
   .home-hero__copy { padding-block: 22px; }
-  .home-hero__copy h1 { font-size: clamp(30px, 3.4vw, 43px) !important; }
+  .home-hero__copy h1 { font-size: clamp(30px, 3.2vw, 41px) !important; }
   .home-hero__copy > p { max-width: 450px; font-size: clamp(15.5px, 1.55vw, 18px); }
   .home-founder-line { max-width: 450px; }
   .home-hero__portrait { min-height: 330px; }

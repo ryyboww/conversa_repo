@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.67.0 — Responsive Theme and Hero Correction
+
+- Corrected fixed dark text and surface colors on Mission, Services, and Support so each page follows the selected light or dark theme.
+- Removed the homepage hero headline’s nonwrapping constraint and strengthened its responsive grid to prevent text from entering the founder portrait.
+- Added complete dark-theme treatment for the homepage hero, its supporting copy, and secondary action.
+- Preserved the validated 2.66 content, navigation, operational controls, and approved Convera Approach passage.
+
 ## 2.66.0 — Light Theme and Content Refinement
 
 - Preserved light mode as the sitewide default and completed theme-aware presentation across Home, Mission, Services, About, and Support.
