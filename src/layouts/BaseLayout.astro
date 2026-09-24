@@ -108,7 +108,12 @@ const structuredData = {
       (() => {
         try {
           const saved = localStorage.getItem('convera-theme');
-          document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';
+          if (saved === 'light' || saved === 'dark') {
+            document.documentElement.dataset.theme = saved;
+            return;
+          }
+          const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+          document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
         } catch {
           document.documentElement.dataset.theme = 'light';
         }

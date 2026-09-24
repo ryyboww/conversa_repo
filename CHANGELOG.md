@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.68.0 — Unified Light/Dark Theme and Contrast Correction
+
+- Added shared semantic color variables for text, surfaces, links, borders, cards, and primary actions across light and dark modes.
+- Reworked homepage theme resolution so major sections inherit the selected theme instead of depending on fixed light-mode colors and scattered dark-mode overrides.
+- Strengthened contrast for homepage copy, links, cards, borders, inquiry elements, and calls to action in both themes.
+- Changed first-visit theme initialization to honor the visitor operating-system preference while preserving any explicit Convera theme selection in local storage.
+- Preserved intentionally dark founder-image overlays, footer treatment, the 2.67 responsive hero correction, and all validated operational controls.
+
 ## 2.67.0 — Responsive Theme and Hero Correction
 
 - Corrected fixed dark text and surface colors on Mission, Services, and Support so each page follows the selected light or dark theme.

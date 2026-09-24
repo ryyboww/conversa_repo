@@ -1,17 +1,16 @@
 {
-  "version": "2.67.0",
-  "name": "Responsive Theme and Hero Correction",
-  "baseline": "2.66.0 light theme and content refinement",
+  "version": "2.68.0",
+  "name": "Unified Light Dark Theme and Contrast Correction",
+  "baseline": "2.67.0 responsive theme and hero correction",
   "status": "publication-candidate",
   "scope": [
-    "correct theme-aware presentation across Home, Mission, Services, and Support",
-    "prevent homepage hero text from entering the portrait at intermediate desktop widths",
-    "refine homepage positioning, founder-role placement, and selected-work hierarchy",
-    "remove Approach from primary navigation while preserving contextual links",
-    "simplify Support page headings and retain distinct participation and sponsorship paths",
-    "preserve the approved Convera Approach language verbatim on the homepage and About page",
-    "preserve the Contact to manual review to direct private Intake invitation boundary",
-    "preserve the validated 2.64 functions, portal guardrails, email workflow, hosting-capacity control, and security controls",
+    "unify light and dark presentation through shared semantic color variables",
+    "strengthen contrast for homepage text, links, cards, borders, and primary actions in both themes",
+    "make the homepage inherit the selected theme instead of depending on fixed light-mode colors",
+    "honor the visitor operating-system color preference until an explicit Convera theme choice is saved",
+    "preserve the visitor theme toggle as the authoritative preference after selection",
+    "retain intentionally dark founder-image and footer treatments where contrast is already appropriate",
+    "preserve the 2.67 responsive hero correction and all validated public architecture and operational controls",
     "keep all credentials and production delivery configuration outside website source"
   ]
 }

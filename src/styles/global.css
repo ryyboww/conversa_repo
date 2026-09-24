@@ -5,6 +5,7 @@
   --surface-soft: #eef5f5;
   --surface-strong: #e0eeee;
   --text: #10283a;
+  --text-strong: #0b2637;
   --muted: #536777;
   --accent: #19798a;
   --accent-strong: #0f6272;
@@ -16,6 +17,14 @@
   --page-gutter: clamp(18px, 3vw, 48px);
   --radius: 10px;
   --header: rgba(248, 247, 243, 0.94);
+  --header-text: #0a3448;
+  --paper: #fffdf8;
+  --paper-alt: #f2eee5;
+  --card-bg: rgba(255, 253, 248, 0.70);
+  --link: #0b6880;
+  --eyebrow: #0b7183;
+  --button-primary-bg: #117f91;
+  --button-primary-text: #ffffff;
   --hero-overlay: linear-gradient(90deg, rgba(9, 39, 53, 0.96) 0%, rgba(9, 39, 53, 0.72) 48%, rgba(9, 39, 53, 0.22) 100%);
 }
 
@@ -26,14 +35,23 @@
   --surface-soft: #0b2d3d;
   --surface-strong: #103847;
   --text: #f5f8f7;
-  --muted: #b9c9cf;
+  --text-strong: #ffffff;
+  --muted: #bfd0d5;
   --accent: #63d8e5;
   --accent-strong: #7ce6f0;
   --accent-soft: #3eb6c5;
   --line: rgba(193, 229, 235, 0.16);
   --line-strong: rgba(193, 229, 235, 0.34);
   --shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
-  --header: rgba(6, 28, 40, 0.94);
+  --header: rgba(6, 31, 43, 0.985);
+  --header-text: #eef7f8;
+  --paper: #0b2a35;
+  --paper-alt: #0a2632;
+  --card-bg: rgba(255, 255, 255, 0.035);
+  --link: #82dde7;
+  --eyebrow: #79dce7;
+  --button-primary-bg: #63d8e5;
+  --button-primary-text: #041b25;
   --hero-overlay: linear-gradient(90deg, rgba(4, 25, 36, 0.98) 0%, rgba(4, 25, 36, 0.78) 50%, rgba(4, 25, 36, 0.3) 100%);
 }
 
@@ -95,8 +113,7 @@ p { margin: 0; }
   transition: transform 150ms ease, background 150ms ease, color 150ms ease, border-color 150ms ease;
 }
 .button:hover { transform: translateY(-1px); }
-.button--primary { background: var(--accent); color: #041b25; border-color: var(--accent); }
-:root:not([data-theme='dark']) .button--primary { color: #fff; }
+.button--primary { background: var(--button-primary-bg); color: var(--button-primary-text); border-color: var(--button-primary-bg); }
 .button--ghost { background: transparent; color: inherit; border-color: var(--line-strong); }
 .button--light { background: #f7fbfb; color: #0c3544; border-color: #f7fbfb; }
 

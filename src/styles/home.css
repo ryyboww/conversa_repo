@@ -606,3 +606,177 @@ html[data-theme='dark'] .home-inquiry-icon svg { stroke: #72d4df; }
   .home-button { transition: none; }
   .home-button:hover { transform: none; }
 }
+
+/* 2.68.0 — unified light/dark theme and contrast correction */
+.convera-home {
+  --home-paper: var(--paper);
+  --home-paper-alt: var(--paper-alt);
+  --home-ink: var(--text);
+  --home-ink-strong: var(--text-strong);
+  --home-muted: var(--muted);
+  --home-teal: var(--accent);
+  --home-teal-soft: var(--accent-soft);
+  --home-link: var(--link);
+  --home-eyebrow: var(--eyebrow);
+  --home-line: var(--line);
+  --home-card: var(--card-bg);
+  background: var(--home-paper);
+  color: var(--home-ink);
+}
+
+.home-hero__copy h1,
+.home-positioning h2,
+.home-approach h2,
+.home-publication-copy h2,
+.home-support-card h2,
+.home-section-title-row h2,
+.home-side-card__copy h2,
+.home-service-card,
+.home-inquiry-item {
+  color: var(--home-ink);
+}
+
+.home-hero__copy > p,
+.home-positioning p,
+.home-approach__copy p,
+.home-service-card p,
+.home-publication-copy p,
+.home-side-card__copy p:not(.home-kicker),
+.home-inquiry-item small {
+  color: var(--home-muted);
+}
+
+.home-hero__eyebrow,
+.home-kicker,
+.home-service-card > span,
+.home-service-card > strong {
+  color: var(--home-eyebrow) !important;
+}
+
+.home-publication-copy a,
+.home-side-card__copy > a:not(.home-button) {
+  color: var(--home-link);
+}
+
+.home-positioning,
+.home-approach {
+  background: var(--home-paper);
+  border-color: var(--home-line);
+}
+
+.home-services {
+  background: var(--home-paper-alt);
+}
+
+.home-services__grid,
+.home-inquiry-grid,
+.home-side-card {
+  border-color: var(--home-line);
+}
+
+.home-service-card {
+  background: var(--home-card);
+  border-color: var(--home-line);
+}
+
+.home-feature-band,
+.home-selected-work {
+  background: color-mix(in srgb, var(--home-paper) 94%, var(--surface-soft));
+  border-color: var(--home-line);
+}
+
+.home-feature-band--secondary,
+.home-selected-work--secondary {
+  background: color-mix(in srgb, var(--home-paper) 86%, var(--surface-soft));
+}
+
+.home-side-card {
+  background: color-mix(in srgb, var(--surface-soft) 92%, var(--home-paper));
+}
+
+.home-side-card__visual {
+  border-color: var(--home-line);
+}
+
+.home-inquiry-band {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface-soft) 88%, var(--home-paper)) 0%,
+    color-mix(in srgb, var(--surface-soft) 54%, var(--home-paper)) 100%
+  );
+}
+
+.home-inquiry-grid {
+  background: color-mix(in srgb, var(--surface) 36%, transparent);
+}
+
+.home-inquiry-item + .home-inquiry-item,
+.home-service-card,
+.home-service-card:nth-child(odd),
+.home-service-card:nth-child(n+5) {
+  border-color: var(--home-line);
+}
+
+.home-inquiry-icon {
+  border-color: var(--accent);
+}
+
+.home-inquiry-icon svg {
+  stroke: var(--accent);
+}
+
+.home-section-title-row span,
+.home-kicker-row > span {
+  background: color-mix(in srgb, var(--accent) 58%, var(--line-strong));
+}
+
+.home-button--primary {
+  color: var(--button-primary-text);
+  background: var(--button-primary-bg);
+  border-color: var(--button-primary-bg);
+}
+
+.home-button--ghost {
+  color: var(--home-ink);
+  background: color-mix(in srgb, var(--surface) 42%, transparent);
+  border-color: var(--line-strong);
+}
+
+.home-button--dark {
+  color: #ffffff;
+  background: #07576e;
+  border-color: #07576e;
+}
+
+html[data-theme='dark'] .home-button--dark {
+  color: #041b25;
+  background: #79dce7;
+  border-color: #79dce7;
+}
+
+html[data-theme='dark'] .home-hero {
+  color: var(--home-ink);
+  background:
+    radial-gradient(circle at 78% 15%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 34%),
+    linear-gradient(105deg, #071f2b 0%, #0a2a36 56%, #103b46 100%);
+  border-bottom-color: var(--home-line);
+}
+
+html[data-theme='dark'] .home-support-card__visual {
+  background:
+    radial-gradient(circle at 35% 30%, rgba(121, 220, 231, .10), transparent 42%),
+    linear-gradient(145deg, #163f4d 0%, #113743 100%);
+}
+
+html[data-theme='dark'] .home-support-icon svg {
+  stroke: var(--accent);
+}
+
+@media (max-width: 820px) {
+  .home-inquiry-item + .home-inquiry-item,
+  .home-service-card,
+  .home-service-card:nth-child(odd),
+  .home-service-card:nth-child(n+5) {
+    border-color: var(--home-line);
+  }
+}
