@@ -8,11 +8,11 @@ const posts = (await getCollection('blog', ({ data }) => data.status === 'publis
 const postHref = (id: string) => `/blog/${id.replace(/\.mdx?$/i, '')}/`;
 ---
 <BaseLayout title="Essays & Notes" description="Essays and public writing from Ryan Brown and Convera Strategies on institutions, trust, public life, technology, and social change." canonical="/blog/">
-  <PageHero eyebrow="Essays & Notes" title="Longer arguments. Developing ideas. Public questions." lede="An editorial archive for essays and research notes that sit alongside Convera Strategies’ formal publication record." dense />
+  <PageHero eyebrow="Essays & Notes" title="Longer arguments. Developing ideas. Public questions." lede="An editorial archive for essays, developing ideas, and public reflections that sit alongside Convera Strategies’ formal publication record." dense />
 
   <section class="section blog-index" aria-labelledby="blog-index-title">
     <div class="container">
-      <div class="blog-index__heading"><div><p class="eyebrow">Archive</p><h2 id="blog-index-title">Selected public writing.</h2></div><p class="muted">This archive presents completed public essays and research notes. Additional work will appear as it becomes ready for publication.</p></div>
+      <div class="blog-index__heading"><div><p class="eyebrow">Archive</p><h2 id="blog-index-title">Selected public writing.</h2></div><p class="muted">This archive presents completed public essays and notes. Additional work will appear as it becomes ready for publication.</p></div>
       <div class="blog-grid">
         {posts.map((post) => (
           <article class="blog-card card">
