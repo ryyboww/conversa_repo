@@ -4,14 +4,14 @@ import PageHero from '../components/PageHero.astro';
 import SupportPanel from '../components/shared/SupportPanel.astro';
 import { publications, featuredPublication, publicationRecordHref } from '../config/publications';
 ---
-<BaseLayout title="Publications" description="Research publications and public-facing writing from Convera Strategies and founder Ryan Brown." canonical="/publications/">
+<BaseLayout title="Publications" description="Selected publications and public-facing writing from Convera Strategies and founder Ryan Brown." canonical="/publications/">
   <div class="publications-page">
-    <PageHero eyebrow="Publications" title="Research, analysis, and public writing." lede="Work on appellate review, institutional accountability, public authority, and the broader questions shaping organizational and civic life." dense />
+    <PageHero eyebrow="Publications" title="Published analysis and public writing." lede="Work on appellate review, institutional accountability, public authority, and the broader questions shaping organizational and civic life." dense />
 
     <section class="section publication-archive" aria-labelledby="publication-archive-heading">
       <div class="container">
         <div class="archive-heading">
-          <div><p class="eyebrow">Selected Research</p><h2 id="publication-archive-heading">Published work.</h2></div>
+          <div><p class="eyebrow">Selected Work</p><h2 id="publication-archive-heading">Published work.</h2></div>
           <div class="archive-heading__aside"><p class="muted">Formal publications remain linked to their original publishers while Convera preserves a consistent record of the work.</p><a href="/blog/">Explore Essays & Notes →</a></div>
         </div>
 
@@ -34,7 +34,7 @@ import { publications, featuredPublication, publicationRecordHref } from '../con
       </div>
     </section>
 
-    <section class="section--tight publication-writing"><div class="container publication-writing__inner"><div><p class="eyebrow">Essays & Notes</p><h2>Ideas beyond the formal publication record.</h2></div><div><p>Longer essays, research notes, and public reflections live in a separate editorial archive so formal publications remain easy to scan.</p><a class="button button--ghost" href="/blog/">Browse Essays & Notes →</a></div></div></section>
+    <section class="section--tight publication-writing"><div class="container publication-writing__inner"><div><p class="eyebrow">Essays & Notes</p><h2>Ideas beyond the formal publication record.</h2></div><div><p>Longer essays, developing ideas, and public reflections live in a separate editorial archive so formal publications remain easy to scan.</p><a class="button button--ghost" href="/blog/">Browse Essays & Notes →</a></div></div></section>
     <section class="section--tight publication-support"><div class="container"><SupportPanel compact dark /></div></section>
   </div>
 
