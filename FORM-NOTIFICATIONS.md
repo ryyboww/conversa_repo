@@ -17,7 +17,16 @@ Convera uses separate form pathways so public correspondence, follow-the-work su
 - billing questions handled manually → `billing@converastrategies.com`
 - dashboard/access support → `help@converastrategies.com`
 
-Notification routing is configured in Netlify after the forms are detected. Do not place mailbox credentials in the repository.
+The branded email handlers use Netlify project environment variables:
+
+- `CONVERA_FORM_FROM_EMAIL` — a sender verified with the configured Postmark account
+- `CONVERA_PUBLIC_FORM_NOTIFICATION_EMAIL` — Contact and Follow recipient (recommended: `hello@converastrategies.com`)
+- `CONVERA_INTAKE_NOTIFICATION_EMAIL` — private Intake recipient (recommended: `ryan@converastrategies.com`)
+- `NETLIFY_EMAILS_SECRET` — the existing Netlify Emails function secret
+
+The older `CONVERA_FORM_NOTIFICATION_EMAIL` remains a fallback for Contact and Follow during migration. Private Intake requires its own recipient and never falls back to the public mailbox. The operator-protected Intake invitation uses the shared verified sender but addresses the person selected manually after qualification.
+
+Netlify's built-in submission notification should be scoped by form or removed only after the branded notifications are configured and delivery is verified. A catch-all notification sends every form, including private Intake, to the same mailbox. Do not place mailbox credentials or secret values in the repository.
 
 ## Production verification
 
@@ -29,7 +38,7 @@ After the first successful Netlify deployment:
 4. As an operator/admin test, submit the private Intake form without adding any public link to it.
 5. Confirm each reaches its correct success page.
 6. Confirm each submission appears in Netlify.
-7. Configure the notification routing above.
+7. Configure the sender and separate public and private recipients above in Netlify; confirm each recipient mailbox can receive mail.
 8. Submit fresh tests and confirm notification messages arrive at the intended mailbox(es).
 9. Check spam/junk placement and sender labeling.
 10. Only then record the form flags as verified.

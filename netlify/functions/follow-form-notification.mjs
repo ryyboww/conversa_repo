@@ -15,7 +15,7 @@ export default {
     const siteUrl = clean(getEnv('URL'), 'https://converastrategies.com').replace(/\/$/, '');
     const secret = getEnv('NETLIFY_EMAILS_SECRET');
     const from = getEnv('CONVERA_FORM_FROM_EMAIL');
-    const to = getEnv('CONVERA_FORM_NOTIFICATION_EMAIL');
+    const to = getEnv('CONVERA_PUBLIC_FORM_NOTIFICATION_EMAIL') ?? getEnv('CONVERA_FORM_NOTIFICATION_EMAIL');
 
     if (!secret || !from || !to) {
       console.error('Follow notification configuration is incomplete.');
