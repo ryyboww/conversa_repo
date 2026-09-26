@@ -55,7 +55,7 @@ export default async function handler(req) {
 
   if (!response.ok) {
     console.error('Intake invitation failed.', { status: response.status, response: await response.text() });
-    return json({ error: 'Postmark did not accept the intake invitation.' }, 502);
+    return json({ error: 'Email delivery service did not accept the intake invitation.' }, 502);
   }
 
   return json({ ok: true, message: `Intake invitation sent to ${recipientEmail}.` });
