@@ -1,18 +1,12 @@
-﻿{
-    "version":  "2.69.0",
+{
+    "version":  "2.69.1",
     "name":  "Blue White Visual System and Launch Presentation",
-    "baseline":  "2.68.0 unified light dark theme and contrast correction",
+    "baseline":  "2.69.0 blue white visual system and launch presentation",
     "status":  "publication-candidate",
     "scope":  [
-                  "establish the approved blue and white visual system across the public website",
-                  "use white and blue presentation in light mode and deep navy and blue presentation in dark mode",
-                  "stabilize first-visit light presentation while preserving visitor-controlled theme selection for the active session",
-                  "remove Support from primary navigation while preserving the underlying route",
-                  "improve visual consistency across Mission, Services, Community, Contact, header, footer, and shared support presentation",
-                  "add restrained website relationship language to the footer",
-                  "center and refine the homepage founder-role presentation",
-                  "preserve Contact to manual review to direct private Intake invitation boundaries",
-                  "preserve validated forms, routes, privacy controls, noindex protections, and production architecture",
+                  "preserve the approved v2.69.0 website presentation and behavior",
+                  "normalize VERSION.json as UTF-8 without BOM for deployment audit compatibility",
+                  "preserve all validated forms, routes, privacy controls, noindex protections, and production architecture",
                   "keep credentials and production delivery configuration outside website source"
               ]
 }

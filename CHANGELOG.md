@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.69.1 — Encoding Maintenance
+
+- Normalized VERSION.json as UTF-8 without BOM so repository and deployment audits can parse release metadata consistently.
+- Preserved the approved v2.69.0 website presentation, navigation, forms, routes, privacy controls, and production architecture.
+
 ## 2.69.0 — Blue White Visual System and Launch Presentation
 
 - Established the approved blue and white visual system across the public website.
