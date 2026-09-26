@@ -4,24 +4,24 @@ import PageHero from '../components/PageHero.astro';
 import SupportPanel from '../components/shared/SupportPanel.astro';
 import { serviceAreas } from '../config/services';
 ---
-<BaseLayout title="Mission" description="The mission of Convera Strategies: stronger institutions, healthier workplaces, and a more resilient future." canonical="/mission/">
+<BaseLayout title="Mission" description="Convera Strategies examines questions of institutional change, trust, human judgment, and the responsibilities that accompany consequential decisions." canonical="/mission/">
   <PageHero
     eyebrow="Mission"
-    title="Institutional strength requires deliberate investment."
-    lede="Convera Strategies helps people and organizations navigate complex questions, strengthen workplace culture, and approach institutional change with greater perspective and purpose."
+    title="Institutional strength requires deliberate attention."
+    lede="Convera Strategies works with people and organizations to examine complex questions, consider the forces shaping institutional life, and approach change with clarity, perspective, and purpose."
   >
     <blockquote slot="aside" class="mission-hero__quote">
-      “Strengthening institutions is an investment in the future people hope to build.”
+      “The institutions we inherit matter. So do the choices we make about what they become.”
       <cite>Ryan Brown · Founder</cite>
     </blockquote>
-    <p slot="actions" class="mission-hero__statement">Convera Strategies combines social perspective with practical organizational work so institutional change can remain deliberate, useful, and centered on people.</p>
+    <p slot="actions" class="mission-hero__statement">Convera Strategies brings social inquiry into conversation with practical organizational work, with attention to evidence, context, human judgment, and the people affected by institutional decisions.</p>
   </PageHero>
 
   <section class="section">
     <div class="container">
       <div class="mission-intro">
         <p class="eyebrow">Mission in Action</p>
-        <h2>Perspective becomes meaningful when it improves what people experience.</h2>
+        <h2>Inquiry matters when it deepens understanding and remains attentive to what people experience.</h2>
       </div>
       <div class="grid-3">
         {serviceAreas.map((area, index) => (
@@ -40,12 +40,12 @@ import { serviceAreas } from '../config/services';
     <div class="container transition-grid">
       <div>
         <p class="eyebrow">A Moment of Transition</p>
-        <h2>The choices made now help shape what comes next.</h2>
+        <h2>The choices made in periods of change shape what institutions become.</h2>
       </div>
       <div class="transition-copy">
-        <p>The present is a moment of transition. Technology, work, public life, and institutional expectations are changing at speeds capable of testing familiar ways of thinking and organizing.</p>
-        <p>Convera treats this transition as reason for closer attention rather than resignation. Stronger institutions require people willing to examine what is changing, understand the human consequences, and make deliberate choices about what should endure.</p>
-        <p>Strengthening institutions does not require preserving every existing practice. It means preserving their capacity to serve people, earn trust, adapt responsibly, and remain useful to future generations.</p>
+        <p>Contemporary institutions are navigating changes in technology, work, public life, and institutional expectations. These developments invite renewed attention to how social conditions are studied, interpreted, and understood.</p>
+        <p>Convera approaches periods of change as occasions for closer inquiry: to examine what is changing, consider its possible human consequences, and support deliberate choices about what may need to adapt and what may be worth preserving.</p>
+        <p>Institutional continuity need not mean preserving every existing practice. It can instead involve asking which capacities, relationships, and responsibilities should be carried forward as circumstances change.</p>
       </div>
     </div>
   </section>
@@ -54,13 +54,13 @@ import { serviceAreas } from '../config/services';
     <div class="container investment-grid">
       <div>
         <p class="eyebrow">Institutional Investment</p>
-        <h2>A stronger future depends on institutions worth trusting.</h2>
-        <p class="lede">Institutions shape how people work, cooperate, resolve conflict, distribute responsibility, and imagine what is possible. Strengthening them is long-term social investment.</p>
+        <h2>Institutional strength and public trust are closely related questions.</h2>
+        <p class="lede">Institutions shape many aspects of social life: how people work, cooperate, resolve conflict, distribute responsibility, and imagine what is possible. Their durability, legitimacy, and capacity to respond are therefore worthy of sustained attention.</p>
       </div>
       <div class="investment-points">
         <div><strong>People</strong><span>Institutions become meaningful through the people who experience them.</span></div>
-        <div><strong>Trust</strong><span>Trust is strengthened through conduct, communication, and credible responsibility.</span></div>
-        <div><strong>Future</strong><span>Institutional strength is part of what one generation leaves to the next.</span></div>
+        <div><strong>Trust</strong><span>Trust can be shaped by conduct, communication, accountability, and the ways responsibility is exercised.</span></div>
+        <div><strong>Future</strong><span>Institutions are among the structures through which one generation influences the conditions inherited by the next.</span></div>
       </div>
     </div>
   </section>
@@ -79,10 +79,13 @@ import { serviceAreas } from '../config/services';
     .mission-card>span{position:absolute;right:1.4rem;top:1rem;color:color-mix(in srgb,var(--accent) 45%,transparent);font-family:"Cormorant Garamond",Georgia,serif;font-size:2.4rem;}
     .mission-card h3{margin:.6rem 0 .9rem;font-size:clamp(1.55rem,2.3vw,2rem);}
     .mission-card p:last-child{color:var(--muted);}
-    .transition-section{background:var(--surface-soft);border-block:1px solid var(--line);}
+    .transition-section{background:linear-gradient(118deg,#0a3d5a 0%,#0f5f86 62%,#176f91 100%);color:#f7fbff;border-block:1px solid rgba(255,255,255,.12);}
+    .transition-section .eyebrow{color:#9fe2f4;}
+    .transition-section .transition-copy{color:rgba(247,251,255,.86);}
     .transition-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,5rem);align-items:start;}
     .transition-grid h2{margin:.6rem 0 0;max-width:13ch;}
     .transition-copy{display:grid;gap:1rem;color:var(--muted);font-size:1.08rem;}
+    :root[data-theme='dark'] .transition-section{background:linear-gradient(118deg,#041c2a 0%,#082f47 66%,#0d5274 100%);}
     .investment-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start;}
     .institutional-investment h2{margin:.6rem 0 1rem;}
     .investment-points{display:grid;border-top:1px solid var(--line);}

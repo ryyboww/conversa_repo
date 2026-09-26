@@ -4,6 +4,7 @@ import { navigation } from '../config/navigation';
 import { site } from '../config/site';
 
 const currentPath = Astro.url.pathname;
+const primaryNavigation = navigation.filter((item) => item.href !== '/support/' && item.href !== '/support' && item.label.toLowerCase() !== 'support');
 const isActive = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 ---
 <header class="site-header">
@@ -15,7 +16,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     </a>
 
     <nav class="desktop-nav" aria-label="Primary navigation">
-      {navigation.map((item) => (
+      {primaryNavigation.map((item) => (
         <a class:list={[isActive(item.href) && 'is-active']} href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
           {item.label}
         </a>
@@ -27,7 +28,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
       <details class="mobile-menu">
         <summary aria-label="Navigation menu"><span></span><span></span><span></span></summary>
         <nav aria-label="Mobile navigation">
-          {navigation.map((item) => (
+          {primaryNavigation.map((item) => (
             <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
           ))}
         </nav>
@@ -42,10 +43,10 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     top: 0;
     z-index: 1000;
     width: 100%;
-    color: #0a3448;
-    background: rgba(241, 238, 230, 0.985);
-    border-bottom: 1px solid rgba(10, 52, 72, 0.15);
-    box-shadow: 0 2px 9px rgba(7, 38, 52, 0.035);
+    color: var(--header-text);
+    background: var(--header);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--header-shadow);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
@@ -91,7 +92,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     width: 64%;
     margin-top: 2px;
     margin-left: 34.5%;
-    color: #214f61;
+    color: var(--header-tagline);
     font-family: "Cormorant Garamond", Georgia, serif;
     font-size: clamp(.70rem, .72vw, .80rem);
     font-style: italic;
@@ -118,7 +119,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    color: #0a3448;
+    color: var(--header-text);
     text-decoration: none;
     font-size: clamp(.78rem, .86vw, .9rem);
     font-weight: 600;
@@ -132,7 +133,7 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
     right: 100%;
     bottom: 5px;
     height: 2px;
-    background: #14798c;
+    background: var(--accent);
     transition: right 150ms ease;
   }
   .desktop-nav a:hover::after,
@@ -187,13 +188,6 @@ const isActive = (href: string) => href === '/' ? currentPath === '/' : currentP
   .mobile-menu nav a:last-child { border-bottom: 0; }
   .mobile-menu nav a[aria-current='page'] { color: var(--accent); font-weight: 700; }
 
-  :global(:root[data-theme='dark']) .site-header {
-    color: #eef7f8;
-    background: rgba(6, 31, 43, 0.985);
-    border-bottom-color: rgba(206, 237, 241, 0.13);
-  }
-  :global(:root[data-theme='dark']) .desktop-nav a { color: #eef7f8; }
-  :global(:root[data-theme='dark']) .site-brand__tagline { color: #d8eef1; }
 
   @media (min-width: 821px) and (max-width: 1080px) {
     .header-inner {

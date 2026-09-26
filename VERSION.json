@@ -1,16 +1,18 @@
-{
-  "version": "2.68.0",
-  "name": "Unified Light Dark Theme and Contrast Correction",
-  "baseline": "2.67.0 responsive theme and hero correction",
-  "status": "publication-candidate",
-  "scope": [
-    "unify light and dark presentation through shared semantic color variables",
-    "strengthen contrast for homepage text, links, cards, borders, and primary actions in both themes",
-    "make the homepage inherit the selected theme instead of depending on fixed light-mode colors",
-    "honor the visitor operating-system color preference until an explicit Convera theme choice is saved",
-    "preserve the visitor theme toggle as the authoritative preference after selection",
-    "retain intentionally dark founder-image and footer treatments where contrast is already appropriate",
-    "preserve the 2.67 responsive hero correction and all validated public architecture and operational controls",
-    "keep all credentials and production delivery configuration outside website source"
-  ]
+﻿{
+    "version":  "2.69.0",
+    "name":  "Blue White Visual System and Launch Presentation",
+    "baseline":  "2.68.0 unified light dark theme and contrast correction",
+    "status":  "publication-candidate",
+    "scope":  [
+                  "establish the approved blue and white visual system across the public website",
+                  "use white and blue presentation in light mode and deep navy and blue presentation in dark mode",
+                  "stabilize first-visit light presentation while preserving visitor-controlled theme selection for the active session",
+                  "remove Support from primary navigation while preserving the underlying route",
+                  "improve visual consistency across Mission, Services, Community, Contact, header, footer, and shared support presentation",
+                  "add restrained website relationship language to the footer",
+                  "center and refine the homepage founder-role presentation",
+                  "preserve Contact to manual review to direct private Intake invitation boundaries",
+                  "preserve validated forms, routes, privacy controls, noindex protections, and production architecture",
+                  "keep credentials and production delivery configuration outside website source"
+              ]
 }

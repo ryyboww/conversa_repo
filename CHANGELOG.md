@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.69.0 — Blue White Visual System and Launch Presentation
+
+- Established the approved blue and white visual system across the public website.
+- Refined light and dark presentation while preserving visitor-controlled theme selection.
+- Removed Support from primary navigation while preserving the underlying route.
+- Improved visual consistency across Mission, Services, Community, Contact, header, footer, and shared presentation elements.
+- Added restrained website relationship language to the footer.
+- Centered and refined the homepage founder-role presentation.
+- Preserved Contact, private Intake, forms, routes, privacy controls, noindex protections, and validated production architecture.
+
 ## 2.68.0 — Unified Light/Dark Theme and Contrast Correction
 
 - Added shared semantic color variables for text, surfaces, links, borders, cards, and primary actions across light and dark modes.

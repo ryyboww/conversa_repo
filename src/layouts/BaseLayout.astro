@@ -67,14 +67,14 @@ const structuredData = {
 };
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f2ea" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#081f2b" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#061722" />
     <meta name="color-scheme" content="light dark" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -106,14 +106,19 @@ const structuredData = {
     {plausibleDomain && <script is:inline defer data-domain={plausibleDomain} src="https://plausible.io/js/script.js"></script>}
     <script is:inline>
       (() => {
+        // Paint light mode directly from the document markup, then restore only a
+        // choice made during the current browser session. This prevents an older
+        // saved preference or OS color preference from making the preview/site flash
+        // or revert to a previous scheme while navigating.
+        document.documentElement.dataset.theme = 'light';
         try {
-          const saved = localStorage.getItem('convera-theme');
+          const saved = sessionStorage.getItem('convera-theme');
           if (saved === 'light' || saved === 'dark') {
             document.documentElement.dataset.theme = saved;
-            return;
           }
-          const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
-          document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+          // Retire the earlier persistent key so stale values cannot reassert an old
+          // palette in browsers that visited previous Convera builds.
+          localStorage.removeItem('convera-theme');
         } catch {
           document.documentElement.dataset.theme = 'light';
         }

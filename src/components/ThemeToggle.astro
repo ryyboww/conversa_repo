@@ -14,16 +14,15 @@
     border: 0;
     border-radius: 50%;
     background: transparent;
-    color: #0b4357;
+    color: var(--header-text);
     cursor: pointer;
   }
-  .theme-toggle:hover { background: rgba(13, 103, 122, 0.08); }
+  .theme-toggle:hover { background: var(--header-control-hover); }
   .theme-toggle__icon {
     width: 20px;
     height: 20px;
     fill: currentColor;
   }
-  :global(:root[data-theme='dark']) .theme-toggle { color: #dff5f7; }
 </style>
 
 <script is:inline>
@@ -42,7 +41,7 @@
       const root = document.documentElement;
       const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
       root.dataset.theme = next;
-      try { localStorage.setItem('convera-theme', next); } catch {}
+      try { sessionStorage.setItem('convera-theme', next); } catch {}
       sync();
     });
   })();

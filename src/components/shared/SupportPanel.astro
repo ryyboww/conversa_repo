@@ -37,13 +37,13 @@ const { compact = false, dark = false } = Astro.props;
   .support-panel__action { display: grid; gap: .7rem; justify-items: stretch; min-width: 200px; }
   .support-panel__action span { color: var(--muted); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; text-align: center; }
   .support-panel--dark {
-    color: #fff;
-    background: linear-gradient(120deg, #082c3b 0%, #0a4554 62%, #176978 100%);
-    border-color: rgba(255,255,255,.12);
+    color: var(--dark-panel-text);
+    background: var(--dark-panel-bg);
+    border-color: var(--dark-panel-line);
   }
   .support-panel--dark p,
-  .support-panel--dark .support-panel__action span { color: rgba(255,255,255,.8); }
-  .support-panel--dark .eyebrow { color: #72deea; }
+  .support-panel--dark .support-panel__action span { color: var(--dark-panel-muted); }
+  .support-panel--dark .eyebrow { color: var(--dark-panel-accent); }
   .support-panel--compact h2 { font-size: clamp(2rem, 3.2vw, 3rem); }
   @media (max-width: 760px) {
     .support-panel { grid-template-columns: 1fr; }

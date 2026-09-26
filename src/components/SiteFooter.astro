@@ -24,6 +24,7 @@ const year = new Date().getFullYear();
         <a href="/terms/">Terms</a>
         <a href="/accessibility/">Accessibility</a>
       </div>
+      <p class="footer-notice">Website information is provided for general informational and professional purposes. Contacting Convera Strategies does not by itself create a client relationship. Professional services begin only after scope, expectations, and applicable terms are agreed upon.</p>
       <p class="footer-copyright">© {year} Convera Strategies. All rights reserved.</p>
     </div>
   </div>
@@ -32,15 +33,15 @@ const year = new Date().getFullYear();
 <style>
   .site-footer {
     padding: 22px 0 20px;
-    color: #eef7f8;
-    background: #052a38;
-    border-top: 1px solid rgba(255,255,255,0.11);
+    color: var(--footer-text);
+    background: var(--footer-bg);
+    border-top: 1px solid var(--footer-line);
   }
   .footer-newsletter {
     width: min(calc(100% - var(--page-gutter) - var(--page-gutter)), 1280px);
     margin: 0 auto 18px;
     padding-bottom: 18px;
-    border-bottom: 1px solid rgba(255,255,255,.11);
+    border-bottom: 1px solid var(--footer-line);
   }
   .footer-inner {
     width: min(calc(100% - var(--page-gutter) - var(--page-gutter)), 1280px);
@@ -66,7 +67,7 @@ const year = new Date().getFullYear();
   }
   .footer-brand p {
     margin: 7px 0 0;
-    color: rgba(238,247,248,.78);
+    color: var(--footer-muted);
     font-family: "Cormorant Garamond", Georgia, serif;
     font-size: clamp(9.5px, .76vw, 11.5px);
     line-height: 1.1;
@@ -87,16 +88,23 @@ const year = new Date().getFullYear();
   }
   .footer-social a,
   .footer-legal a {
-    color: rgba(238,247,248,.9);
+    color: var(--footer-link);
     text-decoration: none;
     font-size: 0.75rem;
   }
-  .footer-legal a { color: rgba(238,247,248,.64); font-size: .7rem; }
+  .footer-legal a { color: var(--footer-legal); font-size: .7rem; }
   .footer-social a:hover,
-  .footer-legal a:hover { color: #76d9e3; }
+  .footer-legal a:hover { color: var(--footer-link-hover); }
+  .footer-notice {
+    margin: 2px 0 0;
+    max-width: 54rem;
+    color: var(--footer-legal);
+    font-size: .66rem;
+    line-height: 1.45;
+  }
   .footer-copyright {
     margin: 0;
-    color: rgba(238,247,248,.58);
+    color: var(--footer-copyright);
     font-size: .7rem;
     line-height: 1.2;
     white-space: nowrap;
@@ -115,6 +123,13 @@ const year = new Date().getFullYear();
     .footer-meta { justify-items: start; text-align: left; gap: 7px; }
     .footer-social,
     .footer-legal { justify-content: flex-start; flex-wrap: wrap; }
-    .footer-copyright { white-space: normal; }
+    .footer-notice {
+    margin: 2px 0 0;
+    max-width: 54rem;
+    color: var(--footer-legal);
+    font-size: .66rem;
+    line-height: 1.45;
+  }
+  .footer-copyright { white-space: normal; }
   }
 </style>
